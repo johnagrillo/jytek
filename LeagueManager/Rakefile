@@ -1,0 +1,183 @@
+#
+#
+# Use ruby to build 
+#
+#
+
+ENV["CLASSPATH"] = ["jars/jackcess-4.0.5.jar",
+                    "jars/commons-logging-1.3.0.jar",
+                    "jars/commons-lang3-3.14.0.jar",
+                    "hytek",
+                    "."] * File::PATH_SEPARATOR
+
+task :build do
+  sh "javac src/hytek/*.java"
+  sh "javac src/cmsl/Mock.java"
+
+end
+
+task :mock do
+  sh "java cmsl.Mock 2015-Realignment-Wk1.mdb"
+end
+
+
+Classes =  [
+  "Athlete",
+  "ENTRY",
+  "MEET",
+  "MTEVENT",
+  "RESULT",
+  "TEAM",
+]
+
+
+#
+# run from linux 
+#
+task :schema do
+  Classes.each do |table|
+    puts table
+    out = %x{mdb-schema ../2022.mdb -T #{table}}
+    File.open( "schema/#{table}.schema.txt", "w") do |fh|
+      fh.puts(out)
+    end
+  end
+end
+
+
+task :classes do
+  Classes.each do |table|
+    readTable(File.read("schema/#{table}.schema.txt"))
+  end
+end
+
+
+def readTable(schema)
+  iter = schema.split("\n").each
+  
+  begin 
+    while true
+      s = iter.next
+      if s =~ /CREATE TABLE/
+        _,_,name = s.split(' ')
+        name = name[1..-2].capitalize
+        File.open("src/hytek/#{name}.java", "w") do |fh|
+          puts fh.path
+          fh.puts createClass(schema,name,iter)
+        end
+
+        
+        
+        
+      end
+    end
+  rescue StopIteration => e
+  end
+end
+
+
+
+def createClass(schema, clsName, iter)
+  out = []
+  out << "package hytek;\n"  
+
+  out << "/**" 
+  schema.split("\n").each do |l|
+    out << " * #{l.strip}" 
+  end
+  out << " */"
+  
+  out << "public class #{clsName} {\n"
+
+  out << "    public static String NAME = \"#{clsName}\";"
+
+  out << "    private #{clsName}() {\n    }\n"
+  
+  
+  
+  
+  columns = []
+  while true
+    s = iter.next.squish!
+    if s =~ /^\(/
+    elsif s =~ /\);/
+      members = {}
+
+      columns.each do |c|
+        name,type = c.split(" ",2)
+        name = name[1..-2]
+
+        if (name == "Short")
+          name = "shortN"
+        end
+        if (name == "Class")
+          name = "classN"
+        end
+        
+        if type =~ /Text/
+          type = "String"
+        else
+          unless  MapTypes.include?(type)
+            puts type
+          end
+          type = MapTypes[type]
+        end
+        
+
+        members[name] = type
+      end
+
+      out << "    public #{clsName}(final com.healthmarketscience.jackcess.Row row){\n"
+      
+      var = clsName.downcase
+      
+      members.each do |name,type|
+        out << "        #{name.downcase} = (#{type}) row.get(#{clsName}.#{name.upcase});"        
+      end
+      out << "    }"
+      
+      out << "\n"
+      members.each do |name,_|
+        out << "    public static final String #{name.upcase} = \"#{name}\";"
+      end
+
+      members.each do |name,type|      
+        out << "    private #{type} #{name.downcase} = null;";
+      end
+
+      members.each do |name,type|      
+        out << "    public #{type} get#{name[0].upcase}#{name.downcase[1..-1]}() {";
+        out << "        return #{name.downcase};"
+        out << "    }";
+        
+      end
+
+      
+      out << "}"
+      return out * "\n";
+    elsif s =~ /\[/
+      columns << s.gsub(" NOT NULL","").gsub(",","")
+    end
+  end
+end
+
+
+class String
+  def squish!
+    gsub!(/\A[[:space:]]+/, '')
+    gsub!(/[[:space:]]+\z/, '')
+    gsub!(/[[:space:]]+/, ' ')
+    self
+  end
+end
+
+MapTypes = {
+  "Long Integer" => "Integer",
+  "Integer" => "Short",
+  "Byte"   => "Byte",
+  "DateTime"   => "java.time.LocalDateTime",
+  "Boolean"   => "Boolean",
+  "Single"   => "Float",
+  "Double"   => "Double",      
+}
+
