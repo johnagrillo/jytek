@@ -22,12 +22,14 @@ end
 
 
 Classes =  [
-  "Athlete",
-  "ENTRY",
-  "MEET",
-  "MTEVENT",
-  "RESULT",
-  "TEAM",
+  #"Athlete",
+  #"ENTRY",
+  #"MEET",
+  #"MTEVENT",
+  "MTEVENTE",
+  #"RESULT",
+  #"TEAM",
+  "RELAY",
 ]
 
 
@@ -113,7 +115,7 @@ def createClass(schema, clsName, iter)
         if (name == "Class")
           name = "classN"
         end
-        
+
         if type =~ /Text/
           type = "String"
         else
@@ -132,22 +134,28 @@ def createClass(schema, clsName, iter)
       var = clsName.downcase
       
       members.each do |name,type|
-        out << "        #{name.downcase} = (#{type}) row.get(#{clsName}.#{name.upcase});"        
+        sub = name.gsub("(","_").sub(")","")
+        out << "        #{sub.downcase} = (#{type}) row.get(#{clsName}.#{sub.upcase});"
+        puts "        #{sub.downcase} = (#{type}) row.get(#{clsName}.#{sub.upcase});"        
+        
       end
       out << "    }"
       
       out << "\n"
       members.each do |name,_|
-        out << "    public static final String #{name.upcase} = \"#{name}\";"
+        sub = name.gsub("(","_").sub(")","")
+        out << "    public static final String #{sub.upcase} = \"#{name}\";"
       end
 
-      members.each do |name,type|      
-        out << "    private #{type} #{name.downcase} = null;";
+      members.each do |name,type|
+        sub = name.gsub("(","_").sub(")","")
+        out << "    private #{type} #{sub.downcase} = null;";
       end
 
-      members.each do |name,type|      
-        out << "    public #{type} get#{name[0].upcase}#{name.downcase[1..-1]}() {";
-        out << "        return #{name.downcase};"
+      members.each do |name,type|
+        sub = name.gsub("(","_").sub(")","")
+        out << "    public #{type} get#{sub[0].upcase}#{sub.downcase[1..-1]}() {";
+        out << "        return #{sub.downcase};"
         out << "    }";
         
       end

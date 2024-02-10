@@ -1,8 +1,7 @@
 package cmsl;
 
 import com.healthmarketscience.jackcess.Row;
-import hytek.Athlete;
-import hytek.Result;
+import hytek.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,17 +27,23 @@ public final class Mock {
                 hytek.Team team = new hytek.Team(row);
                 teams.put(team.getTeam(), team);
             }
+
+            final var mtevente = new HashMap<Integer, hytek.Mtevente>();
+            for (final Row row : db.getTable(Mtevente.NAME)) {
+                Mtevente eve = new hytek.Mtevente(row);
+                mtevente.put(eve.getMtevent(), eve);
+                System.out.println(eve);
+            }
+
+            final var mtevent = new HashMap<Integer, hytek.Mtevent>();
+            for (final Row row : db.getTable(Mtevent.NAME)) {
+                Mtevent ev = new hytek.Mtevent(row);
+                mtevent.put(ev.getMtevent(), ev);
+                //System.out.println(ev);
+            }
+
+
             System.out.println("Teams: " + teams.size());
-
-            //
-            // lookup event numnber by age
-            //
-            final var events = eventsByAge(db);
-
-            // find number of events
-
-            var vals = events.values();
-            System.out.println("Events: " + vals.size());
 
             // get athletes
             final var athletes = new HashMap<Integer, hytek.Athlete>();
@@ -50,32 +55,34 @@ public final class Mock {
 
             // track swins my athlete by event
             //         Athtlete         Event
-            final Map<Integer, HashMap<Integer, Result>> swims = new HashMap<>();
+            final Map<Integer, HashMap<Short, Result>> swims = new HashMap<>();
 
+
+            // relays are also athletes
+            final var relays = new HashMap<Integer, hytek.Relay>();
+            for (var row : db.getTable(Relay.NAME)) {
+                hytek.Relay a = new Relay(row);
+                relays.put(a.getRelay(), a);
+            }
+
+            System.out.println("Getting Best Times.");
             for (final Row row : db.getTable(Result.NAME)) {
                 final Result result = new hytek.Result(row);
-                if ("R".equals(result.getI_r())) {
-                    continue;
-                }
+
                 if (0 == result.getScore()) {
                     continue;
                 }
-                final var ath = athletes.get(result.getAthlete());
-
-                Event e = new Event(ath.getAge(), result.getStroke(), result.getDistance(), ath.getSex());
-                // is this event in the meet
-
-                var ev = events.get(e);
-
-                if (ev != null) {
-                    final var t = swims.computeIfAbsent(result.getAthlete(), k -> new HashMap<>());
-                    final var current = t.computeIfAbsent(ev, k -> result);
-                    if (result.getScore() < current.getScore()) {
-                        System.out.println("faster " + result.getScore() + " " + current.getScore());
-                        swims.get(result.getAthlete()).put(ev,result);
-                    }
+                if (!"".equals(result.getDqcode().trim())) {
+                    continue;
+                }
+                var mtev = mtevent.get(result.getMtevent()).getMtev();
+                final var t = swims.computeIfAbsent(result.getAthlete(), k -> new HashMap<>());
+                final var current = t.computeIfAbsent(mtev, k -> result);
+                if (result.getScore() < current.getScore()) {
+                    swims.get(result.getAthlete()).put(mtev, result);
                 }
             }
+
 
             // add only ome time per event
 
@@ -84,11 +91,22 @@ public final class Mock {
 
             for (var a : swims.keySet()) {
                 for (var e : swims.get(a).keySet()) {
+
+                    // find team
+                    Integer team = 0;
                     final var ath = athletes.get(a);
-                    var t = teamAthResults.computeIfAbsent(ath.getTeam1(), k -> new HashMap<>());
-                    var aa = t.computeIfAbsent(ath.getAthlete(), k -> new ArrayList<>());
-                    aa.add( swims.get(a).get(e));
-                    //System.out.println(" ath " + a + " " + e +  " "  + swims.get(a).get(e).getScore());
+                    final var relay = relays.get(a);
+                    Integer id = 0;
+                    if (ath != null) {
+                        team = ath.getTeam1();
+                        id = ath.getAthlete();
+                    } else {
+                        team = relay.getTeam();
+                        id = relay.getRelay();
+                    }
+                    var t = teamAthResults.computeIfAbsent(team, k -> new HashMap<>());
+                    var aa = t.computeIfAbsent(id, k -> new ArrayList<>());
+                    aa.add(swims.get(a).get(e));
                 }
             }
 
@@ -97,127 +115,116 @@ public final class Mock {
                 for (var team2 : teams.keySet()) {
                     if (!Objects.equals(team1, team2)) {
 
-                        System.out.println(" " + team1 + " " + team2);
-                        Map<Integer, TreeMap<Integer, ArrayList<hytek.Result>>> meet = new java.util.TreeMap<>();
-
-                        List<Integer> tl = new ArrayList<Integer>();
-                        tl.add(team1);
-                        tl.add(team2);
-                        for( var tt : tl) {
-                            var ath1 = teamAthResults.get(tt);
-                            if (ath1 == null)
-                                continue;
-                            for (var a : ath1.keySet()) {
-                                for (var r : ath1.get(a)) {
-                                    var ath = athletes.get(a);
-                                    Event e = new Event(ath.getAge(), r.getStroke(), r.getDistance(), ath.getSex());
-                                    // is this event in the meet
-
-                                    var ev = events.get(e);
-                                    if (ev != null) {
-                                        // add event
-                                        final var meetEvent = meet.computeIfAbsent(ev, k -> new TreeMap<>());
-                                        final var meetEventScore = meetEvent.computeIfAbsent(r.getScore(), k -> new ArrayList<>());
-                                        meetEventScore.add(r);
-                                    }
-                                }
-                            }
-                        }
-                        for (final var event : meet.keySet()) {
-                            System.out.print(event + " - ");
-                            for (final var score : meet.get(event).keySet()) {
-                                System.out.print(score + " ");
-                            }
-                            System.out.println();
-                        }
+                        System.out.print(" " + teams.get(team1).getTcode() + " " + teams.get(team2).getTcode());
+                        List<Integer> mockTeams = new ArrayList<Integer>();
+                        mockTeams.add(team1);
+                        mockTeams.add(team2);
+                        runMockMeet(mockTeams, teamAthResults, athletes, relays, mtevent);
                     }
                 }
             }
-        } catch (final IOException ex) {
+        } catch (
+                final IOException ex) {
             throw new RuntimeException(ex);
         }
     }
 
 
-    public static HashMap<Event, Integer> eventsByAge(com.healthmarketscience.jackcess.Database db) throws IOException {
+    public static void runMockMeet(List<Integer> teams,
+                                   Map<Integer, HashMap<Integer, ArrayList<hytek.Result>>> teamAthResults,
+                                   HashMap<Integer, hytek.Athlete> athletes,
+                                   HashMap<Integer, hytek.Relay> relays,
+                                   HashMap<Integer, hytek.Mtevent> mtevent
+    ) {
+        Map<Integer, Integer> teamScores = new TreeMap<Integer, Integer>();
 
-        final var hash = new java.util.HashMap<Event, Integer>();
 
-        for (Row row : db.getTable(hytek.Mtevent.NAME)) {
-            // skip relays
-            final hytek.Mtevent mtevent = new hytek.Mtevent(row);
-            final var meet = mtevent.getMeet();
-            if ("R".equals(mtevent.getI_r())) {
+        Map<Short, TreeMap<Integer, ArrayList<hytek.Result>>> meet = new java.util.TreeMap<>();
+        for (var tt : teams) {
+            teamScores.put(tt, 0);
+            var ath1 = teamAthResults.get(tt);
+            if (ath1 == null)
                 continue;
-            }
-            Short lo = 0;
-            Short hi = 0;
-            if (100 > mtevent.getLo_hi()) {
-                hi = mtevent.getLo_hi();
-            } else {
-                lo = (short) (mtevent.getLo_hi() / (short) 100);
-                hi = (short) (mtevent.getLo_hi() - (lo * (short) 100));
-            }
-            for (Short age = lo; age <= hi; age++) {
-                final var event = new Event(age, mtevent.getStroke(), mtevent.getDistance(), mtevent.getSex());
-                hash.put(event, Integer.valueOf(mtevent.getMtev()));
+
+
+            //
+            // can only enter 4 events
+            //
+
+            Map<Integer, Integer> scored= new HashMap<>();
+
+
+
+            for (var a : ath1.keySet()) {
+                var scored = 0;
+                for (var r : ath1.get(a)) {
+
+                    if (scored.get(a) == 4)  {
+                        System.out.println(a + " " + scored.get(a));
+                        continue;
+                    }
+                            
+
+                    var ev = mtevent.get(r.getMtevent()).getMtev();
+
+                    // add event
+                    final var meetEvent = meet.computeIfAbsent(ev, k -> new TreeMap<>());
+
+
+                    var time = r.getScore();
+                    if ("Y".equals(r.getCourse())) {
+                        time = (int) (time * 1.11);
+                    }
+                    
+                    final var meetEventScore = meetEvent.computeIfAbsent(time, k -> new ArrayList<>());
+                    meetEventScore.add(r);
+                    scored.put(a, scored.get(a) + 1);
+                }
             }
         }
-        return hash;
+        for (final var event : meet.keySet()) {
+            // determine points for places
+            // take top three times
+
+            final List<Integer> scores = new ArrayList<>(meet.get(event).keySet());
+
+            //System.out.print(event + " - ");
+
+
+            for (int s = 0; s < Math.min(3, scores.size()); s++) {
+                final var values = meet.get(event).get(scores.get(s));
+                //System.out.print(scores.get(s) + "(" + values.size() + ") ");
+
+                var result = values.get(0);
+
+                // find team
+                Integer team = 0;
+                var ath = athletes.get(result.getAthlete());
+                final var relay = relays.get(result.getAthlete());
+
+                if (ath != null) {
+                    team = ath.getTeam1();
+                } else {
+                    team = relay.getTeam();
+                }
+                var points = 0;
+                if (s == 0)
+                    points = 5;
+                else if (s == 1)
+                    points = 3;
+                else if (s == 3)
+                    points = 1;
+                teamScores.put(team, teamScores.get(team) + points);
+            }
+            //System.out.println();
+        }
+        final List<Integer> points = new ArrayList<>(teamScores.values());
+
+        var team1score = teamScores.get(teams.get(0));
+        var team2score = teamScores.get(teams.get(1));
+
+
+        System.out.println(" {" + team1score + ", " + team2score + "}" + (team1score - team2score));
+
     }
 }
-
-class Event {
-    private final Short age;
-    private final Short stroke;
-    private final Short distance;
-    private final String sex;
-
-    Event(Short age,
-          final Short stroke,
-          final Short distance,
-          final String sex) {
-        this.age = age;
-        this.stroke = stroke;
-        this.distance = distance;
-        this.sex = sex;
-    }
-
-    @Override
-    public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (null == o || this.getClass() != o.getClass()) return false;
-        final Event event = (Event) o;
-        return Objects.equals(this.age, event.age) && Objects.equals(this.stroke, event.stroke) && Objects.equals(this.distance, event.distance) && Objects.equals(this.sex, event.sex);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(this.age, this.stroke, this.distance, this.sex);
-    }
-
-    public Short getAge() {
-        return this.age;
-    }
-
-    public Short getStroke() {
-        return this.stroke;
-    }
-
-    public Short getDistance() {
-        return this.distance;
-    }
-
-    public String getSex() {
-        return this.sex;
-    }
-
-    public String toString() {
-        return String.format("%d %d %3d %s", age, stroke, distance, sex);
-        //mtev + " " + lo + " " + hi + "  " + stroke + " " + distance + " " + sex;
-    }
-
-}
-
-
-

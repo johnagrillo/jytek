@@ -109,6 +109,27 @@ public class Mtevent {
     public String getSex() {
         return sex;
     }
+
+    @Override
+    public String toString() {
+        return "Mtevent{" +
+                "meet=" + meet +
+                ", mtev=" + mtev +
+                ", mtevx='" + mtevx + '\'' +
+                ", lo_hi=" + lo_hi +
+                ", course='" + course + '\'' +
+                ", mtevent=" + mtevent +
+                ", distance=" + distance +
+                ", stroke=" + stroke +
+                ", sex='" + sex + '\'' +
+                ", i_r='" + i_r + '\'' +
+                ", session=" + session +
+                ", division='" + division + '\'' +
+                ", eventtype='" + eventtype + '\'' +
+                ", sessx='" + sessx + '\'' +
+                '}';
+    }
+
     public String getI_r() {
         return i_r;
     }

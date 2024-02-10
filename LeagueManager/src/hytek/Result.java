@@ -42,6 +42,33 @@ package hytek;
  * );
  */
 public class Result {
+    @Override
+    public String toString() {
+        return "Result{" +
+                "meet=" + meet +
+                ", athlete=" + athlete +
+                ", i_r='" + i_r + '\'' +
+                ", team=" + team +
+                ", score=" + score +
+                ", f_p='" + f_p + '\'' +
+                ", split=" + split +
+                ", ex='" + ex + '\'' +
+                ", origin='" + origin + '\'' +
+                ", nt=" + nt +
+                ", result=" + result +
+                ", misc='" + misc + '\'' +
+                ", age=" + age +
+                ", distance=" + distance +
+                ", stroke=" + stroke +
+                ", mtevent=" + mtevent +
+                ", place=" + place +
+                ", course='" + course + '\'' +
+                ", dqcode='" + dqcode + '\'' +
+                ", dqdescript='" + dqdescript + '\'' +
+                ", dqcodesecondary='" + dqcodesecondary + '\'' +
+                ", dqdescriptsecondary='" + dqdescriptsecondary + '\'' +
+                '}';
+    }
 
     public static String NAME = "Result";
     private Result() {
