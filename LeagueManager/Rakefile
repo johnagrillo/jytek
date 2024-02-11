@@ -3,6 +3,9 @@
 # Use ruby to build 
 #
 #
+require 'csv'
+
+
 
 ENV["CLASSPATH"] = ["jars/jackcess-4.0.5.jar",
                     "jars/commons-logging-1.3.0.jar",
@@ -19,6 +22,41 @@ end
 task :mock do
   sh "java cmsl.Mock 2015-Realignment-Wk1.mdb"
 end
+
+
+task :compare do
+  puts "compare"
+
+  fssl = Hash.new{|h,k| h[k] = Hash.new{|h,k| h[k] = 0}}
+  team = nil
+  CSV.foreach("2023.csv", headers:true) do |r|
+    
+    r.to_h.each do |key,val|
+      if key == "TEAM"
+        team = val
+      else
+        fssl[team][key] = val.to_i
+      end
+    end
+  end
+
+
+  File.read("mine.csv").each_line do |l|
+    t1,t2,s1,s2,diff = l.split(",")
+    
+    real = fssl[t1][t2]
+    
+    print t1," ", t2, " ", real, " ", diff.to_i, "\n"
+
+
+  end
+
+  
+end
+
+
+
+
 
 
 Classes =  [
