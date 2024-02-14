@@ -1,230 +1,273 @@
 package cmsl;
 
 import com.healthmarketscience.jackcess.*;
+import hytek.tm.Result;
+import jytek.TmMdb;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
+class EventResult {
 
-public final class Mock {
-    private Mock() {
+    HashMap<Short, hytek.tm.Result> eventResult;
+
+    public EventResult() {
+        eventResult = new HashMap<>();
     }
 
+    hytek.tm.Result get(Short event) {
+        return eventResult.get(event);
+    }
+}
+
+
+public final class Mock {
+
+    jytek.TmMdb tm ;
+
+
     public static void main(String[] args) {
+        final File input = new File(args[0]);
+        final Mock mock = new Mock(input);
+        mock.run();
+    }
 
-        try {
-            File input = new File(args[0]);
-            var db = com.healthmarketscience.jackcess.DatabaseBuilder.open(input);
-
-            //
-            // hash map of teams
-            //
-
-            final var teams = new HashMap<Integer, hytek.tm.Team>();
-            for (final Row row : db.getTable(hytek.tm.Team.NAME)) {
-                hytek.tm.Team team = new hytek.tm.Team(row);
-                teams.put(team.getTeam(), team);
-            }
-
-            final var mtevente = new HashMap<Integer, hytek.tm.Mtevente>();
-            for (final Row row : db.getTable(hytek.tm.Mtevente.NAME)) {
-                hytek.tm.Mtevente eve = new hytek.tm.Mtevente(row);
-                mtevente.put(eve.getMtevent(), eve);
-            }
-
-            final var mtevent = new HashMap<Integer, hytek.tm.Mtevent>();
-            for (final Row row : db.getTable(hytek.tm.Mtevent.NAME)) {
-                hytek.tm.Mtevent ev = new hytek.tm.Mtevent(row);
-                mtevent.put(ev.getMtevent(), ev);
-            }
+    private Mock(File input) {
+        tm = new TmMdb(input);
+    }
 
 
-            System.out.println("Teams: " + teams.size());
 
-            // get athletes
-            final var athletes = new HashMap<Integer, hytek.tm.Athlete>();
-            for (final Row row : db.getTable(hytek.tm.Athlete.NAME)) {
-                hytek.tm.Athlete a = new hytek.tm.Athlete(row);
-                athletes.put(a.getAthlete(), a);
-            }
-            System.out.println("Athletes: " + athletes.size());
-
-            // track swins my athlete by event
-            //         Athtlete         Event
-            final Map<Integer, HashMap<Short, hytek.tm.Result>> swims = new HashMap<>();
-
-
-            // relays are also athletes
-            final var relays = new HashMap<Integer, hytek.tm.Relay>();
-            for (var row : db.getTable(hytek.tm.Relay.NAME)) {
-                hytek.tm.Relay a = new hytek.tm.Relay(row);
-                relays.put(a.getRelay(), a);
-            }
-
-            System.out.println("Getting Best Times.");
-            for (final Row row : db.getTable(hytek.tm.Result.NAME)) {
-                var result = new hytek.tm.Result(row);
-
-                if (0 == result.getScore()) {
-                    continue;
-                }
-                if (!"".equals(result.getDqcode().trim())) {
-                    continue;
-                }
-                var mtev = mtevent.get(result.getMtevent()).getMtev();
-                final var t = swims.computeIfAbsent(result.getAthlete(), k -> new HashMap<>());
-                final var current = t.computeIfAbsent(mtev, k -> result);
-                if (result.getScore() < current.getScore()) {
-                    swims.get(result.getAthlete()).put(mtev, result);
-                }
-            }
-
-
-            // add only ome time per event
-
-            final Map<Integer, HashMap<Integer, ArrayList<hytek.tm.Result>>> teamAthResults = new HashMap<>();
-
-
-            for (var a : swims.keySet()) {
-                for (var e : swims.get(a).keySet()) {
-
-                    // find team
-                    Integer team = 0;
-                    final var ath = athletes.get(a);
-                    final var relay = relays.get(a);
-                    Integer id = 0;
-                    if (ath != null) {
-                        team = ath.getTeam1();
-                        id = ath.getAthlete();
-                    } else {
-                        team = relay.getTeam();
-                        id = relay.getRelay();
-                    }
-                    var t = teamAthResults.computeIfAbsent(team, k -> new HashMap<>());
-                    var aa = t.computeIfAbsent(id, k -> new ArrayList<>());
-                    aa.add(swims.get(a).get(e));
-                }
-            }
-
-
-            for (var team1 : teams.keySet()) {
-                for (var team2 : teams.keySet()) {
-                    if (!Objects.equals(team1, team2)) {
-
-                        System.out.print(teams.get(team1).getTcode() + "," + teams.get(team2).getTcode());
-                        List<Integer> mockTeams = new ArrayList<Integer>();
-                        mockTeams.add(team1);
-                        mockTeams.add(team2);
-                        runMockMeet(mockTeams, teamAthResults, athletes, relays, mtevent);
+    private void run() {
+        for (final var team1 : tm.getTeams().keySet()) {
+            for (final var team2 : tm.getTeams().keySet()) {
+                if (!Objects.equals(team1, team2)) {
+                    try {
+                        runDualMockMeet(tm.getTeams().get(team1), tm.getTeams().get(team2));
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
                     }
                 }
             }
-        } catch (
-                final IOException ex) {
-            throw new RuntimeException(ex);
         }
     }
 
 
-    public static void runMockMeet(List<Integer> teams,
-                                   Map<Integer, HashMap<Integer, ArrayList<hytek.tm.Result>>> teamAthResults,
-                                   HashMap<Integer, hytek.tm.Athlete> athletes,
-                                   HashMap<Integer, hytek.tm.Relay> relays,
-                                   HashMap<Integer, hytek.tm.Mtevent> mtevent
-    ) {
-        Map<Integer, Integer> teamScores = new TreeMap<Integer, Integer>();
+    private void runDualMockMeet(jytek.Team team1, jytek.Team team2) throws IOException{
 
+        Map<Short, ArrayList<hytek.tm.Result>> mentries = new java.util.TreeMap<>();
+        final Map<Integer, Integer> teamScores = new TreeMap<Integer, Integer>();
+
+        final String fileName = "output/" + team1.getTeam().getTcode() + "-" + team2.getTeam().getTcode() + ".txt";
+        final BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+        writer.write(team1.getTeam().getTcode() + "-" + team2.getTeam().getTcode() + "\n");
+
+        for (var team : Arrays.asList(team1, team2)) {
+            teamScores.put(team.getTeam().getTeam(), 0);
+
+            // find fastest time for each event for this athlete
+
+            // all athletes fastest times are entered are entered
+            for (final var ath : team.getAthletes()) {
+                final Map<Short, hytek.tm.Result> bestSwimsY = new TreeMap<>();
+                final Map<Short, hytek.tm.Result> bestSwimsS = new TreeMap<>();
+                final Set<Short> bestSwims = new TreeSet<>();                
+                
+                // get the lowest score for each event
+                for (final hytek.tm.Result r : tm.getAthletes().get(ath.getAthlete()).getResults()) {
+                    var ev = tm.getMtevent().get(r.getMtevent()).getMtev();
+
+
+                    
+                    var mtev = tm.getMtevent().get(r.getMtevent());
+                    var lo_hi = mtev.getLo_hi();
+                    
+                    var lo = 0;
+                    var hi = 99;
+                    if (lo_hi < 100) {
+                        hi = lo_hi;
+                    }
+                    lo =  lo_hi/100;
+                    hi =  lo_hi - lo * 100;
+
+                    if (ath.getAge() < lo || ath.getAge() > hi)
+                    {
+                        writer.write("" + lo_hi + " " + r);
+                        continue;
+                    }
+
+                    if (r.getCourse().equals("Y")) {
+                        var best = bestSwimsY.computeIfAbsent(ev, aShort -> r);
+                        if (r.getScore() < best.getScore()) {
+                            bestSwimsY.put(ev, r);
+                        }
+                    }
+                    if (r.getCourse().equals("S")) {
+                        var best = bestSwimsS.computeIfAbsent(ev, aShort -> r);
+                        if (r.getScore() < best.getScore()) {
+                            bestSwimsS.put(ev, r);
+                        }
+                    }
+
+                    bestSwims.add(ev);
+                    
+                }
+                //enter fastest in meet
+                for (final var ev : bestSwims) {
+                    final var swims = mentries.computeIfAbsent(ev, aShort -> new ArrayList<>());
+
+
+                    // if no yards times, use fastest meters times
+                    if (!bestSwimsY.containsKey(ev)) {                    
+                        swims.add(bestSwimsS.get(ev));
+                    }
+                    // if no meters time, use fastest yards times
+                    
+                    else if (!bestSwimsS.containsKey(ev)) {
+                        swims.add(bestSwimsY.get(ev));                        
+                    }
+                    else {
+
+                        var bestY = bestSwimsY.get(ev);
+                        var bestS = bestSwimsS.get(ev);
+
+                        if ( (bestY.getScore() * 1.11) < bestS.getScore()) {
+                            swims.add(bestSwimsY.get(ev));
+                        }
+                        else {
+                            swims.add(bestSwimsS.get(ev));
+                        }
+                    }
+                }
+            }
+
+            final Map<Short, hytek.tm.Result> bestRelays = new TreeMap<>();
+
+            // only fastest relay time per event
+            for (final var relay : team.getRelays()) {
+                for (var r : tm.getRelays().get(relay.getRelay()).getResults()) {
+                    var ev = tm.getMtevent().get(r.getMtevent()).getMtev();
+
+                    var best = bestRelays.computeIfAbsent(ev, k -> r);
+
+                    var bestScore = best.getScore();
+                    if (best.getCourse().equals("Y")) {
+                        bestScore = (int) (bestScore * 1.11);
+                    }
+                    var currentScore = r.getScore();
+                    if (r.getCourse().equals("Y")) {
+                        currentScore = (int) (currentScore * 1.11);
+                    }
+                    if (currentScore < bestScore) {
+                        bestRelays.put(ev, r);
+                    }
+                }
+            }
+            //enter fastest relay in meet
+            for (var ev : bestRelays.keySet()) {
+                final var swims = mentries.computeIfAbsent(ev, aShort -> new ArrayList<>());
+                swims.add(bestRelays.get(ev));
+            }
+        }
 
         final Map<Short, Integer[]> eventPoints = new HashMap<>();
 
-        Integer[] ind = {50,30,10};
-        Integer[] relay = {80,40,20};
+        Integer[] ind = {50, 30, 10};
+        Integer[] relay = {80, 40, 0};
 
         // set all events to ind
-        for (Short e = 1; e <= 68; e++) {
+        for (short e = 1; e <= 68; e++) {
             eventPoints.put(e, ind);
         }
         // set relay events
 
-        Short[] relayE = {31,32,33,34,67,68};
+        final Short[] relayE = {31, 32, 33, 34, 67, 68};
 
-        for( Short r : relayE) {
+        for (Short r : relayE) {
             eventPoints.put(r, relay);
         }
 
-        //
-        //
-        //
-
-        Map<Short, TreeMap<Integer, ArrayList<hytek.tm.Result>>> meet = new java.util.TreeMap<>();
-        Map<Integer, Integer> scored = new HashMap<>();
-
-        for (var tt : teams) {
-            teamScores.put(tt, 0);
-            var ath1 = teamAthResults.get(tt);
-            if (ath1 == null)
-                continue;
-
-
-            for (var a : ath1.keySet()) {
-                scored.put(a, 0);
-                for (var r : ath1.get(a)) {
-                    var ev = mtevent.get(r.getMtevent()).getMtev();
-                    // add event
-                    final var meetEvent = meet.computeIfAbsent(ev, k -> new TreeMap<>());
-                    var time = r.getScore();
-                    if ("Y".equals(r.getCourse())) {
-                        time = (int) (time * 1.11);
-                    }
-                    final var meetEventScore = meetEvent.computeIfAbsent(time, k -> new ArrayList<>());
-                    meetEventScore.add(r);
+        final Map<Integer, Integer> scored = new HashMap<>();
+        for (var ev : mentries.keySet()) {
+            writer.write(ev  + "\n");
+            Map<Integer, ArrayList<Result>> scores = new TreeMap<>();
+            for (var r : mentries.get(ev)) {
+                if (scored.computeIfAbsent(r.getAthlete(), k -> 0 ) == 4) {
+                    continue;
                 }
+                Integer time = r.getScore();
+                if ("Y".equals(r.getCourse())) {
+                    time = (int) (time * 1.11);
+                }
+                var slot = scores.computeIfAbsent(time, k -> new ArrayList<>());
+                slot.add(r);
             }
-        }
-        for (final var event : meet.keySet()) {
-            // determine points for places
-            //
+            // score slot
 
-            var eventScore = eventPoints.get(event);
-            final List<Integer> scores = new ArrayList<>(meet.get(event).keySet());
+            final List<Integer> times = new ArrayList<>(scores.keySet());
+            var eventScore = eventPoints.get(ev);
+            for (int t = 0; t < times.size(); t++) {
+                final var values = scores.get(times.get(t));
+                final var result = values.get(0);
 
-
-
-
-            for (int s = 0; s < scores.size(); s++) {
-                final var values = meet.get(event).get(scores.get(s));
-                //System.out.print(scores.get(s) + "(" + values.size() + ") ");
-
-                if (s < eventScore.length) {
-                    final var points = eventScore[s];
-                    final var result = values.get(0);
-
+                if (t < eventScore.length) {
+                    final var points = eventScore[t];
                     // find team
                     Integer team = 0;
-                    var ath = athletes.get(result.getAthlete());
-                    final var r = relays.get(result.getAthlete());
-
-                    if (ath != null) {
-                        team = ath.getTeam1();
-                        scored.put(r, scores.get(r) + 1);
+                    
+                    String name = "";
+                    if (result.getI_r().equals("I")) {
+                        team = tm.getAthletes().get(result.getAthlete()).getTeam();
+                        name = tm.getAthletes().get(result.getAthlete()).getAthleteJ().getLast();
+                        name += "," + tm.getAthletes().get(result.getAthlete()).getAthleteJ().getFirst();
+                        
+                        scored.put(result.getAthlete(), scored.get(result.getAthlete())+1);
+                    } else if (result.getI_r().equals("R")) {
+                        team = tm.getRelays().get(result.getAthlete()).getTeam();
                     } else {
-                        team = r.getTeam();
+                        continue;
                     }
 
+                    var totalSecs = result.getScore()/100.0;
+                    var hours = totalSecs / 3600.0;
+                    var minutes = (totalSecs % 3600.0) / 60.0;
+                    var seconds = totalSecs % 60.0;
+
+                    writer.write("" + points + " " +name + " " + tm.getTeams().get(team).getTeam().getTcode() + " ");
+                    if (result.getCourse().equals("Y")) {
+                        writer.write( "" + (int)(result.getScore() * 1.11));
+                    }
+                    else {
+                        writer.write("" + result.getScore());
+                    }
+                    if (result.getCourse().equals("Y")) {
+                        writer.write(" " + result.getScore() + "(Y)");
+                    }
+                    writer.write("\n");
 
                     teamScores.put(team, teamScores.get(team) + points);
                 }
             }
-            //System.out.println();
         }
+
         final List<Integer> points = new ArrayList<>(teamScores.values());
 
-        var team1score = teamScores.get(teams.get(0));
-        var team2score = teamScores.get(teams.get(1));
+        var team1score = teamScores.get(team1.getTeam().getTeam());
+        var team2score = teamScores.get(team2.getTeam().getTeam());
 
+        var score = "SCORE:" + team1.getTeam().getTcode() + "," + team2.getTeam().getTcode() + ","
+                + team1score + "," + team2score + "," + ((team1score - team2score) / 10.0);
 
-        System.out.println("," + team1score + "," + team2score + "," + (team1score - team2score)/10.0);
-
+        System.out.println(score);
+        writer.write(score + "\n");
+        writer.close();
     }
+
+
+
+
+
 }

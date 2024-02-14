@@ -55,6 +55,20 @@ public class Athlete {
     private Athlete() {
     }
 
+    @Override
+    public String toString() {
+        return "Athlete{" +
+                "athlete=" + athlete +
+                ", team1=" + team1 +
+                ", last='" + last + '\'' +
+                ", first='" + first + '\'' +
+                ", initial='" + initial + '\'' +
+                ", sex='" + sex + '\'' +
+                ", birth=" + birth +
+                ", age=" + age +
+                '}';
+    }
+
     public Athlete(final com.healthmarketscience.jackcess.Row row){
 
         athlete = (Integer) row.get(Athlete.ATHLETE);

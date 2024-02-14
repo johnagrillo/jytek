@@ -1,5 +1,7 @@
 package hytek.tm;
 
+import java.util.Objects;
+
 /**
  * -- ----------------------------------------------------------
  * -- MDB Tools - A library for reading MS Access database files
@@ -8,9 +10,9 @@ package hytek.tm;
  * -- the GPL, see COPYING.LIB and COPYING files respectively.
  * -- Check out http://mdbtools.sourceforge.net
  * -- ----------------------------------------------------------
- * 
+ * <p>
  * -- That file uses encoding UTF-8
- * 
+ * <p>
  * CREATE TABLE [RELAY]
  * (
  * [RELAY]			Long Integer,
@@ -40,10 +42,11 @@ package hytek.tm;
 public class Relay {
 
     public static String NAME = "Relay";
+
     private Relay() {
     }
 
-    public Relay(final com.healthmarketscience.jackcess.Row row){
+    public Relay(final com.healthmarketscience.jackcess.Row row) {
 
         relay = (Integer) row.get(Relay.RELAY);
         meet = (Integer) row.get(Relay.MEET);
@@ -114,70 +117,119 @@ public class Relay {
     private String reaction2 = null;
     private String reaction3 = null;
     private String reaction4 = null;
+
     public Integer getRelay() {
         return relay;
     }
+
     public Integer getMeet() {
         return meet;
     }
+
     public Short getLo_hi() {
         return lo_hi;
     }
+
     public Integer getTeam() {
         return team;
     }
+
     public String getLetter() {
         return letter;
     }
+
     public Short getAge_range() {
         return age_range;
     }
+
     public String getSex() {
         return sex;
     }
+
     public Integer getAth_1() {
         return ath_1;
     }
+
     public Integer getAth_2() {
         return ath_2;
     }
+
     public Integer getAth_3() {
         return ath_3;
     }
+
     public Integer getAth_4() {
         return ath_4;
     }
+
     public Integer getAth_5() {
         return ath_5;
     }
+
     public Integer getAth_6() {
         return ath_6;
     }
+
     public Integer getAth_7() {
         return ath_7;
     }
+
     public Integer getAth_8() {
         return ath_8;
     }
+
     public Short getDistance() {
         return distance;
     }
+
+    @Override
+    public String toString() {
+        return "Relay{" +
+                "relay=" + relay +
+                ", meet=" + meet +
+                ", lo_hi=" + lo_hi +
+                ", team=" + team +
+                ", letter='" + letter + '\'' +
+                ", sex='" + sex + '\'' +
+                ", distance=" + distance +
+                ", stroke=" + stroke +
+                '}';
+    }
+
     public Short getStroke() {
         return stroke;
     }
+
     public String getRelayage() {
         return relayage;
     }
+
     public String getReaction1() {
         return reaction1;
     }
+
     public String getReaction2() {
         return reaction2;
     }
+
     public String getReaction3() {
         return reaction3;
     }
+
     public String getReaction4() {
         return reaction4;
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) return true;
+        if (null == o || this.getClass() != o.getClass()) return false;
+        final Relay relay1 = (Relay) o;
+        return Objects.equals(this.relay, relay1.relay) && Objects.equals(this.meet, relay1.meet) && Objects.equals(this.lo_hi, relay1.lo_hi) && Objects.equals(this.team, relay1.team) && Objects.equals(this.letter, relay1.letter) && Objects.equals(this.age_range, relay1.age_range) && Objects.equals(this.sex, relay1.sex) && Objects.equals(this.ath_1, relay1.ath_1) && Objects.equals(this.ath_2, relay1.ath_2) && Objects.equals(this.ath_3, relay1.ath_3) && Objects.equals(this.ath_4, relay1.ath_4) && Objects.equals(this.ath_5, relay1.ath_5) && Objects.equals(this.ath_6, relay1.ath_6) && Objects.equals(this.ath_7, relay1.ath_7) && Objects.equals(this.ath_8, relay1.ath_8) && Objects.equals(this.distance, relay1.distance) && Objects.equals(this.stroke, relay1.stroke);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.relay, this.meet, this.lo_hi, this.team, this.letter, this.age_range, this.sex, this.ath_1, this.ath_2, this.ath_3, this.ath_4, this.ath_5, this.ath_6, this.ath_7, this.ath_8, this.distance, this.stroke);
     }
 }

@@ -614,4 +614,20 @@ public class Meet {
     public Byte getEv3version() {
         return ev3version;
     }
+
+    @Override
+    public String toString() {
+        return "Meet{" +
+                "meet=" + meet +
+                ", mname='" + mname + '\'' +
+                ", start=" + start +
+                ", end=" + end +
+                ", ageup=" + ageup +
+                ", since=" + since +
+                ", course='" + course + '\'' +
+                ", location='" + location + '\'' +
+                ", type='" + type + '\'' +
+                ", maxent=" + maxent +
+                '}';
+    }
 }

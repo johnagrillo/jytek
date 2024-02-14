@@ -8,9 +8,9 @@ package hytek.tm;
  * -- the GPL, see COPYING.LIB and COPYING files respectively.
  * -- Check out http://mdbtools.sourceforge.net
  * -- ----------------------------------------------------------
- * 
+ * <p>
  * -- That file uses encoding UTF-8
- * 
+ * <p>
  * CREATE TABLE [RESULT]
  * (
  * [MEET]			Long Integer,
@@ -42,39 +42,13 @@ package hytek.tm;
  * );
  */
 public class Result {
-    @Override
-    public String toString() {
-        return "Result{" +
-                "meet=" + meet +
-                ", athlete=" + athlete +
-                ", i_r='" + i_r + '\'' +
-                ", team=" + team +
-                ", score=" + score +
-                ", f_p='" + f_p + '\'' +
-                ", split=" + split +
-                ", ex='" + ex + '\'' +
-                ", origin='" + origin + '\'' +
-                ", nt=" + nt +
-                ", result=" + result +
-                ", misc='" + misc + '\'' +
-                ", age=" + age +
-                ", distance=" + distance +
-                ", stroke=" + stroke +
-                ", mtevent=" + mtevent +
-                ", place=" + place +
-                ", course='" + course + '\'' +
-                ", dqcode='" + dqcode + '\'' +
-                ", dqdescript='" + dqdescript + '\'' +
-                ", dqcodesecondary='" + dqcodesecondary + '\'' +
-                ", dqdescriptsecondary='" + dqdescriptsecondary + '\'' +
-                '}';
-    }
 
     public static String NAME = "Result";
+
     private Result() {
     }
 
-    public Result(final com.healthmarketscience.jackcess.Row row){
+    public Result(final com.healthmarketscience.jackcess.Row row) {
 
         meet = (Integer) row.get(Result.MEET);
         athlete = (Integer) row.get(Result.ATHLETE);
@@ -161,78 +135,123 @@ public class Result {
     public Integer getMeet() {
         return meet;
     }
+
     public Integer getAthlete() {
         return athlete;
     }
+
     public String getI_r() {
         return i_r;
     }
+
     public Integer getTeam() {
         return team;
     }
+
     public Integer getScore() {
         return score;
     }
+
     public String getF_p() {
         return f_p;
     }
+
     public Integer getSplit() {
         return split;
     }
+
     public String getEx() {
         return ex;
     }
+
     public String getOrigin() {
         return origin;
     }
+
     public Byte getNt() {
         return nt;
     }
+
     public Integer getResult() {
         return result;
     }
+
     public String getMisc() {
         return misc;
     }
+
     public Short getAge() {
         return age;
     }
+
     public Short getDistance() {
         return distance;
     }
+
     public Short getStroke() {
         return stroke;
     }
+
     public Integer getMtevent() {
         return mtevent;
     }
+
     public Short getPoints() {
         return points;
     }
+
     public Short getPlace() {
         return place;
     }
+
     public Short getRank() {
         return rank;
     }
+
     public Short getTrank() {
         return trank;
     }
+
     public String getCourse() {
         return course;
     }
+
     public String getReaction() {
         return reaction;
     }
+
     public String getDqcode() {
         return dqcode;
     }
+
+    @Override
+    public String toString() {
+        return "Result{" +
+                "meet=" + meet +
+                ", athlete=" + athlete +
+                ", i_r='" + i_r + '\'' +
+                ", team=" + team +
+                ", score=" + score +
+                ", ex='" + ex + '\'' +
+                ", result=" + result +
+                ", age=" + age +
+                ", distance=" + distance +
+                ", stroke=" + stroke +
+                ", mtevent=" + mtevent +
+                ", course='" + course + '\'' +
+                ", dqcode='" + dqcode + '\'' +
+                ", dqdescript='" + dqdescript + '\'' +
+                '}';
+    }
+
     public String getDqdescript() {
         return dqdescript;
     }
+
     public String getDqcodesecondary() {
         return dqcodesecondary;
     }
+
     public String getDqdescriptsecondary() {
         return dqdescriptsecondary;
     }

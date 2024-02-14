@@ -180,4 +180,9 @@ public class Team {
     public String getTdivision() {
         return tdivision;
     }
+
+    @Override
+    public String toString() {
+        return "Team{" + team + "," +tcode + "," + tname + '}';
+    }
 }
