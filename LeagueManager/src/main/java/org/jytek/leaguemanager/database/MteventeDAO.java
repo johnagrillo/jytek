@@ -1,4 +1,4 @@
-package org.jytek.leaguemanager.hytek.tm;
+package org.jytek.leaguemanager.database;
 
 /**
  * -- ----------------------------------------------------------
@@ -39,39 +39,39 @@ package org.jytek.leaguemanager.hytek.tm;
  * [SessX]			Text (2)
  * );
  */
-public class Mtevente {
+public class MteventeDAO {
 
     public static String NAME = "Mtevente";
 
-    private Mtevente() {
+    private MteventeDAO() {
     }
 
-    public Mtevente(final com.healthmarketscience.jackcess.Row row) {
+    public MteventeDAO(final com.healthmarketscience.jackcess.Row row) {
 
-        meet = (Integer) row.get(Mtevente.MEET);
-        mtev = (Short) row.get(Mtevente.MTEV);
-        mtevx = (String) row.get(Mtevente.MTEVX);
-        lo_hi = (Short) row.get(Mtevente.LO_HI);
-        fastcut = (Integer) row.get(Mtevente.FASTCUT);
-        slowcut = (Integer) row.get(Mtevente.SLOWCUT);
-        course = (String) row.get(Mtevente.COURSE);
-        mtevent = (Integer) row.get(Mtevente.MTEVENT);
-        fast_l = (Integer) row.get(Mtevente.FAST_L);
-        slow_l = (Integer) row.get(Mtevente.SLOW_L);
-        fast_y = (Integer) row.get(Mtevente.FAST_Y);
-        slow_y = (Integer) row.get(Mtevente.SLOW_Y);
-        tstdfile = (String) row.get(Mtevente.TSTDFILE);
-        tstdesig = (String) row.get(Mtevente.TSTDESIG);
-        distance = (Short) row.get(Mtevente.DISTANCE);
-        stroke = (Short) row.get(Mtevente.STROKE);
-        sex = (String) row.get(Mtevente.SEX);
-        i_r = (String) row.get(Mtevente.I_R);
-        session = (Byte) row.get(Mtevente.SESSION);
-        division = (String) row.get(Mtevente.DIVISION);
-        fee = (Float) row.get(Mtevente.FEE);
-        exportevent = (String) row.get(Mtevente.EXPORTEVENT);
-        gendermix = (Byte) row.get(Mtevente.GENDERMIX);
-        sessx = (String) row.get(Mtevente.SESSX);
+        meet = (Integer) row.get(MteventeDAO.MEET);
+        mtev = (Short) row.get(MteventeDAO.MTEV);
+        mtevx = (String) row.get(MteventeDAO.MTEVX);
+        lo_hi = (Short) row.get(MteventeDAO.LO_HI);
+        fastcut = (Integer) row.get(MteventeDAO.FASTCUT);
+        slowcut = (Integer) row.get(MteventeDAO.SLOWCUT);
+        course = (String) row.get(MteventeDAO.COURSE);
+        mtevent = (Integer) row.get(MteventeDAO.MTEVENT);
+        fast_l = (Integer) row.get(MteventeDAO.FAST_L);
+        slow_l = (Integer) row.get(MteventeDAO.SLOW_L);
+        fast_y = (Integer) row.get(MteventeDAO.FAST_Y);
+        slow_y = (Integer) row.get(MteventeDAO.SLOW_Y);
+        tstdfile = (String) row.get(MteventeDAO.TSTDFILE);
+        tstdesig = (String) row.get(MteventeDAO.TSTDESIG);
+        distance = (Short) row.get(MteventeDAO.DISTANCE);
+        stroke = (Short) row.get(MteventeDAO.STROKE);
+        sex = (String) row.get(MteventeDAO.SEX);
+        i_r = (String) row.get(MteventeDAO.I_R);
+        session = (Byte) row.get(MteventeDAO.SESSION);
+        division = (String) row.get(MteventeDAO.DIVISION);
+        fee = (Float) row.get(MteventeDAO.FEE);
+        exportevent = (String) row.get(MteventeDAO.EXPORTEVENT);
+        gendermix = (Byte) row.get(MteventeDAO.GENDERMIX);
+        sessx = (String) row.get(MteventeDAO.SESSX);
     }
 
 

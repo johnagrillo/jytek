@@ -1,4 +1,4 @@
-package org.jytek.leaguemanager.hytek.tm;
+package org.jytek.leaguemanager.database;
 
 /**
  * -- ----------------------------------------------------------
@@ -41,41 +41,41 @@ package org.jytek.leaguemanager.hytek.tm;
  * [DQDESCRIPTSecondary]			Text (180)
  * );
  */
-public class Result {
+public class ResultDAO {
 
     public static String NAME = "Result";
 
-    private Result() {
+    private ResultDAO() {
     }
 
-    public Result(final com.healthmarketscience.jackcess.Row row) {
+    public ResultDAO(final com.healthmarketscience.jackcess.Row row) {
 
-        meet = (Integer) row.get(Result.MEET);
-        athlete = (Integer) row.get(Result.ATHLETE);
-        i_r = (String) row.get(Result.I_R);
-        team = (Integer) row.get(Result.TEAM);
-        score = (Integer) row.get(Result.SCORE);
-        f_p = (String) row.get(Result.F_P);
-        split = (Integer) row.get(Result.SPLIT);
-        ex = (String) row.get(Result.EX);
-        origin = (String) row.get(Result.ORIGIN);
-        nt = (Byte) row.get(Result.NT);
-        result = (Integer) row.get(Result.RESULT);
-        misc = (String) row.get(Result.MISC);
-        age = (Short) row.get(Result.AGE);
-        distance = (Short) row.get(Result.DISTANCE);
-        stroke = (Short) row.get(Result.STROKE);
-        mtevent = (Integer) row.get(Result.MTEVENT);
-        points = (Short) row.get(Result.POINTS);
-        place = (Short) row.get(Result.PLACE);
-        rank = (Short) row.get(Result.RANK);
-        trank = (Short) row.get(Result.TRANK);
-        course = (String) row.get(Result.COURSE);
-        reaction = (String) row.get(Result.REACTION);
-        dqcode = (String) row.get(Result.DQCODE);
-        dqdescript = (String) row.get(Result.DQDESCRIPT);
-        dqcodesecondary = (String) row.get(Result.DQCODESECONDARY);
-        dqdescriptsecondary = (String) row.get(Result.DQDESCRIPTSECONDARY);
+        meet = (Integer) row.get(ResultDAO.MEET);
+        athlete = (Integer) row.get(ResultDAO.ATHLETE);
+        i_r = (String) row.get(ResultDAO.I_R);
+        team = (Integer) row.get(ResultDAO.TEAM);
+        score = (Integer) row.get(ResultDAO.SCORE);
+        f_p = (String) row.get(ResultDAO.F_P);
+        split = (Integer) row.get(ResultDAO.SPLIT);
+        ex = (String) row.get(ResultDAO.EX);
+        origin = (String) row.get(ResultDAO.ORIGIN);
+        nt = (Byte) row.get(ResultDAO.NT);
+        result = (Integer) row.get(ResultDAO.RESULT);
+        misc = (String) row.get(ResultDAO.MISC);
+        age = (Short) row.get(ResultDAO.AGE);
+        distance = (Short) row.get(ResultDAO.DISTANCE);
+        stroke = (Short) row.get(ResultDAO.STROKE);
+        mtevent = (Integer) row.get(ResultDAO.MTEVENT);
+        points = (Short) row.get(ResultDAO.POINTS);
+        place = (Short) row.get(ResultDAO.PLACE);
+        rank = (Short) row.get(ResultDAO.RANK);
+        trank = (Short) row.get(ResultDAO.TRANK);
+        course = (String) row.get(ResultDAO.COURSE);
+        reaction = (String) row.get(ResultDAO.REACTION);
+        dqcode = (String) row.get(ResultDAO.DQCODE);
+        dqdescript = (String) row.get(ResultDAO.DQDESCRIPT);
+        dqcodesecondary = (String) row.get(ResultDAO.DQCODESECONDARY);
+        dqdescriptsecondary = (String) row.get(ResultDAO.DQDESCRIPTSECONDARY);
     }
 
 

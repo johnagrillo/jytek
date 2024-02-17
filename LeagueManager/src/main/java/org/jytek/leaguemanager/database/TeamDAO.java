@@ -1,4 +1,4 @@
-package org.jytek.leaguemanager.hytek.tm;
+package org.jytek.leaguemanager.database;
 
 /**
  * -- ----------------------------------------------------------
@@ -37,37 +37,37 @@ package org.jytek.leaguemanager.hytek.tm;
  * [TDivision]			Text (6)
  * );
  */
-public class Team {
+public class TeamDAO {
 
     public static String NAME = "Team";
 
-    private Team() {
+    private TeamDAO() {
     }
 
-    public Team(final com.healthmarketscience.jackcess.Row row) {
+    public TeamDAO(final com.healthmarketscience.jackcess.Row row) {
 
-        team = (Integer) row.get(Team.TEAM);
-        tcode = (String) row.get(Team.TCODE);
-        tname = (String) row.get(Team.TNAME);
-        shortn = (String) row.get(Team.SHORTN);
-        lsc = (String) row.get(Team.LSC);
-        mailto = (String) row.get(Team.MAILTO);
-        taddr = (String) row.get(Team.TADDR);
-        tcity = (String) row.get(Team.TCITY);
-        tstate = (String) row.get(Team.TSTATE);
-        tzip = (String) row.get(Team.TZIP);
-        tcntry = (String) row.get(Team.TCNTRY);
-        day = (String) row.get(Team.DAY);
-        eve = (String) row.get(Team.EVE);
-        fax = (String) row.get(Team.FAX);
-        ttype = (String) row.get(Team.TTYPE);
-        regn = (String) row.get(Team.REGN);
-        reg = (String) row.get(Team.REG);
-        minage = (Short) row.get(Team.MINAGE);
-        numath = (Integer) row.get(Team.NUMATH);
-        email = (String) row.get(Team.EMAIL);
-        tm50 = (Boolean) row.get(Team.TM50);
-        tdivision = (String) row.get(Team.TDIVISION);
+        team = (Integer) row.get(TeamDAO.TEAM);
+        tcode = (String) row.get(TeamDAO.TCODE);
+        tname = (String) row.get(TeamDAO.TNAME);
+        shortn = (String) row.get(TeamDAO.SHORTN);
+        lsc = (String) row.get(TeamDAO.LSC);
+        mailto = (String) row.get(TeamDAO.MAILTO);
+        taddr = (String) row.get(TeamDAO.TADDR);
+        tcity = (String) row.get(TeamDAO.TCITY);
+        tstate = (String) row.get(TeamDAO.TSTATE);
+        tzip = (String) row.get(TeamDAO.TZIP);
+        tcntry = (String) row.get(TeamDAO.TCNTRY);
+        day = (String) row.get(TeamDAO.DAY);
+        eve = (String) row.get(TeamDAO.EVE);
+        fax = (String) row.get(TeamDAO.FAX);
+        ttype = (String) row.get(TeamDAO.TTYPE);
+        regn = (String) row.get(TeamDAO.REGN);
+        reg = (String) row.get(TeamDAO.REG);
+        minage = (Short) row.get(TeamDAO.MINAGE);
+        numath = (Integer) row.get(TeamDAO.NUMATH);
+        email = (String) row.get(TeamDAO.EMAIL);
+        tm50 = (Boolean) row.get(TeamDAO.TM50);
+        tdivision = (String) row.get(TeamDAO.TDIVISION);
     }
 
 
@@ -152,9 +152,7 @@ public class Team {
         return tstate;
     }
 
-    public String getTzip() {
-        return tzip;
-    }
+    public String getTzip() {return tzip;}
 
     public String getTcntry() {
         return tcntry;

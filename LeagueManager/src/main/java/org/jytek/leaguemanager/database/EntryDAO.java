@@ -1,4 +1,4 @@
-package org.jytek.leaguemanager.hytek.tm;
+package org.jytek.leaguemanager.database;
 
 /**
  * -- ----------------------------------------------------------
@@ -29,29 +29,29 @@ package org.jytek.leaguemanager.hytek.tm;
  * [FromOME]			Boolean NOT NULL
  * );
  */
-public class Entry {
+public class EntryDAO {
 
     public static String NAME = "Entry";
 
-    private Entry() {
+    private EntryDAO() {
     }
 
-    public Entry(final com.healthmarketscience.jackcess.Row row) {
+    public EntryDAO(final com.healthmarketscience.jackcess.Row row) {
 
-        meet = (Integer) row.get(Entry.MEET);
-        athlete = (Integer) row.get(Entry.ATHLETE);
-        i_r = (String) row.get(Entry.I_R);
-        team = (Integer) row.get(Entry.TEAM);
-        course = (String) row.get(Entry.COURSE);
-        score = (Integer) row.get(Entry.SCORE);
-        ex = (String) row.get(Entry.EX);
-        mtevent = (Integer) row.get(Entry.MTEVENT);
-        misc = (String) row.get(Entry.MISC);
-        entry = (Integer) row.get(Entry.ENTRY);
-        division = (String) row.get(Entry.DIVISION);
-        heat = (Byte) row.get(Entry.HEAT);
-        lane = (Byte) row.get(Entry.LANE);
-        fromome = (Boolean) row.get(Entry.FROMOME);
+        meet = (Integer) row.get(EntryDAO.MEET);
+        athlete = (Integer) row.get(EntryDAO.ATHLETE);
+        i_r = (String) row.get(EntryDAO.I_R);
+        team = (Integer) row.get(EntryDAO.TEAM);
+        course = (String) row.get(EntryDAO.COURSE);
+        score = (Integer) row.get(EntryDAO.SCORE);
+        ex = (String) row.get(EntryDAO.EX);
+        mtevent = (Integer) row.get(EntryDAO.MTEVENT);
+        misc = (String) row.get(EntryDAO.MISC);
+        entry = (Integer) row.get(EntryDAO.ENTRY);
+        division = (String) row.get(EntryDAO.DIVISION);
+        heat = (Byte) row.get(EntryDAO.HEAT);
+        lane = (Byte) row.get(EntryDAO.LANE);
+        fromome = (Boolean) row.get(EntryDAO.FROMOME);
     }
 
 

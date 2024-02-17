@@ -1,4 +1,4 @@
-package org.jytek.leaguemanager.hytek.tm;
+package org.jytek.leaguemanager.database;
 
 /**
  * -- ----------------------------------------------------------
@@ -99,99 +99,99 @@ package org.jytek.leaguemanager.hytek.tm;
  * [EV3Version]			Byte
  * );
  */
-public class Meet {
+public class MeetDAO {
 
     public static String NAME = "Meet";
 
-    private Meet() {
+    private MeetDAO() {
     }
 
-    public Meet(final com.healthmarketscience.jackcess.Row row) {
+    public MeetDAO(final com.healthmarketscience.jackcess.Row row) {
 
-        meet = (Integer) row.get(Meet.MEET);
-        mname = (String) row.get(Meet.MNAME);
-        start = (java.time.LocalDateTime) row.get(Meet.START);
-        end = (java.time.LocalDateTime) row.get(Meet.END);
-        ageup = (java.time.LocalDateTime) row.get(Meet.AGEUP);
-        since = (java.time.LocalDateTime) row.get(Meet.SINCE);
-        course = (String) row.get(Meet.COURSE);
-        location = (String) row.get(Meet.LOCATION);
-        remarks = (String) row.get(Meet.REMARKS);
-        indcharge = (Float) row.get(Meet.INDCHARGE);
-        relcharge = (Float) row.get(Meet.RELCHARGE);
-        surcharge = (Float) row.get(Meet.SURCHARGE);
-        type = (String) row.get(Meet.TYPE);
-        sanction = (String) row.get(Meet.SANCTION);
-        maxindent = (Short) row.get(Meet.MAXINDENT);
-        maxrelent = (Short) row.get(Meet.MAXRELENT);
-        maxent = (Short) row.get(Meet.MAXENT);
-        restrictbest = (Boolean) row.get(Meet.RESTRICTBEST);
-        nonconform = (Double) row.get(Meet.NONCONFORM);
-        enteratqtime = (Boolean) row.get(Meet.ENTERATQTIME);
-        facilityfee = (Float) row.get(Meet.FACILITYFEE);
-        teamfee = (Float) row.get(Meet.TEAMFEE);
-        instructions = (String) row.get(Meet.INSTRUCTIONS);
-        minage = (Short) row.get(Meet.MINAGE);
-        enforcequalifying = (Boolean) row.get(Meet.ENFORCEQUALIFYING);
-        altitude = (Short) row.get(Meet.ALTITUDE);
-        enforceslowqtime = (Boolean) row.get(Meet.ENFORCESLOWQTIME);
-        bannotimes = (Boolean) row.get(Meet.BANNOTIMES);
-        lanes = (Short) row.get(Meet.LANES);
-        evenorodd = (Short) row.get(Meet.EVENORODD);
-        fasttoslow = (Boolean) row.get(Meet.FASTTOSLOW);
-        masters = (Boolean) row.get(Meet.MASTERS);
-        activefeexmlsent = (Boolean) row.get(Meet.ACTIVEFEEXMLSENT);
-        minage10andunder = (Short) row.get(Meet.MINAGE10ANDUNDER);
-        seedlanes = (String) row.get(Meet.SEEDLANES);
-        deadline = (java.time.LocalDateTime) row.get(Meet.DEADLINE);
-        activemeetid = (Integer) row.get(Meet.ACTIVEMEETID);
-        custindcharge = (Float) row.get(Meet.CUSTINDCHARGE);
-        custrelcharge = (Float) row.get(Meet.CUSTRELCHARGE);
-        custsurcharge = (Float) row.get(Meet.CUSTSURCHARGE);
-        custindaction = (Byte) row.get(Meet.CUSTINDACTION);
-        custrelaction = (Byte) row.get(Meet.CUSTRELACTION);
-        custsuraction = (Byte) row.get(Meet.CUSTSURACTION);
-        addr = (String) row.get(Meet.ADDR);
-        addr2 = (String) row.get(Meet.ADDR2);
-        city = (String) row.get(Meet.CITY);
-        state = (String) row.get(Meet.STATE);
-        zip = (String) row.get(Meet.ZIP);
-        cntry = (String) row.get(Meet.CNTRY);
-        usecustomfees = (Boolean) row.get(Meet.USECUSTOMFEES);
-        omeentrystyle = (Byte) row.get(Meet.OMEENTRYSTYLE);
-        swimmerentrydeadline = (java.time.LocalDateTime) row.get(Meet.SWIMMERENTRYDEADLINE);
-        swimmerentryopen = (java.time.LocalDateTime) row.get(Meet.SWIMMERENTRYOPEN);
-        allowcustomtimes = (Boolean) row.get(Meet.ALLOWCUSTOMTIMES);
-        exportentriesdate = (java.time.LocalDateTime) row.get(Meet.EXPORTENTRIESDATE);
-        lastsyncdate = (java.time.LocalDateTime) row.get(Meet.LASTSYNCDATE);
-        finalizeentriesdate = (java.time.LocalDateTime) row.get(Meet.FINALIZEENTRIESDATE);
-        useswimmersteam = (Boolean) row.get(Meet.USESWIMMERSTEAM);
-        honorinvitelist = (Boolean) row.get(Meet.HONORINVITELIST);
-        entryteam = (Integer) row.get(Meet.ENTRYTEAM);
-        emailfrom = (String) row.get(Meet.EMAILFROM);
-        emailtext = (String) row.get(Meet.EMAILTEXT);
-        emailsubject = (String) row.get(Meet.EMAILSUBJECT);
-        onlypreentered = (Boolean) row.get(Meet.ONLYPREENTERED);
-        license = (String) row.get(Meet.LICENSE);
-        collectfeesonline = (Boolean) row.get(Meet.COLLECTFEESONLINE);
-        omebilldate = (java.time.LocalDateTime) row.get(Meet.OMEBILLDATE);
-        inviteemaildate = (java.time.LocalDateTime) row.get(Meet.INVITEEMAILDATE);
-        entryemailtext = (String) row.get(Meet.ENTRYEMAILTEXT);
-        entryemailsubject = (String) row.get(Meet.ENTRYEMAILSUBJECT);
-        entryemailfrom = (String) row.get(Meet.ENTRYEMAILFROM);
-        omevalidated = (Boolean) row.get(Meet.OMEVALIDATED);
-        omecustomteam = (Boolean) row.get(Meet.OMECUSTOMTEAM);
-        omefilterteam = (Integer) row.get(Meet.OMEFILTERTEAM);
-        omeneedssync = (Boolean) row.get(Meet.OMENEEDSSYNC);
-        omeneedsync = (Boolean) row.get(Meet.OMENEEDSYNC);
-        meetsharingstatus = (String) row.get(Meet.MEETSHARINGSTATUS);
-        fileexporttype = (Short) row.get(Meet.FILEEXPORTTYPE);
-        meetregistrationopens = (java.time.LocalDateTime) row.get(Meet.MEETREGISTRATIONOPENS);
-        meetregistrationcloses = (java.time.LocalDateTime) row.get(Meet.MEETREGISTRATIONCLOSES);
-        meetsharingmeetid = (Integer) row.get(Meet.MEETSHARINGMEETID);
-        meetsharingpaystatus = (String) row.get(Meet.MEETSHARINGPAYSTATUS);
-        meetsharingresultdate = (java.time.LocalDateTime) row.get(Meet.MEETSHARINGRESULTDATE);
-        ev3version = (Byte) row.get(Meet.EV3VERSION);
+        meet = (Integer) row.get(MeetDAO.MEET);
+        mname = (String) row.get(MeetDAO.MNAME);
+        start = (java.time.LocalDateTime) row.get(MeetDAO.START);
+        end = (java.time.LocalDateTime) row.get(MeetDAO.END);
+        ageup = (java.time.LocalDateTime) row.get(MeetDAO.AGEUP);
+        since = (java.time.LocalDateTime) row.get(MeetDAO.SINCE);
+        course = (String) row.get(MeetDAO.COURSE);
+        location = (String) row.get(MeetDAO.LOCATION);
+        remarks = (String) row.get(MeetDAO.REMARKS);
+        indcharge = (Float) row.get(MeetDAO.INDCHARGE);
+        relcharge = (Float) row.get(MeetDAO.RELCHARGE);
+        surcharge = (Float) row.get(MeetDAO.SURCHARGE);
+        type = (String) row.get(MeetDAO.TYPE);
+        sanction = (String) row.get(MeetDAO.SANCTION);
+        maxindent = (Short) row.get(MeetDAO.MAXINDENT);
+        maxrelent = (Short) row.get(MeetDAO.MAXRELENT);
+        maxent = (Short) row.get(MeetDAO.MAXENT);
+        restrictbest = (Boolean) row.get(MeetDAO.RESTRICTBEST);
+        nonconform = (Double) row.get(MeetDAO.NONCONFORM);
+        enteratqtime = (Boolean) row.get(MeetDAO.ENTERATQTIME);
+        facilityfee = (Float) row.get(MeetDAO.FACILITYFEE);
+        teamfee = (Float) row.get(MeetDAO.TEAMFEE);
+        instructions = (String) row.get(MeetDAO.INSTRUCTIONS);
+        minage = (Short) row.get(MeetDAO.MINAGE);
+        enforcequalifying = (Boolean) row.get(MeetDAO.ENFORCEQUALIFYING);
+        altitude = (Short) row.get(MeetDAO.ALTITUDE);
+        enforceslowqtime = (Boolean) row.get(MeetDAO.ENFORCESLOWQTIME);
+        bannotimes = (Boolean) row.get(MeetDAO.BANNOTIMES);
+        lanes = (Short) row.get(MeetDAO.LANES);
+        evenorodd = (Short) row.get(MeetDAO.EVENORODD);
+        fasttoslow = (Boolean) row.get(MeetDAO.FASTTOSLOW);
+        masters = (Boolean) row.get(MeetDAO.MASTERS);
+        activefeexmlsent = (Boolean) row.get(MeetDAO.ACTIVEFEEXMLSENT);
+        minage10andunder = (Short) row.get(MeetDAO.MINAGE10ANDUNDER);
+        seedlanes = (String) row.get(MeetDAO.SEEDLANES);
+        deadline = (java.time.LocalDateTime) row.get(MeetDAO.DEADLINE);
+        activemeetid = (Integer) row.get(MeetDAO.ACTIVEMEETID);
+        custindcharge = (Float) row.get(MeetDAO.CUSTINDCHARGE);
+        custrelcharge = (Float) row.get(MeetDAO.CUSTRELCHARGE);
+        custsurcharge = (Float) row.get(MeetDAO.CUSTSURCHARGE);
+        custindaction = (Byte) row.get(MeetDAO.CUSTINDACTION);
+        custrelaction = (Byte) row.get(MeetDAO.CUSTRELACTION);
+        custsuraction = (Byte) row.get(MeetDAO.CUSTSURACTION);
+        addr = (String) row.get(MeetDAO.ADDR);
+        addr2 = (String) row.get(MeetDAO.ADDR2);
+        city = (String) row.get(MeetDAO.CITY);
+        state = (String) row.get(MeetDAO.STATE);
+        zip = (String) row.get(MeetDAO.ZIP);
+        cntry = (String) row.get(MeetDAO.CNTRY);
+        usecustomfees = (Boolean) row.get(MeetDAO.USECUSTOMFEES);
+        omeentrystyle = (Byte) row.get(MeetDAO.OMEENTRYSTYLE);
+        swimmerentrydeadline = (java.time.LocalDateTime) row.get(MeetDAO.SWIMMERENTRYDEADLINE);
+        swimmerentryopen = (java.time.LocalDateTime) row.get(MeetDAO.SWIMMERENTRYOPEN);
+        allowcustomtimes = (Boolean) row.get(MeetDAO.ALLOWCUSTOMTIMES);
+        exportentriesdate = (java.time.LocalDateTime) row.get(MeetDAO.EXPORTENTRIESDATE);
+        lastsyncdate = (java.time.LocalDateTime) row.get(MeetDAO.LASTSYNCDATE);
+        finalizeentriesdate = (java.time.LocalDateTime) row.get(MeetDAO.FINALIZEENTRIESDATE);
+        useswimmersteam = (Boolean) row.get(MeetDAO.USESWIMMERSTEAM);
+        honorinvitelist = (Boolean) row.get(MeetDAO.HONORINVITELIST);
+        entryteam = (Integer) row.get(MeetDAO.ENTRYTEAM);
+        emailfrom = (String) row.get(MeetDAO.EMAILFROM);
+        emailtext = (String) row.get(MeetDAO.EMAILTEXT);
+        emailsubject = (String) row.get(MeetDAO.EMAILSUBJECT);
+        onlypreentered = (Boolean) row.get(MeetDAO.ONLYPREENTERED);
+        license = (String) row.get(MeetDAO.LICENSE);
+        collectfeesonline = (Boolean) row.get(MeetDAO.COLLECTFEESONLINE);
+        omebilldate = (java.time.LocalDateTime) row.get(MeetDAO.OMEBILLDATE);
+        inviteemaildate = (java.time.LocalDateTime) row.get(MeetDAO.INVITEEMAILDATE);
+        entryemailtext = (String) row.get(MeetDAO.ENTRYEMAILTEXT);
+        entryemailsubject = (String) row.get(MeetDAO.ENTRYEMAILSUBJECT);
+        entryemailfrom = (String) row.get(MeetDAO.ENTRYEMAILFROM);
+        omevalidated = (Boolean) row.get(MeetDAO.OMEVALIDATED);
+        omecustomteam = (Boolean) row.get(MeetDAO.OMECUSTOMTEAM);
+        omefilterteam = (Integer) row.get(MeetDAO.OMEFILTERTEAM);
+        omeneedssync = (Boolean) row.get(MeetDAO.OMENEEDSSYNC);
+        omeneedsync = (Boolean) row.get(MeetDAO.OMENEEDSYNC);
+        meetsharingstatus = (String) row.get(MeetDAO.MEETSHARINGSTATUS);
+        fileexporttype = (Short) row.get(MeetDAO.FILEEXPORTTYPE);
+        meetregistrationopens = (java.time.LocalDateTime) row.get(MeetDAO.MEETREGISTRATIONOPENS);
+        meetregistrationcloses = (java.time.LocalDateTime) row.get(MeetDAO.MEETREGISTRATIONCLOSES);
+        meetsharingmeetid = (Integer) row.get(MeetDAO.MEETSHARINGMEETID);
+        meetsharingpaystatus = (String) row.get(MeetDAO.MEETSHARINGPAYSTATUS);
+        meetsharingresultdate = (java.time.LocalDateTime) row.get(MeetDAO.MEETSHARINGRESULTDATE);
+        ev3version = (Byte) row.get(MeetDAO.EV3VERSION);
     }
 
 

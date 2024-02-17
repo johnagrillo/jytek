@@ -1,4 +1,4 @@
-package org.jytek.leaguemanager.hytek.tm;
+package org.jytek.leaguemanager.database;
 
 /**
  * -- ----------------------------------------------------------
@@ -29,29 +29,29 @@ package org.jytek.leaguemanager.hytek.tm;
  * [SessX]			Text (2)
  * );
  */
-public class Mtevent {
+public class MteventDAO {
 
     public static String NAME = "Mtevent";
 
-    private Mtevent() {
+    private MteventDAO() {
     }
 
-    public Mtevent(final com.healthmarketscience.jackcess.Row row) {
+    public MteventDAO(final com.healthmarketscience.jackcess.Row row) {
 
-        meet = (Integer) row.get(Mtevent.MEET);
-        mtev = (Short) row.get(Mtevent.MTEV);
-        mtevx = (String) row.get(Mtevent.MTEVX);
-        lo_hi = (Short) row.get(Mtevent.LO_HI);
-        course = (String) row.get(Mtevent.COURSE);
-        mtevent = (Integer) row.get(Mtevent.MTEVENT);
-        distance = (Short) row.get(Mtevent.DISTANCE);
-        stroke = (Short) row.get(Mtevent.STROKE);
-        sex = (String) row.get(Mtevent.SEX);
-        i_r = (String) row.get(Mtevent.I_R);
-        session = (Byte) row.get(Mtevent.SESSION);
-        division = (String) row.get(Mtevent.DIVISION);
-        eventtype = (String) row.get(Mtevent.EVENTTYPE);
-        sessx = (String) row.get(Mtevent.SESSX);
+        meet = (Integer) row.get(MteventDAO.MEET);
+        mtev = (Short) row.get(MteventDAO.MTEV);
+        mtevx = (String) row.get(MteventDAO.MTEVX);
+        lo_hi = (Short) row.get(MteventDAO.LO_HI);
+        course = (String) row.get(MteventDAO.COURSE);
+        mtevent = (Integer) row.get(MteventDAO.MTEVENT);
+        distance = (Short) row.get(MteventDAO.DISTANCE);
+        stroke = (Short) row.get(MteventDAO.STROKE);
+        sex = (String) row.get(MteventDAO.SEX);
+        i_r = (String) row.get(MteventDAO.I_R);
+        session = (Byte) row.get(MteventDAO.SESSION);
+        division = (String) row.get(MteventDAO.DIVISION);
+        eventtype = (String) row.get(MteventDAO.EVENTTYPE);
+        sessx = (String) row.get(MteventDAO.SESSX);
     }
 
 

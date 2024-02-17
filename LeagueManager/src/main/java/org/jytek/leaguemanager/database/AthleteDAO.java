@@ -1,4 +1,4 @@
-package org.jytek.leaguemanager.hytek.tm;
+package org.jytek.leaguemanager.database;
 
 /**
  * -- ----------------------------------------------------------
@@ -49,11 +49,11 @@ package org.jytek.leaguemanager.hytek.tm;
  * [PC_Hide]			Boolean NOT NULL
  * );
  */
-public class Athlete {
+public class AthleteDAO {
 
     public static String NAME = "Athlete";
 
-    private Athlete() {
+    private AthleteDAO() {
     }
 
     @Override
@@ -70,42 +70,42 @@ public class Athlete {
                 '}';
     }
 
-    public Athlete(final com.healthmarketscience.jackcess.Row row) {
+    public AthleteDAO(final com.healthmarketscience.jackcess.Row row) {
 
-        athlete = (Integer) row.get(Athlete.ATHLETE);
-        team1 = (Integer) row.get(Athlete.TEAM1);
-        team2 = (Integer) row.get(Athlete.TEAM2);
-        team3 = (Integer) row.get(Athlete.TEAM3);
-        group = (String) row.get(Athlete.GROUP);
-        subgr = (String) row.get(Athlete.SUBGR);
-        last = (String) row.get(Athlete.LAST);
-        first = (String) row.get(Athlete.FIRST);
-        initial = (String) row.get(Athlete.INITIAL);
-        sex = (String) row.get(Athlete.SEX);
-        birth = (java.time.LocalDateTime) row.get(Athlete.BIRTH);
-        age = (Short) row.get(Athlete.AGE);
-        classn = (String) row.get(Athlete.CLASSN);
-        id_no = (String) row.get(Athlete.ID_NO);
-        citizen = (String) row.get(Athlete.CITIZEN);
-        inactive = (Boolean) row.get(Athlete.INACTIVE);
-        pref = (String) row.get(Athlete.PREF);
-        batch = (Short) row.get(Athlete.BATCH);
-        wmgroup = (String) row.get(Athlete.WMGROUP);
-        wmsubgr = (String) row.get(Athlete.WMSUBGR);
-        bcssaswimmer = (String) row.get(Athlete.BCSSASWIMMER);
-        bcssadiver = (String) row.get(Athlete.BCSSADIVER);
-        bcssasyncro = (String) row.get(Athlete.BCSSASYNCRO);
-        bcssapolo = (String) row.get(Athlete.BCSSAPOLO);
-        thesort = (Integer) row.get(Athlete.THESORT);
-        divecertified = (Boolean) row.get(Athlete.DIVECERTIFIED);
-        dateclubjoined = (java.time.LocalDateTime) row.get(Athlete.DATECLUBJOINED);
-        dategroupjoined = (java.time.LocalDateTime) row.get(Athlete.DATEGROUPJOINED);
-        awregtype = (String) row.get(Athlete.AWREGTYPE);
-        regyear = (Short) row.get(Athlete.REGYEAR);
-        foreign = (Boolean) row.get(Athlete.FOREIGN);
-        foreigncitizenof = (String) row.get(Athlete.FOREIGNCITIZENOF);
-        lastupdated = (java.time.LocalDateTime) row.get(Athlete.LASTUPDATED);
-        pc_hide = (Boolean) row.get(Athlete.PC_HIDE);
+        athlete = (Integer) row.get(AthleteDAO.ATHLETE);
+        team1 = (Integer) row.get(AthleteDAO.TEAM1);
+        team2 = (Integer) row.get(AthleteDAO.TEAM2);
+        team3 = (Integer) row.get(AthleteDAO.TEAM3);
+        group = (String) row.get(AthleteDAO.GROUP);
+        subgr = (String) row.get(AthleteDAO.SUBGR);
+        last = (String) row.get(AthleteDAO.LAST);
+        first = (String) row.get(AthleteDAO.FIRST);
+        initial = (String) row.get(AthleteDAO.INITIAL);
+        sex = (String) row.get(AthleteDAO.SEX);
+        birth = (java.time.LocalDateTime) row.get(AthleteDAO.BIRTH);
+        age = (Short) row.get(AthleteDAO.AGE);
+        classn = (String) row.get(AthleteDAO.CLASSN);
+        id_no = (String) row.get(AthleteDAO.ID_NO);
+        citizen = (String) row.get(AthleteDAO.CITIZEN);
+        inactive = (Boolean) row.get(AthleteDAO.INACTIVE);
+        pref = (String) row.get(AthleteDAO.PREF);
+        batch = (Short) row.get(AthleteDAO.BATCH);
+        wmgroup = (String) row.get(AthleteDAO.WMGROUP);
+        wmsubgr = (String) row.get(AthleteDAO.WMSUBGR);
+        bcssaswimmer = (String) row.get(AthleteDAO.BCSSASWIMMER);
+        bcssadiver = (String) row.get(AthleteDAO.BCSSADIVER);
+        bcssasyncro = (String) row.get(AthleteDAO.BCSSASYNCRO);
+        bcssapolo = (String) row.get(AthleteDAO.BCSSAPOLO);
+        thesort = (Integer) row.get(AthleteDAO.THESORT);
+        divecertified = (Boolean) row.get(AthleteDAO.DIVECERTIFIED);
+        dateclubjoined = (java.time.LocalDateTime) row.get(AthleteDAO.DATECLUBJOINED);
+        dategroupjoined = (java.time.LocalDateTime) row.get(AthleteDAO.DATEGROUPJOINED);
+        awregtype = (String) row.get(AthleteDAO.AWREGTYPE);
+        regyear = (Short) row.get(AthleteDAO.REGYEAR);
+        foreign = (Boolean) row.get(AthleteDAO.FOREIGN);
+        foreigncitizenof = (String) row.get(AthleteDAO.FOREIGNCITIZENOF);
+        lastupdated = (java.time.LocalDateTime) row.get(AthleteDAO.LASTUPDATED);
+        pc_hide = (Boolean) row.get(AthleteDAO.PC_HIDE);
     }
 
 

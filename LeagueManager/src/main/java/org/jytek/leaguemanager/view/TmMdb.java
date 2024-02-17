@@ -1,7 +1,7 @@
-package org.jytek.leaguemanager.jytek;
+package org.jytek.leaguemanager.view;
 
 import com.healthmarketscience.jackcess.Row;
-import org.jytek.leaguemanager.hytek.tm.*;
+import org.jytek.leaguemanager.database.*;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -12,18 +12,18 @@ import java.util.HashMap;
 public class TmMdb {
 
     private com.healthmarketscience.jackcess.Database db;
-    private HashMap<Integer, org.jytek.leaguemanager.jytek.Team> teams;
+    private HashMap<Integer, org.jytek.leaguemanager.view.Team> teams;
 
-    public HashMap<Integer, Meet> getMeets() {
+    public HashMap<Integer, MeetDAO> getMeets() {
         return this.meets;
     }
 
-    private HashMap<Integer, Meet> meets;
-    private HashMap<Integer, Mtevente> mtevente;
-    private HashMap<Integer, Mtevent> mtevent;
+    private HashMap<Integer, MeetDAO> meets;
+    private HashMap<Integer, MteventeDAO> mtevente;
+    private HashMap<Integer, MteventDAO> mtevent;
     private HashMap<Integer, Athlete> athletes;
-    private HashMap<Integer, Result> results;
-    private HashMap<Integer, org.jytek.leaguemanager.jytek.Relay> relays;
+    private HashMap<Integer, ResultDAO> results;
+    private HashMap<Integer, org.jytek.leaguemanager.view.Relay> relays;
 
 
     private TmMdb() {
@@ -38,8 +38,8 @@ public class TmMdb {
             final String fileName = "output/meets.txt";
             final BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
             meets = new HashMap<>();
-            for (final Row row : db.getTable(org.jytek.leaguemanager.hytek.tm.Meet.NAME)) {
-                final var meet = new Meet(row);
+            for (final Row row : db.getTable(MeetDAO.NAME)) {
+                final var meet = new MeetDAO(row);
                 meets.put(meet.getMeet(), meet);
                 writer.write(meet + "\n");
             }
@@ -48,30 +48,30 @@ public class TmMdb {
 
 
             teams = new HashMap<>();
-            for (final Row row : db.getTable(org.jytek.leaguemanager.hytek.tm.Team.NAME)) {
-                final var team = new org.jytek.leaguemanager.hytek.tm.Team(row);
-                teams.put(team.getTeam(), new org.jytek.leaguemanager.jytek.Team(team));
+            for (final Row row : db.getTable(TeamDAO.NAME)) {
+                final var team = new TeamDAO(row);
+                teams.put(team.getTeam(), new org.jytek.leaguemanager.view.Team(team));
             }
             System.out.println("Teams: " + teams.size());
 
             mtevente = new HashMap<>();
-            for (final Row row : db.getTable(org.jytek.leaguemanager.hytek.tm.Mtevente.NAME)) {
-                final Mtevente eve = new Mtevente(row);
+            for (final Row row : db.getTable(MteventeDAO.NAME)) {
+                final MteventeDAO eve = new MteventeDAO(row);
                 mtevente.put(eve.getMtevent(), eve);
             }
 
             mtevent = new HashMap<>();
-            for (final Row row : db.getTable(org.jytek.leaguemanager.hytek.tm.Mtevent.NAME)) {
-                final Mtevent event = new Mtevent(row);
+            for (final Row row : db.getTable(MteventDAO.NAME)) {
+                final MteventDAO event = new MteventDAO(row);
                 mtevent.put(event.getMtevent(), event);
             }
             System.out.println("Events: " + mtevent.size());
 
             // get athletes
             athletes = new HashMap<>();
-            for (final Row row : db.getTable(org.jytek.leaguemanager.hytek.tm.Athlete.NAME)) {
-                final org.jytek.leaguemanager.hytek.tm.Athlete a = new org.jytek.leaguemanager.hytek.tm.Athlete(row);
-                athletes.put(a.getAthlete(), new org.jytek.leaguemanager.jytek.Athlete(a, teams.get(a.getTeam1()).getTeam()));
+            for (final Row row : db.getTable(AthleteDAO.NAME)) {
+                final AthleteDAO a = new AthleteDAO(row);
+                athletes.put(a.getAthlete(), new org.jytek.leaguemanager.view.Athlete(a, teams.get(a.getTeam1()).getTeam()));
 
                 var team = this.teams.get(a.getTeam1());
                 team.addAthlete(a);
@@ -83,8 +83,8 @@ public class TmMdb {
             // relays are also athletes
             // not all relays have results
             relays = new HashMap<>();
-            for (var row : db.getTable(org.jytek.leaguemanager.hytek.tm.Relay.NAME)) {
-                org.jytek.leaguemanager.hytek.tm.Relay tmr = new org.jytek.leaguemanager.hytek.tm.Relay(row);
+            for (var row : db.getTable(RelayDAO.NAME)) {
+                RelayDAO tmr = new RelayDAO(row);
                 var team = this.teams.get(tmr.getTeam());
                 relays.put(tmr.getRelay(), new Relay(tmr, team.getTeam()));
                 team.addARelay(tmr);
@@ -94,8 +94,8 @@ public class TmMdb {
 
             // get results
             results = new HashMap<>();
-            for (final Row row : db.getTable(Result.NAME)) {
-                final Result r = new Result(row);
+            for (final Row row : db.getTable(ResultDAO.NAME)) {
+                final ResultDAO r = new ResultDAO(row);
                 results.put(r.getResult(), r);
 
                 if (!r.getDqcode().isBlank()) {
@@ -127,11 +127,11 @@ public class TmMdb {
         return this.teams;
     }
 
-    public HashMap<Integer, Mtevente> getMtevente() {
+    public HashMap<Integer, MteventeDAO> getMtevente() {
         return this.mtevente;
     }
 
-    public HashMap<Integer, Mtevent> getMtevent() {
+    public HashMap<Integer, MteventDAO> getMtevent() {
         return this.mtevent;
     }
 
@@ -139,7 +139,7 @@ public class TmMdb {
         return this.athletes;
     }
 
-    public HashMap<Integer, Result> getResults() {
+    public HashMap<Integer, ResultDAO> getResults() {
         return this.results;
     }
 

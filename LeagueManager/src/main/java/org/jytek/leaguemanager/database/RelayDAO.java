@@ -1,4 +1,4 @@
-package org.jytek.leaguemanager.hytek.tm;
+package org.jytek.leaguemanager.database;
 
 import java.util.Objects;
 
@@ -39,37 +39,37 @@ import java.util.Objects;
  * [REACTION4]			Text (10)
  * );
  */
-public class Relay {
+public class RelayDAO {
 
     public static String NAME = "Relay";
 
-    private Relay() {
+    private RelayDAO() {
     }
 
-    public Relay(final com.healthmarketscience.jackcess.Row row) {
+    public RelayDAO(final com.healthmarketscience.jackcess.Row row) {
 
-        relay = (Integer) row.get(Relay.RELAY);
-        meet = (Integer) row.get(Relay.MEET);
-        lo_hi = (Short) row.get(Relay.LO_HI);
-        team = (Integer) row.get(Relay.TEAM);
-        letter = (String) row.get(Relay.LETTER);
-        age_range = (Short) row.get(Relay.AGE_RANGE);
-        sex = (String) row.get(Relay.SEX);
-        ath_1 = (Integer) row.get(Relay.ATH_1);
-        ath_2 = (Integer) row.get(Relay.ATH_2);
-        ath_3 = (Integer) row.get(Relay.ATH_3);
-        ath_4 = (Integer) row.get(Relay.ATH_4);
-        ath_5 = (Integer) row.get(Relay.ATH_5);
-        ath_6 = (Integer) row.get(Relay.ATH_6);
-        ath_7 = (Integer) row.get(Relay.ATH_7);
-        ath_8 = (Integer) row.get(Relay.ATH_8);
-        distance = (Short) row.get(Relay.DISTANCE);
-        stroke = (Short) row.get(Relay.STROKE);
-        relayage = (String) row.get(Relay.RELAYAGE);
-        reaction1 = (String) row.get(Relay.REACTION1);
-        reaction2 = (String) row.get(Relay.REACTION2);
-        reaction3 = (String) row.get(Relay.REACTION3);
-        reaction4 = (String) row.get(Relay.REACTION4);
+        relay = (Integer) row.get(RelayDAO.RELAY);
+        meet = (Integer) row.get(RelayDAO.MEET);
+        lo_hi = (Short) row.get(RelayDAO.LO_HI);
+        team = (Integer) row.get(RelayDAO.TEAM);
+        letter = (String) row.get(RelayDAO.LETTER);
+        age_range = (Short) row.get(RelayDAO.AGE_RANGE);
+        sex = (String) row.get(RelayDAO.SEX);
+        ath_1 = (Integer) row.get(RelayDAO.ATH_1);
+        ath_2 = (Integer) row.get(RelayDAO.ATH_2);
+        ath_3 = (Integer) row.get(RelayDAO.ATH_3);
+        ath_4 = (Integer) row.get(RelayDAO.ATH_4);
+        ath_5 = (Integer) row.get(RelayDAO.ATH_5);
+        ath_6 = (Integer) row.get(RelayDAO.ATH_6);
+        ath_7 = (Integer) row.get(RelayDAO.ATH_7);
+        ath_8 = (Integer) row.get(RelayDAO.ATH_8);
+        distance = (Short) row.get(RelayDAO.DISTANCE);
+        stroke = (Short) row.get(RelayDAO.STROKE);
+        relayage = (String) row.get(RelayDAO.RELAYAGE);
+        reaction1 = (String) row.get(RelayDAO.REACTION1);
+        reaction2 = (String) row.get(RelayDAO.REACTION2);
+        reaction3 = (String) row.get(RelayDAO.REACTION3);
+        reaction4 = (String) row.get(RelayDAO.REACTION4);
     }
 
 
@@ -224,7 +224,7 @@ public class Relay {
     public boolean equals(final Object o) {
         if (this == o) return true;
         if (null == o || this.getClass() != o.getClass()) return false;
-        final Relay relay1 = (Relay) o;
+        final RelayDAO relay1 = (RelayDAO) o;
         return Objects.equals(this.relay, relay1.relay) && Objects.equals(this.meet, relay1.meet) && Objects.equals(this.lo_hi, relay1.lo_hi) && Objects.equals(this.team, relay1.team) && Objects.equals(this.letter, relay1.letter) && Objects.equals(this.age_range, relay1.age_range) && Objects.equals(this.sex, relay1.sex) && Objects.equals(this.ath_1, relay1.ath_1) && Objects.equals(this.ath_2, relay1.ath_2) && Objects.equals(this.ath_3, relay1.ath_3) && Objects.equals(this.ath_4, relay1.ath_4) && Objects.equals(this.ath_5, relay1.ath_5) && Objects.equals(this.ath_6, relay1.ath_6) && Objects.equals(this.ath_7, relay1.ath_7) && Objects.equals(this.ath_8, relay1.ath_8) && Objects.equals(this.distance, relay1.distance) && Objects.equals(this.stroke, relay1.stroke);
     }
 
