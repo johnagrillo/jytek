@@ -1,4 +1,4 @@
-package hytek.tm;
+package org.jytek.leaguemanager.hytek.tm;
 
 import java.util.Objects;
 
