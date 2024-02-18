@@ -1,5 +1,7 @@
 package org.jytek.leaguemanager.database;
 
+import com.healthmarketscience.jackcess.Row;
+
 /**
  * -- ----------------------------------------------------------
  * -- MDB Tools - A library for reading MS Access database files
@@ -70,7 +72,7 @@ public class AthleteDAO {
                 '}';
     }
 
-    public AthleteDAO(final com.healthmarketscience.jackcess.Row row) {
+    public AthleteDAO(final Row row) {
 
         athlete = (Integer) row.get(AthleteDAO.ATHLETE);
         team1 = (Integer) row.get(AthleteDAO.TEAM1);

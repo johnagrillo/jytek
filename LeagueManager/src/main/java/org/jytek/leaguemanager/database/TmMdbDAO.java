@@ -1,7 +1,9 @@
-package org.jytek.leaguemanager.view;
-
+package org.jytek.leaguemanager.database;
 import com.healthmarketscience.jackcess.Row;
-import org.jytek.leaguemanager.database.*;
+
+import org.jytek.leaguemanager.view.Athlete;
+import org.jytek.leaguemanager.view.Relay;
+import org.jytek.leaguemanager.view.Team;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -9,7 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class TmMdb {
+public class TmMdbDAO {
 
     private com.healthmarketscience.jackcess.Database db;
     private HashMap<Integer, org.jytek.leaguemanager.view.Team> teams;
@@ -26,12 +28,12 @@ public class TmMdb {
     private HashMap<Integer, org.jytek.leaguemanager.view.Relay> relays;
 
 
-    private TmMdb() {
+    private TmMdbDAO() {
 
     }
 
 
-    public TmMdb(File input) {
+    public TmMdbDAO(File input) {
         try {
             db = com.healthmarketscience.jackcess.DatabaseBuilder.open(input);
 

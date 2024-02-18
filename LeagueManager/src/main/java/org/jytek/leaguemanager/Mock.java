@@ -1,6 +1,9 @@
 package org.jytek.leaguemanager;
 
-import org.jytek.leaguemanager.hytek.tm.Result;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import org.jytek.leaguemanager.database.ResultDAO;
+import org.jytek.leaguemanager.database.TmMdbDAO;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -8,24 +11,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
-class EventResult {
-
-    HashMap<Short, Result> eventResult;
-
-    public EventResult() {
-        eventResult = new HashMap<>();
-    }
-
-    Result get(Short event) {
-        return eventResult.get(event);
-    }
-}
-
-
 public final class Mock {
 
-    org.jytek.leaguemanager.jytek.TmMdb tm;
-
+    TmMdbDAO tm;
 
     public static void main(String[] args) {
         final File input = new File(args[0]);
@@ -33,29 +21,33 @@ public final class Mock {
         mock.run();
     }
 
-    private Mock(File input) {
-        tm = new org.jytek.leaguemanager.jytek.TmMdb(input);
+    Mock(File input) {
+        tm = new TmMdbDAO(input);
     }
 
 
-    private void run() {
+    ObservableList<MockResult> run() {
+        ObservableList<MockResult> results = FXCollections.observableArrayList();
+
         for (final var team1 : tm.getTeams().keySet()) {
             for (final var team2 : tm.getTeams().keySet()) {
                 if (!Objects.equals(team1, team2)) {
                     try {
-                        runDualMockMeet(tm.getTeams().get(team1), tm.getTeams().get(team2));
+                        results.add(runDualMockMeet(tm.getTeams().get(team1), tm.getTeams().get(team2)));
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
                 }
             }
         }
+        return results;
     }
 
 
-    private void runDualMockMeet(org.jytek.leaguemanager.jytek.Team team1, org.jytek.leaguemanager.jytek.Team team2) throws IOException {
+    private MockResult runDualMockMeet(org.jytek.leaguemanager.view.Team team1, org.jytek.leaguemanager.view.Team team2) throws IOException {
 
-        Map<Short, ArrayList<Result>> mentries = new java.util.TreeMap<>();
+
+        Map<Short, ArrayList<ResultDAO>> mentries = new java.util.TreeMap<>();
         final Map<Integer, Integer> teamScores = new TreeMap<Integer, Integer>();
 
         final String fileName = "output/" + team1.getTeam().getTcode() + "-" + team2.getTeam().getTcode() + ".txt";
@@ -69,12 +61,12 @@ public final class Mock {
 
             // all athletes fastest times are entered are entered
             for (final var ath : team.getAthletes()) {
-                final Map<Short, Result> bestSwimsY = new TreeMap<>();
-                final Map<Short, Result> bestSwimsS = new TreeMap<>();
+                final Map<Short, ResultDAO> bestSwimsY = new TreeMap<>();
+                final Map<Short, ResultDAO> bestSwimsS = new TreeMap<>();
                 final Set<Short> bestSwims = new TreeSet<>();
 
                 // get the lowest score for each event
-                for (final Result r : tm.getAthletes().get(ath.getAthlete()).getResults()) {
+                for (final ResultDAO r : tm.getAthletes().get(ath.getAthlete()).getResults()) {
                     var ev = tm.getMtevent().get(r.getMtevent()).getMtev();
 
                     if (ev == 11 && ath.getAthlete() == 1224) {
@@ -143,7 +135,7 @@ public final class Mock {
                 }
             }
 
-            final Map<Short, Result> bestRelays = new TreeMap<>();
+            final Map<Short, ResultDAO> bestRelays = new TreeMap<>();
 
             // only fastest relay time per event
             for (final var relay : team.getRelays()) {
@@ -192,7 +184,7 @@ public final class Mock {
         final Map<Integer, Integer> scored = new HashMap<>();
         for (var ev : mentries.keySet()) {
             writer.write(ev + "\n");
-            Map<Integer, ArrayList<Result>> scores = new TreeMap<>();
+            Map<Integer, ArrayList<ResultDAO>> scores = new TreeMap<>();
             for (var r : mentries.get(ev)) {
                 if (scored.computeIfAbsent(r.getAthlete(), k -> 0) == 4) {
                     continue;
@@ -259,10 +251,18 @@ public final class Mock {
         var score = "SCORE:" + team1.getTeam().getTcode() + "," + team2.getTeam().getTcode() + ","
                 + team1score + "," + team2score + "," + ((team1score - team2score) / 10.0);
 
+
+
+
         System.out.println(score);
         writer.write(score + "\n");
         writer.close();
-    }
+        return new MockResult(team1.getTeam().getTcode(),
+                team1score,
+                team2.getTeam().getTcode(),
+                team2score,
+                (int) ((int)(team1score - team2score) / 10.0));
 
+    }
 
 }
