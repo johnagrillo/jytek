@@ -42,15 +42,14 @@ task :compare do
 
 
   File.read("mine.csv").each_line do |l|
-    t1,t2,s1,s2,diff = l.split(",")
-    
-    real = fssl[t1][t2]
-    
-    print t1," ", t2, " ", real, " ", diff.to_i, "\n"
 
-
+    if (l=~/SCORE:/) 
+      l = l.gsub("SCORE:","")
+      t1,t2,s1,s2,diff = l.split(",")
+      real = fssl[t1][t2]
+      print t1,", ", t2, ", ", real, ", ", diff.to_i, "\n"
+    end
   end
-
   
 end
 

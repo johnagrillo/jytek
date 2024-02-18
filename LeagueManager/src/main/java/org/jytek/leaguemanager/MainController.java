@@ -14,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Pair;
+import org.jytek.leaguemanager.database.TmMdbDAO;
 
 import java.io.File;
 import java.net.URL;
@@ -22,8 +23,14 @@ import java.util.ResourceBundle;
 
 
 public class MainController extends Application  implements Initializable {
+    @FXML private Label lbTeams;
+    @FXML private Label lbAthletes;
+    @FXML private Label lbResults;
+    @FXML private Label lbRelays;
+
     @FXML
     private Button btLoad;
+
     @FXML
     private Label lbFile;
     @FXML
@@ -55,6 +62,13 @@ public class MainController extends Application  implements Initializable {
         if (file != null) {
             Mock mock = new Mock(file);
             lbFile.setText(file.getPath());
+            TmMdbDAO db = new TmMdbDAO(file);
+            lbTeams.setText("" + db.getTeams().size());
+            lbAthletes.setText("" + db.getAthletes().size());
+            lbResults.setText("" + db.getResults().size());
+            lbRelays.setText("" + db.getRelays().size());
+
+
             ObservableList<MockResult> results = mock.run();
             tvMockResults.setItems(results);
 
