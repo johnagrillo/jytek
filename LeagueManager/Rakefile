@@ -41,6 +41,7 @@ task :compare do
   end
 
 
+  sh "grep -h SCORE output/*.txt > mine.csv"
   File.read("mine.csv").each_line do |l|
 
     if (l=~/SCORE:/) 
@@ -58,21 +59,25 @@ end
 
 
 
+
+
+
 Classes =  [
-  #"Athlete",
-  #"ENTRY",
-  #"MEET",
-  #"MTEVENT",
+  "Athlete",
+  "ENTRY",
+  "MEET",
+  "MTEVENT",
   "MTEVENTE",
-  #"RESULT",
-  #"TEAM",
+  "RESULT",
+  "TEAM",
   "RELAY",
 ]
 
 
 #
-# run from linux 
-#
+# Run from linux 
+#    need to have ndb-tools installed
+# 
 task :schema do
   Classes.each do |table|
     puts table
@@ -83,6 +88,13 @@ task :schema do
   end
 end
 
+
+#
+#
+#
+# Build DAO and model
+#
+#
 
 task :classes do
   Classes.each do |table|
@@ -100,14 +112,10 @@ def readTable(schema)
       if s =~ /CREATE TABLE/
         _,_,name = s.split(' ')
         name = name[1..-2].capitalize
-        File.open("src/hytek/#{name}.java", "w") do |fh|
+        File.open("src/main/java/org/jytek/leaguemanager/view/Tm#{name}.java", "w") do |fh|
           puts fh.path
-          fh.puts createClass(schema,name,iter)
+          fh.puts createClass(schema,name,iter,"Tm")
         end
-
-        
-        
-        
       end
     end
   rescue StopIteration => e
@@ -116,9 +124,11 @@ end
 
 
 
-def createClass(schema, clsName, iter)
+def createClass(schema, name, iter, prefix)
+
+  clsName = prefix + name 
   out = []
-  out << "package hytek;\n"  
+  out << "package org.jytek.leaguemanager.view;\n"  
 
   out << "/**" 
   schema.split("\n").each do |l|
@@ -128,7 +138,7 @@ def createClass(schema, clsName, iter)
   
   out << "public class #{clsName} {\n"
 
-  out << "    public static String NAME = \"#{clsName}\";"
+  out << "    public static String NAME = \"#{name}\";"
 
   out << "    private #{clsName}() {\n    }\n"
   
@@ -143,6 +153,9 @@ def createClass(schema, clsName, iter)
       members = {}
 
       columns.each do |c|
+        if c.strip =~ /#/
+          next
+        end
         name,type = c.split(" ",2)
         name = name[1..-2]
 
@@ -166,29 +179,38 @@ def createClass(schema, clsName, iter)
         members[name] = type
       end
 
-      out << "    public #{clsName}(final com.healthmarketscience.jackcess.Row row){\n"
+      out << "    public static #{clsName} create(final com.healthmarketscience.jackcess.Row row){\n"
       
       var = clsName.downcase
-      
+      out << "       var obj = new #{clsName}();"
       members.each do |name,type|
         sub = name.gsub("(","_").sub(")","")
-        out << "        #{sub.downcase} = (#{type}) row.get(#{clsName}.#{sub.upcase});"
-        puts "        #{sub.downcase} = (#{type}) row.get(#{clsName}.#{sub.upcase});"        
-        
+        out << "        obj.#{sub.downcase} = (#{type}) row.get(#{clsName}.#{sub.upcase});"
       end
+      out << "    return obj;"
       out << "    }"
       
       out << "\n"
+      out << "    // "       
+      out << "    // Column names"       
+      out << "    //"       
       members.each do |name,_|
         sub = name.gsub("(","_").sub(")","")
         out << "    public static final String #{sub.upcase} = \"#{name}\";"
       end
 
+      out << "    // "       
+      out << "    // members"
+      out << "    //"       
       members.each do |name,type|
         sub = name.gsub("(","_").sub(")","")
         out << "    private #{type} #{sub.downcase} = null;";
-      end
-
+    end
+    
+      out << "    //"       
+      out << "    // getters"
+      out << "    //"       
+      
       members.each do |name,type|
         sub = name.gsub("(","_").sub(")","")
         out << "    public #{type} get#{sub[0].upcase}#{sub.downcase[1..-1]}() {";

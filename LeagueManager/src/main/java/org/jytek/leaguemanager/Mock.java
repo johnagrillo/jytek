@@ -2,8 +2,9 @@ package org.jytek.leaguemanager;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import org.jytek.leaguemanager.database.ResultDAO;
 import org.jytek.leaguemanager.database.TmMdbDAO;
+import org.jytek.leaguemanager.view.TmResult;
+import org.jytek.leaguemanager.view.TmTeam;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -29,11 +30,20 @@ public final class Mock {
     ObservableList<MockResult> run() {
         ObservableList<MockResult> results = FXCollections.observableArrayList();
 
-        for (final var team1 : tm.getTeams().keySet()) {
-            for (final var team2 : tm.getTeams().keySet()) {
-                if (!Objects.equals(team1, team2)) {
+
+        // sort teams by
+
+        Map<String, TmTeam> teamsByName = new TreeMap<>();
+        for (final var team : tm.getTeams().keySet()) {
+            var code = tm.getTeams().get(team).getTcode();
+            teamsByName.put(code,  tm.getTeams().get(team));
+        }
+        
+        for (final var team1 : teamsByName.keySet()) {
+            for (final var team2 : teamsByName.keySet()) {
+                if (!team1.equals(team2)) {
                     try {
-                        results.add(runDualMockMeet(tm.getTeams().get(team1), tm.getTeams().get(team2)));
+                        results.add(runDualMockMeet(teamsByName.get(team1), teamsByName.get(team2)));
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
@@ -44,29 +54,28 @@ public final class Mock {
     }
 
 
-    private MockResult runDualMockMeet(org.jytek.leaguemanager.view.Team team1, org.jytek.leaguemanager.view.Team team2) throws IOException {
+    private MockResult runDualMockMeet(TmTeam team1, TmTeam team2) throws IOException {
 
-
-        Map<Short, ArrayList<ResultDAO>> mentries = new java.util.TreeMap<>();
+        Map<Short, ArrayList<TmResult>> mentries = new java.util.TreeMap<>();
         final Map<Integer, Integer> teamScores = new TreeMap<Integer, Integer>();
 
-        final String fileName = "output/" + team1.getTeam().getTcode() + "-" + team2.getTeam().getTcode() + ".txt";
+        final String fileName = "output/" + team1.getTcode() + "-" + team2.getTcode() + ".txt";
         final BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
-        writer.write(team1.getTeam().getTcode() + "-" + team2.getTeam().getTcode() + "\n");
+        writer.write(team1.getTcode() + "-" + team2.getTcode() + "\n");
 
         for (var team : Arrays.asList(team1, team2)) {
-            teamScores.put(team.getTeam().getTeam(), 0);
+            teamScores.put(team.getTeam(), 0);
 
             // find fastest time for each event for this athlete
 
             // all athletes fastest times are entered are entered
             for (final var ath : team.getAthletes()) {
-                final Map<Short, ResultDAO> bestSwimsY = new TreeMap<>();
-                final Map<Short, ResultDAO> bestSwimsS = new TreeMap<>();
+                final Map<Short, TmResult> bestSwimsY = new TreeMap<>();
+                final Map<Short, TmResult> bestSwimsS = new TreeMap<>();
                 final Set<Short> bestSwims = new TreeSet<>();
 
                 // get the lowest score for each event
-                for (final ResultDAO r : tm.getAthletes().get(ath.getAthlete()).getResults()) {
+                for (final TmResult r : tm.getAthletes().get(ath.getAthlete()).getResults()) {
                     var ev = tm.getMtevent().get(r.getMtevent()).getMtev();
 
                     if (ev == 11 && ath.getAthlete() == 1224) {
@@ -92,7 +101,7 @@ public final class Mock {
                         continue;
                     }
 
-                    if (r.getCourse().equals("Y")) {
+                    if (r.getCourse().equals("Y")  || r.getCourse().equals("YS")  )  {
                         var best = bestSwimsY.computeIfAbsent(ev, aShort -> r);
                         if (r.getScore() < best.getScore()) {
                             bestSwimsY.put(ev, r);
@@ -135,7 +144,7 @@ public final class Mock {
                 }
             }
 
-            final Map<Short, ResultDAO> bestRelays = new TreeMap<>();
+            final Map<Short, TmResult> bestRelays = new TreeMap<>();
 
             // only fastest relay time per event
             for (final var relay : team.getRelays()) {
@@ -184,7 +193,7 @@ public final class Mock {
         final Map<Integer, Integer> scored = new HashMap<>();
         for (var ev : mentries.keySet()) {
             writer.write(ev + "\n");
-            Map<Integer, ArrayList<ResultDAO>> scores = new TreeMap<>();
+            Map<Integer, ArrayList<TmResult>> scores = new TreeMap<>();
             for (var r : mentries.get(ev)) {
                 if (scored.computeIfAbsent(r.getAthlete(), k -> 0) == 4) {
                     continue;
@@ -195,12 +204,16 @@ public final class Mock {
                 }
                 var slot = scores.computeIfAbsent(time, k -> new ArrayList<>());
                 slot.add(r);
+                //scored.put(r.getAthlete(), scored.get(r.getAthlete()) + 1);
+
             }
+
             // score slot
 
             final List<Integer> times = new ArrayList<>(scores.keySet());
             var eventScore = eventPoints.get(ev);
             for (int t = 0; t < times.size(); t++) {
+
                 final var values = scores.get(times.get(t));
                 final var result = values.get(0);
 
@@ -211,9 +224,9 @@ public final class Mock {
 
                     String name = "";
                     if (result.getI_r().equals("I")) {
-                        team = tm.getAthletes().get(result.getAthlete()).getTeam();
-                        name = tm.getAthletes().get(result.getAthlete()).getAthleteJ().getLast();
-                        name += "," + tm.getAthletes().get(result.getAthlete()).getAthleteJ().getFirst();
+                        team = tm.getAthletes().get(result.getAthlete()).getTeam1();
+                        //name = tm.getAthletes().get(result.getAthlete()).getAthleteJ().getLast();
+                        //name += "," + tm.getAthletes().get(result.getAthlete()).getAthleteJ().getFirst();
 
                         scored.put(result.getAthlete(), scored.get(result.getAthlete()) + 1);
                     } else if (result.getI_r().equals("R")) {
@@ -222,12 +235,13 @@ public final class Mock {
                         continue;
                     }
 
+
                     var totalSecs = result.getScore() / 100.0;
                     var hours = totalSecs / 3600.0;
                     var minutes = (totalSecs % 3600.0) / 60.0;
                     var seconds = totalSecs % 60.0;
 
-                    writer.write("" + points + " " + name + " " + tm.getTeams().get(team).getTeam().getTcode() + " ");
+                    writer.write("" + points + " " + name + " " + tm.getTeams().get(team).getTcode() + " ");
                     if (result.getCourse().equals("Y")) {
                         writer.write("" + (int) (result.getScore() * 1.11));
                     } else {
@@ -235,6 +249,10 @@ public final class Mock {
                     }
                     if (result.getCourse().equals("Y")) {
                         writer.write(" " + result.getScore() + "(Y)");
+                    }
+                    if (result.getCourse().equals("YS")) {
+                        System.out.println(result);
+                        writer.write(" " + result.getScore() + "(YS)");
                     }
                     writer.write(" " + result.getAthlete() + "\n");
 
@@ -245,21 +263,17 @@ public final class Mock {
 
         final List<Integer> points = new ArrayList<>(teamScores.values());
 
-        var team1score = teamScores.get(team1.getTeam().getTeam());
-        var team2score = teamScores.get(team2.getTeam().getTeam());
+        var team1score = teamScores.get(team1.getTeam());
+        var team2score = teamScores.get(team2.getTeam());
 
-        var score = "SCORE:" + team1.getTeam().getTcode() + "," + team2.getTeam().getTcode() + ","
+        var score = "SCORE:" + team1.getTcode() + "," + team2.getTcode() + ","
                 + team1score + "," + team2score + "," + ((team1score - team2score) / 10.0);
-
-
-
-
-        System.out.println(score);
         writer.write(score + "\n");
         writer.close();
-        return new MockResult(team1.getTeam().getTcode(),
+
+        return new MockResult(team1.getTcode(),
                 team1score,
-                team2.getTeam().getTcode(),
+                team2.getTcode(),
                 team2score,
                 (int) ((int)(team1score - team2score) / 10.0));
 

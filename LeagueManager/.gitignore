@@ -40,3 +40,8 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+/src/mine.csv
+/2023.csv
+/2023-diffs.csv
+/save
+/save.txt

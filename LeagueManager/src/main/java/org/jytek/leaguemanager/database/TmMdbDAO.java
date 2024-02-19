@@ -1,103 +1,82 @@
 package org.jytek.leaguemanager.database;
+
 import com.healthmarketscience.jackcess.Row;
+import org.jytek.leaguemanager.view.*;
 
-import org.jytek.leaguemanager.view.Athlete;
-import org.jytek.leaguemanager.view.Relay;
-import org.jytek.leaguemanager.view.Team;
-
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 
 public class TmMdbDAO {
 
     private com.healthmarketscience.jackcess.Database db;
-    private HashMap<Integer, org.jytek.leaguemanager.view.Team> teams;
+    private Map<Integer, TmTeam> teams;
 
-    public HashMap<Integer, MeetDAO> getMeets() {
+    public Map<Integer, TmMeet> getMeets() {
         return this.meets;
     }
 
-    private HashMap<Integer, MeetDAO> meets;
-    private HashMap<Integer, MteventeDAO> mtevente;
-    private HashMap<Integer, MteventDAO> mtevent;
-    private HashMap<Integer, Athlete> athletes;
-    private HashMap<Integer, ResultDAO> results;
-    private HashMap<Integer, org.jytek.leaguemanager.view.Relay> relays;
-
+    private Map<Integer, TmMeet> meets;
+    private HashMap<Integer, TmMtevente> mtevente;
+    private HashMap<Integer, TmMtevent> mtevent;
+    private Map<Integer, TmAthlete> athletes;
+    private Map<Integer, TmResult> results;
+    private Map<Integer, TmRelay> relays;
 
     private TmMdbDAO() {
 
     }
 
-
     public TmMdbDAO(File input) {
         try {
             db = com.healthmarketscience.jackcess.DatabaseBuilder.open(input);
-
-            final String fileName = "output/meets.txt";
-            final BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
-            meets = new HashMap<>();
-            for (final Row row : db.getTable(MeetDAO.NAME)) {
-                final var meet = new MeetDAO(row);
-                meets.put(meet.getMeet(), meet);
-                writer.write(meet + "\n");
-            }
-            writer.close();
-            System.out.println("Meets: " + meets.size());
+            meets = MeetDAO.getMeets(db);
 
 
             teams = new HashMap<>();
-            for (final Row row : db.getTable(TeamDAO.NAME)) {
-                final var team = new TeamDAO(row);
-                teams.put(team.getTeam(), new org.jytek.leaguemanager.view.Team(team));
+            for (final Row row : db.getTable(TmTeam.NAME)) {
+                final var team = TmTeam.create(row);
+                teams.put(team.getTeam(), team);
             }
-            System.out.println("Teams: " + teams.size());
 
             mtevente = new HashMap<>();
-            for (final Row row : db.getTable(MteventeDAO.NAME)) {
-                final MteventeDAO eve = new MteventeDAO(row);
+            for (final Row row : db.getTable(TmMtevente.NAME)) {
+                final TmMtevente eve = TmMtevente.create(row);
                 mtevente.put(eve.getMtevent(), eve);
             }
 
             mtevent = new HashMap<>();
-            for (final Row row : db.getTable(MteventDAO.NAME)) {
-                final MteventDAO event = new MteventDAO(row);
+            for (final Row row : db.getTable(TmMtevent.NAME)) {
+                final TmMtevent event = TmMtevent.create(row);
                 mtevent.put(event.getMtevent(), event);
             }
-            System.out.println("Events: " + mtevent.size());
 
             // get athletes
-            athletes = new HashMap<>();
-            for (final Row row : db.getTable(AthleteDAO.NAME)) {
-                final AthleteDAO a = new AthleteDAO(row);
-                athletes.put(a.getAthlete(), new org.jytek.leaguemanager.view.Athlete(a, teams.get(a.getTeam1()).getTeam()));
+            athletes = AthleteDAO.getAthletes(db);
 
-                var team = this.teams.get(a.getTeam1());
-                team.addAthlete(a);
-                System.out.println(a.getLast());
+            for (var a : athletes.keySet()) {
+                var ath = athletes.get(a);
+
+                teams.get(ath.getTeam1()).add(ath);
             }
-            System.out.println("Athletes: " + athletes.size());
+
 
             // get relays
             // relays are also athletes
             // not all relays have results
             relays = new HashMap<>();
-            for (var row : db.getTable(RelayDAO.NAME)) {
-                RelayDAO tmr = new RelayDAO(row);
+            for (var row : db.getTable(TmRelay.NAME)) {
+                TmRelay tmr = TmRelay.create(row);
                 var team = this.teams.get(tmr.getTeam());
-                relays.put(tmr.getRelay(), new Relay(tmr, team.getTeam()));
-                team.addARelay(tmr);
+                relays.put(tmr.getRelay(), tmr);
+                team.add(tmr);
             }
-            System.out.println("Relays: " + relays.size());
-
 
             // get results
             results = new HashMap<>();
-            for (final Row row : db.getTable(ResultDAO.NAME)) {
-                final ResultDAO r = new ResultDAO(row);
+            for (final Row row : db.getTable(TmResult.NAME)) {
+                final TmResult r = TmResult.create(row);
                 results.put(r.getResult(), r);
 
                 if (!r.getDqcode().isBlank()) {
@@ -113,39 +92,34 @@ public class TmMdbDAO {
                 if ("R".equals(r.getI_r())) {
                     var relay = relays.get(r.getAthlete());
                     relay.add(r);
-
                 }
             }
-            System.out.println("Results: " + results.size());
-
-            // break athletes into teams
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public HashMap<Integer, Team> getTeams() {
+    public Map<Integer, TmTeam> getTeams() {
         return this.teams;
     }
 
-    public HashMap<Integer, MteventeDAO> getMtevente() {
+    public HashMap<Integer, TmMtevente> getMtevente() {
         return this.mtevente;
     }
 
-    public HashMap<Integer, MteventDAO> getMtevent() {
+    public HashMap<Integer, TmMtevent> getMtevent() {
         return this.mtevent;
     }
 
-    public HashMap<Integer, Athlete> getAthletes() {
+    public Map<Integer, TmAthlete> getAthletes() {
         return this.athletes;
     }
 
-    public HashMap<Integer, ResultDAO> getResults() {
+    public Map<Integer, TmResult> getResults() {
         return this.results;
     }
 
-    public HashMap<Integer, Relay> getRelays() {
+    public Map<Integer, TmRelay> getRelays() {
         return this.relays;
     }
 
