@@ -86,7 +86,7 @@ public final class Mock {
                     }
 
                     var mtev = tm.getMtevent().get(r.getMtevent());
-                    var lo_hi = mtev.getLo_hi();
+                    var lo_hi = mtev.getLohi();
 
                     var lo = 0;
                     var hi = 99;
@@ -223,13 +223,13 @@ public final class Mock {
                     Integer team = 0;
 
                     String name = "";
-                    if (result.getI_r().equals("I")) {
+                    if (result.getIr().equals("I")) {
                         team = tm.getAthletes().get(result.getAthlete()).getTeam1();
                         //name = tm.getAthletes().get(result.getAthlete()).getAthleteJ().getLast();
                         //name += "," + tm.getAthletes().get(result.getAthlete()).getAthleteJ().getFirst();
 
                         scored.put(result.getAthlete(), scored.get(result.getAthlete()) + 1);
-                    } else if (result.getI_r().equals("R")) {
+                    } else if (result.getIr().equals("R")) {
                         team = tm.getRelays().get(result.getAthlete()).getTeam();
                     } else {
                         continue;

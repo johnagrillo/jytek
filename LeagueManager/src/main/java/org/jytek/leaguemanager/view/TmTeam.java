@@ -3,15 +3,7 @@ package org.jytek.leaguemanager.view;
 import java.util.*;
 
 /**
- * -- ----------------------------------------------------------
- * -- MDB Tools - A library for reading MS Access database files
- * -- Copyright (C) 2000-2011 Brian Bruns and others.
- * -- Files in libmdb are licensed under LGPL and the utilities under
- * -- the GPL, see COPYING.LIB and COPYING files respectively.
- * -- Check out http://mdbtools.sourceforge.net
- * -- ----------------------------------------------------------
  * 
- * -- That file uses encoding UTF-8
  * 
  * CREATE TABLE [TEAM]
  * (
@@ -19,24 +11,6 @@ import java.util.*;
  * [TCode]			Text (10),
  * [TName]			Text (60),
  * [Short]			Text (32),
- * #	[LSC]			Text (6),
- * #	[MailTo]			Text (80),
- * #	[TAddr]			Text (60),
- * #	[TCity]			Text (60),
- * #	[TState]			Text (6),
- * #	[TZip]			Text (20),
- * #	[TCntry]			Text (6),
- * #	[Day]			Text (40),
- * #	[Eve]			Text (40),
- * #	[Fax]			Text (40),
- * #	[TType]			Text (6),
- * #	[Regn]			Text (2),
- * #	[Reg]			Text (8),
- * #	[MinAge]			Integer,
- * #	[NumAth]			Long Integer,
- * #	[EMail]			Text (72),
- * #	[TM50]			Boolean NOT NULL,
- * #	[TDivision]			Text (6)
  * );
  */
 public class TmTeam {
@@ -51,8 +25,8 @@ public class TmTeam {
         obj.team = (Integer) row.get(TmTeam.TEAM);
         obj.tcode = (String) row.get(TmTeam.TCODE);
         obj.tname = (String) row.get(TmTeam.TNAME);
-        obj.shortn = (String) row.get(TmTeam.SHORTN);
-    return obj;
+        obj.short_ = (String) row.get(TmTeam.SHORT);
+        return obj;
     }
 
 
@@ -62,14 +36,14 @@ public class TmTeam {
     public static final String TEAM = "Team";
     public static final String TCODE = "TCode";
     public static final String TNAME = "TName";
-    public static final String SHORTN = "shortN";
+    public static final String SHORT = "Short";
     // 
     // members
     //
     private Integer team = null;
     private String tcode = null;
     private String tname = null;
-    private String shortn = null;
+    private String short_ = null;
     //
     // getters
     //
@@ -82,8 +56,8 @@ public class TmTeam {
     public String getTname() {
         return tname;
     }
-    public String getShortn() {
-        return shortn;
+    public String getShort_() {
+        return short_;
     }
 
 
@@ -107,12 +81,12 @@ public class TmTeam {
 
 }
 /* FXML 
-<TableView fx:id=tvTmTeams" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">
+<TableView fx:id=tvTmTeam" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">
   <columns>
-    <TableColumn fx:id="tcTeam" prefWidth="150.0" sortable="false" text="Team" />
-    <TableColumn fx:id="tcTCode" prefWidth="150.0" sortable="false" text="TCode" />
-    <TableColumn fx:id="tcTName" prefWidth="150.0" sortable="false" text="TName" />
-    <TableColumn fx:id="tcshortN" prefWidth="150.0" sortable="false" text="shortN" />
+    <TableColumn fx:id="tcTmTeamTeam" prefWidth="150.0" sortable="true" text="Team" />
+    <TableColumn fx:id="tcTmTeamTCode" prefWidth="150.0" sortable="true" text="TCode" />
+    <TableColumn fx:id="tcTmTeamTName" prefWidth="150.0" sortable="true" text="TName" />
+    <TableColumn fx:id="tcTmTeamShort" prefWidth="150.0" sortable="true" text="Short" />
 </columns>
 </TableView>
 */
@@ -121,15 +95,15 @@ public class TmTeam {
 
 /* Controller 
 @FXML
-private TableView<TmTeam> tcTmTeam
+private TableView<TmTeam> tvTmTeam;
 @FXML
-private TableColumn<TmTeam,Integer> tcTeam;
+private TableColumn<TmTeam,Integer> tcTmTeamTeam;
 @FXML
-private TableColumn<TmTeam,String> tcTCode;
+private TableColumn<TmTeam,String> tcTmTeamTCode;
 @FXML
-private TableColumn<TmTeam,String> tcTName;
+private TableColumn<TmTeam,String> tcTmTeamTName;
 @FXML
-private TableColumn<TmTeam,String> tcshortN;
+private TableColumn<TmTeam,String> tcTmTeamShort;
 */
 
 
@@ -142,7 +116,7 @@ for (Pair<TableColumn, String> pair : Arrays.asList(
 new Pair(tcTeam,"Team"),
     new Pair(tcTCode,"TCode"),
     new Pair(tcTName,"TName"),
-    new Pair(tcshortN,"shortN")
+    new Pair(tcShort,"Short")
 )) {
- pair.getKey().setCellValueFactory(new PropertyValaueFactory<>(pair.getValue()));  }
+ pair.getKey().setCellValueFactory(new PropertyValueFactory<>(pair.getValue()));  }
 */

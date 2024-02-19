@@ -85,11 +85,11 @@ public class TmMdbDAO {
                 if (0 == r.getScore()) {
                     continue;
                 }
-                if ("I".equals(r.getI_r())) {
+                if ("I".equals(r.getIr())) {
                     final var ath = athletes.get(r.getAthlete());
                     ath.add(r);
                 }
-                if ("R".equals(r.getI_r())) {
+                if ("R".equals(r.getIr())) {
                     var relay = relays.get(r.getAthlete());
                     relay.add(r);
                 }

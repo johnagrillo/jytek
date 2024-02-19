@@ -7,23 +7,6 @@ require 'csv'
 
 
 
-ENV["CLASSPATH"] = ["jars/jackcess-4.0.5.jar",
-                    "jars/commons-logging-1.3.0.jar",
-                    "jars/commons-lang3-3.14.0.jar",
-                    "hytek",
-                    "."] * File::PATH_SEPARATOR
-
-task :build do
-  sh "javac src/hytek/*.java"
-  sh "javac src/cmsl/Mock.java"
-
-end
-
-task :mock do
-  sh "java cmsl.Mock 2015-Realignment-Wk1.mdb"
-end
-
-
 task :compare do
   puts "compare"
 
@@ -56,19 +39,13 @@ end
 
 
 
-
-
-
-
-
-
 Classes =  [
   "Athlete",
-  #"ENTRY",
+  "ENTRY",
   "MEET",
-  #"MTEVENT",
-  #"MTEVENTE",
-  #"RESULT",
+  "MTEVENT",
+  "MTEVENTE",
+  "RESULT",
   "TEAM",
   #"RELAY",
 ]
@@ -133,6 +110,12 @@ def createClass(schema, name, iter, prefix)
 
   out << "/**" 
   schema.split("\n").each do |l|
+    if (l =~ /^--/)
+      next
+    end
+    if (l =~ /#/)
+      next
+    end
     out << " * #{l.strip}" 
   end
   out << " */"
@@ -159,14 +142,7 @@ def createClass(schema, name, iter, prefix)
         end
         name,type = c.split(" ",2)
         name = name[1..-2]
-
-        if (name == "Short")
-          name = "shortN"
-        end
-        if (name == "Class")
-          name = "classN"
-        end
-
+        memberName = getMemberName(name);
         if type =~ /Text/
           type = "String"
         else
@@ -177,25 +153,26 @@ def createClass(schema, name, iter, prefix)
         end
         
 
-        members[name] = type
+        members[name] = [memberName, type]
       end
 
       out << "    public static #{clsName} create(final com.healthmarketscience.jackcess.Row row){\n"
       
       var = clsName.downcase
       out << "       var obj = new #{clsName}();"
-      members.each do |name,type|
+      members.each do |name,(mname, type)|
         sub = name.gsub("(","_").sub(")","")
-        out << "        obj.#{sub.downcase} = (#{type}) row.get(#{clsName}.#{sub.upcase});"
+        mname = mname.gsub("(","_").sub(")","")
+        out << "        obj.#{mname.downcase} = (#{type}) row.get(#{clsName}.#{sub.upcase});"
       end
-      out << "    return obj;"
+      out << "        return obj;"
       out << "    }"
       
       out << "\n"
       out << "    // "       
       out << "    // Column names"       
       out << "    //"       
-      members.each do |name,_|
+      members.each do |name,(mname,_)|
         sub = name.gsub("(","_").sub(")","")
         out << "    public static final String #{sub.upcase} = \"#{name}\";"
       end
@@ -203,8 +180,8 @@ def createClass(schema, name, iter, prefix)
       out << "    // "       
       out << "    // members"
       out << "    //"       
-      members.each do |name,type|
-        sub = name.gsub("(","_").sub(")","")
+      members.each do |name,(mname,type)|
+        sub = mname.gsub("(","_").sub(")","")
         out << "    private #{type} #{sub.downcase} = null;";
     end
     
@@ -212,8 +189,8 @@ def createClass(schema, name, iter, prefix)
       out << "    // getters"
       out << "    //"       
       
-      members.each do |name,type|
-        sub = name.gsub("(","_").sub(")","")
+      members.each do |name,(mname,type)|
+        sub = mname.gsub("(","_").sub(")","")
         out << "    public #{type} get#{sub[0].upcase}#{sub.downcase[1..-1]}() {";
         out << "        return #{sub.downcase};"
         out << "    }";
@@ -225,11 +202,11 @@ def createClass(schema, name, iter, prefix)
       out << "}"
 
       out << "/* FXML "
-      out << '<TableView fx:id=tv' + clsName + 's" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">'
+      out << '<TableView fx:id=tv' + clsName + '" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">'
       out << '  <columns>'
-      members.each do |name,type|
+      members.each do |name,(_, type)|
         sub = name.gsub("(","_").sub(")","")
-        out << '    <TableColumn fx:id="tc' + sub + '" prefWidth="150.0" sortable="false" text="' + sub +'" />'
+        out << '    <TableColumn fx:id="tc' + clsName + sub + '" prefWidth="150.0" sortable="true" text="' + sub +'" />'
       end
       out <<   "</columns>"
       out << "</TableView>"
@@ -239,10 +216,10 @@ def createClass(schema, name, iter, prefix)
       out << "\n\n"
       out << "/* Controller "
       out << "@FXML"
-      out << "private TableView<#{clsName}> tc#{clsName}"
-      members.each do |name,type|
+      out << "private TableView<#{clsName}> tv#{clsName};"
+      members.each do |name,(_,type)|
         out << "@FXML"
-        out << "private TableColumn<#{clsName},#{type}> tc#{name};"
+        out << "private TableColumn<#{clsName},#{type}> tc#{clsName}#{name};"
       end
       out << "*/"
       out << "\n\n"
@@ -255,9 +232,9 @@ def createClass(schema, name, iter, prefix)
       
       out << "for (Pair<TableColumn, String> pair : Arrays.asList("
 
-      out << members.map{|name,type| "new Pair(tc#{name},\"#{name}\")"} * ",\n    "
+      out << members.map{|name,(_,type)| "new Pair(tc#{name},\"#{name}\")"} * ",\n    "
       
-      out << ")) {\n pair.getKey().setCellValueFactory(new PropertyValaueFactory<>(pair.getValue()));  }"
+      out << ")) {\n pair.getKey().setCellValueFactory(new PropertyValueFactory<>(pair.getValue()));  }"
       out << "*/"
 
       
@@ -322,4 +299,34 @@ Extra = {
 "
 }
 
+
+R = /(?:(?<=^| )|[_-])[A-Za-z][^ _-]*/
+
+def to_camel_case(str)
+  str.gsub(R) do |s|
+    c1 = s[0]
+    case c1
+    when /[A-Za-z]/
+      c1 + s[1..-1].downcase
+    else
+      s[1].upcase + s[2..-1].downcase
+    end
+  end
+end
+
+
+
+
+
+def getMemberName(name)
+
+  out = name
+  if (name == "Short")
+    out = "short_"
+  elsif (out =~ /_/)
+    out = to_camel_case(name)
+  end
+  print name, " = ", out, "\n"
+  out
+end
 

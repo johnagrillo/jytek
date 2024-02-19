@@ -1,15 +1,9 @@
 package org.jytek.leaguemanager.view;
 
+import java.util.*;
+
 /**
- * -- ----------------------------------------------------------
- * -- MDB Tools - A library for reading MS Access database files
- * -- Copyright (C) 2000-2011 Brian Bruns and others.
- * -- Files in libmdb are licensed under LGPL and the utilities under
- * -- the GPL, see COPYING.LIB and COPYING files respectively.
- * -- Check out http://mdbtools.sourceforge.net
- * -- ----------------------------------------------------------
  * 
- * -- That file uses encoding UTF-8
  * 
  * CREATE TABLE [MTEVENT]
  * (
@@ -41,18 +35,18 @@ public class TmMtevent {
         obj.meet = (Integer) row.get(TmMtevent.MEET);
         obj.mtev = (Short) row.get(TmMtevent.MTEV);
         obj.mtevx = (String) row.get(TmMtevent.MTEVX);
-        obj.lo_hi = (Short) row.get(TmMtevent.LO_HI);
+        obj.lohi = (Short) row.get(TmMtevent.LO_HI);
         obj.course = (String) row.get(TmMtevent.COURSE);
         obj.mtevent = (Integer) row.get(TmMtevent.MTEVENT);
         obj.distance = (Short) row.get(TmMtevent.DISTANCE);
         obj.stroke = (Short) row.get(TmMtevent.STROKE);
         obj.sex = (String) row.get(TmMtevent.SEX);
-        obj.i_r = (String) row.get(TmMtevent.I_R);
+        obj.ir = (String) row.get(TmMtevent.I_R);
         obj.session = (Byte) row.get(TmMtevent.SESSION);
         obj.division = (String) row.get(TmMtevent.DIVISION);
         obj.eventtype = (String) row.get(TmMtevent.EVENTTYPE);
         obj.sessx = (String) row.get(TmMtevent.SESSX);
-    return obj;
+        return obj;
     }
 
 
@@ -79,13 +73,13 @@ public class TmMtevent {
     private Integer meet = null;
     private Short mtev = null;
     private String mtevx = null;
-    private Short lo_hi = null;
+    private Short lohi = null;
     private String course = null;
     private Integer mtevent = null;
     private Short distance = null;
     private Short stroke = null;
     private String sex = null;
-    private String i_r = null;
+    private String ir = null;
     private Byte session = null;
     private String division = null;
     private String eventtype = null;
@@ -102,8 +96,8 @@ public class TmMtevent {
     public String getMtevx() {
         return mtevx;
     }
-    public Short getLo_hi() {
-        return lo_hi;
+    public Short getLohi() {
+        return lohi;
     }
     public String getCourse() {
         return course;
@@ -120,8 +114,8 @@ public class TmMtevent {
     public String getSex() {
         return sex;
     }
-    public String getI_r() {
-        return i_r;
+    public String getIr() {
+        return ir;
     }
     public Byte getSession() {
         return session;
@@ -135,4 +129,85 @@ public class TmMtevent {
     public String getSessx() {
         return sessx;
     }
+
 }
+/* FXML 
+<TableView fx:id=tvTmMtevent" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">
+  <columns>
+    <TableColumn fx:id="tcTmMteventMeet" prefWidth="150.0" sortable="true" text="Meet" />
+    <TableColumn fx:id="tcTmMteventMtEv" prefWidth="150.0" sortable="true" text="MtEv" />
+    <TableColumn fx:id="tcTmMteventMtEvX" prefWidth="150.0" sortable="true" text="MtEvX" />
+    <TableColumn fx:id="tcTmMteventLo_Hi" prefWidth="150.0" sortable="true" text="Lo_Hi" />
+    <TableColumn fx:id="tcTmMteventCourse" prefWidth="150.0" sortable="true" text="Course" />
+    <TableColumn fx:id="tcTmMteventMtEvent" prefWidth="150.0" sortable="true" text="MtEvent" />
+    <TableColumn fx:id="tcTmMteventDistance" prefWidth="150.0" sortable="true" text="Distance" />
+    <TableColumn fx:id="tcTmMteventStroke" prefWidth="150.0" sortable="true" text="Stroke" />
+    <TableColumn fx:id="tcTmMteventSex" prefWidth="150.0" sortable="true" text="Sex" />
+    <TableColumn fx:id="tcTmMteventI_R" prefWidth="150.0" sortable="true" text="I_R" />
+    <TableColumn fx:id="tcTmMteventSession" prefWidth="150.0" sortable="true" text="Session" />
+    <TableColumn fx:id="tcTmMteventDivision" prefWidth="150.0" sortable="true" text="Division" />
+    <TableColumn fx:id="tcTmMteventEventType" prefWidth="150.0" sortable="true" text="EventType" />
+    <TableColumn fx:id="tcTmMteventSessX" prefWidth="150.0" sortable="true" text="SessX" />
+</columns>
+</TableView>
+*/
+
+
+
+/* Controller 
+@FXML
+private TableView<TmMtevent> tvTmMtevent;
+@FXML
+private TableColumn<TmMtevent,Integer> tcTmMteventMeet;
+@FXML
+private TableColumn<TmMtevent,Short> tcTmMteventMtEv;
+@FXML
+private TableColumn<TmMtevent,String> tcTmMteventMtEvX;
+@FXML
+private TableColumn<TmMtevent,Short> tcTmMteventLo_Hi;
+@FXML
+private TableColumn<TmMtevent,String> tcTmMteventCourse;
+@FXML
+private TableColumn<TmMtevent,Integer> tcTmMteventMtEvent;
+@FXML
+private TableColumn<TmMtevent,Short> tcTmMteventDistance;
+@FXML
+private TableColumn<TmMtevent,Short> tcTmMteventStroke;
+@FXML
+private TableColumn<TmMtevent,String> tcTmMteventSex;
+@FXML
+private TableColumn<TmMtevent,String> tcTmMteventI_R;
+@FXML
+private TableColumn<TmMtevent,Byte> tcTmMteventSession;
+@FXML
+private TableColumn<TmMtevent,String> tcTmMteventDivision;
+@FXML
+private TableColumn<TmMtevent,String> tcTmMteventEventType;
+@FXML
+private TableColumn<TmMtevent,String> tcTmMteventSessX;
+*/
+
+
+
+/* Populate  Data 
+
+
+
+for (Pair<TableColumn, String> pair : Arrays.asList(
+new Pair(tcMeet,"Meet"),
+    new Pair(tcMtEv,"MtEv"),
+    new Pair(tcMtEvX,"MtEvX"),
+    new Pair(tcLo_Hi,"Lo_Hi"),
+    new Pair(tcCourse,"Course"),
+    new Pair(tcMtEvent,"MtEvent"),
+    new Pair(tcDistance,"Distance"),
+    new Pair(tcStroke,"Stroke"),
+    new Pair(tcSex,"Sex"),
+    new Pair(tcI_R,"I_R"),
+    new Pair(tcSession,"Session"),
+    new Pair(tcDivision,"Division"),
+    new Pair(tcEventType,"EventType"),
+    new Pair(tcSessX,"SessX")
+)) {
+ pair.getKey().setCellValueFactory(new PropertyValueFactory<>(pair.getValue()));  }
+*/

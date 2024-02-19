@@ -1,15 +1,9 @@
 package org.jytek.leaguemanager.view;
 
+import java.util.*;
+
 /**
- * -- ----------------------------------------------------------
- * -- MDB Tools - A library for reading MS Access database files
- * -- Copyright (C) 2000-2011 Brian Bruns and others.
- * -- Files in libmdb are licensed under LGPL and the utilities under
- * -- the GPL, see COPYING.LIB and COPYING files respectively.
- * -- Check out http://mdbtools.sourceforge.net
- * -- ----------------------------------------------------------
  * 
- * -- That file uses encoding UTF-8
  * 
  * CREATE TABLE [MEET]
  * (
@@ -21,82 +15,9 @@ package org.jytek.leaguemanager.view;
  * [Since]                 DateTime,
  * [Course]                        Text (4),
  * [Location]                      Text (90),
- * #       [Remarks]                       Text (100),
- * #       [IndCharge]                     Single,
- * #        [RelCharge]                     Single,
- * #        [SurCharge]                     Single,
- * #        [Type]                  Text (6),
- * #        [Sanction]                      Text (30),
  * [MaxIndEnt]                     Integer,
  * [MaxRelEnt]                     Integer,
  * [MaxEnt]                        Integer,
- * #        [RestrictBest]                  Boolean NOT NULL,
- * #        [NonConform]                    Double,
- * #        [EnterAtQTime]                  Boolean NOT NULL,
- * #        [FacilityFee]                   Single,
- * #        [TeamFee]                       Single,
- * #        [Instructions]                  Text (500),
- * #        [MinAge]                        Integer,
- * #        [EnforceQualifying]                     Boolean NOT NULL,
- * #        [Altitude]                      Integer,
- * #        [EnforceSlowQtime]                      Boolean NOT NULL,
- * #       [BanNoTimes]                    Boolean NOT NULL,
- * #       [Lanes]                 Integer,
- * #       [EvenOrOdd]                     Integer,
- * #       [FastToSlow]                    Boolean NOT NULL,
- * #       [Masters]                       Boolean NOT NULL,
- * #       [ActiveFeeXMLSent]                      Boolean NOT NULL,
- * #       [MinAge10AndUnder]                      Integer,
- * #       [SeedLanes]                     Text (32),
- * #       [DeadLine]                      DateTime,
- * #       [ActiveMeetID]                  Long Integer,
- * #       [CustIndCharge]                 Single,
- * #       [CustRelCharge]                 Single,
- * #       [CustSurCharge]                 Single,
- * #       [CustIndAction]                 Byte,
- * #       [CustRelAction]                 Byte,
- * #       [CustSurAction]                 Byte,
- * #       [Addr]                  Text (60),
- * #       [Addr2]                 Text (60),
- * #       [City]                  Text (60),
- * #       [State]                 Text (6),
- * #       [ZIP]                   Text (20),
- * #       [Cntry]                 Text (40),
- * #       [UseCustomFees]                 Boolean NOT NULL,
- * #       [OMEEntryStyle]                 Byte,
- * #       [SwimmerEntryDeadLine]                  DateTime,
- * #       [SwimmerEntryOpen]                      DateTime,
- * #       [AllowCustomTimes]                      Boolean NOT NULL,
- * #       [ExportEntriesDate]                     DateTime,
- * #       [LastSyncDate]                  DateTime,
- * #       [FinalizeEntriesDate]                   DateTime,
- * #       [UseSwimmersTeam]                       Boolean NOT NULL,
- * #       [HonorInviteList]                       Boolean NOT NULL,
- * #       [EntryTeam]                     Long Integer,
- * #       [EMailFrom]                     Text (100),
- * #       [EMailText]                     Text (508),
- * #       [EMailSubject]                  Text (200),
- * #       [OnlyPreEntered]                        Boolean NOT NULL,
- * #       [License]                       Text (240),
- * #       [CollectFeesOnline]                     Boolean NOT NULL,
- * #       [OMEBillDate]                   DateTime,
- * #       [InviteEmailDate]                       DateTime,
- * #       [EntryEMailText]                        Text (508),
- * #       [EntryEMailSubject]                     Text (200),
- * #       [EntryEMailFrom]                        Text (100),
- * #       [OMEValidated]                  Boolean NOT NULL,
- * #       [OMECustomTeam]                 Boolean NOT NULL,
- * #       [OMEFilterTeam]                 Long Integer,
- * #       [OMENeedsSync]                  Boolean NOT NULL,
- * #       [OMENeedSync]                   Boolean NOT NULL,
- * #       [MeetSharingStatus]                     Text (40),
- * #       [FileExportType]                        Integer,
- * #       [MeetRegistrationOpens]                 DateTime,
- * #       [MeetRegistrationCloses]                        DateTime,
- * #       [MeetSharingMeetID]                     Long Integer,
- * #       [MeetSharingPayStatus]                  Text (40),
- * #       [MeetSharingResultDate]                 DateTime,
- * #       [EV3Version]                    Byte
  * );
  */
 public class TmMeet {
@@ -119,7 +40,7 @@ public class TmMeet {
         obj.maxindent = (Short) row.get(TmMeet.MAXINDENT);
         obj.maxrelent = (Short) row.get(TmMeet.MAXRELENT);
         obj.maxent = (Short) row.get(TmMeet.MAXENT);
-    return obj;
+        return obj;
     }
 
 
@@ -190,19 +111,19 @@ public class TmMeet {
 
 }
 /* FXML 
-<TableView fx:id=tvTmMeets" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">
+<TableView fx:id=tvTmMeet" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">
   <columns>
-    <TableColumn fx:id="tcMeet" prefWidth="150.0" sortable="false" text="Meet" />
-    <TableColumn fx:id="tcMName" prefWidth="150.0" sortable="false" text="MName" />
-    <TableColumn fx:id="tcStart" prefWidth="150.0" sortable="false" text="Start" />
-    <TableColumn fx:id="tcEnd" prefWidth="150.0" sortable="false" text="End" />
-    <TableColumn fx:id="tcAgeUp" prefWidth="150.0" sortable="false" text="AgeUp" />
-    <TableColumn fx:id="tcSince" prefWidth="150.0" sortable="false" text="Since" />
-    <TableColumn fx:id="tcCourse" prefWidth="150.0" sortable="false" text="Course" />
-    <TableColumn fx:id="tcLocation" prefWidth="150.0" sortable="false" text="Location" />
-    <TableColumn fx:id="tcMaxIndEnt" prefWidth="150.0" sortable="false" text="MaxIndEnt" />
-    <TableColumn fx:id="tcMaxRelEnt" prefWidth="150.0" sortable="false" text="MaxRelEnt" />
-    <TableColumn fx:id="tcMaxEnt" prefWidth="150.0" sortable="false" text="MaxEnt" />
+    <TableColumn fx:id="tcTmMeetMeet" prefWidth="150.0" sortable="true" text="Meet" />
+    <TableColumn fx:id="tcTmMeetMName" prefWidth="150.0" sortable="true" text="MName" />
+    <TableColumn fx:id="tcTmMeetStart" prefWidth="150.0" sortable="true" text="Start" />
+    <TableColumn fx:id="tcTmMeetEnd" prefWidth="150.0" sortable="true" text="End" />
+    <TableColumn fx:id="tcTmMeetAgeUp" prefWidth="150.0" sortable="true" text="AgeUp" />
+    <TableColumn fx:id="tcTmMeetSince" prefWidth="150.0" sortable="true" text="Since" />
+    <TableColumn fx:id="tcTmMeetCourse" prefWidth="150.0" sortable="true" text="Course" />
+    <TableColumn fx:id="tcTmMeetLocation" prefWidth="150.0" sortable="true" text="Location" />
+    <TableColumn fx:id="tcTmMeetMaxIndEnt" prefWidth="150.0" sortable="true" text="MaxIndEnt" />
+    <TableColumn fx:id="tcTmMeetMaxRelEnt" prefWidth="150.0" sortable="true" text="MaxRelEnt" />
+    <TableColumn fx:id="tcTmMeetMaxEnt" prefWidth="150.0" sortable="true" text="MaxEnt" />
 </columns>
 </TableView>
 */
@@ -211,29 +132,29 @@ public class TmMeet {
 
 /* Controller 
 @FXML
-private TableView<TmMeet> tvTmMeet
+private TableView<TmMeet> tvTmMeet;
 @FXML
-private TableColumn<TmMeet,Integer> tcMeet;
+private TableColumn<TmMeet,Integer> tcTmMeetMeet;
 @FXML
-private TableColumn<TmMeet,String> tcMName;
+private TableColumn<TmMeet,String> tcTmMeetMName;
 @FXML
-private TableColumn<TmMeet,java.time.LocalDateTime> tcStart;
+private TableColumn<TmMeet,java.time.LocalDateTime> tcTmMeetStart;
 @FXML
-private TableColumn<TmMeet,java.time.LocalDateTime> tcEnd;
+private TableColumn<TmMeet,java.time.LocalDateTime> tcTmMeetEnd;
 @FXML
-private TableColumn<TmMeet,java.time.LocalDateTime> tcAgeUp;
+private TableColumn<TmMeet,java.time.LocalDateTime> tcTmMeetAgeUp;
 @FXML
-private TableColumn<TmMeet,java.time.LocalDateTime> tcSince;
+private TableColumn<TmMeet,java.time.LocalDateTime> tcTmMeetSince;
 @FXML
-private TableColumn<TmMeet,String> tcCourse;
+private TableColumn<TmMeet,String> tcTmMeetCourse;
 @FXML
-private TableColumn<TmMeet,String> tcLocation;
+private TableColumn<TmMeet,String> tcTmMeetLocation;
 @FXML
-private TableColumn<TmMeet,Short> tcMaxIndEnt;
+private TableColumn<TmMeet,Short> tcTmMeetMaxIndEnt;
 @FXML
-private TableColumn<TmMeet,Short> tcMaxRelEnt;
+private TableColumn<TmMeet,Short> tcTmMeetMaxRelEnt;
 @FXML
-private TableColumn<TmMeet,Short> tcMaxEnt;
+private TableColumn<TmMeet,Short> tcTmMeetMaxEnt;
 */
 
 
@@ -255,5 +176,5 @@ new Pair(tcMeet,"Meet"),
     new Pair(tcMaxRelEnt,"MaxRelEnt"),
     new Pair(tcMaxEnt,"MaxEnt")
 )) {
- pair.getKey().setCellValueFactory(new PropertyValaueFactory<>(pair.getValue()));  }
+ pair.getKey().setCellValueFactory(new PropertyValueFactory<>(pair.getValue()));  }
 */
