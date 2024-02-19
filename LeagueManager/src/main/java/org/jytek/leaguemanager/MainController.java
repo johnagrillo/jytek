@@ -13,6 +13,9 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 import org.jytek.leaguemanager.database.TmMdbDAO;
+import org.jytek.leaguemanager.view.TmAthlete;
+import org.jytek.leaguemanager.view.TmMeet;
+import org.jytek.leaguemanager.view.TmTeam;
 
 import java.io.File;
 import java.net.URL;
@@ -74,6 +77,68 @@ public class MainController extends Application implements Initializable {
     private TableColumn<MockWins, String> tcTeam;
     @FXML
     private TableView<MockWins> tvMockWins;
+
+
+    @FXML
+    private TableView<TmTeam> tvTmTeams;
+    @FXML
+    private TableColumn<TmTeam,Integer> tcTeamTeam;
+    @FXML
+    private TableColumn<TmTeam,String> tcTCode;
+    @FXML
+    private TableColumn<TmTeam,String> tcTName;
+    @FXML
+    private TableColumn<TmTeam,String> tcShort;
+
+
+    @FXML
+    private TableView<TmAthlete> tvTmAthletes;
+    @FXML
+    private TableColumn<TmAthlete,Integer> tcAthlete;
+    @FXML
+    private TableColumn<TmAthlete,Integer> tcAthTeam1;
+    @FXML
+    private TableColumn<TmAthlete,String> tcLast;
+    @FXML
+    private TableColumn<TmAthlete,String> tcFirst;
+    @FXML
+    private TableColumn<TmAthlete,String> tcInitial;
+    @FXML
+    private TableColumn<TmAthlete,String> tcSex;
+    @FXML
+    private TableColumn<TmAthlete,java.time.LocalDateTime> tcBirth;
+    @FXML
+    private TableColumn<TmAthlete,Short> tcAge;
+//    @FXML
+    //private TableColumn<TmAthlete,String> tcID_NO;
+
+
+    @FXML
+    private TableView<TmMeet> tvTmMeets;
+    @FXML
+    private TableColumn<TmMeet,Integer> tcMeet;
+    @FXML
+    private TableColumn<TmMeet,String> tcMName;
+    @FXML
+    private TableColumn<TmMeet,java.time.LocalDateTime> tcStart;
+    @FXML
+    private TableColumn<TmMeet,java.time.LocalDateTime> tcEnd;
+    @FXML
+    private TableColumn<TmMeet,java.time.LocalDateTime> tcAgeUp;
+    @FXML
+    private TableColumn<TmMeet,java.time.LocalDateTime> tcSince;
+    @FXML
+    private TableColumn<TmMeet,String> tcCourse;
+    @FXML
+    private TableColumn<TmMeet,String> tcLocation;
+    @FXML
+    private TableColumn<TmMeet,Short> tcMaxIndEnt;
+    @FXML
+    private TableColumn<TmMeet,Short> tcMaxRelEnt;
+    @FXML
+    private TableColumn<TmMeet,Short> tcMaxEnt;
+
+
     private Stage stage;
 
     private File mockFile = null;
@@ -100,6 +165,21 @@ public class MainController extends Application implements Initializable {
             tbAthletes.setDisable(false);;
             tbMeets.setDisable(false);;
             tbMockMeets.setDisable(false);;
+
+            ObservableList<TmTeam> teams = FXCollections.observableArrayList();
+            teams.addAll(db.getTeams().values());
+            tvTmTeams.setItems(teams);
+
+            ObservableList<TmAthlete> athletes = FXCollections.observableArrayList();
+            athletes.addAll(db.getAthletes().values());
+            tvTmAthletes.setItems(athletes);
+
+            ObservableList<TmMeet> meets = FXCollections.observableArrayList();
+            meets.addAll(db.getMeets().values());
+            tvTmMeets.setItems(meets);
+
+
+
         }
     }
 
@@ -130,10 +210,10 @@ public class MainController extends Application implements Initializable {
                 wins.put(r.team1, wins.get(r.team1) + 1);
             }
             if (r.team1Score.intValue() == r.team2Score.intValue()) {
-                ties.put(r.team1, losses.get(r.team1) + 1);
+                ties.put(r.team1, ties.get(r.team1) + 1);
             }
             if (r.team1Score < r.team2Score) {
-                losses.put(r.team1, wins.get(r.team1) + 1);
+                losses.put(r.team1, losses.get(r.team1) + 1);
             }
 
 
@@ -182,6 +262,43 @@ public class MainController extends Application implements Initializable {
             pair.getKey().setCellValueFactory(new PropertyValueFactory<>(pair.getValue()));
         }
 
+        for (Pair<TableColumn, String> pair : Arrays.asList(
+                new Pair(tcTeam,"Team"),
+                new Pair(tcTCode,"Tcode"),
+                new Pair(tcTName,"Tname")
+                //new Pair(tcShort,"shortN")
+        )) {
+            pair.getKey().setCellValueFactory(new PropertyValueFactory<>(pair.getValue()));
+        }
+
+        for (Pair<TableColumn, String> pair : Arrays.asList(
+                new Pair(tcAthlete,"Athlete"),
+                new Pair(tcTeam1,"Team1"),
+                new Pair(tcLast,"Last"),
+                new Pair(tcFirst,"First"),
+                new Pair(tcInitial,"Initial"),
+                new Pair(tcSex,"Sex"),
+                new Pair(tcBirth,"Birth"),
+                new Pair(tcAge,"Age")
+                //new Pair(tcID_NO,"ID_NO")
+        )) {
+            pair.getKey().setCellValueFactory(new PropertyValueFactory<>(pair.getValue()));  }
+
+
+        for (Pair<TableColumn, String> pair : Arrays.asList(
+                new Pair(tcMeet,"Meet"),
+                new Pair(tcMName,"Mname"),
+                new Pair(tcStart,"Start"),
+                new Pair(tcEnd,"End"),
+                new Pair(tcAgeUp,"Ageup"),
+                new Pair(tcSince,"Since"),
+                new Pair(tcCourse,"Course"),
+                new Pair(tcLocation,"Location"),
+                new Pair(tcMaxIndEnt,"Maxindent"),
+                new Pair(tcMaxRelEnt,"Maxrelent"),
+                new Pair(tcMaxEnt,"Maxent")
+        )) {
+            pair.getKey().setCellValueFactory(new PropertyValueFactory<>(pair.getValue()));  }
 
     }
 

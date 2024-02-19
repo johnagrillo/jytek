@@ -14,7 +14,7 @@ CREATE TABLE [TEAM]
 	[TCode]			Text (10), 
 	[TName]			Text (60), 
 	[Short]			Text (32), 
-	[LSC]			Text (6), 
+#	[LSC]			Text (6), 
 #	[MailTo]			Text (80), 
 #	[TAddr]			Text (60), 
 #	[TCity]			Text (60), 

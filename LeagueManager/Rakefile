@@ -64,13 +64,13 @@ end
 
 Classes =  [
   "Athlete",
-  "ENTRY",
+  #"ENTRY",
   "MEET",
-  "MTEVENT",
-  "MTEVENTE",
-  "RESULT",
+  #"MTEVENT",
+  #"MTEVENTE",
+  #"RESULT",
   "TEAM",
-  "RELAY",
+  #"RELAY",
 ]
 
 
@@ -128,7 +128,8 @@ def createClass(schema, name, iter, prefix)
 
   clsName = prefix + name 
   out = []
-  out << "package org.jytek.leaguemanager.view;\n"  
+  out << "package org.jytek.leaguemanager.view;\n"
+  out << "import java.util.*;\n"  
 
   out << "/**" 
   schema.split("\n").each do |l|
@@ -216,11 +217,50 @@ def createClass(schema, name, iter, prefix)
         out << "    public #{type} get#{sub[0].upcase}#{sub.downcase[1..-1]}() {";
         out << "        return #{sub.downcase};"
         out << "    }";
-        
       end
+
+      out << Extra[clsName]
 
       
       out << "}"
+
+      out << "/* FXML "
+      out << '<TableView fx:id=tv' + clsName + 's" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">'
+      out << '  <columns>'
+      members.each do |name,type|
+        sub = name.gsub("(","_").sub(")","")
+        out << '    <TableColumn fx:id="tc' + sub + '" prefWidth="150.0" sortable="false" text="' + sub +'" />'
+      end
+      out <<   "</columns>"
+      out << "</TableView>"
+      
+      out << "*/"
+
+      out << "\n\n"
+      out << "/* Controller "
+      out << "@FXML"
+      out << "private TableView<#{clsName}> tc#{clsName}"
+      members.each do |name,type|
+        out << "@FXML"
+        out << "private TableColumn<#{clsName},#{type}> tc#{name};"
+      end
+      out << "*/"
+      out << "\n\n"
+
+      
+      out << "/* Populate  Data "
+      
+
+      out << "\n\n"
+      
+      out << "for (Pair<TableColumn, String> pair : Arrays.asList("
+
+      out << members.map{|name,type| "new Pair(tc#{name},\"#{name}\")"} * ",\n    "
+      
+      out << ")) {\n pair.getKey().setCellValueFactory(new PropertyValaueFactory<>(pair.getValue()));  }"
+      out << "*/"
+
+      
       return out * "\n";
     elsif s =~ /\[/
       columns << s.gsub(" NOT NULL","").gsub(",","")
@@ -247,4 +287,39 @@ MapTypes = {
   "Single"   => "Float",
   "Double"   => "Double",      
 }
+
+
+Extra = {
+  "TmAthlete" => "
+    public List<TmResult> getResults() {
+        return results;
+    }
+    private List<TmResult> results = new ArrayList<>();
+    
+    public void add(TmResult r) {
+        results.add(r);
+    }
+",
+  "TmTeam" => "
+
+    private List<TmAthlete> athletes = new ArrayList<>();
+
+    private List<TmRelay> relays = new ArrayList<>();
+
+    public List<TmAthlete> getAthletes() {
+        return this.athletes;
+    }
+    public void add(TmAthlete ath){
+        athletes.add(ath);
+    }
+    public void add(TmRelay relay){
+        relays.add(relay);
+    }
+
+    public List<TmRelay> getRelays() {
+        return this.relays;
+    }
+"
+}
+
 

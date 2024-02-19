@@ -1,7 +1,6 @@
 package org.jytek.leaguemanager.view;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * -- ----------------------------------------------------------
@@ -70,11 +69,7 @@ public class TmAthlete {
         obj.birth = (java.time.LocalDateTime) row.get(TmAthlete.BIRTH);
         obj.age = (Short) row.get(TmAthlete.AGE);
         obj.id_no = (String) row.get(TmAthlete.ID_NO);
-
-
-        obj.results = new ArrayList<>();
-
-        return obj;
+    return obj;
     }
 
 
@@ -136,8 +131,70 @@ public class TmAthlete {
     public List<TmResult> getResults() {
         return results;
     }
-    private List<TmResult> results = null;
+    private List<TmResult> results = new ArrayList<>();
+    
     public void add(TmResult r) {
         results.add(r);
     }
+
 }
+/* FXML 
+<TableView fx:id=tvTmAthletes" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">
+  <columns>
+    <TableColumn fx:id="tcAthlete" prefWidth="150.0" sortable="false" text="Athlete" />
+    <TableColumn fx:id="tcTeam1" prefWidth="150.0" sortable="false" text="Team1" />
+    <TableColumn fx:id="tcLast" prefWidth="150.0" sortable="false" text="Last" />
+    <TableColumn fx:id="tcFirst" prefWidth="150.0" sortable="false" text="First" />
+    <TableColumn fx:id="tcInitial" prefWidth="150.0" sortable="false" text="Initial" />
+    <TableColumn fx:id="tcSex" prefWidth="150.0" sortable="false" text="Sex" />
+    <TableColumn fx:id="tcBirth" prefWidth="150.0" sortable="false" text="Birth" />
+    <TableColumn fx:id="tcAge" prefWidth="150.0" sortable="false" text="Age" />
+    <TableColumn fx:id="tcID_NO" prefWidth="150.0" sortable="false" text="ID_NO" />
+</columns>
+</TableView>
+*/
+
+
+
+/* Controller 
+@FXML
+private TableView<TmAthlete> tcTmAthlete
+@FXML
+private TableColumn<TmAthlete,Integer> tcAthlete;
+@FXML
+private TableColumn<TmAthlete,Integer> tcTeam1;
+@FXML
+private TableColumn<TmAthlete,String> tcLast;
+@FXML
+private TableColumn<TmAthlete,String> tcFirst;
+@FXML
+private TableColumn<TmAthlete,String> tcInitial;
+@FXML
+private TableColumn<TmAthlete,String> tcSex;
+@FXML
+private TableColumn<TmAthlete,java.time.LocalDateTime> tcBirth;
+@FXML
+private TableColumn<TmAthlete,Short> tcAge;
+@FXML
+private TableColumn<TmAthlete,String> tcID_NO;
+*/
+
+
+
+/* Populate  Data 
+
+
+
+for (Pair<TableColumn, String> pair : Arrays.asList(
+new Pair(tcAthlete,"Athlete"),
+    new Pair(tcTeam1,"Team1"),
+    new Pair(tcLast,"Last"),
+    new Pair(tcFirst,"First"),
+    new Pair(tcInitial,"Initial"),
+    new Pair(tcSex,"Sex"),
+    new Pair(tcBirth,"Birth"),
+    new Pair(tcAge,"Age"),
+    new Pair(tcID_NO,"ID_NO")
+)) {
+ pair.getKey().setCellValueFactory(new PropertyValaueFactory<>(pair.getValue()));  }
+*/

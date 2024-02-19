@@ -21,8 +21,8 @@ package org.jytek.leaguemanager.view;
  * [Since]                 DateTime,
  * [Course]                        Text (4),
  * [Location]                      Text (90),
- * [Remarks]                       Text (100),
- * [IndCharge]                     Single,
+ * #       [Remarks]                       Text (100),
+ * #       [IndCharge]                     Single,
  * #        [RelCharge]                     Single,
  * #        [SurCharge]                     Single,
  * #        [Type]                  Text (6),
@@ -116,8 +116,6 @@ public class TmMeet {
         obj.since = (java.time.LocalDateTime) row.get(TmMeet.SINCE);
         obj.course = (String) row.get(TmMeet.COURSE);
         obj.location = (String) row.get(TmMeet.LOCATION);
-        obj.remarks = (String) row.get(TmMeet.REMARKS);
-        obj.indcharge = (Float) row.get(TmMeet.INDCHARGE);
         obj.maxindent = (Short) row.get(TmMeet.MAXINDENT);
         obj.maxrelent = (Short) row.get(TmMeet.MAXRELENT);
         obj.maxent = (Short) row.get(TmMeet.MAXENT);
@@ -136,8 +134,6 @@ public class TmMeet {
     public static final String SINCE = "Since";
     public static final String COURSE = "Course";
     public static final String LOCATION = "Location";
-    public static final String REMARKS = "Remarks";
-    public static final String INDCHARGE = "IndCharge";
     public static final String MAXINDENT = "MaxIndEnt";
     public static final String MAXRELENT = "MaxRelEnt";
     public static final String MAXENT = "MaxEnt";
@@ -152,8 +148,6 @@ public class TmMeet {
     private java.time.LocalDateTime since = null;
     private String course = null;
     private String location = null;
-    private String remarks = null;
-    private Float indcharge = null;
     private Short maxindent = null;
     private Short maxrelent = null;
     private Short maxent = null;
@@ -184,12 +178,6 @@ public class TmMeet {
     public String getLocation() {
         return location;
     }
-    public String getRemarks() {
-        return remarks;
-    }
-    public Float getIndcharge() {
-        return indcharge;
-    }
     public Short getMaxindent() {
         return maxindent;
     }
@@ -199,4 +187,73 @@ public class TmMeet {
     public Short getMaxent() {
         return maxent;
     }
+
 }
+/* FXML 
+<TableView fx:id=tvTmMeets" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">
+  <columns>
+    <TableColumn fx:id="tcMeet" prefWidth="150.0" sortable="false" text="Meet" />
+    <TableColumn fx:id="tcMName" prefWidth="150.0" sortable="false" text="MName" />
+    <TableColumn fx:id="tcStart" prefWidth="150.0" sortable="false" text="Start" />
+    <TableColumn fx:id="tcEnd" prefWidth="150.0" sortable="false" text="End" />
+    <TableColumn fx:id="tcAgeUp" prefWidth="150.0" sortable="false" text="AgeUp" />
+    <TableColumn fx:id="tcSince" prefWidth="150.0" sortable="false" text="Since" />
+    <TableColumn fx:id="tcCourse" prefWidth="150.0" sortable="false" text="Course" />
+    <TableColumn fx:id="tcLocation" prefWidth="150.0" sortable="false" text="Location" />
+    <TableColumn fx:id="tcMaxIndEnt" prefWidth="150.0" sortable="false" text="MaxIndEnt" />
+    <TableColumn fx:id="tcMaxRelEnt" prefWidth="150.0" sortable="false" text="MaxRelEnt" />
+    <TableColumn fx:id="tcMaxEnt" prefWidth="150.0" sortable="false" text="MaxEnt" />
+</columns>
+</TableView>
+*/
+
+
+
+/* Controller 
+@FXML
+private TableView<TmMeet> tvTmMeet
+@FXML
+private TableColumn<TmMeet,Integer> tcMeet;
+@FXML
+private TableColumn<TmMeet,String> tcMName;
+@FXML
+private TableColumn<TmMeet,java.time.LocalDateTime> tcStart;
+@FXML
+private TableColumn<TmMeet,java.time.LocalDateTime> tcEnd;
+@FXML
+private TableColumn<TmMeet,java.time.LocalDateTime> tcAgeUp;
+@FXML
+private TableColumn<TmMeet,java.time.LocalDateTime> tcSince;
+@FXML
+private TableColumn<TmMeet,String> tcCourse;
+@FXML
+private TableColumn<TmMeet,String> tcLocation;
+@FXML
+private TableColumn<TmMeet,Short> tcMaxIndEnt;
+@FXML
+private TableColumn<TmMeet,Short> tcMaxRelEnt;
+@FXML
+private TableColumn<TmMeet,Short> tcMaxEnt;
+*/
+
+
+
+/* Populate  Data 
+
+
+
+for (Pair<TableColumn, String> pair : Arrays.asList(
+new Pair(tcMeet,"Meet"),
+    new Pair(tcMName,"MName"),
+    new Pair(tcStart,"Start"),
+    new Pair(tcEnd,"End"),
+    new Pair(tcAgeUp,"AgeUp"),
+    new Pair(tcSince,"Since"),
+    new Pair(tcCourse,"Course"),
+    new Pair(tcLocation,"Location"),
+    new Pair(tcMaxIndEnt,"MaxIndEnt"),
+    new Pair(tcMaxRelEnt,"MaxRelEnt"),
+    new Pair(tcMaxEnt,"MaxEnt")
+)) {
+ pair.getKey().setCellValueFactory(new PropertyValaueFactory<>(pair.getValue()));  }
+*/

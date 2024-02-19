@@ -1,7 +1,6 @@
 package org.jytek.leaguemanager.view;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * -- ----------------------------------------------------------
@@ -20,7 +19,7 @@ import java.util.List;
  * [TCode]			Text (10),
  * [TName]			Text (60),
  * [Short]			Text (32),
- * [LSC]			Text (6),
+ * #	[LSC]			Text (6),
  * #	[MailTo]			Text (80),
  * #	[TAddr]			Text (60),
  * #	[TCity]			Text (60),
@@ -53,14 +52,7 @@ public class TmTeam {
         obj.tcode = (String) row.get(TmTeam.TCODE);
         obj.tname = (String) row.get(TmTeam.TNAME);
         obj.shortn = (String) row.get(TmTeam.SHORTN);
-        obj.lsc = (String) row.get(TmTeam.LSC);
-
-
-        obj.athletes = new ArrayList<>();
-        obj.relays = new ArrayList<>();
-
-
-        return obj;
+    return obj;
     }
 
 
@@ -71,7 +63,6 @@ public class TmTeam {
     public static final String TCODE = "TCode";
     public static final String TNAME = "TName";
     public static final String SHORTN = "shortN";
-    public static final String LSC = "LSC";
     // 
     // members
     //
@@ -79,7 +70,6 @@ public class TmTeam {
     private String tcode = null;
     private String tname = null;
     private String shortn = null;
-    private String lsc = null;
     //
     // getters
     //
@@ -95,17 +85,11 @@ public class TmTeam {
     public String getShortn() {
         return shortn;
     }
-    public String getLsc() {
-        return lsc;
-    }
 
 
+    private List<TmAthlete> athletes = new ArrayList<>();
 
-
-
-    private List<TmAthlete> athletes;
-
-    private List<TmRelay> relays;
+    private List<TmRelay> relays = new ArrayList<>();
 
     public List<TmAthlete> getAthletes() {
         return this.athletes;
@@ -122,3 +106,43 @@ public class TmTeam {
     }
 
 }
+/* FXML 
+<TableView fx:id=tvTmTeams" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">
+  <columns>
+    <TableColumn fx:id="tcTeam" prefWidth="150.0" sortable="false" text="Team" />
+    <TableColumn fx:id="tcTCode" prefWidth="150.0" sortable="false" text="TCode" />
+    <TableColumn fx:id="tcTName" prefWidth="150.0" sortable="false" text="TName" />
+    <TableColumn fx:id="tcshortN" prefWidth="150.0" sortable="false" text="shortN" />
+</columns>
+</TableView>
+*/
+
+
+
+/* Controller 
+@FXML
+private TableView<TmTeam> tcTmTeam
+@FXML
+private TableColumn<TmTeam,Integer> tcTeam;
+@FXML
+private TableColumn<TmTeam,String> tcTCode;
+@FXML
+private TableColumn<TmTeam,String> tcTName;
+@FXML
+private TableColumn<TmTeam,String> tcshortN;
+*/
+
+
+
+/* Populate  Data 
+
+
+
+for (Pair<TableColumn, String> pair : Arrays.asList(
+new Pair(tcTeam,"Team"),
+    new Pair(tcTCode,"TCode"),
+    new Pair(tcTName,"TName"),
+    new Pair(tcshortN,"shortN")
+)) {
+ pair.getKey().setCellValueFactory(new PropertyValaueFactory<>(pair.getValue()));  }
+*/

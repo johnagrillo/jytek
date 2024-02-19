@@ -27,7 +27,7 @@ public final class Mock {
     }
 
 
-    ObservableList<MockResult> run() {
+    public ObservableList<MockResult> run() {
         ObservableList<MockResult> results = FXCollections.observableArrayList();
 
 
