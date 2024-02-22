@@ -28,6 +28,14 @@ public class TmMdbDAO {
 
     }
 
+    public TmMeet getMeet(Integer meet) throws TeamException {
+        var tmMeet = meets.get(meet);
+        if (tmMeet == null) {
+            throw new TeamException("No Meet " + meet);
+        }
+        return tmMeet;
+    }
+
     public TmMdbDAO(File input) {
         try {
             db = com.healthmarketscience.jackcess.DatabaseBuilder.open(input);
@@ -77,22 +85,26 @@ public class TmMdbDAO {
             results = new HashMap<>();
             for (final Row row : db.getTable(TmResult.NAME)) {
                 final TmResult r = TmResult.create(row);
-                results.put(r.getResult(), r);
 
-                if (!r.getDqcode().isBlank()) {
-                    continue;
+                if ((r.getDqcode() == null || r.getDqcode().isBlank())) {
+                    if (0 == r.getScore()) {
+                        continue;
+                    }
+                    if ("I".equals(r.getIr())) {
+                        final var ath = athletes.get(r.getAthlete());
+
+                        if (ath != null) {
+                            ath.add(r);
+                        } else {
+                            System.out.println("Missing Ath " + r.getAthlete());
+                        }
+                    }
+                    if ("R".equals(r.getIr())) {
+                        var relay = relays.get(r.getAthlete());
+                        relay.add(r);
+                    }
                 }
-                if (0 == r.getScore()) {
-                    continue;
-                }
-                if ("I".equals(r.getIr())) {
-                    final var ath = athletes.get(r.getAthlete());
-                    ath.add(r);
-                }
-                if ("R".equals(r.getIr())) {
-                    var relay = relays.get(r.getAthlete());
-                    relay.add(r);
-                }
+                results.put(r.getResult(), r);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

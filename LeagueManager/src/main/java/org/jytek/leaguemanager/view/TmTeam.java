@@ -19,6 +19,19 @@ public class TmTeam {
     private TmTeam() {
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TmTeam tmTeam = (TmTeam) o;
+        return Objects.equals(team, tmTeam.team) && Objects.equals(tcode, tmTeam.tcode) && Objects.equals(tname, tmTeam.tname) && Objects.equals(short_, tmTeam.short_) && Objects.equals(athletes, tmTeam.athletes) && Objects.equals(relays, tmTeam.relays);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(team, tcode, tname, short_, athletes, relays);
+    }
+
     public static TmTeam create(final com.healthmarketscience.jackcess.Row row){
 
        var obj = new TmTeam();

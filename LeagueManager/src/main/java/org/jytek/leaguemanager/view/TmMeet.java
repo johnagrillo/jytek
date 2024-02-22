@@ -99,6 +99,7 @@ public class TmMeet {
     public String getLocation() {
         return location;
     }
+
     public Short getMaxindent() {
         return maxindent;
     }
@@ -109,6 +110,35 @@ public class TmMeet {
         return maxent;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TmMeet tmMeet = (TmMeet) o;
+        return Objects.equals(meet, tmMeet.meet) && Objects.equals(mname, tmMeet.mname) && Objects.equals(start, tmMeet.start) && Objects.equals(end, tmMeet.end) && Objects.equals(ageup, tmMeet.ageup) && Objects.equals(since, tmMeet.since) && Objects.equals(course, tmMeet.course) && Objects.equals(location, tmMeet.location) && Objects.equals(maxindent, tmMeet.maxindent) && Objects.equals(maxrelent, tmMeet.maxrelent) && Objects.equals(maxent, tmMeet.maxent);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(meet, mname, start, end, ageup, since, course, location, maxindent, maxrelent, maxent);
+    }
+
+    @Override
+    public String toString() {
+        return "TmMeet{" +
+                "meet=" + meet +
+                ", mname='" + mname + '\'' +
+                ", start=" + start +
+                ", end=" + end +
+                ", ageup=" + ageup +
+                ", since=" + since +
+                ", course='" + course + '\'' +
+                ", location='" + location + '\'' +
+                ", maxindent=" + maxindent +
+                ", maxrelent=" + maxrelent +
+                ", maxent=" + maxent +
+                '}';
+    }
 }
 /* FXML 
 <TableView fx:id=tvTmMeet" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">

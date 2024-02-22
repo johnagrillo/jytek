@@ -1,7 +1,5 @@
 package org.jytek.leaguemanager.view;
 
-import java.util.*;
-
 /**
  * 
  * 
@@ -158,6 +156,29 @@ public class TmResult {
         return dqdescript;
     }
 
+    @Override
+    public String toString() {
+        return "TmResult{" +
+                "meet=" + meet +
+                ", athlete=" + athlete +
+                ", ir='" + ir + '\'' +
+                ", team=" + team +
+                ", score=" + score +
+                ", ex='" + ex + '\'' +
+                ", origin='" + origin + '\'' +
+                ", nt=" + nt +
+                ", result=" + result +
+                ", age=" + age +
+                ", distance=" + distance +
+                ", stroke=" + stroke +
+                ", mtevent=" + mtevent +
+                ", points=" + points +
+                ", place=" + place +
+                ", course='" + course + '\'' +
+                ", dqcode='" + dqcode + '\'' +
+                ", dqdescript='" + dqdescript + '\'' +
+                '}';
+    }
 }
 /* FXML 
 <TableView fx:id=tvTmResult" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">

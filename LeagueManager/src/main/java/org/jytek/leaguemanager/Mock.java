@@ -18,15 +18,14 @@ public final class Mock {
 
     public static void main(String[] args) {
         final File input = new File(args[0]);
-        final Mock mock = new Mock(input);
+        TmMdbDAO tm =new TmMdbDAO(input);
+        final Mock mock = new Mock(tm);
         mock.run();
     }
 
-    Mock(File input) {
-        tm = new TmMdbDAO(input);
+    Mock(TmMdbDAO tmdao) {
+        tm = tmdao;
     }
-
-
     public ObservableList<MockResult> run() {
         ObservableList<MockResult> results = FXCollections.observableArrayList();
 

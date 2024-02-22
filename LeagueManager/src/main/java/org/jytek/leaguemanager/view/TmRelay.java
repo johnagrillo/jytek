@@ -1,18 +1,9 @@
 package org.jytek.leaguemanager.view;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
- * -- ----------------------------------------------------------
- * -- MDB Tools - A library for reading MS Access database files
- * -- Copyright (C) 2000-2011 Brian Bruns and others.
- * -- Files in libmdb are licensed under LGPL and the utilities under
- * -- the GPL, see COPYING.LIB and COPYING files respectively.
- * -- Check out http://mdbtools.sourceforge.net
- * -- ----------------------------------------------------------
  * 
- * -- That file uses encoding UTF-8
  * 
  * CREATE TABLE [RELAY]
  * (
@@ -34,10 +25,6 @@ import java.util.List;
  * [DISTANCE]              Integer,
  * [STROKE]                Integer,
  * [RELAYAGE]              Text (6),
- * #       [REACTION1]             Text (10),
- * #       [REACTION2]             Text (10),
- * #       [REACTION3]             Text (10),
- * #       [REACTION4]             Text (10)
  * );
  */
 public class TmRelay {
@@ -51,10 +38,10 @@ public class TmRelay {
        var obj = new TmRelay();
         obj.relay = (Integer) row.get(TmRelay.RELAY);
         obj.meet = (Integer) row.get(TmRelay.MEET);
-        obj.lo_hi = (Short) row.get(TmRelay.LO_HI);
+        obj.lohi = (Short) row.get(TmRelay.LO_HI);
         obj.team = (Integer) row.get(TmRelay.TEAM);
         obj.letter = (String) row.get(TmRelay.LETTER);
-        obj.age_range = (Short) row.get(TmRelay.AGE_RANGE);
+        obj.agerange = (Short) row.get(TmRelay.AGE_RANGE);
         obj.sex = (String) row.get(TmRelay.SEX);
         obj.ath_1 = (Integer) row.get(TmRelay.ATH_1);
         obj.ath_2 = (Integer) row.get(TmRelay.ATH_2);
@@ -67,10 +54,7 @@ public class TmRelay {
         obj.distance = (Short) row.get(TmRelay.DISTANCE);
         obj.stroke = (Short) row.get(TmRelay.STROKE);
         obj.relayage = (String) row.get(TmRelay.RELAYAGE);
-
-        obj.results = new ArrayList<>();
-
-    return obj;
+        return obj;
     }
 
 
@@ -100,10 +84,10 @@ public class TmRelay {
     //
     private Integer relay = null;
     private Integer meet = null;
-    private Short lo_hi = null;
+    private Short lohi = null;
     private Integer team = null;
     private String letter = null;
-    private Short age_range = null;
+    private Short agerange = null;
     private String sex = null;
     private Integer ath_1 = null;
     private Integer ath_2 = null;
@@ -125,8 +109,8 @@ public class TmRelay {
     public Integer getMeet() {
         return meet;
     }
-    public Short getLo_hi() {
-        return lo_hi;
+    public Short getLohi() {
+        return lohi;
     }
     public Integer getTeam() {
         return team;
@@ -134,8 +118,8 @@ public class TmRelay {
     public String getLetter() {
         return letter;
     }
-    public Short getAge_range() {
-        return age_range;
+    public Short getAgerange() {
+        return agerange;
     }
     public String getSex() {
         return sex;
@@ -174,15 +158,108 @@ public class TmRelay {
         return relayage;
     }
 
-
-
+  private List<TmResult> results = new ArrayList<>();
 
     public List<TmResult> getResults() {
         return results;
     }
-    private List<TmResult> results = null;
     public void add(TmResult r) {
         results.add(r);
     }
 }
+/* FXML 
+<TableView fx:id=tvTmRelay" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">
+  <columns>
+    <TableColumn fx:id="tcTmRelayRELAY" prefWidth="150.0" sortable="true" text="RELAY" />
+    <TableColumn fx:id="tcTmRelayMEET" prefWidth="150.0" sortable="true" text="MEET" />
+    <TableColumn fx:id="tcTmRelayLO_HI" prefWidth="150.0" sortable="true" text="LO_HI" />
+    <TableColumn fx:id="tcTmRelayTEAM" prefWidth="150.0" sortable="true" text="TEAM" />
+    <TableColumn fx:id="tcTmRelayLETTER" prefWidth="150.0" sortable="true" text="LETTER" />
+    <TableColumn fx:id="tcTmRelayAGE_RANGE" prefWidth="150.0" sortable="true" text="AGE_RANGE" />
+    <TableColumn fx:id="tcTmRelaySEX" prefWidth="150.0" sortable="true" text="SEX" />
+    <TableColumn fx:id="tcTmRelayATH_1" prefWidth="150.0" sortable="true" text="ATH_1" />
+    <TableColumn fx:id="tcTmRelayATH_2" prefWidth="150.0" sortable="true" text="ATH_2" />
+    <TableColumn fx:id="tcTmRelayATH_3" prefWidth="150.0" sortable="true" text="ATH_3" />
+    <TableColumn fx:id="tcTmRelayATH_4" prefWidth="150.0" sortable="true" text="ATH_4" />
+    <TableColumn fx:id="tcTmRelayATH_5" prefWidth="150.0" sortable="true" text="ATH_5" />
+    <TableColumn fx:id="tcTmRelayATH_6" prefWidth="150.0" sortable="true" text="ATH_6" />
+    <TableColumn fx:id="tcTmRelayATH_7" prefWidth="150.0" sortable="true" text="ATH_7" />
+    <TableColumn fx:id="tcTmRelayATH_8" prefWidth="150.0" sortable="true" text="ATH_8" />
+    <TableColumn fx:id="tcTmRelayDISTANCE" prefWidth="150.0" sortable="true" text="DISTANCE" />
+    <TableColumn fx:id="tcTmRelaySTROKE" prefWidth="150.0" sortable="true" text="STROKE" />
+    <TableColumn fx:id="tcTmRelayRELAYAGE" prefWidth="150.0" sortable="true" text="RELAYAGE" />
+</columns>
+</TableView>
+*/
 
+
+
+/* Controller 
+@FXML
+private TableView<TmRelay> tvTmRelay;
+@FXML
+private TableColumn<TmRelay,Integer> tcTmRelayRELAY;
+@FXML
+private TableColumn<TmRelay,Integer> tcTmRelayMEET;
+@FXML
+private TableColumn<TmRelay,Short> tcTmRelayLO_HI;
+@FXML
+private TableColumn<TmRelay,Integer> tcTmRelayTEAM;
+@FXML
+private TableColumn<TmRelay,String> tcTmRelayLETTER;
+@FXML
+private TableColumn<TmRelay,Short> tcTmRelayAGE_RANGE;
+@FXML
+private TableColumn<TmRelay,String> tcTmRelaySEX;
+@FXML
+private TableColumn<TmRelay,Integer> tcTmRelayATH(1);
+@FXML
+private TableColumn<TmRelay,Integer> tcTmRelayATH(2);
+@FXML
+private TableColumn<TmRelay,Integer> tcTmRelayATH(3);
+@FXML
+private TableColumn<TmRelay,Integer> tcTmRelayATH(4);
+@FXML
+private TableColumn<TmRelay,Integer> tcTmRelayATH(5);
+@FXML
+private TableColumn<TmRelay,Integer> tcTmRelayATH(6);
+@FXML
+private TableColumn<TmRelay,Integer> tcTmRelayATH(7);
+@FXML
+private TableColumn<TmRelay,Integer> tcTmRelayATH(8);
+@FXML
+private TableColumn<TmRelay,Short> tcTmRelayDISTANCE;
+@FXML
+private TableColumn<TmRelay,Short> tcTmRelaySTROKE;
+@FXML
+private TableColumn<TmRelay,String> tcTmRelayRELAYAGE;
+*/
+
+
+
+/* Populate  Data 
+
+
+
+for (Pair<TableColumn, String> pair : Arrays.asList(
+new Pair(tcRELAY,"RELAY"),
+    new Pair(tcMEET,"MEET"),
+    new Pair(tcLO_HI,"LO_HI"),
+    new Pair(tcTEAM,"TEAM"),
+    new Pair(tcLETTER,"LETTER"),
+    new Pair(tcAGE_RANGE,"AGE_RANGE"),
+    new Pair(tcSEX,"SEX"),
+    new Pair(tcATH(1),"ATH(1)"),
+    new Pair(tcATH(2),"ATH(2)"),
+    new Pair(tcATH(3),"ATH(3)"),
+    new Pair(tcATH(4),"ATH(4)"),
+    new Pair(tcATH(5),"ATH(5)"),
+    new Pair(tcATH(6),"ATH(6)"),
+    new Pair(tcATH(7),"ATH(7)"),
+    new Pair(tcATH(8),"ATH(8)"),
+    new Pair(tcDISTANCE,"DISTANCE"),
+    new Pair(tcSTROKE,"STROKE"),
+    new Pair(tcRELAYAGE,"RELAYAGE")
+)) {
+ pair.getKey().setCellValueFactory(new PropertyValueFactory<>(pair.getValue()));  }
+*/

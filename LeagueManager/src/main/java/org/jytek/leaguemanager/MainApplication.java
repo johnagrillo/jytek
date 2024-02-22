@@ -75,8 +75,8 @@ public class MainApplication extends Application {
 
     private void openFile(File file) {
 
-        Mock mock = new Mock(file);
-        mock.run();
+        //Mock mock = new Mock(tm);
+        //mock.run();
 
     }
     }
