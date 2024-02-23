@@ -47,7 +47,7 @@ Classes =  [
   "MTEVENTE",
   "RESULT",
   "TEAM",
-  #"RELAY",
+  "RELAY",
 ]
 
 
@@ -89,17 +89,63 @@ def readTable(schema)
       if s =~ /CREATE TABLE/
         _,_,name = s.split(' ')
         name = name[1..-2].capitalize
+        
         File.open("src/main/java/org/jytek/leaguemanager/view/Tm#{name}.java", "w") do |fh|
           puts fh.path
           fh.puts createClass(schema,name,iter,"Tm")
         end
+
+        File.open("src/main/java/org/jytek/leaguemanager/database/Tm#{name}DAO.java", "w") do |fh|
+          puts fh.path
+          fh.puts createDAO(schema,name,iter,"Tm")
+        end
+
+        
       end
     end
   rescue StopIteration => e
   end
 end
 
+def createDAO(schema, name, iter, prefix)
+  out = []
 
+  
+  out << "package org.jytek.leaguemanager.database;"
+  
+  out << "import com.healthmarketscience.jackcess.Database;"
+  out << "import com.healthmarketscience.jackcess.Row;"
+  out << "import org.jytek.leaguemanager.view.#{prefix}#{name};"
+  out << "import java.io.IOException;"
+  out << "import java.util.HashMap;"
+  out << "import java.util.Map;"
+
+
+  cls = prefix + name
+  out << %Q[
+
+  public class #{cls}DAO {
+
+
+    private #{cls}DAO()
+    {
+
+    }
+
+    public static Map<Integer,#{cls}> get#{name}s(Database db) throws IOException {
+
+        var map = new HashMap<Integer, #{cls}>();
+        for (final Row row : db.getTable(#{prefix}#{name}.NAME)) {
+            final var obj = #{prefix}#{name}.create(row);
+            map.put(obj.get#{name}(), obj);
+        }
+        return map;
+    }
+}
+
+  ]
+  out * "\n"
+end
 
 def createClass(schema, name, iter, prefix)
 
@@ -196,9 +242,6 @@ def createClass(schema, name, iter, prefix)
         out << "    }";
       end
 
-      out << Extra[clsName]
-
-      
       out << "}"
 
       out << "/* FXML "
@@ -265,39 +308,6 @@ MapTypes = {
   "Double"   => "Double",      
 }
 
-
-Extra = {
-  "TmAthlete" => "
-    public List<TmResult> getResults() {
-        return results;
-    }
-    private List<TmResult> results = new ArrayList<>();
-    
-    public void add(TmResult r) {
-        results.add(r);
-    }
-",
-  "TmTeam" => "
-
-    private List<TmAthlete> athletes = new ArrayList<>();
-
-    private List<TmRelay> relays = new ArrayList<>();
-
-    public List<TmAthlete> getAthletes() {
-        return this.athletes;
-    }
-    public void add(TmAthlete ath){
-        athletes.add(ath);
-    }
-    public void add(TmRelay relay){
-        relays.add(relay);
-    }
-
-    public List<TmRelay> getRelays() {
-        return this.relays;
-    }
-"
-}
 
 
 R = /(?:(?<=^| )|[_-])[A-Za-z][^ _-]*/
