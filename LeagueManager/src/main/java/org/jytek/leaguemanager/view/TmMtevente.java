@@ -199,7 +199,6 @@ public class TmMtevente {
     public String getSessx() {
         return sessx;
     }
-
 }
 /* FXML 
 <TableView fx:id=tvTmMtevente" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">

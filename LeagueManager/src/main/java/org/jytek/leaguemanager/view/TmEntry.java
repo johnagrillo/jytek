@@ -129,7 +129,6 @@ public class TmEntry {
     public Boolean getFromome() {
         return fromome;
     }
-
 }
 /* FXML 
 <TableView fx:id=tvTmEntry" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">

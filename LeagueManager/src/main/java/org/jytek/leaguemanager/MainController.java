@@ -13,11 +13,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Pair;
+import org.jytek.leaguemanager.database.AthleteException;
+import org.jytek.leaguemanager.database.MtEventException;
+import org.jytek.leaguemanager.database.TeamException;
 import org.jytek.leaguemanager.database.TmMdbDAO;
-import org.jytek.leaguemanager.view.TmAthlete;
-import org.jytek.leaguemanager.view.TmMeet;
-import org.jytek.leaguemanager.view.TmResult;
-import org.jytek.leaguemanager.view.TmTeam;
+import org.jytek.leaguemanager.view.*;
 
 import java.io.File;
 import java.net.URL;
@@ -27,6 +27,7 @@ import java.time.ZonedDateTime;
 import java.time.temporal.ChronoField;
 import java.time.temporal.WeekFields;
 import java.util.*;
+
 
 public class MainController extends Application implements Initializable {
 
@@ -69,17 +70,17 @@ public class MainController extends Application implements Initializable {
     @FXML
     private Label lbFile;
     @FXML
-    private TableColumn<MockResult, Integer> tcDiff;
+    private TableColumn<DualMockResult, Integer> tcDiff;
     @FXML
-    private TableColumn<MockResult, Integer> tcScore1;
+    private TableColumn<DualMockResult, Integer> tcScore1;
     @FXML
-    private TableColumn<MockResult, Integer> tcScore2;
+    private TableColumn<DualMockResult, Integer> tcScore2;
     @FXML
-    private TableColumn<MockResult, String> tcTeam1;
+    private TableColumn<DualMockResult, String> tcTeam1;
     @FXML
-    private TableColumn<MockResult, String> tcTeam2;
+    private TableColumn<DualMockResult, String> tcTeam2;
     @FXML
-    private TableView<MockResult> tvMockResults;
+    private TableView<DualMockResult> tvMockResults;
     @FXML
     private TableColumn<MockWins, Integer> tcLosses;
     @FXML
@@ -153,6 +154,12 @@ public class MainController extends Application implements Initializable {
 
     @FXML
     protected void onLoad() {
+        tbTeams.setDisable(true);
+        tbAthletes.setDisable(true);
+        tbMeets.setDisable(true);
+        tbMockMeets.setDisable(true);
+        tbWeeklyMockMeets.setDisable(true);
+
 
         mockFile = fileChooser.showOpenDialog(this.stage);
         if (mockFile != null) {
@@ -187,14 +194,124 @@ public class MainController extends Application implements Initializable {
         }
     }
 
+    private TreeMap<Short, ArrayList<TmResult>> getBestTeamEntries(Integer team) {
+
+        //
+        // get a best swim for each athlete on this team
+        //
+        TreeMap<Short, ArrayList<TmResult>> teamEntries = new TreeMap<>();
+        try {
+            for (var ath : tm.getTeamAthletes().get(tm.getTeam(team))) {
+                try {
+                    for (var r : tm.getAthleteBestResults(tm.getAthlete(ath.getAthlete()))) {
+                        try {
+                            var events = teamEntries.computeIfAbsent(tm.getMtevent(r.getMtevent()).getMtev(), k -> new ArrayList<>());
+                            events.add(r);
+                        } catch (MtEventException e) {
+
+                        }
+                    }
+                } catch (AthleteException e) {
+                    //System.out.println("skipping " + ath);
+                }
+            }
+        } catch (TeamException e) {
+            // continue
+            //System.out.println("skip team " + team);
+        }
+
+        //
+        // get the best relays for this team
+        //
+        try {
+            var tmteam = tm.getTeam(team);
+            for( var r : tm.getATeamBestRelays(tmteam)) {
+               var results = teamEntries.computeIfAbsent( tm.getMtevent(r.getMtevent()).getMtev(), k -> new ArrayList<>() );
+
+            }
+        } catch (TeamException e) {
+
+
+        } catch (MtEventException e) {
+
+        }
+
+
+        return teamEntries;
+    }
+
     @FXML
     protected void onRunMock() {
-        Mock mock = new Mock(tm);
 
-        ObservableList<MockResult> results = mock.run();
+        ////
+        ///   beast time mock for all teams
+        ///
+        var dualResults = new ArrayList<DualMockResult>();
+
+
+        for (var team1 : tm.getTeams().keySet()) {
+
+            var team1Entries = getBestTeamEntries(team1);
+
+            for (var team2 : tm.getTeams().keySet()) {
+
+                if (!Objects.equals(team1, team2)){
+
+                    var in = new HashSet<Integer>();
+                    in.add(team1);
+                    in.add(team2);
+
+                    var team2Entries = getBestTeamEntries(team2);
+                    // add team and team 2
+                    var teamEntries = new TreeMap<Short, ArrayList<TmResult>>();
+
+                    var teams = new HashSet<String>();
+
+                    for (var entries : Arrays.asList(team1Entries, team2Entries)) {
+
+                        for (var ev : entries.keySet()) {
+                            for (var r : entries.get(ev)) {
+                                teamEntries.computeIfAbsent(ev, k -> new ArrayList<>()).add(r);
+                                try {
+                                    if (in.contains(r.getTeam())) {
+                                        teams.add(tm.getTeam(r.getTeam()).getTcode());
+                                    } else {
+                                        System.out.println(in + "  " + " " + tm.getTeam(r.getTeam()).getTcode() + " " + r);
+                                    }
+                                }
+                                catch (TeamException e) {
+
+                                }
+                            }
+                        }
+                    }
+                    var r = MockMeet.runMockMeet(teamEntries);
+
+                    var teamScores = r.getTeamScores();
+                    var t1 = teamScores.get(team1);
+                    var t2 = teamScores.get(team2);
+                    var diff =   (int) ((int) (t1 - t2) / 10.0);
+
+                    try {
+                    dualResults.add(new DualMockResult(
+                            tm.getTeam(team1).getTcode(),
+                            t1,
+                            tm.getTeam(team2).getTcode(),
+                            t2,
+                            diff));
+                    } catch (TeamException e) {
+
+                    }
+
+                }
+            }
+        }
+
+
+        ObservableList<DualMockResult> results = FXCollections.observableArrayList();
+        results.addAll(dualResults);
         tvMockResults.setItems(results);
         lbMockMeets.setText("" + results.size());
-
         // count wins mby team
 
         Map<String, Integer> wins = new TreeMap<>();
@@ -247,59 +364,32 @@ public class MainController extends Application implements Initializable {
 
     }
 
+
     public void populateData() {
 
 
-        for (Pair<TableColumn, String> pair : Arrays.asList(
-                new Pair(tcDiff, "Diff"),
-                new Pair(tcScore1, "Team1Score"),
-                new Pair(tcScore2, "Team2Score"),
-                new Pair(tcTeam1, "Team1"),
-                new Pair(tcTeam2, "Team2"),
+        for (Pair<TableColumn, String> pair : Arrays.asList(new Pair(tcDiff, "Diff"), new Pair(tcScore1, "Team1Score"), new Pair(tcScore2, "Team2Score"), new Pair(tcTeam1, "Team1"), new Pair(tcTeam2, "Team2"),
 
-                new Pair(tcTeam, "Team"),
-                new Pair(tcWins, "Wins"),
-                new Pair(tcLosses, "Losses"),
-                new Pair(tcTies, "Ties")
+                new Pair(tcTeam, "Team"), new Pair(tcWins, "Wins"), new Pair(tcLosses, "Losses"), new Pair(tcTies, "Ties")
 
         )) {
             pair.getKey().setCellValueFactory(new PropertyValueFactory<>(pair.getValue()));
         }
 
-        for (Pair<TableColumn, String> pair : Arrays.asList(
-                new Pair(tcTeamTeam, "Team"),
-                new Pair(tcTCode, "Tcode"),
-                new Pair(tcTName, "Tname")
+        for (Pair<TableColumn, String> pair : Arrays.asList(new Pair(tcTeamTeam, "Team"), new Pair(tcTCode, "Tcode"), new Pair(tcTName, "Tname")
                 //new Pair(tcShort,"shortN")
         )) {
             pair.getKey().setCellValueFactory(new PropertyValueFactory<>(pair.getValue()));
         }
 
-        for (Pair<TableColumn, String> pair : Arrays.asList(
-                new Pair(tcAthlete, "Athlete"),
-                new Pair(tcAthTeam1, "Team1"),
-                new Pair(tcLast, "Last"),
-                new Pair(tcFirst, "First"),
-                new Pair(tcInitial, "Initial"),
-                new Pair(tcSex, "Sex"),
-                new Pair(tcBirth, "Birth"),
-                new Pair(tcAge, "Age")
+        for (Pair<TableColumn, String> pair : Arrays.asList(new Pair(tcAthlete, "Athlete"), new Pair(tcAthTeam1, "Team1"), new Pair(tcLast, "Last"), new Pair(tcFirst, "First"), new Pair(tcInitial, "Initial"), new Pair(tcSex, "Sex"), new Pair(tcBirth, "Birth"), new Pair(tcAge, "Age")
                 //new Pair(tcID_NO,"ID_NO")
         )) {
             pair.getKey().setCellValueFactory(new PropertyValueFactory<>(pair.getValue()));
         }
 
 
-        for (Pair<TableColumn, String> pair : Arrays.asList(
-                new Pair(tcMeet, "Meet"),
-                new Pair(tcMName, "Mname"),
-                new Pair(tcStart, "Start"),
-                new Pair(tcCourse, "Course"),
-                new Pair(tcLocation, "Location"),
-                new Pair(tcMaxIndEnt, "Maxindent"),
-                new Pair(tcMaxRelEnt, "Maxrelent"),
-                new Pair(tcMaxEnt, "Maxent")
-        )) {
+        for (Pair<TableColumn, String> pair : Arrays.asList(new Pair(tcMeet, "Meet"), new Pair(tcMName, "Mname"), new Pair(tcStart, "Start"), new Pair(tcCourse, "Course"), new Pair(tcLocation, "Location"), new Pair(tcMaxIndEnt, "Maxindent"), new Pair(tcMaxRelEnt, "Maxrelent"), new Pair(tcMaxEnt, "Maxent"))) {
             pair.getKey().setCellValueFactory(new PropertyValueFactory<>(pair.getValue()));
         }
 
@@ -333,64 +423,60 @@ public class MainController extends Application implements Initializable {
 
     }
 
-
-
     @FXML
     protected void onRunWeeklyMock(ActionEvent actionEvent) {
 
         //  Year,    Mname,  Cweek
-        Map<Integer, HashMap<String, Integer> >  corrections = new HashMap<>();
+        Map<Integer, HashMap<String, Integer>> corrections = new HashMap<>();
 
-        corrections.put(2023,  new HashMap<>());
+        corrections.put(2023, new HashMap<>());
         var year2023 = corrections.get(2023);
 
-	//63, 2023-07-01, FSSL 2023 Week 1 - SR-RMR
+        //63, 2023-07-01, FSSL 2023 Week 1 - SR-RMR
         year2023.put("FSSL 2023 Week 1 - SR-RMR", 1);
 
 
-
-        corrections.put(2022,  new HashMap<>());
+        corrections.put(2022, new HashMap<>());
         var year2022 = corrections.get(2022);
 
-	//19 2022-07-02T00:00 FSSL 2022 Week 3 - LDL@DB	
+        //19 2022-07-02T00:00 FSSL 2022 Week 3 - LDL@DB
         year2022.put("FSSL 2022 Week 3 - LDL@DB", 3);
 
 
-	//20 2022-07-02T00:00 FSSL 2022 Week 3 - BH@RMR
+        //20 2022-07-02T00:00 FSSL 2022 Week 3 - BH@RMR
         year2022.put("FSSL 2022 Week 3", 3);
 
-	//20 2018-07-07T00:00 FSSL Week 3: Holly Hills @ Spring Ridge
+        //20 2018-07-07T00:00 FSSL Week 3: Holly Hills @ Spring Ridge
 
-	
-        corrections.put(2018,  new HashMap<>());
+
+        corrections.put(2018, new HashMap<>());
         var year2018 = corrections.get(2018);
 
         year2018.put("FSSL Week 3: Holly Hills @ Spring Ridge", 5);
 
 
-	//39 2017-07-01T00:00 FSSL Week 3: Windsor Knolls @ Hood College
-	//40 2017-07-01T00:00 FSSL Week 3: Whittier @ Braddock Heights
+        //39 2017-07-01T00:00 FSSL Week 3: Windsor Knolls @ Hood College
+        //40 2017-07-01T00:00 FSSL Week 3: Whittier @ Braddock Heights
 
 
-        corrections.put(2017,  new HashMap<>());
+        corrections.put(2017, new HashMap<>());
         var year2017 = corrections.get(2017);
         year2017.put("FSSL Week 3: Windsor Knolls @ Hood College", 4);
-	year2017.put("FSSL Week 3: Whittier @ Braddock Heights", 4);
+        year2017.put("FSSL Week 3: Whittier @ Braddock Heights", 4);
 
 
-
-        corrections.put(2016,  new HashMap<>());
+        corrections.put(2016, new HashMap<>());
         var year2016 = corrections.get(2016);
-	//14 2016-06-30T00:00 FSSL Week 2: Clover Hill @ Frederick YMCA  -> 2
-	year2017.put("FSSL Week 2: Clover Hill @ Frederick YMCA", 2);
-	
+        //14 2016-06-30T00:00 FSSL Week 2: Clover Hill @ Frederick YMCA  -> 2
+        year2017.put("FSSL Week 2: Clover Hill @ Frederick YMCA", 2);
 
-	//21 2012-07-07T00:00 Week 3: Dearbought @ Brunswick - 3
-        corrections.put(2012,  new HashMap<>());
+
+        //21 2012-07-07T00:00 Week 3: Dearbought @ Brunswick - 3
+        corrections.put(2012, new HashMap<>());
         var year2012 = corrections.get(2012);
-	year2012.put("Week 3: Dearbought @ Brunswick", 3);
-	
-	
+        year2012.put("Week 3: Dearbought @ Brunswick", 3);
+
+
         // correction data
         // 2023 Meet 63 week 1
 
@@ -412,16 +498,15 @@ public class MainController extends Application implements Initializable {
             Date output = Date.from(zdt.toInstant());
             LocalDate date = m.getStart().toLocalDate();
             WeekFields weekFields = WeekFields.of(Locale.getDefault());
-            week = date.get(weekFields.weekOfWeekBasedYear()) - first+1;
+            week = date.get(weekFields.weekOfWeekBasedYear()) - first + 1;
 
             // check for corrected cweek
 
             if (corrections.containsKey(m.getStart().getYear())) {
-                if (corrections.get(m.getStart().getYear()).containsKey(m.getMname())){
+                if (corrections.get(m.getStart().getYear()).containsKey(m.getMname())) {
                     week = corrections.get(m.getStart().getYear()).get(m.getMname());
                 }
             }
-
 
 
             var meets = weekMeets.computeIfAbsent(week, k -> new HashSet<>());
@@ -448,8 +533,8 @@ public class MainController extends Application implements Initializable {
             rootNode.getChildren().add(weekNode);
             for (var m : weekMeets.get(week)) {
                 System.out.println(m.getMeet() + " " + m.getStart() + " " + m.getMname());
-                var node = new TreeItem<String>( m.getMeet() + " " + m.getStart() + " " + m.getMname());
-                weekNode.getChildren().add(node) ;
+                var node = new TreeItem<String>(m.getMeet() + " " + m.getStart() + " " + m.getMname());
+                weekNode.getChildren().add(node);
             }
         }
     }

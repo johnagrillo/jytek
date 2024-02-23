@@ -1,6 +1,6 @@
 package org.jytek.leaguemanager;
 
-public class MockResult {
+public class DualMockResult {
 
     String team1;
     Integer team1Score;
@@ -8,7 +8,7 @@ public class MockResult {
     Integer team2Score;
     Integer diff;
 
-    public MockResult(String team1, Integer team1Score, String team2, Integer team2Score, Integer diff) {
+    public DualMockResult(String team1, Integer team1Score, String team2, Integer team2Score, Integer diff) {
         this.team1 = team1;
         this.team1Score = team1Score;
         this.team2 = team2;

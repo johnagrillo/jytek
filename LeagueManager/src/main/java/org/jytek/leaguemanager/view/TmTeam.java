@@ -1,7 +1,5 @@
 package org.jytek.leaguemanager.view;
 
-import java.util.*;
-
 /**
  * 
  * 
@@ -17,19 +15,6 @@ public class TmTeam {
 
     public static String NAME = "Team";
     private TmTeam() {
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        TmTeam tmTeam = (TmTeam) o;
-        return Objects.equals(team, tmTeam.team) && Objects.equals(tcode, tmTeam.tcode) && Objects.equals(tname, tmTeam.tname) && Objects.equals(short_, tmTeam.short_) && Objects.equals(athletes, tmTeam.athletes) && Objects.equals(relays, tmTeam.relays);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(team, tcode, tname, short_, athletes, relays);
     }
 
     public static TmTeam create(final com.healthmarketscience.jackcess.Row row){
@@ -73,25 +58,15 @@ public class TmTeam {
         return short_;
     }
 
-
-    private List<TmAthlete> athletes = new ArrayList<>();
-
-    private List<TmRelay> relays = new ArrayList<>();
-
-    public List<TmAthlete> getAthletes() {
-        return this.athletes;
+    @Override
+    public String toString() {
+        return "TmTeam{" +
+                "team=" + team +
+                ", tcode='" + tcode + '\'' +
+                ", tname='" + tname + '\'' +
+                ", short_='" + short_ + '\'' +
+                '}';
     }
-    public void add(TmAthlete ath){
-        athletes.add(ath);
-    }
-    public void add(TmRelay relay){
-        relays.add(relay);
-    }
-
-    public List<TmRelay> getRelays() {
-        return this.relays;
-    }
-
 }
 /* FXML 
 <TableView fx:id=tvTmTeam" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">

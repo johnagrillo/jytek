@@ -157,15 +157,6 @@ public class TmRelay {
     public String getRelayage() {
         return relayage;
     }
-
-  private List<TmResult> results = new ArrayList<>();
-
-    public List<TmResult> getResults() {
-        return results;
-    }
-    public void add(TmResult r) {
-        results.add(r);
-    }
 }
 /* FXML 
 <TableView fx:id=tvTmRelay" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">

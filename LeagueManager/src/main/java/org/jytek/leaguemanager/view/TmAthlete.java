@@ -1,7 +1,5 @@
 package org.jytek.leaguemanager.view;
 
-import java.util.*;
-
 /**
  * 
  * 
@@ -40,7 +38,22 @@ public class TmAthlete {
     }
 
 
-    // 
+    @Override
+    public String toString() {
+        return "TmAthlete{" +
+                "athlete=" + athlete +
+                ", team1=" + team1 +
+                ", last='" + last + '\'' +
+                ", first='" + first + '\'' +
+                ", initial='" + initial + '\'' +
+                ", sex='" + sex + '\'' +
+                ", birth=" + birth +
+                ", age=" + age +
+                ", idno='" + idno + '\'' +
+                '}';
+    }
+
+    //
     // Column names
     //
     public static final String ATHLETE = "Athlete";
@@ -94,16 +107,6 @@ public class TmAthlete {
     public String getIdno() {
         return idno;
     }
-
-    public List<TmResult> getResults() {
-        return results;
-    }
-    private List<TmResult> results = new ArrayList<>();
-    
-    public void add(TmResult r) {
-        results.add(r);
-    }
-
 }
 /* FXML 
 <TableView fx:id=tvTmAthlete" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">
