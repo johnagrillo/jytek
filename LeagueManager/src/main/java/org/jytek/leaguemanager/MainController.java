@@ -201,23 +201,19 @@ public class MainController extends Application implements Initializable {
         //
         TreeMap<Short, ArrayList<TmResult>> teamEntries = new TreeMap<>();
         try {
-            for (var ath : tm.getTeamAthletes().get(tm.getTeam(team))) {
-                try {
-                    for (var r : tm.getAthleteBestResults(tm.getAthlete(ath.getAthlete()))) {
-                        try {
-                            var events = teamEntries.computeIfAbsent(tm.getMtevent(r.getMtevent()).getMtev(), k -> new ArrayList<>());
-                            events.add(r);
-                        } catch (MtEventException e) {
+            for (var ath : tm.getTeamAthletes(tm.getTeam(team))) {
+                for (var r : tm.getAthleteBestResults(tm.getAthlete(ath.getAthlete()))) {
+                    try {
+                        var events = teamEntries.computeIfAbsent(tm.getMtevent(r.getMtevent()).getMtev(), k -> new ArrayList<>());
+                        events.add(r);
+                    } catch (MtEventException e) {
 
-                        }
                     }
-                } catch (AthleteException e) {
-                    //System.out.println("skipping " + ath);
                 }
             }
-        } catch (TeamException e) {
+        } catch (TeamException | AthleteException e) {
             // continue
-            //System.out.println("skip team " + team);
+            System.out.println("getBestTeamEntries " + e +  " " + team) ;
         }
 
         //
@@ -229,14 +225,11 @@ public class MainController extends Application implements Initializable {
                var results = teamEntries.computeIfAbsent( tm.getMtevent(r.getMtevent()).getMtev(), k -> new ArrayList<>() );
 
             }
-        } catch (TeamException e) {
+        } catch (TeamException | MtEventException e) {
 
-
-        } catch (MtEventException e) {
 
         }
-
-
+        System.out.println("Getting Team " + team + " " + teamEntries.size());
         return teamEntries;
     }
 
@@ -247,20 +240,13 @@ public class MainController extends Application implements Initializable {
         ///   beast time mock for all teams
         ///
         var dualResults = new ArrayList<DualMockResult>();
-
-
         for (var team1 : tm.getTeams().keySet()) {
-
             var team1Entries = getBestTeamEntries(team1);
-
             for (var team2 : tm.getTeams().keySet()) {
-
-                if (!Objects.equals(team1, team2)){
-
+                if (!Objects.equals(team1, team2)) {
                     var in = new HashSet<Integer>();
                     in.add(team1);
                     in.add(team2);
-
                     var team2Entries = getBestTeamEntries(team2);
                     // add team and team 2
                     var teamEntries = new TreeMap<Short, ArrayList<TmResult>>();
@@ -276,31 +262,41 @@ public class MainController extends Application implements Initializable {
                                     if (in.contains(r.getTeam())) {
                                         teams.add(tm.getTeam(r.getTeam()).getTcode());
                                     } else {
-                                        System.out.println(in + "  " + " " + tm.getTeam(r.getTeam()).getTcode() + " " + r);
+                                        System.out.println("Wrong Team in "  + " " + tm.getTeam(r.getTeam()).getTcode() + " " + r);
                                     }
-                                }
-                                catch (TeamException e) {
+                                } catch (TeamException e) {
+                                    System.out.println("No Team " + e);
 
                                 }
                             }
                         }
                     }
+
+
+                    // only run if we have two teams
+
+
                     var r = MockMeet.runMockMeet(teamEntries);
 
                     var teamScores = r.getTeamScores();
-                    var t1 = teamScores.get(team1);
-                    var t2 = teamScores.get(team2);
-                    var diff =   (int) ((int) (t1 - t2) / 10.0);
+                    System.out.println("scored " + teamScores);
 
-                    try {
-                    dualResults.add(new DualMockResult(
-                            tm.getTeam(team1).getTcode(),
-                            t1,
-                            tm.getTeam(team2).getTcode(),
-                            t2,
-                            diff));
-                    } catch (TeamException e) {
+                    if (teamScores.size() == 2) {
 
+                        var t1 = teamScores.get(team1);
+                        var t2 = teamScores.get(team2);
+                        var diff = (int) ((int) (t1 - t2) / 10.0);
+
+                        try {
+                            dualResults.add(new DualMockResult(
+                                    tm.getTeam(team1).getTcode(),
+                                    t1,
+                                    tm.getTeam(team2).getTcode(),
+                                    t2,
+                                    diff));
+                        } catch (TeamException e) {
+
+                        }
                     }
 
                 }
@@ -538,4 +534,18 @@ public class MainController extends Application implements Initializable {
             }
         }
     }
+    enum Scoring {
+        CMSL,
+        FSSL
+    };
+
+    private Scoring scoring = Scoring.CMSL;
+    public void onCMSL(ActionEvent actionEvent) {
+        scoring = Scoring.CMSL;
+    }
+    public void onFSSL(ActionEvent actionEvent) {
+        scoring = Scoring.FSSL;
+    }
+
+
 }

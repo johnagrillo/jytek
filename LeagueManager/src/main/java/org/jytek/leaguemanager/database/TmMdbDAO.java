@@ -81,7 +81,10 @@ public class TmMdbDAO {
                 // Individual event
                 //
                 if (r.getIr().equals("I")) {
-
+                    if (r.getAthlete() == 53)
+                    {
+                        System.out.println(53 + " " + r);
+                    }
                     try {
                         var athlist = athleteResults.computeIfAbsent(getAthlete(r.getAthlete()), k -> new ArrayList<>());
                         athlist.add(r);
@@ -93,10 +96,8 @@ public class TmMdbDAO {
                     try {
                         var teamlist = teamAthletes.computeIfAbsent(getTeam(r.getTeam()), k -> new ArrayList<>());
                         teamlist.add(getAthlete(r.getAthlete()));
-                    } catch (TeamException e) {
+                    } catch (TeamException | AthleteException e) {
                          // handle tm case
-                    } catch (AthleteException e) {
-                        // handle tm case
                     }
 
 
@@ -212,9 +213,12 @@ public class TmMdbDAO {
         return this.relays;
     }
 
-    public Map<TmTeam, ArrayList<TmAthlete>> getTeamAthletes() {
-        return teamAthletes;
-    }
+    public ArrayList<TmAthlete> getTeamAthletes(TmTeam team) throws AthleteException {
+        if (teamAthletes.containsKey(team)) {
+            return teamAthletes.get(team);
+        }
+        throw new AthleteException("No Athletes for team " + team);
+   }
     public ArrayList<TmResult> getAthleteBestResults(TmAthlete athlete) throws AthleteException{
 
         if (athleteBestResults.containsKey(athlete)) {
@@ -318,7 +322,7 @@ public class TmMdbDAO {
                     hi = lo_hi - lo * 100;
 
                     if (ath.getAge() < lo || ath.getAge() > hi) {
-                        //writer.write("skip " + lo_hi + " " + r);
+                        System.out.println("skip " + lo_hi + " " + r);
                         continue;
                     }
 
@@ -367,6 +371,8 @@ public class TmMdbDAO {
                     }
                 }
 
+
+
                 if (bestResult == null)  {
                     System.out.println(ath);
                     System.out.println("Y " + ev + " " + bestSwimsY.get(ev));
@@ -374,6 +380,11 @@ public class TmMdbDAO {
                 }
                 else {
                     var results = best.computeIfAbsent(ath, k -> new ArrayList<>());
+                    if (ath.getAthlete()==53)
+                    {
+                        System.out.println(bestResult);
+                    }
+
                     results.add(bestResult);
                 }
             }
