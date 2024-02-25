@@ -233,6 +233,53 @@ public class MainController extends Application implements Initializable {
         return teamEntries;
     }
 
+
+    protected Map<Short, Short>  getAgeUp(Scoring scoring) {
+        Map<Short, Short> ageUp = new HashMap<>();
+        if (scoring == Scoring.CMSL) {
+	    //6 & U ageup to 7-8
+	    ageUp.put((short)9,  (short)11);
+	    ageUp.put((short)10, (short)12);
+	    ageUp.put((short)21, (short)23);
+	    ageUp.put((short)22, (short)24);
+	}
+	return ageUp;
+    }
+
+    protected Map<Short, Integer[]> getEventPoints(Scoring scoring) {
+        Map<Short, Integer[]> eventPoints = new HashMap<>();
+        if (scoring == Scoring.FSSL) {
+            Integer[] ind = {50, 30, 10};
+            Integer[] relay = {80, 40, 0};
+
+            // set all events to ind
+            for (short e = 1; e <= 68; e++) {
+                eventPoints.put(e, ind);
+            }
+            // set relay events
+            final Short[] relayE = {31, 32, 33, 34, 67, 68};
+            for (Short r : relayE) {
+                eventPoints.put(r, relay);
+            }
+        }
+        else if (scoring == Scoring.CMSL) {
+            Integer[] ind = {50, 30, 10};
+            Integer[] relay = {50, 20};
+            // set all events to ind
+            for (short e = 1; e <= 61; e++) {
+                eventPoints.put(e, ind);
+            }
+            // set relay events
+            final Short[] relayE = {53,54,55,56,57,58,59,60,61};
+            for (Short r : relayE) {
+                eventPoints.put(r, relay);
+            }
+        }
+        return eventPoints;
+    }
+
+
+
     @FXML
     protected void onRunMock() {
 
@@ -276,7 +323,10 @@ public class MainController extends Application implements Initializable {
                     // only run if we have two teams
 
 
-                    var r = MockMeet.runMockMeet(teamEntries);
+                    var r = MockMeet.runMockMeet(teamEntries,
+						 getEventPoints(scoring),
+						 getAgeUp(scoring)
+						 );
 
                     var teamScores = r.getTeamScores();
                     System.out.println("scored " + teamScores);
@@ -546,6 +596,4 @@ public class MainController extends Application implements Initializable {
     public void onFSSL(ActionEvent actionEvent) {
         scoring = Scoring.FSSL;
     }
-
-
-}
+        }

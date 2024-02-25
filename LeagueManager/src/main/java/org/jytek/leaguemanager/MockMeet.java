@@ -3,6 +3,26 @@ package org.jytek.leaguemanager;
 import org.jytek.leaguemanager.view.MockMeetResults;
 import org.jytek.leaguemanager.view.TmResult;
 
+
+
+/*
+CMSL
+
+relays = Set.new([53,54,55,56,57,58,59,60,61].to_a)
+points_per_event = {}
+1.upto(61) do |e|
+  if relays.include?(e)
+    points_per_event[e] = [50,20]
+  else
+    points_per_event[e] = [50,30,10]
+  end
+end
+*/
+
+
+
+	
+
 import java.util.*;
 
 public final class MockMeet {
@@ -11,28 +31,23 @@ public final class MockMeet {
 
     }
 
-    public static MockMeetResults runMockMeet(Map<Short, ArrayList<TmResult>> entries) {
+    public static MockMeetResults runMockMeet(Map<Short, ArrayList<TmResult>> entries,
+                                              Map<Short, Integer[]> eventPoints,
+                                              Map<Short, Short> ageUp
+                                              ) {
         final TreeMap<Integer, Integer> teamScores = new TreeMap<Integer, Integer>();
-        final Map<Short, Integer[]> eventPoints = new HashMap<>();
+        // ageup
 
+        for(var evFrom: ageUp.keySet()) {
+            var evTo = ageUp.get(evFrom);
+
+            if (entries.containsKey(evFrom)) {
+                var toResults = entries.computeIfAbsent(evTo, k -> new ArrayList<>());
+                toResults.addAll(entries.get(evFrom));
+            }
+        }
 
         TreeMap<Short, ArrayList<TmResult>> results = new TreeMap<>();
-
-        Integer[] ind = {50, 30, 10};
-        Integer[] relay = {80, 40, 0};
-
-        // set all events to ind
-        for (short e = 1; e <= 68; e++) {
-            eventPoints.put(e, ind);
-        }
-        // set relay events
-
-        final Short[] relayE = {31, 32, 33, 34, 67, 68};
-
-        for (Short r : relayE) {
-            eventPoints.put(r, relay);
-        }
-
         final Map<Integer, Integer> scored = new HashMap<>();
         for (var ev : entries.keySet()) {
             Map<Integer, ArrayList<TmResult>> scores = new TreeMap<>();
@@ -55,16 +70,20 @@ public final class MockMeet {
             // score event
 
             final List<Integer> times = new ArrayList<>(scores.keySet());
-            var eventScore = eventPoints.get(ev);
-            for (int t = 0; t < times.size(); t++) {
 
-                final var values = scores.get(times.get(t));
-                final var result = values.get(0);
+            if (eventPoints.containsKey(ev)) {
 
-                if (t < eventScore.length) {
-                    final var points = eventScore[t];
-                    Integer team = result.getTeam();
-                    teamScores.put(team, teamScores.computeIfAbsent(team, k->0) + points);
+                var eventScore = eventPoints.get(ev);
+                for (int t = 0; t < times.size(); t++) {
+
+                    final var values = scores.get(times.get(t));
+                    final var result = values.get(0);
+
+                    if (t < eventScore.length) {
+                        final var points = eventScore[t];
+                        Integer team = result.getTeam();
+                        teamScores.put(team, teamScores.computeIfAbsent(team, k -> 0) + points);
+                    }
                 }
             }
         }
