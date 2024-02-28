@@ -47,10 +47,8 @@ public class ResultController extends Application implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-    }
-
-    public void populateData(ObservableList<Result> results) {
-        Util.setPropertyValueFactory(Arrays.asList(new Pair<>(tcResultMeet, "Meet"),
+        Util.setPropertyValueFactory(Arrays.asList(
+                new Pair<>(tcResultMeet, "Meet"),
                 new Pair<>(tcResultIr, "Ir"),
                 new Pair<>(tcResultScore, "Score"),
                 new Pair<>(tcResultEvent, "Event"),
@@ -59,6 +57,10 @@ public class ResultController extends Application implements Initializable {
                 new Pair<>(tcResultStroke, "Stroke"),
                 new Pair<>(tcResultPlace, "Place"),
                 new Pair<>(tcResultPoints, "Points")));
+    }
+
+    public void populateData(ObservableList<Result> results) {
+
         tvResult.setItems(results);
     }
 }

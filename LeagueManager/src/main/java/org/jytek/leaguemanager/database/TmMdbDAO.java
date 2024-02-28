@@ -205,20 +205,20 @@ public class TmMdbDAO {
         }
         throw new AthleteException("No Athletes for team " + team);
    }
-    public ArrayList<TmResult> getAthleteBestResults(Integer athlete) throws AthleteException{
+    public ArrayList<TmResult> getAthleteBestResults(Integer athlete) {
 
         if (athleteBestResults.containsKey(athlete)) {
             return athleteBestResults.get(athlete);
         }
-        throw new AthleteException("No best Results for " + athlete);
+        return new ArrayList<>();
     }
 
-    public ArrayList<TmResult> getATeamBestRelays(Integer team) throws TeamException{
+    public ArrayList<TmResult> getATeamBestRelays(Integer team) {
 
         if (teamRelayBestResults.containsKey(team)) {
             return teamRelayBestResults.get(team);
         }
-        throw new TeamException("No best Relays for " + team);
+        return new ArrayList<>();
     }
 
 

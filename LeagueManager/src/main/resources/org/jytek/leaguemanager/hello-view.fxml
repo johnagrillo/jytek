@@ -1,139 +1,155 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.control.TreeView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="864.0"
+            prefWidth="941.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.jytek.leaguemanager.MainController">
+    <children>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="864.0" prefWidth="941.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jytek.leaguemanager.MainController">
-  <children>
+        <Button fx:id="btLoad" layoutX="75.0" layoutY="43.0" mnemonicParsing="false" onAction="#onLoad"
+                prefHeight="45.0" prefWidth="150.0" text="Load MDB"/>
+        <Label fx:id="lbFile" layoutX="53.0" layoutY="100.0" prefHeight="25.0" prefWidth="274.0"
+               text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"/>
 
-    <Button fx:id="btLoad" layoutX="75.0" layoutY="43.0" mnemonicParsing="false" onAction="#onLoad" prefHeight="45.0" prefWidth="150.0" text="Load MDB" />
-    <Label fx:id="lbFile" layoutX="53.0" layoutY="100.0" prefHeight="25.0" prefWidth="274.0" text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" />
+        <Label layoutX="520.0" layoutY="40.0" prefHeight="25.0" prefWidth="55.0" text="Teams"/>
+        <Label fx:id="lbTeams" layoutX="687.0" layoutY="40"/>
 
-    <Label layoutX="520.0" layoutY="40.0" prefHeight="25.0" prefWidth="55.0" text="Teams" />
-    <Label fx:id="lbTeams" layoutX="687.0" layoutY="40" />
+        <Label layoutX="520.0" layoutY="60.0" prefHeight="25.0" prefWidth="65.0" text="Athletes"/>
+        <Label fx:id="lbAthletes" layoutX="687.0" layoutY="60"/>
 
-    <Label layoutX="520.0" layoutY="60.0" prefHeight="25.0" prefWidth="65.0" text="Athletes" />
-    <Label fx:id="lbAthletes" layoutX="687.0" layoutY="60" />
+        <Label layoutX="520" layoutY="80" prefHeight="25.0" prefWidth="55.0" text="Results"/>
+        <Label fx:id="lbResults" layoutX="687.0" layoutY="80.00"/>
 
-    <Label layoutX="520" layoutY="80" prefHeight="25.0" prefWidth="55.0" text="Results" />
-    <Label fx:id="lbResults" layoutX="687.0" layoutY="80.00" />
+        <Label layoutX="520" layoutY="100" prefHeight="25.0" prefWidth="55.0" text="Relays"/>
+        <Label fx:id="lbRelays" layoutX="687.0" layoutY="100.0"/>
 
-    <Label layoutX="520" layoutY="100" prefHeight="25.0" prefWidth="55.0" text="Relays" />
-    <Label fx:id="lbRelays" layoutX="687.0" layoutY="100.0" />
+        <Label layoutX="520" layoutY="120.0" prefHeight="25.0" prefWidth="55.0" text="Meets"/>
+        <Label fx:id="lbMeets" layoutX="687.0" layoutY="120.0"/>
 
-    <Label layoutX="520" layoutY="120.0" prefHeight="25.0" prefWidth="55.0" text="Meets" />
-    <Label fx:id="lbMeets" layoutX="687.0" layoutY="120.0" />
+        <Label layoutX="520" layoutY="140.0" prefHeight="25.0" prefWidth="81.0" text="Mock Meets"/>
+        <Label fx:id="lbMockMeets" layoutX="687.0" layoutY="140.0"/>
+        <fx:define>
+            <ToggleGroup fx:id="scoring"/>
+        </fx:define>
+        <RadioButton fx:id="rbCMSL" layoutX="412.0" layoutY="66.0" mnemonicParsing="false" onAction="#onCMSL"
+                     prefHeight="28.0" prefWidth="72.0" selected="true" text="CMSL">
+            <toggleGroup>
+                <ToggleGroup fx:id="scoring"/>
+            </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="rbFSSL" layoutX="412.0" layoutY="100.0" mnemonicParsing="false" onAction="#onFSSL"
+                     prefHeight="25.0" prefWidth="73.0" text="FSSL" toggleGroup="$scoring"/>
+        <TabPane layoutX="54.0" layoutY="162.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                 minWidth="-Infinity" prefHeight="685.0" prefWidth="788.0" tabClosingPolicy="UNAVAILABLE"
+                 xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+            <tabs>
+                <Tab fx:id="tbTeams" text="Teams">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 
-    <Label layoutX="520" layoutY="140.0" prefHeight="25.0" prefWidth="81.0" text="Mock Meets" />
-    <Label fx:id="lbMockMeets" layoutX="687.0" layoutY="140.0" />
-    <fx:define>
-      <ToggleGroup fx:id="scoring" />
-    </fx:define>
-    <RadioButton fx:id="rbCMSL" layoutX="412.0" layoutY="66.0" mnemonicParsing="false" onAction="#onCMSL" prefHeight="28.0" prefWidth="72.0" selected="true" text="CMSL">
-         <toggleGroup>
-            <ToggleGroup fx:id="scoring" />
-         </toggleGroup></RadioButton>
-    <RadioButton fx:id="rbFSSL" layoutX="412.0" layoutY="100.0" mnemonicParsing="false" onAction="#onFSSL" prefHeight="25.0" prefWidth="73.0" text="FSSL" toggleGroup="$scoring" />
-    <TabPane layoutX="54.0" layoutY="162.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0" prefWidth="788.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-  <tabs>
-    <Tab fx:id="tbTeams" disable="true" text="Teams">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            <TableView fx:id="tvTmTeams" layoutX="16.0" layoutY="100.0" prefHeight="501.0" prefWidth="699.0">
-            <columns>
-            <TableColumn fx:id="tcTeamTeam" prefWidth="65.0" sortable="true" text="Team" />
-            <TableColumn fx:id="tcTCode" minWidth="100.0" prefWidth="136.0" sortable="true" text="Code" />
-            <TableColumn fx:id="tcTName" minWidth="100.0" prefWidth="371.0" sortable="true" text="Name" />
-            <TableColumn fx:id="tcShort" minWidth="100.0" prefWidth="210.0" sortable="true" text="Short" />
-            </columns>
-            </TableView>
+                        <TableView fx:id="tvTmTeams" layoutX="16.0" layoutY="100.0" prefHeight="501.0"
+                                   prefWidth="699.0">
+                            <columns>
+                                <TableColumn fx:id="tcTeamTeam" prefWidth="65.0" sortable="true" text="Team"/>
+                                <TableColumn fx:id="tcTCode" minWidth="100.0" prefWidth="136.0" sortable="true"
+                                             text="Code"/>
+                                <TableColumn fx:id="tcTName" minWidth="100.0" prefWidth="371.0" sortable="true"
+                                             text="Name"/>
+                                <TableColumn fx:id="tcShort" minWidth="100.0" prefWidth="210.0" sortable="true"
+                                             text="Short"/>
+                            </columns>
+                        </TableView>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tbAthletes" text="Athletes">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 
-    </content>
-    </Tab>
-    <Tab fx:id="tbAthletes" disable="true" text="Athletes">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        <TableView fx:id="tvTmAthletes"  onMouseClicked="#onClickAthletes" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">
-        <columns>
-          <TableColumn fx:id="tcAthlete" prefWidth="69.0" sortable="true" text="Athlete" />
-          <TableColumn fx:id="tcAthTeam1" prefWidth="73.0" sortable="true" text="Team" />
-          <TableColumn fx:id="tcLast" prefWidth="200.0" sortable="true" text="Last" />
-          <TableColumn fx:id="tcFirst" minWidth="100.0" prefWidth="0.0" sortable="true" text="First" />
-          <TableColumn fx:id="tcInitial" prefWidth="38.0" sortable="true" text="Initial" />
-          <TableColumn fx:id="tcSex" prefWidth="32.0" sortable="true" text="Sex" />
-          <TableColumn fx:id="tcBirth" prefWidth="150.0" sortable="true" text="Birth" />
-          <TableColumn fx:id="tcAge" prefWidth="50.0" sortable="true" text="Age" />
-        </columns>
-      </TableView>
+                        <TableView fx:id="tvTmAthletes" layoutX="16.0" layoutY="100.0" onMouseClicked="#onClickAthletes"
+                                   prefHeight="513.0" prefWidth="548.0">
+                            <columns>
+                                <TableColumn fx:id="tcAthlete" prefWidth="69.0" sortable="true" text="Athlete"/>
+                                <TableColumn fx:id="tcAthTeam1" prefWidth="73.0" sortable="true" text="Team"/>
+                                <TableColumn fx:id="tcLast" prefWidth="200.0" sortable="true" text="Last"/>
+                                <TableColumn fx:id="tcFirst" minWidth="100.0" prefWidth="0.0" sortable="true"
+                                             text="First"/>
+                                <TableColumn fx:id="tcInitial" prefWidth="38.0" sortable="true" text="Initial"/>
+                                <TableColumn fx:id="tcSex" prefWidth="32.0" sortable="true" text="Sex"/>
+                                <TableColumn fx:id="tcBirth" prefWidth="150.0" sortable="true" text="Birth"/>
+                                <TableColumn fx:id="tcAge" prefWidth="50.0" sortable="true" text="Age"/>
+                            </columns>
+                        </TableView>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tbMeets" text="Meets">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <TableView fx:id="tvTmMeets" layoutX="16.0" layoutY="100.0" prefHeight="513.0"
+                                   prefWidth="548.0">
+                            <columns>
+                                <TableColumn fx:id="tcMeet" prefWidth="40.0" sortable="false" text="Meet"/>
+                                <TableColumn fx:id="tcMName" prefWidth="249.0" sortable="true" text="MName"/>
+                                <TableColumn fx:id="tcStart" prefWidth="120.0" sortable="true" text="Start"/>
+                                <TableColumn fx:id="tcCourse" minWidth="2.0" prefWidth="27.0" sortable="false"
+                                             text="Course"/>
+                                <TableColumn fx:id="tcLocation" prefWidth="124.0" sortable="false" text="Location"/>
+                                <TableColumn fx:id="tcMaxIndEnt" prefWidth="50.0" sortable="false"
+                                             text="MaxInd&#10;Entries"/>
+                                <TableColumn fx:id="tcMaxRelEnt" prefWidth="50.0" sortable="false"
+                                             text="MaxRel&#10;Entries"/>
+                                <TableColumn fx:id="tcMaxEnt" prefWidth="50.0" sortable="false" text="Max&#10;Entries"/>
+                            </columns>
+                        </TableView>
+                        </AnchorPane>
 
-    </content>
-    </Tab>
-    <Tab fx:id="tbMeets" disable="true" text="Meets">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        <TableView fx:id="tvTmMeets" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">
-        <columns>
-          <TableColumn fx:id="tcMeet" prefWidth="40.0" sortable="false" text="Meet" />
-          <TableColumn fx:id="tcMName" prefWidth="249.0" sortable="true" text="MName" />
-          <TableColumn fx:id="tcStart" prefWidth="120.0" sortable="true" text="Start" />
-          <TableColumn fx:id="tcCourse" minWidth="2.0" prefWidth="27.0" sortable="false" text="Course" />
-          <TableColumn fx:id="tcLocation" prefWidth="124.0" sortable="false" text="Location" />
-          <TableColumn fx:id="tcMaxIndEnt" prefWidth="50.0" sortable="false" text="MaxInd&#10;Entries" />
-          <TableColumn fx:id="tcMaxRelEnt" prefWidth="50.0" sortable="false" text="MaxRel&#10;Entries" />
-          <TableColumn fx:id="tcMaxEnt" prefWidth="50.0" sortable="false" text="Max&#10;Entries" />
-        </columns>
-      </TableView>
+                    </content>
+                </Tab>
+                <Tab fx:id="tbMockMeets" text="Best Time Mock Meet">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="725.0" prefWidth="852.0">
+                            <TableView fx:id="tvMockResults" layoutX="16.0" layoutY="121.0" prefHeight="701.0"
+                                       prefWidth="548.0">
+                                <columns>
+                                    <TableColumn fx:id="tcTeam1" prefWidth="150.0" sortable="true" text="Team"/>
+                                    <TableColumn fx:id="tcScore1" prefWidth="100.0" sortable="true" text="Score"/>
+                                    <TableColumn fx:id="tcTeam2" prefWidth="100.0" sortable="true" text="Team"/>
+                                    <TableColumn fx:id="tcScore2" prefWidth="100.0" sortable="true" text="Score"/>
+                                    <TableColumn fx:id="tcDiff" prefWidth="100.0" sortable="true" text="Win"/>
+                                </columns>
+                            </TableView>
+                            <TableView fx:id="tvMockWins" layoutX="583.0" layoutY="121.0" prefHeight="709.0"
+                                       prefWidth="255.0">
+                                <columns>
+                                    <TableColumn fx:id="tcTeam" prefWidth="50.0" text="Team"/>
+                                    <TableColumn fx:id="tcWins" prefWidth="50.0" text="Wins"/>
+                                    <TableColumn fx:id="tcLosses" prefWidth="50.0" text="Loses"/>
+                                    <TableColumn fx:id="tcTies" prefWidth="50.0" text="Ties"/>
+                                </columns>
+                            </TableView>
+                            <Button fx:id="btRunMock" layoutX="290.0" layoutY="35.0" mnemonicParsing="false"
+                                    onAction="#onRunMock" prefHeight="45.0" prefWidth="297.0" text="Run"/>
+
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tbWeeklyMockMeets" text="Weekly Mock Meets">
+                    <content>
+                        <AnchorPane prefHeight="650.0" prefWidth="788.0">
+                            <Button fx:id="btRunWeeklyMockMeets" layoutX="433.0" layoutY="54.0" mnemonicParsing="false"
+                                    onAction="#onRunWeeklyMock" prefHeight="45.0" prefWidth="297.0" text="Run"/>
+                            <TreeView fx:id="trvWeeks" layoutX="48.0" layoutY="35.0" prefHeight="608.0"
+                                      prefWidth="297.0"/>
+                        </AnchorPane>
+                    </content>
+                </Tab>
 
 
-      </content>
-    </Tab>
-    <Tab fx:id="tbMockMeets" disable="true" text="Best Time Mock Meet">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="725.0" prefWidth="852.0">
-          <TableView fx:id="tvMockResults" layoutX="16.0" layoutY="121.0" prefHeight="701.0" prefWidth="548.0">
-            <columns>
-              <TableColumn fx:id="tcTeam1" prefWidth="150.0" sortable="true" text="Team" />
-              <TableColumn fx:id="tcScore1" prefWidth="100.0" sortable="true" text="Score" />
-              <TableColumn fx:id="tcTeam2" prefWidth="100.0" sortable="true" text="Team" />
-              <TableColumn fx:id="tcScore2" prefWidth="100.0" sortable="true" text="Score" />
-              <TableColumn fx:id="tcDiff" prefWidth="100.0" sortable="true" text="Win" />
-            </columns>
-          </TableView>
-          <TableView fx:id="tvMockWins" layoutX="583.0" layoutY="121.0" prefHeight="709.0" prefWidth="255.0">
-            <columns>
-              <TableColumn fx:id="tcTeam" prefWidth="50.0" text="Team" />
-              <TableColumn fx:id="tcWins" prefWidth="50.0" text="Wins" />
-              <TableColumn fx:id="tcLosses" prefWidth="50.0" text="Loses" />
-              <TableColumn fx:id="tcTies" prefWidth="50.0" text="Ties" />
-            </columns>
-          </TableView>
-          <Button fx:id="btRunMock" layoutX="290.0" layoutY="35.0" mnemonicParsing="false" onAction="#onRunMock" prefHeight="45.0" prefWidth="297.0" text="Run" />
+            </tabs>
+        </TabPane>
+        <Label layoutX="425.0" layoutY="35.0" prefHeight="28.0" prefWidth="72.0" text="Scoring"/>
 
-        </AnchorPane>
-      </content>
-    </Tab>
-    <Tab fx:id="tbWeeklyMockMeets" disable="true" text="Weekly Mock Meets">
-      <content>
-         <AnchorPane prefHeight="650.0" prefWidth="788.0">
-           <Button fx:id="btRunWeeklyMockMeets" layoutX="433.0" layoutY="54.0" mnemonicParsing="false" onAction="#onRunWeeklyMock" prefHeight="45.0" prefWidth="297.0" text="Run" />
-                     <TreeView fx:id="trvWeeks" layoutX="48.0" layoutY="35.0" prefHeight="608.0" prefWidth="297.0" />
-        </AnchorPane>
-      </content>
-    </Tab>
-
-
-
-  </tabs>
-</TabPane>
-      <Label layoutX="425.0" layoutY="35.0" prefHeight="28.0" prefWidth="72.0" text="Scoring" />
-
-  </children>
+    </children>
 </AnchorPane>

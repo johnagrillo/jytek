@@ -9,7 +9,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -420,31 +419,6 @@ public class MainController extends Application implements Initializable {
 
     public void populateData(File mdbFile) {
 
-
-        for (Pair<TableColumn, String> pair : Arrays.asList(new Pair(tcDiff, "Diff"), new Pair(tcScore1, "Team1Score"), new Pair(tcScore2, "Team2Score"), new Pair(tcTeam1, "Team1"), new Pair(tcTeam2, "Team2"),
-
-                new Pair(tcTeam, "Team"), new Pair(tcWins, "Wins"), new Pair(tcLosses, "Losses"), new Pair(tcTies, "Ties")
-
-        )) {
-            pair.getKey().setCellValueFactory(new PropertyValueFactory<>(pair.getValue()));
-        }
-
-        for (Pair<TableColumn, String> pair : Arrays.asList(new Pair(tcTeamTeam, "Team"), new Pair(tcTCode, "Tcode"), new Pair(tcTName, "Tname")
-                //new Pair(tcShort,"shortN")
-        )) {
-            pair.getKey().setCellValueFactory(new PropertyValueFactory<>(pair.getValue()));
-        }
-
-        for (Pair<TableColumn, String> pair : Arrays.asList(new Pair(tcAthlete, "Athlete"), new Pair(tcAthTeam1, "Team1"), new Pair(tcLast, "Last"), new Pair(tcFirst, "First"), new Pair(tcInitial, "Initial"), new Pair(tcSex, "Sex"), new Pair(tcBirth, "Birth"), new Pair(tcAge, "Age")
-                //new Pair(tcID_NO,"ID_NO")
-        )) {
-            pair.getKey().setCellValueFactory(new PropertyValueFactory<>(pair.getValue()));
-        }
-
-
-        for (Pair<TableColumn, String> pair : Arrays.asList(new Pair(tcMeet, "Meet"), new Pair(tcMName, "Mname"), new Pair(tcStart, "Start"), new Pair(tcCourse, "Course"), new Pair(tcLocation, "Location"), new Pair(tcMaxIndEnt, "Maxindent"), new Pair(tcMaxRelEnt, "Maxrelent"), new Pair(tcMaxEnt, "Maxent"))) {
-            pair.getKey().setCellValueFactory(new PropertyValueFactory<>(pair.getValue()));
-        }
         lbFile.setText(mdbFile.getPath());
         tm = new TmMdbDAO(mdbFile);
         lbTeams.setText("" + tm.getTeams().size());
@@ -503,6 +477,46 @@ public class MainController extends Application implements Initializable {
         fileChooser.getExtensionFilters().add(filt);
         fileChooser.setSelectedExtensionFilter(filt);
 
+        Util.setPropertyValueFactory(
+				     Arrays.asList(
+						   new Pair<>(tcDiff, "Diff"),
+						   new Pair<>(tcScore1, "Team1Score"),
+						   new Pair<>(tcScore2, "Team2Score"),
+						   new Pair<>(tcTeam1, "Team1"),
+						   new Pair<>(tcTeam2, "Team2"),
+						   new Pair<>(tcTeam, "Team"),
+						   new Pair<>(tcWins, "Wins"),
+						   new Pair<>(tcLosses, "Losses"),
+						   new Pair<>(tcTies, "Ties")
+						   ));
+	
+	Util.setPropertyValueFactory( Arrays.asList(
+						    new Pair<>(tcTeamTeam, "Team"),
+						    new Pair<>(tcTCode, "Tcode"),
+						    new Pair<>(tcTName, "Tname")
+						    //new Pair<>(tcShort,"shortN")
+						    ));
+	
+	Util.setPropertyValueFactory( Arrays.asList(
+						    new Pair<>(tcAthlete, "Athlete"),
+						    new Pair<>(tcAthTeam1, "Team1"),
+						    new Pair<>(tcLast, "Last"),
+						    new Pair<>(tcFirst, "First"),
+						    new Pair<>(tcInitial, "Initial"),
+						    new Pair<>(tcSex, "Sex"),
+						    new Pair<>(tcBirth, "Birth"),
+						    new Pair<>(tcAge, "Age")));
+						    //new Pair<>(tcID_NO,"ID_NO")
+
+	Util.setPropertyValueFactory( Arrays.asList(
+						    new Pair<>(tcMeet, "Meet"),
+						    new Pair<>(tcMName, "Mname"),
+						    new Pair<>(tcStart, "Start"),
+						    new Pair<>(tcCourse, "Course"),
+						    new Pair<>(tcLocation, "Location"),
+						    new Pair<>(tcMaxIndEnt, "Maxindent"),
+						    new Pair<>(tcMaxRelEnt, "Maxrelent"),
+						    new Pair<>(tcMaxEnt, "Maxent")));
     }
 
     @FXML
