@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="263.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jytek.leaguemanager.controller.ResultController">
+   <center>
+       <AnchorPane minHeight="0.0" minWidth="600.0" prefHeight="648.0" prefWidth="793.0">
+       <TableView fx:id="tvResult" layoutX="10" layoutY="10" prefHeight="200" prefWidth="576.0">
+           <columns>
+               <TableColumn fx:id="tcResultMeet" prefWidth="75.0" sortable="true" text="meet" />
+               <TableColumn fx:id="tcResultIr" minWidth="19.0" prefWidth="29.0" sortable="true" text="ir" />
+               <TableColumn fx:id="tcResultScore" minWidth="58.0" prefWidth="58.0" sortable="true" text="score" />
+               <TableColumn fx:id="tcResultEvent" prefWidth="44.0" sortable="true" text="event" />
+               <TableColumn fx:id="tcResultStroke" prefWidth="94.0" sortable="true" text="stroke" />
+               <TableColumn fx:id="tcResultDistance" prefWidth="70.0" sortable="true" text="distance" />
+               <TableColumn fx:id="tcResultCourse" prefWidth="49.0" sortable="true" text="course" />
+               <TableColumn fx:id="tcResultPlace" prefWidth="49.0" sortable="true" text="place" />
+               <TableColumn fx:id="tcResultPoints" prefWidth="70.0" sortable="true" text="points" />
+           </columns>
+       </TableView>
+       </AnchorPane>
+   </center>
+   <top>
+      <Label prefHeight="17.0" prefWidth="64.0" text="Results" BorderPane.alignment="CENTER" />
+   </top>
+</BorderPane>

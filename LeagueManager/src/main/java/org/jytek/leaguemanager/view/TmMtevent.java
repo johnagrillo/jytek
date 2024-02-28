@@ -141,10 +141,6 @@ public class TmMtevent {
                 ", stroke=" + stroke +
                 ", sex='" + sex + '\'' +
                 ", ir='" + ir + '\'' +
-                ", session=" + session +
-                ", division='" + division + '\'' +
-                ", eventtype='" + eventtype + '\'' +
-                ", sessx='" + sessx + '\'' +
                 '}';
     }
 }

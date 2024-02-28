@@ -3,26 +3,6 @@ package org.jytek.leaguemanager;
 import org.jytek.leaguemanager.view.MockMeetResults;
 import org.jytek.leaguemanager.view.TmResult;
 
-
-
-/*
-CMSL
-
-relays = Set.new([53,54,55,56,57,58,59,60,61].to_a)
-points_per_event = {}
-1.upto(61) do |e|
-  if relays.include?(e)
-    points_per_event[e] = [50,20]
-  else
-    points_per_event[e] = [50,30,10]
-  end
-end
-*/
-
-
-
-	
-
 import java.util.*;
 
 public final class MockMeet {
@@ -43,14 +23,14 @@ public final class MockMeet {
 
             if (entries.containsKey(evFrom)) {
                 var toResults = entries.computeIfAbsent(evTo, k -> new ArrayList<>());
-                toResults.addAll(entries.get(evFrom));
+                //toResults.addAll(entries.get(evFrom));
             }
         }
 
         TreeMap<Short, ArrayList<TmResult>> results = new TreeMap<>();
         final Map<Integer, Integer> scored = new HashMap<>();
         for (var ev : entries.keySet()) {
-            Map<Integer, ArrayList<TmResult>> scores = new TreeMap<>();
+            Map<Integer, HashSet<TmResult>> scores = new TreeMap<>();
 
             // rUN eVent
 
@@ -62,7 +42,15 @@ public final class MockMeet {
                 if ("Y".equals(r.getCourse())) {
                     time = (int) (time * 1.11);
                 }
-                var slot = scores.computeIfAbsent(time, k -> new ArrayList<>());
+
+
+                //
+                // Use a set to prevent the same result being in the time slot.
+                // Should not happen, but it does, so use a set.
+                //
+                //
+
+                var slot = scores.computeIfAbsent(time, k -> new HashSet<>());
                 slot.add(r);
                 //scored.put(r.getAthlete(), scored.get(r.getAthlete()) + 1);
             }
@@ -72,16 +60,23 @@ public final class MockMeet {
             final List<Integer> times = new ArrayList<>(scores.keySet());
 
             if (eventPoints.containsKey(ev)) {
-
                 var eventScore = eventPoints.get(ev);
                 for (int t = 0; t < times.size(); t++) {
-
                     final var values = scores.get(times.get(t));
-                    final var result = values.get(0);
 
+                    if (values.size() > 1) {
+                        System.out.println(ev +  " + " + t + " " + values.size());
+                        for(var r : values) {
+                            System.out.println(r);
+                        }
+                    }
+
+                    final var iter = values.iterator();
+
+                    var result = iter.next();
                     if (t < eventScore.length) {
                         final var points = eventScore[t];
-                        Integer team = result.getTeam();
+                       Integer team = result.getTeam();
                         teamScores.put(team, teamScores.computeIfAbsent(team, k -> 0) + points);
                     }
                 }

@@ -15,12 +15,12 @@
   <children>
 
     <Button fx:id="btLoad" layoutX="75.0" layoutY="43.0" mnemonicParsing="false" onAction="#onLoad" prefHeight="45.0" prefWidth="150.0" text="Load MDB" />
-    <Label fx:id="lbFile" layoutX="53.0" layoutY="100.0" prefHeight="25.0" prefWidth="410.0" text="XXXX" />
+    <Label fx:id="lbFile" layoutX="53.0" layoutY="100.0" prefHeight="25.0" prefWidth="274.0" text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" />
 
-    <Label layoutX="520.0" layoutY="40" prefHeight="25.0" prefWidth="55.0" text="Teams" />
+    <Label layoutX="520.0" layoutY="40.0" prefHeight="25.0" prefWidth="55.0" text="Teams" />
     <Label fx:id="lbTeams" layoutX="687.0" layoutY="40" />
 
-    <Label layoutX="520" layoutY="60" prefHeight="25.0" prefWidth="65.0" text="Athletes" />
+    <Label layoutX="520.0" layoutY="60.0" prefHeight="25.0" prefWidth="65.0" text="Athletes" />
     <Label fx:id="lbAthletes" layoutX="687.0" layoutY="60" />
 
     <Label layoutX="520" layoutY="80" prefHeight="25.0" prefWidth="55.0" text="Results" />
@@ -37,11 +37,11 @@
     <fx:define>
       <ToggleGroup fx:id="scoring" />
     </fx:define>
-    <RadioButton fx:id="rbCMSL" layoutX="347.0" layoutY="63.0" mnemonicParsing="false" onAction="#onCMSL" prefHeight="28.0" prefWidth="72.0" selected="true" text="CMSL">
+    <RadioButton fx:id="rbCMSL" layoutX="412.0" layoutY="66.0" mnemonicParsing="false" onAction="#onCMSL" prefHeight="28.0" prefWidth="72.0" selected="true" text="CMSL">
          <toggleGroup>
             <ToggleGroup fx:id="scoring" />
          </toggleGroup></RadioButton>
-    <RadioButton fx:id="rbFSSL" layoutX="346.0" layoutY="105.0" mnemonicParsing="false" onAction="#onFSSL" prefHeight="25.0" prefWidth="73.0" text="FSSL" toggleGroup="$scoring" />
+    <RadioButton fx:id="rbFSSL" layoutX="412.0" layoutY="100.0" mnemonicParsing="false" onAction="#onFSSL" prefHeight="25.0" prefWidth="73.0" text="FSSL" toggleGroup="$scoring" />
     <TabPane layoutX="54.0" layoutY="162.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0" prefWidth="788.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
   <tabs>
     <Tab fx:id="tbTeams" disable="true" text="Teams">
@@ -61,7 +61,7 @@
     <Tab fx:id="tbAthletes" disable="true" text="Athletes">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        <TableView fx:id="tvTmAthletes" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">
+        <TableView fx:id="tvTmAthletes"  onMouseClicked="#onClickAthletes" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">
         <columns>
           <TableColumn fx:id="tcAthlete" prefWidth="69.0" sortable="true" text="Athlete" />
           <TableColumn fx:id="tcAthTeam1" prefWidth="73.0" sortable="true" text="Team" />
@@ -133,7 +133,7 @@
 
   </tabs>
 </TabPane>
-      <Label layoutX="347.0" layoutY="29.0" prefHeight="28.0" prefWidth="72.0" text="Scoring" />
+      <Label layoutX="425.0" layoutY="35.0" prefHeight="28.0" prefWidth="72.0" text="Scoring" />
 
   </children>
 </AnchorPane>
