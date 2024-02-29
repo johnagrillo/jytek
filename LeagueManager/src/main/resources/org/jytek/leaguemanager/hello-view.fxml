@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="864.0"
             prefWidth="941.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="org.jytek.leaguemanager.MainController">
+            fx:controller="org.jytek.leaguemanager.controller.MainController">
     <children>
 
         <Button fx:id="btLoad" layoutX="75.0" layoutY="43.0" mnemonicParsing="false" onAction="#onLoad"
@@ -111,7 +111,7 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="725.0" prefWidth="852.0">
                             <TableView fx:id="tvMockResults" layoutX="16.0" layoutY="121.0" prefHeight="701.0"
-                                       prefWidth="548.0">
+                                       prefWidth="548.0" onMouseClicked="#onBestTimeClick">
                                 <columns>
                                     <TableColumn fx:id="tcTeam1" prefWidth="150.0" sortable="true" text="Team"/>
                                     <TableColumn fx:id="tcScore1" prefWidth="100.0" sortable="true" text="Score"/>

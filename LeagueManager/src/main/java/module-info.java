@@ -7,7 +7,11 @@ module org.jytek.leaguemanager {
     requires javafx.graphics;
     requires javafx.controls;
     opens org.jytek.leaguemanager to javafx.fxml,javafx.base,javafx.controls,javafx.graphics;
-    opens org.jytek.leaguemanager.view to javafx.base;
-    opens org.jytek.leaguemanager.controller to javafx.fxml;
     exports org.jytek.leaguemanager;
+    exports org.jytek.leaguemanager.utilities;
+    opens org.jytek.leaguemanager.utilities to javafx.base, javafx.controls, javafx.fxml, javafx.graphics;
+    exports org.jytek.leaguemanager.controller;
+    opens org.jytek.leaguemanager.controller to javafx.base, javafx.controls, javafx.fxml, javafx.graphics;
+    exports org.jytek.leaguemanager.view;
+    opens org.jytek.leaguemanager.view to javafx.base, javafx.controls, javafx.fxml, javafx.graphics;
 }

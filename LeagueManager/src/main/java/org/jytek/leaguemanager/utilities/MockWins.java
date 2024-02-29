@@ -1,4 +1,4 @@
-package org.jytek.leaguemanager;
+package org.jytek.leaguemanager.utilities;
 
 public class MockWins {
 

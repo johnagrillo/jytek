@@ -1,4 +1,4 @@
-package org.jytek.leaguemanager;
+package org.jytek.leaguemanager.controller;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -13,11 +13,14 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Pair;
-import org.jytek.leaguemanager.controller.ResultController;
+import org.jytek.leaguemanager.MainApplication;
 import org.jytek.leaguemanager.database.AthleteException;
 import org.jytek.leaguemanager.database.MtEventException;
 import org.jytek.leaguemanager.database.TeamException;
 import org.jytek.leaguemanager.database.TmMdbDAO;
+import org.jytek.leaguemanager.view.DualMockResult;
+import org.jytek.leaguemanager.utilities.MockMeet;
+import org.jytek.leaguemanager.utilities.MockWins;
 import org.jytek.leaguemanager.utilities.Util;
 import org.jytek.leaguemanager.view.*;
 
@@ -151,6 +154,11 @@ public class MainController extends Application implements Initializable {
     private Stage stage;
     private File mockFile = null;
     private Scoring scoring = Scoring.CMSL;
+
+
+
+
+    private ArrayList<DualMockResult> dualResults = new ArrayList<>();
 
     public static void main(String[] args) {
         launch();
@@ -301,7 +309,7 @@ public class MainController extends Application implements Initializable {
         ////
         ///   beast time mock for all teams
         ///
-        var dualResults = new ArrayList<DualMockResult>();
+
         for (var team1 : tm.getTeams().keySet()) {
             var team1Entries = getBestTeamEntries(team1);
             for (var team2 : tm.getTeams().keySet()) {
@@ -373,21 +381,21 @@ public class MainController extends Application implements Initializable {
 
 
         for (var r : results) {
-            wins.computeIfAbsent(r.team1, k -> 0);
-            wins.computeIfAbsent(r.team2, k -> 0);
-            losses.computeIfAbsent(r.team1, k -> 0);
-            losses.computeIfAbsent(r.team2, k -> 0);
-            ties.computeIfAbsent(r.team1, k -> 0);
-            ties.computeIfAbsent(r.team2, k -> 0);
+            wins.computeIfAbsent(r.getTeam1(), k -> 0);
+            wins.computeIfAbsent(r.getTeam2(), k -> 0);
+            losses.computeIfAbsent(r.getTeam1(), k -> 0);
+            losses.computeIfAbsent(r.getTeam2(), k -> 0);
+            ties.computeIfAbsent(r.getTeam1(), k -> 0);
+            ties.computeIfAbsent(r.getTeam2(), k -> 0);
 
-            if (r.team1Score > r.team2Score) {
-                wins.put(r.team1, wins.get(r.team1) + 1);
+            if (r.getTeam1Score() > r.getTeam2Score()) {
+                wins.put(r.getTeam1(), wins.get(r.getTeam1()) + 1);
             }
-            if (r.team1Score.intValue() == r.team2Score.intValue()) {
-                ties.put(r.team1, ties.get(r.team1) + 1);
+            if (r.getTeam1Score().intValue() == r.getTeam2Score().intValue()) {
+                ties.put(r.getTeam1(), ties.get(r.getTeam1()) + 1);
             }
-            if (r.team1Score < r.team2Score) {
-                losses.put(r.team1, losses.get(r.team1) + 1);
+            if (r.getTeam1Score() < r.getTeam2Score()) {
+                losses.put(r.getTeam1(), losses.get(r.getTeam1()) + 1);
             }
 
 
@@ -457,7 +465,7 @@ public class MainController extends Application implements Initializable {
         FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(loader.load(), 1000, 1000);
         var controller = loader.<MainController>getController();
-        //controller.populateData(new File("c:/Users/john/sandbox/mdb/cmsl/2018-Realignment-Wk1.mdb"));
+        controller.populateData(new File("c:/Users/john/sandbox/mdb/cmsl/2018-Realignment-Wk1.mdb"));
         stage.setTitle("League Manager");
         stage.setScene(scene);
         stage.show();
@@ -478,45 +486,45 @@ public class MainController extends Application implements Initializable {
         fileChooser.setSelectedExtensionFilter(filt);
 
         Util.setPropertyValueFactory(
-				     Arrays.asList(
-						   new Pair<>(tcDiff, "Diff"),
-						   new Pair<>(tcScore1, "Team1Score"),
-						   new Pair<>(tcScore2, "Team2Score"),
-						   new Pair<>(tcTeam1, "Team1"),
-						   new Pair<>(tcTeam2, "Team2"),
-						   new Pair<>(tcTeam, "Team"),
-						   new Pair<>(tcWins, "Wins"),
-						   new Pair<>(tcLosses, "Losses"),
-						   new Pair<>(tcTies, "Ties")
-						   ));
-	
-	Util.setPropertyValueFactory( Arrays.asList(
-						    new Pair<>(tcTeamTeam, "Team"),
-						    new Pair<>(tcTCode, "Tcode"),
-						    new Pair<>(tcTName, "Tname")
-						    //new Pair<>(tcShort,"shortN")
-						    ));
-	
-	Util.setPropertyValueFactory( Arrays.asList(
-						    new Pair<>(tcAthlete, "Athlete"),
-						    new Pair<>(tcAthTeam1, "Team1"),
-						    new Pair<>(tcLast, "Last"),
-						    new Pair<>(tcFirst, "First"),
-						    new Pair<>(tcInitial, "Initial"),
-						    new Pair<>(tcSex, "Sex"),
-						    new Pair<>(tcBirth, "Birth"),
-						    new Pair<>(tcAge, "Age")));
-						    //new Pair<>(tcID_NO,"ID_NO")
+                Arrays.asList(
+                        new Pair<>(tcDiff, "Diff"),
+                        new Pair<>(tcScore1, "Team1Score"),
+                        new Pair<>(tcScore2, "Team2Score"),
+                        new Pair<>(tcTeam1, "Team1"),
+                        new Pair<>(tcTeam2, "Team2"),
+                        new Pair<>(tcTeam, "Team"),
+                        new Pair<>(tcWins, "Wins"),
+                        new Pair<>(tcLosses, "Losses"),
+                        new Pair<>(tcTies, "Ties")
+                ));
 
-	Util.setPropertyValueFactory( Arrays.asList(
-						    new Pair<>(tcMeet, "Meet"),
-						    new Pair<>(tcMName, "Mname"),
-						    new Pair<>(tcStart, "Start"),
-						    new Pair<>(tcCourse, "Course"),
-						    new Pair<>(tcLocation, "Location"),
-						    new Pair<>(tcMaxIndEnt, "Maxindent"),
-						    new Pair<>(tcMaxRelEnt, "Maxrelent"),
-						    new Pair<>(tcMaxEnt, "Maxent")));
+        Util.setPropertyValueFactory(Arrays.asList(
+                new Pair<>(tcTeamTeam, "Team"),
+                new Pair<>(tcTCode, "Tcode"),
+                new Pair<>(tcTName, "Tname")
+                //new Pair<>(tcShort,"shortN")
+        ));
+
+        Util.setPropertyValueFactory(Arrays.asList(
+                new Pair<>(tcAthlete, "Athlete"),
+                new Pair<>(tcAthTeam1, "Team1"),
+                new Pair<>(tcLast, "Last"),
+                new Pair<>(tcFirst, "First"),
+                new Pair<>(tcInitial, "Initial"),
+                new Pair<>(tcSex, "Sex"),
+                new Pair<>(tcBirth, "Birth"),
+                new Pair<>(tcAge, "Age")));
+        //new Pair<>(tcID_NO,"ID_NO")
+
+        Util.setPropertyValueFactory(Arrays.asList(
+                new Pair<>(tcMeet, "Meet"),
+                new Pair<>(tcMName, "Mname"),
+                new Pair<>(tcStart, "Start"),
+                new Pair<>(tcCourse, "Course"),
+                new Pair<>(tcLocation, "Location"),
+                new Pair<>(tcMaxIndEnt, "Maxindent"),
+                new Pair<>(tcMaxRelEnt, "Maxrelent"),
+                new Pair<>(tcMaxEnt, "Maxent")));
     }
 
     @FXML
@@ -636,8 +644,8 @@ public class MainController extends Application implements Initializable {
     }
 
     public void onClickAthletes(MouseEvent mouseEvent) {
-        TmAthlete ta = tvTmAthletes.getSelectionModel().getSelectedItem();
 
+        var ta = tvTmAthletes.getSelectionModel().getSelectedItem();
 
         ObservableList<Result> results = FXCollections.observableArrayList();
 
@@ -682,6 +690,19 @@ public class MainController extends Application implements Initializable {
 
     public void onFSSL(ActionEvent actionEvent) {
         scoring = Scoring.FSSL;
+    }
+
+    public void onBestTimeClick(MouseEvent mouseEvent) {
+        var mock = tvMockResults.getSelectionModel().getSelectedItem();
+        System.out.println(mock);
+
+
+        for (var dual : dualResults) {
+            if (dual.equals(mock)) {
+                System.out.println(dual);
+            }
+        }
+
     }
 
     enum Scoring {

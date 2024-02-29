@@ -1,6 +1,7 @@
 package org.jytek.leaguemanager.view;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.TreeMap;
 
 public class MockMeetResults {
@@ -8,13 +9,17 @@ public class MockMeetResults {
     private MockMeetResults() {
 
     }
-    public MockMeetResults(TreeMap<Short, ArrayList<TmResult>> results) {
-        this.results = results;
+
+    public TreeMap<Short, TreeMap<Integer, HashSet<TmResult>>> getMeetResults() {
+        return meetResults;
     }
 
-    public MockMeetResults(TreeMap<Short, ArrayList<TmResult>> results, TreeMap<Integer, Integer> teamScores) {
+    public MockMeetResults(TreeMap<Short, ArrayList<TmResult>> results,
+                           TreeMap<Integer, Integer> teamScores,
+                           TreeMap<Short, TreeMap<Integer, HashSet<TmResult>>> meetResults ) {
         this.results = results;
         this.teamScores = teamScores;
+        this.meetResults = meetResults;
     }
 
     public TreeMap<Short, ArrayList<TmResult>> getResults() {
@@ -27,4 +32,7 @@ public class MockMeetResults {
         return teamScores;
     }
     TreeMap<Integer, Integer> teamScores;
+
+
+    public TreeMap<Short, TreeMap<Integer, HashSet<TmResult>>> meetResults;
 }
