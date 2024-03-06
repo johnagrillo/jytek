@@ -1,5 +1,7 @@
 package org.jytek.leaguemanager.view;
 
+import java.util.*;
+
 /**
  * 
  * 
@@ -26,29 +28,6 @@ package org.jytek.leaguemanager.view;
  * );
  */
 public class TmResult {
-    @Override
-    public String toString() {
-        return "TmResult{" +
-                "meet=" + meet +
-                ", athlete=" + athlete +
-                ", ir='" + ir + '\'' +
-                ", team=" + team +
-                ", score=" + score +
-                ", ex='" + ex + '\'' +
-                ", origin='" + origin + '\'' +
-                ", nt=" + nt +
-                ", result=" + result +
-                ", age=" + age +
-                ", distance=" + distance +
-                ", stroke=" + stroke +
-                ", mtevent=" + mtevent +
-                ", points=" + points +
-                ", place=" + place +
-                ", course='" + course + '\'' +
-                ", dqcode='" + dqcode + '\'' +
-                ", dqdescript='" + dqdescript + '\'' +
-                '}';
-    }
 
     public static String NAME = "Result";
     private TmResult() {

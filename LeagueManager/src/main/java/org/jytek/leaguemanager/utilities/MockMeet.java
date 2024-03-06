@@ -6,19 +6,66 @@ import org.jytek.leaguemanager.view.TmResult;
 import java.util.*;
 
 public final class MockMeet {
-
-    
-    
-    
+    public enum Scoring {
+        CMSL,
+        FSSL
+    }
     private MockMeet() {
 
     }
+    private static Map<Short, Short> getAgeUp(Scoring scoring) {
+        Map<Short, Short> ageUp = new HashMap<>();
+        if (scoring == Scoring.CMSL) {
+            //6 & U ageup to 7-8
+            ageUp.put((short) 9, (short) 11);
+            ageUp.put((short) 10, (short) 12);
+            ageUp.put((short) 21, (short) 23);
+            ageUp.put((short) 22, (short) 24);
+        }
+        return ageUp;
+    }
+
+    private static Map<Short, Integer[]> getEventPoints(Scoring scoring) {
+        Map<Short, Integer[]> eventPoints = new HashMap<>();
+        if (scoring == Scoring.FSSL) {
+            Integer[] ind = {50, 30, 10};
+            Integer[] relay = {80, 40, 0};
+
+            // set all events to ind
+            for (short e = 1; e <= 68; e++) {
+                eventPoints.put(e, ind);
+            }
+            // set relay events
+            final Short[] relayE = {31, 32, 33, 34, 67, 68};
+            for (Short r : relayE) {
+                eventPoints.put(r, relay);
+            }
+        } else if (scoring == Scoring.CMSL) {
+            Integer[] ind = {50, 30, 10};
+            Integer[] relay = {50, 20};
+            // set all events to ind
+            for (short e = 1; e <= 61; e++) {
+                eventPoints.put(e, ind);
+            }
+            // set relay events
+            final Short[] relayE = {53, 54, 55, 56, 57, 58, 59, 60, 61};
+            for (Short r : relayE) {
+                eventPoints.put(r, relay);
+            }
+        }
+        return eventPoints;
+    }
 
     public static MockMeetResults runMockMeet(Map<Short, ArrayList<TmResult>> entries,
-                                              Map<Short, Integer[]> eventPoints,
-                                              Map<Short, Short> ageUp
-                                              ) {
-        final TreeMap<Integer, Integer> teamScores = new TreeMap<Integer, Integer>();
+                                              Scoring scoring)
+    {
+
+
+    var eventPoints = getEventPoints(scoring);
+    var ageUp = getAgeUp(scoring);
+
+
+    final TreeMap<Integer, Integer> teamScores = new TreeMap<Integer, Integer>();
         final TreeMap<Short, TreeMap<Integer, HashSet<TmResult>>> meetResults = new TreeMap<>();
 
         // ageup
@@ -89,6 +136,7 @@ public final class MockMeet {
             }
 	    meetResults.put(ev, scores);
         }
+
         return new MockMeetResults(results, teamScores, meetResults);
     }
 }

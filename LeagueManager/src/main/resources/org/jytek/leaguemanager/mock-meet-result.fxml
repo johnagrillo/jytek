@@ -1,0 +1,16 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="864.0" prefWidth="941.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jytek.leaguemanager.controller.MockMeetResultController">
+  <TableView fx:id="tvMockMeetResult" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">
+    <columns>
+      <TableColumn fx:id="tcMockMeetResultScore" prefWidth="100" sortable="true" text="score" />
+      <TableColumn fx:id="tcMockMeetResultPlace" prefWidth="100" sortable="true" text="place" />
+      <TableColumn fx:id="tcMockMeetResultPoints" prefWidth="100" sortable="true" text="points" />
+      <TableColumn fx:id="tcMockMeetResultAthlete" prefWidth="90" sortable="true" text="athlete" />
+      <TableColumn fx:id="tcMockMeetResultTeam" prefWidth="90" sortable="true" text="team" />
+      <TableColumn fx:id="tcMockMeetResultMeet" prefWidth="100" sortable="true" text="Meet" />
+      <TableColumn fx:id="tcMockMeetResultDate" prefWidth="100" sortable="true" text="date" />
+      <TableColumn fx:id="tcMockMeetResultConverted" prefWidth="100" sortable="true" text="converted" />
+</columns>
+</TableView>
+</AnchorPane>

@@ -20,7 +20,7 @@ import java.util.Map;
         var map = new HashMap<Integer, TmMtevente>();
         for (final Row row : db.getTable(TmMtevente.NAME)) {
             final var obj = TmMtevente.create(row);
-            //map.put(obj.getMtev(), obj);
+            map.put(obj.getMtevent(), obj);
         }
         return map;
     }

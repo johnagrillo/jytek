@@ -10,25 +10,29 @@ public class Util {
 
 
     public static String strokeToString(Short stroke) {
-        switch(stroke) {
-            case 1:
-                return "Free";
-            case 2:
-                return "Back";
-            case 3:
-                return "Breast";
-            case 4:
-                return "Fly";
-            case 5:
-                return "IM";
-        }
-        return "Other";
+        return switch (stroke) {
+            case 1 -> "Free";
+            case 2 -> "Back";
+            case 3 -> "Breast";
+            case 4 -> "Fly";
+            case 5 -> "IM";
+            default -> "Other";
+        };
 
     }
 
-    public static void setPropertyValueFactory(List<Pair<TableColumn, String>> pairs) {
-        for (Pair<TableColumn, String> pair : pairs) {
+    public static void setPropertyValueFactory(List<Pair<TableColumn<?,?>, String>> pairs) {
+        for (Pair<TableColumn<?,?>, String> pair : pairs) {
             pair.getKey().setCellValueFactory(new PropertyValueFactory<>(pair.getValue()));
         }
+
     }
-}
+    public static void setPVF(TableColumn<?,?> tc, String prop) {
+            tc.setCellValueFactory(new PropertyValueFactory<>(prop));
+        }
+    }
+
+
+
+
+

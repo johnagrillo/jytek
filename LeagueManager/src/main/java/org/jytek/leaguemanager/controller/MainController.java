@@ -14,13 +14,10 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 import org.jytek.leaguemanager.MainApplication;
-import org.jytek.leaguemanager.database.AthleteException;
 import org.jytek.leaguemanager.database.MtEventException;
 import org.jytek.leaguemanager.database.TeamException;
 import org.jytek.leaguemanager.database.TmMdbDAO;
-import org.jytek.leaguemanager.view.DualMockResult;
 import org.jytek.leaguemanager.utilities.MockMeet;
-import org.jytek.leaguemanager.utilities.MockWins;
 import org.jytek.leaguemanager.utilities.Util;
 import org.jytek.leaguemanager.view.*;
 
@@ -28,6 +25,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.temporal.ChronoField;
@@ -39,6 +37,10 @@ public class MainController extends Application implements Initializable {
 
     private final FileChooser fileChooser = new FileChooser();
     TmMdbDAO tm;
+
+    private List<Tab> tabs;
+    private List<TableView<?>> tables;
+
     @FXML
     private TreeView<String> trvWeeks;
     @FXML
@@ -75,6 +77,10 @@ public class MainController extends Application implements Initializable {
     private Button btLoad;
     @FXML
     private Label lbFile;
+
+
+
+    // Mock Meet Best Time
     @FXML
     private TableColumn<DualMockResult, Integer> tcDiff;
     @FXML
@@ -87,6 +93,10 @@ public class MainController extends Application implements Initializable {
     private TableColumn<DualMockResult, String> tcTeam2;
     @FXML
     private TableView<DualMockResult> tvMockResults;
+
+
+
+    // Mock Meet Summary
     @FXML
     private TableColumn<MockWins, Integer> tcLosses;
     @FXML
@@ -97,6 +107,10 @@ public class MainController extends Application implements Initializable {
     private TableColumn<MockWins, String> tcTeam;
     @FXML
     private TableView<MockWins> tvMockWins;
+
+
+
+
     @FXML
     private TableView<TmTeam> tvTmTeams;
     @FXML
@@ -107,6 +121,9 @@ public class MainController extends Application implements Initializable {
     private TableColumn<TmTeam, String> tcTName;
     @FXML
     private TableColumn<TmTeam, String> tcShort;
+
+
+
     @FXML
     private TableView<TmAthlete> tvTmAthletes;
     @FXML
@@ -122,11 +139,16 @@ public class MainController extends Application implements Initializable {
     @FXML
     private TableColumn<TmAthlete, String> tcSex;
     @FXML
-    private TableColumn<TmAthlete, java.time.LocalDateTime> tcBirth;
+    private TableColumn<TmAthlete, LocalDateTime> tcBirth;
     //    @FXML
     //private TableColumn<TmAthlete,String> tcID_NO;
     @FXML
     private TableColumn<TmAthlete, Short> tcAge;
+
+
+
+
+
     @FXML
     private TableView<TmMeet> tvTmMeets;
     @FXML
@@ -134,13 +156,13 @@ public class MainController extends Application implements Initializable {
     @FXML
     private TableColumn<TmMeet, String> tcMName;
     @FXML
-    private TableColumn<TmMeet, java.time.LocalDateTime> tcStart;
+    private TableColumn<TmMeet, LocalDateTime> tcStart;
     @FXML
-    private TableColumn<TmMeet, java.time.LocalDateTime> tcEnd;
+    private TableColumn<TmMeet, LocalDateTime> tcEnd;
     @FXML
-    private TableColumn<TmMeet, java.time.LocalDateTime> tcAgeUp;
+    private TableColumn<TmMeet, LocalDateTime> tcAgeUp;
     @FXML
-    private TableColumn<TmMeet, java.time.LocalDateTime> tcSince;
+    private TableColumn<TmMeet, LocalDateTime> tcSince;
     @FXML
     private TableColumn<TmMeet, String> tcCourse;
     @FXML
@@ -153,12 +175,12 @@ public class MainController extends Application implements Initializable {
     private TableColumn<TmMeet, Short> tcMaxEnt;
     private Stage stage;
     private File mockFile = null;
-    private Scoring scoring = Scoring.CMSL;
+    private MockMeet.Scoring scoring = MockMeet.Scoring.CMSL;
 
 
+    private final ArrayList<DualMockResult> dualResults = new ArrayList<>();
+    private final ArrayList<MockMeetResults> mockResults = new ArrayList<>();
 
-
-    private ArrayList<DualMockResult> dualResults = new ArrayList<>();
 
     public static void main(String[] args) {
         launch();
@@ -166,6 +188,7 @@ public class MainController extends Application implements Initializable {
 
     @FXML
     protected void load(File mockFile) {
+        disable();
         tm = new TmMdbDAO(mockFile);
 
         lbFile.setText(mockFile.getPath());
@@ -175,17 +198,12 @@ public class MainController extends Application implements Initializable {
         lbResults.setText("" + tm.getResults().size());
         lbRelays.setText("" + tm.getRelays().size());
         lbMeets.setText("" + tm.getMeets().size());
-
     }
 
     @FXML
     protected void onLoad() {
-        tbTeams.setDisable(true);
-        tbAthletes.setDisable(true);
-        tbMeets.setDisable(true);
-        tbMockMeets.setDisable(true);
-        tbWeeklyMockMeets.setDisable(true);
-
+        disable();
+        reset();
 
         mockFile = fileChooser.showOpenDialog(this.stage);
         if (mockFile != null) {
@@ -197,13 +215,6 @@ public class MainController extends Application implements Initializable {
             lbResults.setText("" + tm.getResults().size());
             lbRelays.setText("" + tm.getRelays().size());
             lbMeets.setText("" + tm.getMeets().size());
-
-            tbTeams.setDisable(false);
-            tbAthletes.setDisable(false);
-            tbMeets.setDisable(false);
-            tbMockMeets.setDisable(false);
-            tbWeeklyMockMeets.setDisable(false);
-
 
             ObservableList<TmTeam> teams = FXCollections.observableArrayList();
             teams.addAll(tm.getTeams().values());
@@ -218,90 +229,9 @@ public class MainController extends Application implements Initializable {
 
             tvTmMeets.setItems(meets);
         }
+        enable();
     }
 
-    private TreeMap<Short, ArrayList<TmResult>> getBestTeamEntries(Integer team) {
-
-        //
-        // get a best swim for each athlete on this team
-        //
-        TreeMap<Short, ArrayList<TmResult>> teamEntries = new TreeMap<>();
-        try {
-            for (var ath : tm.getTeamAthletes(team)) {
-                for (var r : tm.getAthleteBestResults(ath)) {
-                    try {
-                        var events = teamEntries.computeIfAbsent(tm.getMtevent(r.getMtevent()).getMtev(),
-                                k -> new ArrayList<>());
-                        events.add(r);
-                    } catch (MtEventException e) {
-
-                    }
-                }
-            }
-        } catch (AthleteException e) {
-            // continue
-            System.out.println("getBestTeamEntries " + e + " " + team);
-        }
-
-        //
-        // get the best relays for this team
-        //
-        try {
-            var tmteam = tm.getTeam(team);
-            for (var r : tm.getATeamBestRelays(team)) {
-                var results = teamEntries.computeIfAbsent(tm.getMtevent(r.getMtevent()).getMtev(), k -> new ArrayList<>());
-
-            }
-        } catch (TeamException | MtEventException e) {
-
-
-        }
-        System.out.println("Getting Team " + team + " " + teamEntries.size());
-        return teamEntries;
-    }
-
-    protected Map<Short, Short> getAgeUp(Scoring scoring) {
-        Map<Short, Short> ageUp = new HashMap<>();
-        if (scoring == Scoring.CMSL) {
-            //6 & U ageup to 7-8
-            ageUp.put((short) 9, (short) 11);
-            ageUp.put((short) 10, (short) 12);
-            ageUp.put((short) 21, (short) 23);
-            ageUp.put((short) 22, (short) 24);
-        }
-        return ageUp;
-    }
-
-    protected Map<Short, Integer[]> getEventPoints(Scoring scoring) {
-        Map<Short, Integer[]> eventPoints = new HashMap<>();
-        if (scoring == Scoring.FSSL) {
-            Integer[] ind = {50, 30, 10};
-            Integer[] relay = {80, 40, 0};
-
-            // set all events to ind
-            for (short e = 1; e <= 68; e++) {
-                eventPoints.put(e, ind);
-            }
-            // set relay events
-            final Short[] relayE = {31, 32, 33, 34, 67, 68};
-            for (Short r : relayE) {
-                eventPoints.put(r, relay);
-            }
-        } else if (scoring == Scoring.CMSL) {
-            Integer[] ind = {50, 30, 10};
-            Integer[] relay = {50, 20};
-            // set all events to ind
-            for (short e = 1; e <= 61; e++) {
-                eventPoints.put(e, ind);
-            }
-            // set relay events
-            final Short[] relayE = {53, 54, 55, 56, 57, 58, 59, 60, 61};
-            for (Short r : relayE) {
-                eventPoints.put(r, relay);
-            }
-        }
-        return eventPoints;
-    }
 
     @FXML
     protected void onRunMock() {
@@ -311,13 +241,13 @@ public class MainController extends Application implements Initializable {
         ///
 
         for (var team1 : tm.getTeams().keySet()) {
-            var team1Entries = getBestTeamEntries(team1);
+            var team1Entries = tm.getBestTeamEntries(team1);
             for (var team2 : tm.getTeams().keySet()) {
                 if (!Objects.equals(team1, team2)) {
                     var in = new HashSet<Integer>();
                     in.add(team1);
                     in.add(team2);
-                    var team2Entries = getBestTeamEntries(team2);
+                    var team2Entries = tm.getBestTeamEntries(team2);
                     // add team and team 2
                     var teamEntries = new TreeMap<Short, ArrayList<TmResult>>();
 
@@ -337,26 +267,24 @@ public class MainController extends Application implements Initializable {
                         }
                     }
 
-                    // only run if we have two eams
+                    // only run if we have two teams
 
-                    var r = MockMeet.runMockMeet(teamEntries,
-                            getEventPoints(scoring),
-                            getAgeUp(scoring)
-                    );
-
+                    var r = MockMeet.runMockMeet(teamEntries, scoring);
+                    mockResults.add(r);
                     var teamScores = r.getTeamScores();
                     System.out.println("scored " + teamScores);
                     if (teamScores.size() > 1) {
                         var t1 = teamScores.get(team1);
                         var t2 = teamScores.get(team2);
-                        var diff = (int) ((int) (t1 - t2) / 10.0);
+                        var diff = (int) ((t1 - t2) / 10.0);
                         try {
                             dualResults.add(new DualMockResult(
                                     tm.getTeam(team1).getTcode(),
                                     t1,
                                     tm.getTeam(team2).getTcode(),
                                     t2,
-                                    diff));
+                                    diff,
+                                    r));
                         } catch (TeamException e) {
 
                         }
@@ -525,6 +453,42 @@ public class MainController extends Application implements Initializable {
                 new Pair<>(tcMaxIndEnt, "Maxindent"),
                 new Pair<>(tcMaxRelEnt, "Maxrelent"),
                 new Pair<>(tcMaxEnt, "Maxent")));
+
+        tabs = Arrays.asList(
+                tbTeams,
+                tbAthletes, tbMeets,
+                tbMockMeets,
+                tbWeeklyMockMeets);
+
+        tables = Arrays.asList(
+                tvMockResults,
+                tvMockWins,
+                tvMockResults,
+                tvTmMeets,
+                tvTmTeams
+                );
+
+        disable();
+
+    }
+
+    private void disable() {
+        for (final var t : tabs) {
+            t.setDisable(true);
+        }
+    }
+    private void enable() {
+        for (final var t : tabs) {
+            t.setDisable(false);
+        }
+    }
+
+    private void reset() {
+        for (final var t : tables) {
+            t.getItems().clear();
+        }
+        mockResults.clear();
+        dualResults.clear();
     }
 
     @FXML
@@ -685,28 +649,18 @@ public class MainController extends Application implements Initializable {
     }
 
     public void onCMSL(ActionEvent actionEvent) {
-        scoring = Scoring.CMSL;
+        scoring = MockMeet.Scoring.CMSL;
     }
 
     public void onFSSL(ActionEvent actionEvent) {
-        scoring = Scoring.FSSL;
+        MockMeet.Scoring Scoring = null;
+        scoring = MockMeet.Scoring.FSSL;
     }
 
     public void onBestTimeClick(MouseEvent mouseEvent) {
         var mock = tvMockResults.getSelectionModel().getSelectedItem();
         System.out.println(mock);
+        var mockResults = mock.getResults().getMeetResults();
 
-
-        for (var dual : dualResults) {
-            if (dual.equals(mock)) {
-                System.out.println(dual);
-            }
-        }
-
-    }
-
-    enum Scoring {
-        CMSL,
-        FSSL
     }
 }

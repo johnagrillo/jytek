@@ -1,5 +1,7 @@
 package org.jytek.leaguemanager.view;
 
+import java.util.*;
+
 /**
  * 
  * 
@@ -38,22 +40,7 @@ public class TmAthlete {
     }
 
 
-    @Override
-    public String toString() {
-        return "TmAthlete{" +
-                "athlete=" + athlete +
-                ", team1=" + team1 +
-                ", last='" + last + '\'' +
-                ", first='" + first + '\'' +
-                ", initial='" + initial + '\'' +
-                ", sex='" + sex + '\'' +
-                ", birth=" + birth +
-                ", age=" + age +
-                ", idno='" + idno + '\'' +
-                '}';
-    }
-
-    //
+    // 
     // Column names
     //
     public static final String ATHLETE = "Athlete";

@@ -1,3 +1,61 @@
+##############################
+#
+#
+# Create Classes for Model, View, and Controller
+#    
+#
+##############################
+
+
+MVC = [
+  ["athlete result",
+   [24, 246, 70, 946], #layoutX, layoutY, prefHeight prefWidth
+   [
+     [100, "score",    "Integer"],
+     [100, "place",    "Short"],
+     [100, "points",   "Short"],
+     [100, "age",      "Short"],
+     [100, "stroke",   "String"],
+     [100, "distance", "String"],     
+     [100, "event",    "String"],
+     [100, "MF",      "String"],                 
+     [20,  "ir",       "String"],
+     [75,  "meet",     "String"],
+     [75,  "date",     "Date"],     
+     [100, "team",    "String"],
+   ]
+  ],
+  ["meet result",
+   [24, 246, 70, 946], #layoutX, layoutY, prefHeight prefWidth
+   [
+     [100, "score",     "Integer"],
+     [100, "place",     "Integer"],
+     [100, "points",    "Integer"],            
+     [90,  "athlete",   "String"],
+     [90,  "team",      "String"],
+     [100, "converted", "Integer"],
+   ]
+  ],
+  
+  ["mock meet result",
+   [24, 246, 70, 946], #layoutX, layoutY, prefHeight prefWidth
+   [
+     [100, "score",    "Integer"],
+     [100, "place",    "Integer"],
+     [100, "points",   "Integer"],
+     [90,  "athlete",  "String"],
+     [90,  "team",     "String"],
+     [100, "Meet",      "String"],
+     [100, "date",     "Date"],
+     [100, "converted", "Integer"],
+     
+   ]
+  ]
+]
+
+
+
+
 #
 #
 # Use ruby to build 
@@ -5,6 +63,163 @@
 #
 require 'csv'
 
+#
+#
+# Ruby Rake File
+#
+#
+
+require_relative 'ruby/java.rb'
+require_relative 'ruby/ruby.rb'
+require_relative 'ruby/string.rb'
+
+
+
+task :mvc do
+  mvc(MVC)
+end
+
+
+
+
+#
+# Define TableViews and Columns
+#
+#   TableName
+#   config
+#   Columns
+#
+PATH = "./src/main/java/org/jytek/leaguemanager/"
+VIEW = PATH + "view/"
+CONTROLLER = PATH + "controller/"
+MODEL = "./src/main/resources/org/jytek/leaguemanager/"
+
+def mvc(ins)
+  # entity
+  ins.each do |(tname, spec, columns)|
+
+    cname = tname
+    File.open(VIEW + tname.pascal_case + ".java", "w") do |fh|
+      puts fh.path
+      fh.puts(createView(tname, columns))
+    end
+
+    path = "./src/main/java/org/jytek/leaguemanager/controller/"
+    File.open(path + tname.pascal_case + "Controller.java", "w") do |fh|
+      puts fh.path
+      table = ("tv " + tname).camel_case
+      out = [
+        "package org.jytek.leaguemanager.controller;
+import javafx.application.Application;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.stage.Stage;
+import javafx.util.Pair;
+import org.jytek.leaguemanager.utilities.Util;
+import org.jytek.leaguemanager.view.#{tname.pascal_case};
+        
+import java.net.URL;
+import java.util.Arrays;
+import java.util.ResourceBundle;
+        
+public class #{cname.pascal_case}Controller extends Application implements Initializable {",
+
+        "    // ---------------------------",
+        "    // Table #{table}",
+        "",
+        "    @FXML",
+        "    private TableView<#{tname.pascal_case}> #{table};",
+        columns.map do |width,name, type|
+          name = name.gsub("&#10;", " ")
+          tcname = ("tc " + tname + " " +name).camel_case
+          "    @FXML\n    private TableColumn<#{cname.pascal_case}, #{type.java_type}> #{tcname};"
+        end * "\n"
+      ]
+      out << "\n\n"
+      out << "    @Override"
+      out << "    public void start(Stage stage) throws Exception {"
+      out << "    }"
+
+      out << "    public void populateData(ObservableList<#{cname.pascal_case}> #{cname.camel_case}s) {"
+
+      out << "        tv#{cname.pascal_case}.setItems(#{cname.camel_case}s);"
+      out << "    }"
+      out << ""
+      out << "    @Override"
+      out << "    public void initialize(URL url, ResourceBundle resourceBundle) {"
+    
+      columns.map{|(_,name,type)|
+        out << "        Util.setPVF(tc#{tname.pascal_case}#{name.pascal_case},\"#{name.pascal_case}\");"
+      }
+      out << "   }"
+      out << "}"
+      fh.puts(out * "\n")
+    end
+
+
+    outf = MODEL + cname.dash_case + ".fxml"
+    puts outf
+    table_model = get_model_table(tname, columns)
+
+
+    if (File.exists?(outf))
+      iter = File.readlines(outf).each
+      begin
+        while iter
+          if (iter.peek.strip.index("<TableView"))
+            #puts table_model
+            # skip until
+            while iter.peek.index("</TableView") != 0
+              iter.next
+            end
+            iter.next
+          else
+            iter.next
+            puts iter.peek
+          end
+          puts iter.peek
+          iter.next
+        end
+      rescue StopIteration
+      end
+      
+      
+      # just replace table view
+
+    else
+      File.open(outf, "w") do |fh|
+        puts fh.path
+        out = []
+        out << "<?import javafx.scene.control.*?>"
+        out << "<?import javafx.scene.layout.*?>"
+        out << "<AnchorPane maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minHeight=\"-Infinity\" minWidth=\"-Infinity\" prefHeight=\"864.0\" prefWidth=\"941.0\" xmlns=\"http://javafx.com/javafx/21\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"org.jytek.leaguemanager.controller.#{cname.pascal_case}Controller\">"
+        out << table_model
+        out << "</AnchorPane>"
+        fh.puts out
+      end
+
+    end
+    
+  end
+end
+
+
+def get_model_table(tname, columns)
+  out = []
+  out << '  <TableView fx:id="tv' + tname.pascal_case + '" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">'
+  out << '    <columns>'
+  columns.each do |a|
+    width,name,_ = a
+    sub = name.gsub("(","_").sub(")","")
+    out << '      <TableColumn fx:id="tc' + tname.pascal_case + sub.pascal_case  + '" prefWidth="' + width.to_s + '" sortable="true" text="' + sub +'" />'
+        end
+  out <<     "</columns>"
+  out <<   "</TableView>"
+  out * "\n"
+end
 
 
 task :compare do
@@ -52,8 +267,7 @@ Classes =  [
 
 
 #
-# Run from linux 
-#    need to have ndb-tools installed
+# Need to have mdb-tools installed
 # 
 task :schema do
   Classes.each do |table|
@@ -92,7 +306,7 @@ def readTable(schema)
         
         File.open("src/main/java/org/jytek/leaguemanager/view/Tm#{name}.java", "w") do |fh|
           puts fh.path
-          fh.puts createClass(schema,name,iter,"Tm")
+          fh.puts create_class(schema,name,iter,"Tm")
         end
 
         File.open("src/main/java/org/jytek/leaguemanager/database/Tm#{name}DAO.java", "w") do |fh|
@@ -147,7 +361,7 @@ def createDAO(schema, name, iter, prefix)
   out * "\n"
 end
 
-def createClass(schema, name, iter, prefix)
+def create_class(schema, name, iter, prefix)
 
   clsName = prefix + name 
   out = []
@@ -339,4 +553,20 @@ def getMemberName(name)
   print name, " = ", out, "\n"
   out
 end
+
+
+
+def createView(tname,columns)
+  cname = (tname)
+    puts columns.size
+    fields = columns.map do |width,name, type|
+      [name.gsub("&#10;", " "), type]
+    end
+    java_class([cname, fields])
+end
+  
+
+
+
+
 

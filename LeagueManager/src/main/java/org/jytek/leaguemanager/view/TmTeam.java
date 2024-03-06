@@ -1,5 +1,7 @@
 package org.jytek.leaguemanager.view;
 
+import java.util.*;
+
 /**
  * 
  * 
@@ -56,16 +58,6 @@ public class TmTeam {
     }
     public String getShort_() {
         return short_;
-    }
-
-    @Override
-    public String toString() {
-        return "TmTeam{" +
-                "team=" + team +
-                ", tcode='" + tcode + '\'' +
-                ", tname='" + tname + '\'' +
-                ", short_='" + short_ + '\'' +
-                '}';
     }
 }
 /* FXML 

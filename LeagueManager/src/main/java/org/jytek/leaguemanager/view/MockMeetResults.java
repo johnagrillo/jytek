@@ -35,4 +35,12 @@ public class MockMeetResults {
 
 
     public TreeMap<Short, TreeMap<Integer, HashSet<TmResult>>> meetResults;
+
+
+    @Override
+    public String toString() {
+        return "MockMeetResults{" +
+                "teamScores=" + teamScores +
+                '}';
+    }
 }

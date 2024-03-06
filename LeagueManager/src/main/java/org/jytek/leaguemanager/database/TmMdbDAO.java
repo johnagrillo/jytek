@@ -118,9 +118,6 @@ public class TmMdbDAO {
 
 
 
-
-
-
             teamRelayBestResults = findBestTeamRelays();
 
 
@@ -379,6 +376,44 @@ public class TmMdbDAO {
 
         return best;
     }
+    public TreeMap<Short, ArrayList<TmResult>> getBestTeamEntries(Integer team) {
 
+        //
+        // get a best swim for each athlete on this team
+        //
+        TreeMap<Short, ArrayList<TmResult>> teamEntries = new TreeMap<>();
+        try {
+            for (var ath : getTeamAthletes(team)) {
+                for (var r : getAthleteBestResults(ath)) {
+                    try {
+                        var events = teamEntries.computeIfAbsent(getMtevent(r.getMtevent()).getMtev(),
+                                k -> new ArrayList<>());
+                        events.add(r);
+                    } catch (MtEventException e) {
+
+                    }
+                }
+            }
+        } catch (AthleteException e) {
+            // continue
+            System.out.println("getBestTeamEntries " + e + " " + team);
+        }
+
+        //
+        // get the best relays for this team
+        //
+        try {
+            var tmteam = getTeam(team);
+            for (var r : getATeamBestRelays(team)) {
+                var results = teamEntries.computeIfAbsent(getMtevent(r.getMtevent()).getMtev(), k -> new ArrayList<>());
+
+            }
+        } catch (TeamException | MtEventException e) {
+
+
+        }
+        System.out.println("Getting Team " + team + " " + teamEntries.size());
+        return teamEntries;
+    }
 }
 
