@@ -28,12 +28,14 @@ MVC = [
   ["meet result",
    [24, 246, 70, 946], #layoutX, layoutY, prefHeight prefWidth
    [
-     [100, "score",     "Integer"],
-     [100, "place",     "Integer"],
-     [100, "points",    "Integer"],            
+     [100, "event",     "String"],
+     [100, "points",    "String"],
+     [100, "place",     "String"],
      [90,  "athlete",   "String"],
+     [90,  "age",   "String"],     
      [90,  "team",      "String"],
-     [100, "converted", "Integer"],
+     [100, "time",      "String"],
+     [100, "conv",      "String"],
    ]
   ],
   
@@ -190,19 +192,17 @@ public class #{cname.pascal_case}Controller extends Application implements Initi
       # just replace table view
 
     else
-      File.open(outf, "w") do |fh|
-        puts fh.path
-        out = []
-        out << "<?import javafx.scene.control.*?>"
-        out << "<?import javafx.scene.layout.*?>"
-        out << "<AnchorPane maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minHeight=\"-Infinity\" minWidth=\"-Infinity\" prefHeight=\"864.0\" prefWidth=\"941.0\" xmlns=\"http://javafx.com/javafx/21\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"org.jytek.leaguemanager.controller.#{cname.pascal_case}Controller\">"
-        out << table_model
-        out << "</AnchorPane>"
-        fh.puts out
-      end
-
+      # File.open(outf, "w") do |fh|
+      #   puts fh.path
+      #   out = []
+      #   out << "<?import javafx.scene.control.*?>"
+      #   out << "<?import javafx.scene.layout.*?>"
+      #   out << "<AnchorPane maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minHeight=\"-Infinity\" minWidth=\"-Infinity\" prefHeight=\"864.0\" prefWidth=\"941.0\" xmlns=\"http://javafx.com/javafx/21\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"org.jytek.leaguemanager.controller.#{cname.pascal_case}Controller\">"
+      #   out << table_model
+      #   out << "</AnchorPane>"
+      #   fh.puts out
+      # end
     end
-    
   end
 end
 

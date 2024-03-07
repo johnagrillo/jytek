@@ -1,6 +1,6 @@
 package org.jytek.leaguemanager.view;
 
-public class MeetResult {
+public class MeetResult implements Comparable<MeetResult> {
     // Members
     private String event = "";
     private String points = "";
@@ -44,7 +44,10 @@ public class MeetResult {
         this.conv = conv;
 
     }
-
+    @Override
+    public int compareTo(MeetResult o) {
+        return Integer.compare(Integer.parseInt(place), Integer.parseInt(o.place));
+    }
     // Getters/Setters
 
     public void setEvent(String event) {

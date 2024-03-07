@@ -8,15 +8,13 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.TreeTableView;
 import javafx.stage.Stage;
+import org.jytek.leaguemanager.utilities.Util;
 import org.jytek.leaguemanager.view.MeetResult;
 import org.jytek.leaguemanager.view.TmMeet;
-import org.jytek.leaguemanager.view.TmResult;
+import org.jytek.leaguemanager.view.TmMtevent;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.ResourceBundle;
-import java.util.TreeMap;
+import java.util.*;
 
 public class MeetResultTreeController extends Application implements Initializable {
 
@@ -53,36 +51,37 @@ public class MeetResultTreeController extends Application implements Initializab
 
     }
 
-    public void populateData(TmMeet meet, TreeMap<Short, ArrayList<TmResult>> results) throws Exception {
+    public void populateData(TmMeet meet, TreeMap<TmMtevent, ArrayList<MeetResult>> results) throws Exception {
         tvResult.setRoot(null);
-        
+
         var m = new MeetResult();
         m.setEvent(meet.getMname());
 
         final TreeItem<MeetResult> root = new TreeItem<>(m);
         tvResult.setRoot(root);
-
+        root.setExpanded(true);
         for (var e : results.keySet()) {
             var em = new MeetResult();
-            em.setEvent("" + e);
+            em.setEvent(Util.eventToString(e));
             final TreeItem<MeetResult> event = new TreeItem<>(em);
-            event.setExpanded(true);
+
             var list = results.get(e);
             Collections.sort(list);
-            list.forEach(result ->
-                    event.getChildren().add(new TreeItem<>(new MeetResult("",
-                            "" + result.getPoints(),
-                            "" + result.getPlace(),
-                            "" + result.getAthlete(),
-                            "" + result.getAge(),
-                            "" + result.getTeam(),
-                            "time",
-                            "conv"))));
+            list.forEach(result -> {
+                if (!Objects.equals(result.getPlace(), "0")) {
+                    event.getChildren().add(new TreeItem<>(result));
+                }
+            });
+            list.forEach(result -> {
+                if (Objects.equals(result.getPlace(), "0")) {
+                    event.getChildren().add(new TreeItem<>(result));
+                }
+            });
 
 
             root.getChildren().add(event);
         }
-root.setExpanded(true);
+        root.setExpanded(true);
 
     }
 
@@ -94,39 +93,38 @@ root.setExpanded(true);
                 TreeTableColumn.CellDataFeatures<MeetResult, String> param) -> new ReadOnlyStringWrapper(
                 param.getValue().getValue().getEvent()));
 
-        tcTeam.setCellValueFactory((
+        tcPoints.setCellValueFactory((
                 TreeTableColumn.CellDataFeatures<MeetResult, String> param) -> new ReadOnlyStringWrapper(
-                param.getValue().getValue().getTeam()));
-
-        tcAthlete.setCellValueFactory((
-                TreeTableColumn.CellDataFeatures<MeetResult, String> param) -> new ReadOnlyStringWrapper(
-                param.getValue().getValue().getAthlete()));
+                param.getValue().getValue().getPoints()));
 
         tcPoints.setCellValueFactory((
                 TreeTableColumn.CellDataFeatures<MeetResult, String> param) -> new ReadOnlyStringWrapper(
                 param.getValue().getValue().getPoints()));
 
+
+        tcTime.setCellValueFactory((
+                TreeTableColumn.CellDataFeatures<MeetResult, String> param) -> new ReadOnlyStringWrapper(
+                param.getValue().getValue().getTime()));
+
+        tcAthlete.setCellValueFactory((
+                TreeTableColumn.CellDataFeatures<MeetResult, String> param) -> new ReadOnlyStringWrapper(
+                param.getValue().getValue().getAthlete()));
+
         tcPlace.setCellValueFactory((
                 TreeTableColumn.CellDataFeatures<MeetResult, String> param) -> new ReadOnlyStringWrapper(
                 param.getValue().getValue().getPlace()));
 
+        tcAge.setCellValueFactory((
+                TreeTableColumn.CellDataFeatures<MeetResult, String> param) -> new ReadOnlyStringWrapper(
+                param.getValue().getValue().getAge()));
 
-        //final TreeItem<MeetResult> root = new TreeItem<>(new MeetResult("Meet Name","","","","","",""));
-        //event1.getChildren().add(new TreeItem<>(new MeetResult("Event 1","1","10","10","Joe","","")));
-        //event1.getChildren().add(new TreeItem<>(new MeetResult("Event 1","2","10","10","Joe","","")));
-
-
-        //final TreeItem<MeetResult> event2 = new TreeItem<>(new MeetResult("Events","","","","","",""));
-
-        //root.getChildren().add(event1);
-        //root.getChildren().add(event2);
+        tcTeam.setCellValueFactory((
+                TreeTableColumn.CellDataFeatures<MeetResult, String> param) -> new ReadOnlyStringWrapper(
+                param.getValue().getValue().getTeam()));
 
 
-        //tvResult.setRoot(root);
+
         tvResult.getColumns().setAll(tcEvent, tcPoints, tcPlace, tcTime, tcAthlete, tcAge, tcTeam, tcConv);
-
-
-        //root.setExpanded(true);
 
     }
 

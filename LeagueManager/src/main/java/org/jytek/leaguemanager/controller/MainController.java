@@ -14,6 +14,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 import org.jytek.leaguemanager.MainApplication;
+import org.jytek.leaguemanager.database.AthleteException;
 import org.jytek.leaguemanager.database.MtEventException;
 import org.jytek.leaguemanager.database.TeamException;
 import org.jytek.leaguemanager.database.TmMdbDAO;
@@ -36,11 +37,11 @@ import java.util.*;
 public class MainController extends Application implements Initializable {
 
     private final FileChooser fileChooser = new FileChooser();
+    private final ArrayList<DualMockResult> dualResults = new ArrayList<>();
+    private final ArrayList<MockMeetResults> mockResults = new ArrayList<>();
     TmMdbDAO tm;
-
     private List<Tab> tabs;
     private List<TableView<?>> tables;
-
     @FXML
     private TreeView<String> trvWeeks;
     @FXML
@@ -77,9 +78,6 @@ public class MainController extends Application implements Initializable {
     private Button btLoad;
     @FXML
     private Label lbFile;
-
-
-
     // Mock Meet Best Time
     @FXML
     private TableColumn<DualMockResult, Integer> tcDiff;
@@ -93,9 +91,6 @@ public class MainController extends Application implements Initializable {
     private TableColumn<DualMockResult, String> tcTeam2;
     @FXML
     private TableView<DualMockResult> tvMockResults;
-
-
-
     // Mock Meet Summary
     @FXML
     private TableColumn<MockWins, Integer> tcLosses;
@@ -107,10 +102,6 @@ public class MainController extends Application implements Initializable {
     private TableColumn<MockWins, String> tcTeam;
     @FXML
     private TableView<MockWins> tvMockWins;
-
-
-
-
     @FXML
     private TableView<TmTeam> tvTmTeams;
     @FXML
@@ -121,9 +112,6 @@ public class MainController extends Application implements Initializable {
     private TableColumn<TmTeam, String> tcTName;
     @FXML
     private TableColumn<TmTeam, String> tcShort;
-
-
-
     @FXML
     private TableView<TmAthlete> tvTmAthletes;
     @FXML
@@ -144,11 +132,6 @@ public class MainController extends Application implements Initializable {
     //private TableColumn<TmAthlete,String> tcID_NO;
     @FXML
     private TableColumn<TmAthlete, Short> tcAge;
-
-
-
-
-
     @FXML
     private TableView<TmMeet> tvTmMeets;
     @FXML
@@ -176,11 +159,6 @@ public class MainController extends Application implements Initializable {
     private Stage stage;
     private File mockFile = null;
     private MockMeet.Scoring scoring = MockMeet.Scoring.CMSL;
-
-
-    private final ArrayList<DualMockResult> dualResults = new ArrayList<>();
-    private final ArrayList<MockMeetResults> mockResults = new ArrayList<>();
-
 
     public static void main(String[] args) {
         launch();
@@ -466,7 +444,7 @@ public class MainController extends Application implements Initializable {
                 tvMockResults,
                 tvTmMeets,
                 tvTmTeams
-                );
+        );
 
         disable();
 
@@ -477,6 +455,7 @@ public class MainController extends Application implements Initializable {
             t.setDisable(true);
         }
     }
+
     private void enable() {
         for (final var t : tabs) {
             t.setDisable(false);
@@ -667,16 +646,23 @@ public class MainController extends Application implements Initializable {
     public void onClickMeets(MouseEvent mouseEvent) {
         var meet = tvTmMeets.getSelectionModel().getSelectedItem();
 
-        var results = new TreeMap< Short, ArrayList<TmResult>>();
+        var results = new TreeMap<TmMtevent, ArrayList<MeetResult>>();
 
-        for(var r : tm.getResults().values()) {
+        for (var r : tm.getResults().values()) {
             if (Objects.equals(r.getMeet(), meet.getMeet())) {
-                try {
 
+                try {
                     var mtevent = tm.getMtevent(r.getMtevent());
-                    var list = results.computeIfAbsent(mtevent.getMtev(), k -> new ArrayList<>());
-                    list.add(r);
-                } catch (MtEventException e) {
+                    var list = results.computeIfAbsent(mtevent, k -> new ArrayList<>());
+
+
+                    list.add(new MeetResult("", "" + r.getPoints(),
+                            "" + r.getPlace(),
+                            Util.atheteToString(tm.getAthlete(r.getAthlete())),
+                            "" + r.getAge(),
+                            tm.getTeam(r.getTeam()).getTcode(),
+                            r.getScore().toString(), r.getCourse()));
+                } catch (TeamException | AthleteException | MtEventException e) {
                     throw new RuntimeException(e);
                 }
             }
@@ -684,7 +670,7 @@ public class MainController extends Application implements Initializable {
 
         FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("meet-result-tree.fxml"));
         try {
-            Scene scene = new Scene(loader.load(), 800, 600);
+            Scene scene = new Scene(loader.load(), 1000, 800);
             var controller = loader.<MeetResultTreeController>getController();
             controller.populateData(meet, results);
             Stage stage = new Stage();

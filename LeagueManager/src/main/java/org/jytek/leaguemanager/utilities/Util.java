@@ -3,6 +3,8 @@ package org.jytek.leaguemanager.utilities;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Pair;
+import org.jytek.leaguemanager.view.TmAthlete;
+import org.jytek.leaguemanager.view.TmMtevent;
 
 import java.util.List;
 
@@ -18,7 +20,12 @@ public class Util {
             case 5 -> "IM";
             default -> "Other";
         };
-
+    }
+    public static String eventToString(TmMtevent mtev) {
+        return  mtev.getSex() + " " + + mtev.getLohi() + " " + mtev.getDistance() + " " + strokeToString(mtev.getStroke());
+    }
+    public static String atheteToString(TmAthlete ath) {
+        return  ath.getLast() + " " + ath.getFirst() + " " + ath.getInitial();
     }
 
     public static void setPropertyValueFactory(List<Pair<TableColumn<?,?>, String>> pairs) {

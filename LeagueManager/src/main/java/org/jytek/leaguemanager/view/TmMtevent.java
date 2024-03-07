@@ -21,7 +21,7 @@ package org.jytek.leaguemanager.view;
  * [SessX]			Text (2)
  * );
  */
-public class TmMtevent {
+public class TmMtevent implements Comparable<TmMtevent>{
 
     public static String NAME = "Mtevent";
     private TmMtevent() {
@@ -62,7 +62,10 @@ public class TmMtevent {
                 ", ir='" + ir + '\'' +
                 '}';
     }
-
+    @Override
+    public int compareTo(TmMtevent o) {
+        return Integer.compare(mtev, o.mtev);
+    }
     //
     // Column names
     //
