@@ -393,7 +393,7 @@ public class MainController extends Application implements Initializable {
         FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(loader.load(), 1000, 1000);
         var controller = loader.<MainController>getController();
-        controller.populateData(new File("c:/Users/john/sandbox/mdb/cmsl/2018-Realignment-Wk1.mdb"));
+        controller.populateData(new File("c:/Users/john/sandbox/mdb/fssl/2023.mdb"));
         stage.setTitle("League Manager");
         stage.setScene(scene);
         stage.show();
@@ -661,6 +661,39 @@ public class MainController extends Application implements Initializable {
         var mock = tvMockResults.getSelectionModel().getSelectedItem();
         System.out.println(mock);
         var mockResults = mock.getResults().getMeetResults();
+
+    }
+
+    public void onClickMeets(MouseEvent mouseEvent) {
+        var meet = tvTmMeets.getSelectionModel().getSelectedItem();
+
+        var results = new TreeMap< Short, ArrayList<TmResult>>();
+
+        for(var r : tm.getResults().values()) {
+            if (Objects.equals(r.getMeet(), meet.getMeet())) {
+                try {
+
+                    var mtevent = tm.getMtevent(r.getMtevent());
+                    var list = results.computeIfAbsent(mtevent.getMtev(), k -> new ArrayList<>());
+                    list.add(r);
+                } catch (MtEventException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+
+        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("meet-result-tree.fxml"));
+        try {
+            Scene scene = new Scene(loader.load(), 800, 600);
+            var controller = loader.<MeetResultTreeController>getController();
+            controller.populateData(meet, results);
+            Stage stage = new Stage();
+            stage.setTitle("Meet " + meet.getMname());
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }

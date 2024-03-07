@@ -1,7 +1,5 @@
 package org.jytek.leaguemanager.view;
 
-import java.util.*;
-
 /**
  * 
  * 
@@ -49,8 +47,23 @@ public class TmMtevent {
         return obj;
     }
 
+    @Override
+    public String toString() {
+        return "TmMtevent{" +
+                "meet=" + meet +
+                ", mtev=" + mtev +
+                ", mtevx='" + mtevx + '\'' +
+                ", lohi=" + lohi +
+                ", course='" + course + '\'' +
+                ", mtevent=" + mtevent +
+                ", distance=" + distance +
+                ", stroke=" + stroke +
+                ", sex='" + sex + '\'' +
+                ", ir='" + ir + '\'' +
+                '}';
+    }
 
-    // 
+    //
     // Column names
     //
     public static final String MEET = "Meet";

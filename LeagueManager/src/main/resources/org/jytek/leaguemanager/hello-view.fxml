@@ -82,7 +82,7 @@
                 <Tab fx:id="tbMeets" text="Meets">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                        <TableView fx:id="tvTmMeets" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="755.0">
+                        <TableView onMouseClicked="#onClickMeets"  fx:id="tvTmMeets" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="755.0">
                             <columns>
                                 <TableColumn fx:id="tcMeet" prefWidth="40.0" sortable="false" text="Meet" />
                                 <TableColumn fx:id="tcMName" prefWidth="249.0" sortable="true" text="MName" />

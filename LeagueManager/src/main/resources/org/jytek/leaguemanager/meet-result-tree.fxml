@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="795.0" prefWidth="953.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jytek.leaguemanager.controller.MeetResultTreeController">
+    <children>
+        <TreeTableView fx:id="tvResult" prefHeight="786.0" prefWidth="936.0">
+            <columns>
+                <TreeTableColumn fx:id="tcEvent" prefWidth="140.0" text="Event" />
+                <TreeTableColumn fx:id="tcPoints" prefWidth="52.0" text="Points" />
+                <TreeTableColumn fx:id="tcPlace" prefWidth="53.0" text="Place`" />
+                <TreeTableColumn fx:id="tcTime" prefWidth="51.0" text="Time" />
+                <TreeTableColumn fx:id="tcAthlete" prefWidth="270.0" text="Athlete" />
+                <TreeTableColumn fx:id="tcAge" prefWidth="84.0" text="Age" />
+                <TreeTableColumn fx:id="tcTeam" prefWidth="104.0" text="Team" />
+                <TreeTableColumn fx:id="tcConv" prefWidth="100" text="Conv" />
+            </columns>
+        </TreeTableView>
+    </children>
+</AnchorPane>

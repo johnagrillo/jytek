@@ -22,6 +22,11 @@ public class TmMdbDAO {
     private Map<Integer, HashSet<Integer>> teamAthletes;
 
 
+    private Map<Integer, HashSet<TmResult>> meetResults;
+
+
+
+
     /*
           Getters
          */

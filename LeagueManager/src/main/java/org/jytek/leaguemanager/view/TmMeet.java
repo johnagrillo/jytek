@@ -1,7 +1,5 @@
 package org.jytek.leaguemanager.view;
 
-import java.util.*;
-
 /**
  * 
  * 
@@ -37,8 +35,21 @@ public class TmMeet {
         return obj;
     }
 
+    @Override
+    public String toString() {
+        return "TmMeet{" +
+                "meet=" + meet +
+                ", mname='" + mname + '\'' +
+                ", start=" + start +
+                ", course='" + course + '\'' +
+                ", location='" + location + '\'' +
+                ", maxindent=" + maxindent +
+                ", maxrelent=" + maxrelent +
+                ", maxent=" + maxent +
+                '}';
+    }
 
-    // 
+    //
     // Column names
     //
     public static final String MEET = "Meet";
@@ -87,6 +98,9 @@ public class TmMeet {
     public Short getMaxent() {
         return maxent;
     }
+
+
+
 }
 /* FXML 
 <TableView fx:id=tvTmMeet" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">

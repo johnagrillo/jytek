@@ -1,67 +1,74 @@
 package org.jytek.leaguemanager.view;
-import java.util.*;
 
 public class MeetResult {
     // Members
-    private Integer score = 0;
-    private Integer place = 0;
-    private Integer points = 0;
+    private String event = "";
+    private String points = "";
+    private String place = "";
     private String athlete = "";
+    private String age = "";
     private String team = "";
-    private Integer converted = 0;
+    private String time = "";
+    private String conv = "";
 
     public MeetResult() {
 
-        this.score = 0;
-        this.place = 0;
-        this.points = 0;
+        this.event = "";
+        this.points = "";
+        this.place = "";
         this.athlete = "";
+        this.age = "";
         this.team = "";
-        this.converted = 0;
+        this.time = "";
+        this.conv = "";
     
     }
     public MeetResult(
-            Integer score,
-            Integer place,
-            Integer points,
+            String event,
+            String points,
+            String place,
             String athlete,
+            String age,
             String team,
-            Integer converted
+            String time,
+            String conv
     ) {
 
-        this.score = score;
-        this.place = place;
+        this.event = event;
         this.points = points;
+        this.place = place;
         this.athlete = athlete;
+        this.age = age;
         this.team = team;
-        this.converted = converted;
+        this.time = time;
+        this.conv = conv;
 
     }
 
     // Getters/Setters
 
-    public void setScore(Integer score) {
-        this.score = score;
+    public void setEvent(String event) {
+        this.event = event;
     }
 
-    public Integer getScore() {
-        return score;
+    public String getEvent() {
+        return event;
     }
 
-    public void setPlace(Integer place) {
-        this.place = place;
-    }
-
-    public Integer getPlace() {
-        return place;
-    }
-
-    public void setPoints(Integer points) {
+    public void setPoints(String points) {
         this.points = points;
     }
 
-    public Integer getPoints() {
+    public String getPoints() {
         return points;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
+    }
+
+    public String getPlace() {
+        return place;
     }
 
     public void setAthlete(String athlete) {
@@ -72,6 +79,14 @@ public class MeetResult {
         return athlete;
     }
 
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
     public void setTeam(String team) {
         this.team = team;
     }
@@ -80,12 +95,20 @@ public class MeetResult {
         return team;
     }
 
-    public void setConverted(Integer converted) {
-        this.converted = converted;
+    public void setTime(String time) {
+        this.time = time;
     }
 
-    public Integer getConverted() {
-        return converted;
+    public String getTime() {
+        return time;
+    }
+
+    public void setConv(String conv) {
+        this.conv = conv;
+    }
+
+    public String getConv() {
+        return conv;
     }
 
 }
