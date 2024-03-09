@@ -5,25 +5,35 @@ import org.jytek.leaguemanager.view.TmEntry;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
+import java.util.Collection;
 
 
-  public class TmEntryDAO {
+public class TmEntryDAO {
 
+    private Map<Integer, TmEntry> map = new HashMap<>();
 
-    private TmEntryDAO()
-    {
-
-    }
-
-    public static Map<Integer,TmEntry> getEntrys(Database db) throws IOException {
-
-        var map = new HashMap<Integer, TmEntry>();
-        for (final Row row : db.getTable(TmEntry.NAME)) {
+    public TmEntryDAO(Database db) throws IOException {
+        db.getTable(TmEntry.NAME).forEach(row -> {
             final var obj = TmEntry.create(row);
             map.put(obj.getEntry(), obj);
-        }
-        return map;
+        });
     }
+
+    public Stream<Map.Entry<Integer, TmEntry>> stream(){
+        return map.entrySet().stream();
+    }
+
+    public TmEntry get(Integer key) throws EntryException{
+        if (map.containsKey(key)) {
+            return map.get(key);
+        }
+        throw new EntryException("No Entry " + key);
+    }
+
+    public Collection<TmEntry> values(){
+        return map.values();
+    }
+
 }
 
-  

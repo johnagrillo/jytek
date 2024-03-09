@@ -5,25 +5,35 @@ import org.jytek.leaguemanager.view.TmMtevent;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
+import java.util.Collection;
 
 
-  public class TmMteventDAO {
+public class TmMteventDAO {
 
+    private Map<Integer, TmMtevent> map = new HashMap<>();
 
-    private TmMteventDAO()
-    {
-
-    }
-
-    public static Map<Integer,TmMtevent> getMtevents(Database db) throws IOException {
-
-        var map = new HashMap<Integer, TmMtevent>();
-        for (final Row row : db.getTable(TmMtevent.NAME)) {
+    public TmMteventDAO(Database db) throws IOException {
+        db.getTable(TmMtevent.NAME).forEach(row -> {
             final var obj = TmMtevent.create(row);
             map.put(obj.getMtevent(), obj);
-        }
-        return map;
+        });
     }
+
+    public Stream<Map.Entry<Integer, TmMtevent>> stream(){
+        return map.entrySet().stream();
+    }
+
+    public TmMtevent get(Integer key) throws MteventException{
+        if (map.containsKey(key)) {
+            return map.get(key);
+        }
+        throw new MteventException("No Mtevent " + key);
+    }
+
+    public Collection<TmMtevent> values(){
+        return map.values();
+    }
+
 }
 
-  

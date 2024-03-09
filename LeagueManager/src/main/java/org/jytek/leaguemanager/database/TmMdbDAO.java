@@ -1,6 +1,7 @@
 package org.jytek.leaguemanager.database;
 
-import org.jytek.leaguemanager.view.*;
+import org.jytek.leaguemanager.view.TmMtevent;
+import org.jytek.leaguemanager.view.TmResult;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,37 +15,25 @@ import java.util.*;
 
 public class TmMdbDAO {
     private Map<Integer, ArrayList<TmResult>> athleteResults;
-
-    public ArrayList<TmResult> getAthleteResults(Integer ath) {
-        return athleteResults.get(ath);
-    }
-
     private Map<Integer, HashSet<Integer>> teamAthletes;
-
-
     private Map<Integer, HashSet<TmResult>> meetResults;
-
-
-
-
-    /*
-          Getters
-         */
     private Map<Integer, ArrayList<TmResult>> athleteBestResults;
     private Map<Integer, ArrayList<TmResult>> teamRelayResults;
     private Map<Integer, ArrayList<TmResult>> teamRelayBestResults;
-
-
     /*
         Views of the tables
      */
-    private Map<Integer, TmTeam> teams;
-    private Map<Integer, TmMeet> meets;
-    private Map<Integer, TmMtevente> mtevente;
-    private Map<Integer, TmMtevent> mtevents;
-    private Map<Integer, TmAthlete> athletes;
-    private Map<Integer, TmResult> results;
-    private Map<Integer, TmRelay> relays;
+    private TmTeamDAO teams;
+    private TmMeetDAO meets;
+    private TmMteventeDAO mtevente;
+    private TmMteventDAO mtevents;
+    private TmAthleteDAO athletes;
+    private TmResultDAO results;
+    private TmRelayDAO relays;
+
+    private TmMdbDAO() {
+
+    }
 
 
     /*
@@ -52,28 +41,21 @@ public class TmMdbDAO {
      */
 
 
-    private TmMdbDAO() {
-
-    }
-
     public TmMdbDAO(File input) {
         try {
             var db = com.healthmarketscience.jackcess.DatabaseBuilder.open(input);
-
     	    /*
 	          Read all tables in constructor.
-	          Could be lazy initailized.
-
+	          Could be lazy initialized.
 	         */
 
-            meets = TmMeetDAO.getMeets(db);
-            teams = TmTeamDAO.getTeams(db);
-            //mtevente = TmMteventeDAO.getMteventes(db);
-            mtevents = TmMteventDAO.getMtevents(db);
-            athletes = TmAthleteDAO.getAthletes(db);
-            relays = TmRelayDAO.getRelays(db);
-            results = TmResultDAO.getResults(db);
-
+            teams = new TmTeamDAO(db);
+            meets = new TmMeetDAO(db);
+            mtevente = new TmMteventeDAO(db);
+            mtevents = new TmMteventDAO(db);
+            athletes = new TmAthleteDAO(db);
+            results = new TmResultDAO(db) ;
+            relays = new TmRelayDAO(db);
 
             //
             // Load results by athlete, team relay results and teamAthletes
@@ -84,29 +66,27 @@ public class TmMdbDAO {
             teamRelayResults = new HashMap<>();
             teamAthletes = new HashMap<>();
 
-            for (final var r : results.values()) {
-
+            results.stream().forEach(result -> {
+                var r = result.getValue();
                 //
                 // Individual event
                 //
                 if (r.getIr().equals("I")) {
 
-                        var athlist = athleteResults.computeIfAbsent(r.getAthlete(), k -> new ArrayList<>());
-                        athlist.add(r);
+                    var athlist = athleteResults.computeIfAbsent(r.getAthlete(), k -> new ArrayList<>());
+                    athlist.add(r);
 
-                        var teamlist = teamAthletes.computeIfAbsent(r.getTeam(), k -> new HashSet<>());
-                        teamlist.add(r.getAthlete());
-
-
+                    var teamlist = teamAthletes.computeIfAbsent(r.getTeam(), k -> new HashSet<>());
+                    teamlist.add(r.getAthlete());
                 }
                 //
                 // Relay
                 //
                 else if (r.getIr().equals("R")) {
-                        var athlist = teamRelayResults.computeIfAbsent(r.getTeam(), k -> new ArrayList<>());
-                        athlist.add(r);
+                    var athlist = teamRelayResults.computeIfAbsent(r.getTeam(), k -> new ArrayList<>());
+                    athlist.add(r);
                 }
-            }
+            });
 
             //
             // Best swims by athlete.
@@ -122,7 +102,6 @@ public class TmMdbDAO {
             //
 
 
-
             teamRelayBestResults = findBestTeamRelays();
 
 
@@ -131,73 +110,36 @@ public class TmMdbDAO {
         }
     }
 
-
-    /*
-      Private Members
-     */
-
-    public Map<Integer, TmMeet> getMeets() {
-        return this.meets;
+    public ArrayList<TmResult> getAthleteResults(Integer ath) {
+        return athleteResults.get(ath);
     }
 
-    public Map<Integer, TmTeam> getTeams() {
+
+    public TmTeamDAO getTeams() {
         return this.teams;
     }
 
-    /*
-     * Best Results by Athlete
-     */
-
-    public TmTeam getTeam(Integer team) throws TeamException {
-        var t = teams.get(team);
-        if (t == null) {
-            throw new TeamException("No Team " + team);
-        }
-        return t;
+    public TmMeetDAO getMeets() {
+        return this.meets;
     }
 
-
-    /*
-     * Relay Results By Team
-     */
-
-    public Map<Integer, TmMtevente> getMteventes() {
+    public TmMteventeDAO getMtevente() {
         return this.mtevente;
     }
 
-    /*
-     * Best Relay Results By Team
-     */
-
-    public Map<Integer, TmMtevent> getMtevents() {
+    public TmMteventDAO getMtevents() {
         return this.mtevents;
     }
 
-    public TmMtevent getMtevent(Integer mtevent) throws MtEventException {
-        var m = mtevents.get(mtevent);
-        if (m == null) {
-            throw new MtEventException("No Meet Event " + mtevent);
-        }
-        return m;
-    }
-
-    public Map<Integer, TmAthlete> getAthletes() {
+    public TmAthleteDAO getAthletes() {
         return this.athletes;
     }
 
-    public TmAthlete getAthlete(Integer ath) throws AthleteException {
-        var a = athletes.get(ath);
-        if (a == null) {
-            throw new AthleteException("No Athlete " + ath);
-        }
-        return a;
-    }
-
-    public Map<Integer, TmResult> getResults() {
+    public TmResultDAO getResults() {
         return this.results;
     }
 
-    public Map<Integer, TmRelay> getRelays() {
+    public TmRelayDAO getRelays() {
         return this.relays;
     }
 
@@ -206,7 +148,8 @@ public class TmMdbDAO {
             return teamAthletes.get(team);
         }
         throw new AthleteException("No Athletes for team " + team);
-   }
+    }
+
     public ArrayList<TmResult> getAthleteBestResults(Integer athlete) {
 
         if (athleteBestResults.containsKey(athlete)) {
@@ -224,9 +167,6 @@ public class TmMdbDAO {
     }
 
 
-
-
-
     private Map<Integer, ArrayList<TmResult>> findBestTeamRelays() {
 
         final Map<Integer, ArrayList<TmResult>> bestTeamRelays = new HashMap<>();
@@ -236,7 +176,7 @@ public class TmMdbDAO {
 
             for (var r : teamRelayResults.get(team)) {
                 try {
-                    var mtevent = getMtevent(r.getMtevent());
+                    var mtevent = getMtevents().get(r.getMtevent());
 
                     var best = bestRelay.computeIfAbsent(mtevent.getMtev(), k -> r);
 
@@ -252,7 +192,7 @@ public class TmMdbDAO {
                         bestRelay.put(mtevent.getMtev(), r);
                     }
 
-                } catch (MtEventException e) {
+                } catch (MteventException e) {
                     // database inconsistency
                     // just ignore
                 }
@@ -303,7 +243,7 @@ public class TmMdbDAO {
                     //    writer.write(r + "\n");
                     //}
 
-                    TmMtevent mtev = getMtevent(r.getMtevent());
+                    TmMtevent mtev = getMtevents().get(r.getMtevent());
                     var ev = mtev.getMtev();
                     var lo_hi = mtev.getLohi();
 
@@ -317,7 +257,7 @@ public class TmMdbDAO {
 
                     //if (ath.getAge() < lo || ath.getAge() > hi) {
                     //    System.out.println("skip " + lo_hi + " " + r);
-                      //  continue;
+                    //  continue;
                     //}
 
                     if (r.getCourse().equals("Y") || r.getCourse().equals("YS")) {
@@ -333,7 +273,7 @@ public class TmMdbDAO {
                         }
                     }
                     events.add(ev);
-                } catch (MtEventException e) {
+                } catch (MteventException e) {
 
                 }
             }
@@ -366,13 +306,11 @@ public class TmMdbDAO {
                 }
 
 
-
-                if (bestResult == null)  {
+                if (bestResult == null) {
                     System.out.println(ath);
                     System.out.println("Y " + ev + " " + bestSwimsY.get(ev));
                     System.out.println("S " + ev + " " + bestSwimsS.get(ev));
-                }
-                else {
+                } else {
                     var results = best.computeIfAbsent(ath, k -> new ArrayList<>());
                     results.add(bestResult);
                 }
@@ -381,6 +319,7 @@ public class TmMdbDAO {
 
         return best;
     }
+
     public TreeMap<Short, ArrayList<TmResult>> getBestTeamEntries(Integer team) {
 
         //
@@ -391,10 +330,10 @@ public class TmMdbDAO {
             for (var ath : getTeamAthletes(team)) {
                 for (var r : getAthleteBestResults(ath)) {
                     try {
-                        var events = teamEntries.computeIfAbsent(getMtevent(r.getMtevent()).getMtev(),
+                        var events = teamEntries.computeIfAbsent(getMtevents().get(r.getMtevent()).getMtev(),
                                 k -> new ArrayList<>());
                         events.add(r);
-                    } catch (MtEventException e) {
+                    } catch (MteventException e) {
 
                     }
                 }
@@ -408,16 +347,14 @@ public class TmMdbDAO {
         // get the best relays for this team
         //
         try {
-            var tmteam = getTeam(team);
+            var tmteam = teams.get(team);
             for (var r : getATeamBestRelays(team)) {
-                var results = teamEntries.computeIfAbsent(getMtevent(r.getMtevent()).getMtev(), k -> new ArrayList<>());
-
+                var results = teamEntries.computeIfAbsent(getMtevents().get(r.getMtevent()).getMtev(), k -> new ArrayList<>());
             }
-        } catch (TeamException | MtEventException e) {
+        } catch (TeamException | MteventException e) {
 
 
         }
-        System.out.println("Getting Team " + team + " " + teamEntries.size());
         return teamEntries;
     }
 }

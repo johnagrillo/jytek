@@ -14,10 +14,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 import org.jytek.leaguemanager.MainApplication;
-import org.jytek.leaguemanager.database.AthleteException;
-import org.jytek.leaguemanager.database.MtEventException;
-import org.jytek.leaguemanager.database.TeamException;
-import org.jytek.leaguemanager.database.TmMdbDAO;
+import org.jytek.leaguemanager.database.*;
 import org.jytek.leaguemanager.utilities.MockMeet;
 import org.jytek.leaguemanager.utilities.Util;
 import org.jytek.leaguemanager.view.*;
@@ -32,6 +29,7 @@ import java.time.ZonedDateTime;
 import java.time.temporal.ChronoField;
 import java.time.temporal.WeekFields;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class MainController extends Application implements Initializable {
@@ -171,11 +169,11 @@ public class MainController extends Application implements Initializable {
 
         lbFile.setText(mockFile.getPath());
         tm = new TmMdbDAO(mockFile);
-        lbTeams.setText("" + tm.getTeams().size());
-        lbAthletes.setText("" + tm.getAthletes().size());
-        lbResults.setText("" + tm.getResults().size());
-        lbRelays.setText("" + tm.getRelays().size());
-        lbMeets.setText("" + tm.getMeets().size());
+        lbTeams.setText("" + tm.getTeams().stream().count());
+        lbAthletes.setText("" + tm.getAthletes().stream().count());
+        lbResults.setText("" + tm.getResults().stream().count());
+        lbRelays.setText("" + tm.getRelays().stream().count());
+        lbMeets.setText("" + tm.getMeets().stream().count());
     }
 
     @FXML
@@ -188,18 +186,23 @@ public class MainController extends Application implements Initializable {
 
             lbFile.setText(mockFile.getPath());
             tm = new TmMdbDAO(mockFile);
-            lbTeams.setText("" + tm.getTeams().size());
-            lbAthletes.setText("" + tm.getAthletes().size());
-            lbResults.setText("" + tm.getResults().size());
-            lbRelays.setText("" + tm.getRelays().size());
-            lbMeets.setText("" + tm.getMeets().size());
+
+            lbTeams.setText("" + tm.getTeams().stream().count());
+            lbAthletes.setText("" + tm.getAthletes().stream().count());
+            lbResults.setText("" + tm.getResults().stream().count());
+            lbRelays.setText("" + tm.getRelays().stream().count());
+            lbMeets.setText("" + tm.getMeets().stream().count());
+
 
             ObservableList<TmTeam> teams = FXCollections.observableArrayList();
-            teams.addAll(tm.getTeams().values());
+
+
+            teams.addAll(tm.getTeams().stream().map(Map.Entry::getValue).toList());
             tvTmTeams.setItems(teams);
 
             ObservableList<TmAthlete> athletes = FXCollections.observableArrayList();
             athletes.addAll(tm.getAthletes().values());
+
             tvTmAthletes.setItems(athletes);
 
             ObservableList<TmMeet> meets = FXCollections.observableArrayList();
@@ -218,9 +221,12 @@ public class MainController extends Application implements Initializable {
         ///   beast time mock for all teams
         ///
 
-        for (var team1 : tm.getTeams().keySet()) {
+
+        tm.getTeams().stream().forEach(e1 -> {
+            var team1 = e1.getKey();
             var team1Entries = tm.getBestTeamEntries(team1);
-            for (var team2 : tm.getTeams().keySet()) {
+            tm.getTeams().stream().forEach( e2 -> {
+                var team2 = e1.getKey();
                 if (!Objects.equals(team1, team2)) {
                     var in = new HashSet<Integer>();
                     in.add(team1);
@@ -235,7 +241,7 @@ public class MainController extends Application implements Initializable {
                                 teamEntries.computeIfAbsent(ev, k -> new ArrayList<>()).add(r);
                                 try {
                                     if (!in.contains(r.getTeam())) {
-                                        System.out.println("Wrong Team in " + " " + tm.getTeam(r.getTeam()).getTcode() + " " + r);
+                                        System.out.println("Wrong Team in " + " " + tm.getTeams().get(r.getTeam()).getTcode() + " " + r);
                                     }
                                 } catch (TeamException e) {
                                     System.out.println("No Team " + e);
@@ -257,22 +263,20 @@ public class MainController extends Application implements Initializable {
                         var diff = (int) ((t1 - t2) / 10.0);
                         try {
                             dualResults.add(new DualMockResult(
-                                    tm.getTeam(team1).getTcode(),
+                                    tm.getTeams().get(team1).getTcode(),
                                     t1,
-                                    tm.getTeam(team2).getTcode(),
+                                    tm.getTeams().get(team2).getTcode(),
                                     t2,
                                     diff,
                                     r));
                         } catch (TeamException e) {
-
+                            System.out.println(e);
                         }
                     }
 
                 }
-
-            }
-
-        }
+            });
+        });
 
 
         ObservableList<DualMockResult> results = FXCollections.observableArrayList();
@@ -335,11 +339,12 @@ public class MainController extends Application implements Initializable {
 
         lbFile.setText(mdbFile.getPath());
         tm = new TmMdbDAO(mdbFile);
-        lbTeams.setText("" + tm.getTeams().size());
-        lbAthletes.setText("" + tm.getAthletes().size());
-        lbResults.setText("" + tm.getResults().size());
-        lbRelays.setText("" + tm.getRelays().size());
-        lbMeets.setText("" + tm.getMeets().size());
+
+        lbTeams.setText("" + tm.getTeams().stream().count());
+        lbAthletes.setText("" + tm.getAthletes().stream().count());
+        lbResults.setText("" + tm.getResults().stream().count());
+        lbRelays.setText("" + tm.getRelays().stream().count());
+        lbMeets.setText("" + tm.getMeets().stream().count());
 
         tbTeams.setDisable(false);
         tbAthletes.setDisable(false);
@@ -527,38 +532,37 @@ public class MainController extends Application implements Initializable {
         // correction data
         // 2023 Meet 63 week 1
 
-        var first = 50;
-        for (var m : tm.getMeets().values()) {
-            var week = m.getStart().get(ChronoField.ALIGNED_WEEK_OF_YEAR);
-            first = Math.min(first, week);
-        }
+        AtomicInteger first = new AtomicInteger(50);
+        tm.getMeets().stream().forEach( m -> {
+            var week = m.getValue().getStart().get(ChronoField.ALIGNED_WEEK_OF_YEAR);
+            first.set(Math.min(first.get(), week));
+        });
 
-        System.out.println(first);
         // get mmets by week
         var weekMeets = new TreeMap<Integer, HashSet<TmMeet>>();
         var meetResults = new TreeMap<Integer, HashSet<TmResult>>();
 
-        for (var m : tm.getMeets().values()) {
-            var week = m.getStart().get(ChronoField.ALIGNED_WEEK_OF_YEAR);
-
-            ZonedDateTime zdt = m.getStart().atZone(ZoneId.systemDefault());
+        tm.getMeets().stream().forEach( e -> {
+            var week = e.getValue().getStart().get(ChronoField.ALIGNED_WEEK_OF_YEAR);
+            var meet = e.getValue();
+            ZonedDateTime zdt = meet.getStart().atZone(ZoneId.systemDefault());
             Date output = Date.from(zdt.toInstant());
-            LocalDate date = m.getStart().toLocalDate();
+            LocalDate date = meet.getStart().toLocalDate();
             WeekFields weekFields = WeekFields.of(Locale.getDefault());
-            week = date.get(weekFields.weekOfWeekBasedYear()) - first + 1;
+            week = date.get(weekFields.weekOfWeekBasedYear()) - first.get() + 1;
 
             // check for corrected cweek
 
-            if (corrections.containsKey(m.getStart().getYear())) {
-                if (corrections.get(m.getStart().getYear()).containsKey(m.getMname())) {
-                    week = corrections.get(m.getStart().getYear()).get(m.getMname());
+            if (corrections.containsKey(meet.getStart().getYear())) {
+                if (corrections.get(meet.getStart().getYear()).containsKey(meet.getMname())) {
+                    week = corrections.get(meet.getStart().getYear()).get(meet.getMname());
                 }
             }
 
 
             var meets = weekMeets.computeIfAbsent(week, k -> new HashSet<>());
-            meets.add(m);
-        }
+            meets.add(meet);
+        });
 
         for (var result : tm.getResults().values()) {
             var meet = meetResults.computeIfAbsent(result.getMeet(), k -> new HashSet<>());
@@ -576,10 +580,8 @@ public class MainController extends Application implements Initializable {
         trvWeeks.setRoot(rootNode);
         for (var week : weekMeets.keySet()) {
             var weekNode = new TreeItem<String>("Week " + week);
-            System.out.println(week);
             rootNode.getChildren().add(weekNode);
             for (var m : weekMeets.get(week)) {
-                System.out.println(m.getMeet() + " " + m.getStart() + " " + m.getMname());
                 var node = new TreeItem<String>(m.getMeet() + " " + m.getStart() + " " + m.getMname());
                 weekNode.getChildren().add(node);
             }
@@ -599,14 +601,14 @@ public class MainController extends Application implements Initializable {
                 Result res = new Result();
                 try {
                     res.setMeet(tm.getMeets().get(r.getMeet()).getMname());
-                    res.setEvent(tm.getMtevent(r.getMtevent()).getMtev().toString());
+                    res.setEvent(tm.getMtevents().get(r.getMtevent()).getMtev().toString());
                     res.setPlace(r.getPoints());
                     res.setScore(r.getScore());
                     res.setDistance(r.getDistance());
                     res.setStroke(Util.strokeToString(r.getStroke()));
                     res.setCourse(r.getCourse());
                     res.setIr(r.getIr());
-                } catch (MtEventException e) {
+                } catch (MteventException | MeetException e) {
                     throw new RuntimeException(e);
                 }
                 results.add(res);
@@ -638,7 +640,6 @@ public class MainController extends Application implements Initializable {
 
     public void onBestTimeClick(MouseEvent mouseEvent) {
         var mock = tvMockResults.getSelectionModel().getSelectedItem();
-        System.out.println(mock);
         var mockResults = mock.getResults().getMeetResults();
 
     }
@@ -652,17 +653,17 @@ public class MainController extends Application implements Initializable {
             if (Objects.equals(r.getMeet(), meet.getMeet())) {
 
                 try {
-                    var mtevent = tm.getMtevent(r.getMtevent());
+                    var mtevent = tm.getMtevents().get(r.getMtevent());
                     var list = results.computeIfAbsent(mtevent, k -> new ArrayList<>());
 
 
                     list.add(new MeetResult("", "" + r.getPoints(),
                             "" + r.getPlace(),
-                            Util.atheteToString(tm.getAthlete(r.getAthlete())),
+                            Util.atheteToString(tm.getAthletes().get(r.getAthlete())),
                             "" + r.getAge(),
-                            tm.getTeam(r.getTeam()).getTcode(),
+                            tm.getTeams().get(r.getTeam()).getTcode(),
                             r.getScore().toString(), r.getCourse()));
-                } catch (TeamException | AthleteException | MtEventException e) {
+                } catch (TeamException | AthleteException | MteventException e) {
                     throw new RuntimeException(e);
                 }
             }

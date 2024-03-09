@@ -5,25 +5,35 @@ import org.jytek.leaguemanager.view.TmRelay;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
+import java.util.Collection;
 
 
-  public class TmRelayDAO {
+public class TmRelayDAO {
 
+    private Map<Integer, TmRelay> map = new HashMap<>();
 
-    private TmRelayDAO()
-    {
-
-    }
-
-    public static Map<Integer,TmRelay> getRelays(Database db) throws IOException {
-
-        var map = new HashMap<Integer, TmRelay>();
-        for (final Row row : db.getTable(TmRelay.NAME)) {
+    public TmRelayDAO(Database db) throws IOException {
+        db.getTable(TmRelay.NAME).forEach(row -> {
             final var obj = TmRelay.create(row);
             map.put(obj.getRelay(), obj);
-        }
-        return map;
+        });
     }
+
+    public Stream<Map.Entry<Integer, TmRelay>> stream(){
+        return map.entrySet().stream();
+    }
+
+    public TmRelay get(Integer key) throws RelayException{
+        if (map.containsKey(key)) {
+            return map.get(key);
+        }
+        throw new RelayException("No Relay " + key);
+    }
+
+    public Collection<TmRelay> values(){
+        return map.values();
+    }
+
 }
 
-  

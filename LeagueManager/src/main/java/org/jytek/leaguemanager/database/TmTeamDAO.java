@@ -1,29 +1,40 @@
 package org.jytek.leaguemanager.database;
+
 import com.healthmarketscience.jackcess.Database;
-import com.healthmarketscience.jackcess.Row;
 import org.jytek.leaguemanager.view.TmTeam;
+
 import java.io.IOException;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
 
 
-  public class TmTeamDAO {
+public class TmTeamDAO {
 
+    private Map<Integer, TmTeam> map = new HashMap<>();
 
-    private TmTeamDAO()
-    {
-
-    }
-
-    public static Map<Integer,TmTeam> getTeams(Database db) throws IOException {
-
-        var map = new HashMap<Integer, TmTeam>();
-        for (final Row row : db.getTable(TmTeam.NAME)) {
+    public TmTeamDAO(Database db) throws IOException {
+        db.getTable(TmTeam.NAME).forEach(row -> {
             final var obj = TmTeam.create(row);
             map.put(obj.getTeam(), obj);
-        }
-        return map;
+        });
     }
+
+    public Stream<Map.Entry<Integer, TmTeam>> stream(){
+        return map.entrySet().stream();
+    }
+
+    public TmTeam get(Integer key) throws TeamException{
+        if (map.containsKey(key)) {
+            return map.get(key);
+        }
+        throw new TeamException("No Team " + key);
+    }
+
+    public Collection<TmTeam> values(){
+        return map.values();
+    }
+
 }
 
-  

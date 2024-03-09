@@ -3,8 +3,10 @@ plugins {
   id 'application'
   id 'org.javamodularity.moduleplugin' version '1.8.12'
   id 'org.openjfx.javafxplugin' version '0.0.13'
-  id 'org.beryx.jlink' version '2.25.0'
+  id 'org.beryx.jlink' version '2.26.0'
 }
+
+
 
 group 'org.jytek'
 version '1.0-SNAPSHOT'
@@ -26,7 +28,7 @@ tasks.withType(JavaCompile) {
 
 application {
   mainModule = 'org.jytek.leaguemanager'
-  mainClass = 'org.jytek.leaguemanager.HelloApplication'
+  mainClass = 'org.jytek.leaguemanager.MainApplication'
 }
 
 javafx {
@@ -58,3 +60,5 @@ jlink {
 jlinkZip {
   group = 'distribution'
 }
+
+

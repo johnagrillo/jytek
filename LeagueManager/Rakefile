@@ -304,10 +304,10 @@ def readTable(schema)
         _,_,name = s.split(' ')
         name = name[1..-2].capitalize
         
-        File.open("src/main/java/org/jytek/leaguemanager/view/Tm#{name}.java", "w") do |fh|
-          puts fh.path
-          fh.puts create_class(schema,name,iter,"Tm")
-        end
+        #File.open("src/main/java/org/jytek/leaguemanager/view/Tm#{name}.java", "w") do |fh|
+        #  puts fh.path
+        #  fh.puts create_class(schema,name,iter,"Tm")
+        #end
 
         File.open("src/main/java/org/jytek/leaguemanager/database/Tm#{name}DAO.java", "w") do |fh|
           puts fh.path
@@ -333,31 +333,40 @@ def createDAO(schema, name, iter, prefix)
   out << "import java.io.IOException;"
   out << "import java.util.HashMap;"
   out << "import java.util.Map;"
-
-
+  out << "import java.util.stream.Stream;"
+  out << "import java.util.Collection;"
   cls = prefix + name
   out << %Q[
 
-  public class #{cls}DAO {
+public class #{cls}DAO {
 
+    private Map<Integer, #{cls}> map = new HashMap<>();
 
-    private #{cls}DAO()
-    {
-
-    }
-
-    public static Map<Integer,#{cls}> get#{name}s(Database db) throws IOException {
-
-        var map = new HashMap<Integer, #{cls}>();
-        for (final Row row : db.getTable(#{prefix}#{name}.NAME)) {
-            final var obj = #{prefix}#{name}.create(row);
+    public #{cls}DAO(Database db) throws IOException {
+        db.getTable(#{cls}.NAME).forEach(row -> {
+            final var obj = #{cls}.create(row);
             map.put(obj.get#{name}(), obj);
-        }
-        return map;
+        });
     }
+
+    public Stream<Map.Entry<Integer, #{cls}>> stream(){
+        return map.entrySet().stream();
+    }
+
+    public #{cls} get(Integer key) throws #{name}Exception{
+        if (map.containsKey(key)) {
+            return map.get(key);
+        }
+        throw new #{name}Exception("No #{name} " + key);
+    }
+
+    public Collection<#{cls}> values(){
+        return map.values();
+    }
+
 }
 
-  ]
+]
   out * "\n"
 end
 
