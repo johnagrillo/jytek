@@ -216,17 +216,14 @@ public class MainController extends Application implements Initializable {
 
     @FXML
     protected void onRunMock() {
-
         ////
         ///   beast time mock for all teams
         ///
-
-
         tm.getTeams().stream().forEach(e1 -> {
             var team1 = e1.getKey();
             var team1Entries = tm.getBestTeamEntries(team1);
             tm.getTeams().stream().forEach( e2 -> {
-                var team2 = e1.getKey();
+                var team2 = e2.getKey();
                 if (!Objects.equals(team1, team2)) {
                     var in = new HashSet<Integer>();
                     in.add(team1);
@@ -250,7 +247,6 @@ public class MainController extends Application implements Initializable {
                             }
                         }
                     }
-
                     // only run if we have two teams
 
                     var r = MockMeet.runMockMeet(teamEntries, scoring);
