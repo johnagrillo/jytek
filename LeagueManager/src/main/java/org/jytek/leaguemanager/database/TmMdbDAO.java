@@ -66,7 +66,7 @@ public class TmMdbDAO {
             teamRelayResults = new HashMap<>();
             teamAthletes = new HashMap<>();
 
-            results.stream().forEach(result -> {
+            results.forEach(result -> {
                 var r = result.getValue();
                 //
                 // Individual event

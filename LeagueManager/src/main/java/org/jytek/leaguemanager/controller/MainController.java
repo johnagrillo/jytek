@@ -169,11 +169,11 @@ public class MainController extends Application implements Initializable {
 
         lbFile.setText(mockFile.getPath());
         tm = new TmMdbDAO(mockFile);
-        lbTeams.setText("" + tm.getTeams().stream().count());
-        lbAthletes.setText("" + tm.getAthletes().stream().count());
-        lbResults.setText("" + tm.getResults().stream().count());
-        lbRelays.setText("" + tm.getRelays().stream().count());
-        lbMeets.setText("" + tm.getMeets().stream().count());
+        lbTeams.setText("" + tm.getTeams().count());
+        lbAthletes.setText("" + tm.getAthletes().count());
+        lbResults.setText("" + tm.getResults().count());
+        lbRelays.setText("" + tm.getRelays().count());
+        lbMeets.setText("" + tm.getMeets().count());
     }
 
     @FXML
@@ -187,17 +187,17 @@ public class MainController extends Application implements Initializable {
             lbFile.setText(mockFile.getPath());
             tm = new TmMdbDAO(mockFile);
 
-            lbTeams.setText("" + tm.getTeams().stream().count());
-            lbAthletes.setText("" + tm.getAthletes().stream().count());
-            lbResults.setText("" + tm.getResults().stream().count());
-            lbRelays.setText("" + tm.getRelays().stream().count());
-            lbMeets.setText("" + tm.getMeets().stream().count());
+            lbTeams.setText("" + tm.getTeams().count());
+            lbAthletes.setText("" + tm.getAthletes().count());
+            lbResults.setText("" + tm.getResults().count());
+            lbRelays.setText("" + tm.getRelays().count());
+            lbMeets.setText("" + tm.getMeets().count());
 
 
             ObservableList<TmTeam> teams = FXCollections.observableArrayList();
 
 
-            teams.addAll(tm.getTeams().stream().map(Map.Entry::getValue).toList());
+            teams.addAll(tm.getTeams().values());
             tvTmTeams.setItems(teams);
 
             ObservableList<TmAthlete> athletes = FXCollections.observableArrayList();
@@ -219,10 +219,10 @@ public class MainController extends Application implements Initializable {
         ////
         ///   beast time mock for all teams
         ///
-        tm.getTeams().stream().forEach(e1 -> {
+        tm.getTeams().forEach(e1 -> {
             var team1 = e1.getKey();
             var team1Entries = tm.getBestTeamEntries(team1);
-            tm.getTeams().stream().forEach( e2 -> {
+            tm.getTeams().forEach(e2 -> {
                 var team2 = e2.getKey();
                 if (!Objects.equals(team1, team2)) {
                     var in = new HashSet<Integer>();
@@ -270,7 +270,7 @@ public class MainController extends Application implements Initializable {
                         }
                     }
 
-                }
+               }
             });
         });
 
@@ -336,11 +336,12 @@ public class MainController extends Application implements Initializable {
         lbFile.setText(mdbFile.getPath());
         tm = new TmMdbDAO(mdbFile);
 
-        lbTeams.setText("" + tm.getTeams().stream().count());
-        lbAthletes.setText("" + tm.getAthletes().stream().count());
-        lbResults.setText("" + tm.getResults().stream().count());
-        lbRelays.setText("" + tm.getRelays().stream().count());
-        lbMeets.setText("" + tm.getMeets().stream().count());
+
+        lbTeams.setText("" + tm.getTeams().count());
+        lbAthletes.setText("" + tm.getAthletes().count());
+        lbResults.setText("" + tm.getResults().count());
+        lbRelays.setText("" + tm.getRelays().count());
+        lbMeets.setText("" + tm.getMeets().count());
 
         tbTeams.setDisable(false);
         tbAthletes.setDisable(false);
@@ -529,7 +530,7 @@ public class MainController extends Application implements Initializable {
         // 2023 Meet 63 week 1
 
         AtomicInteger first = new AtomicInteger(50);
-        tm.getMeets().stream().forEach( m -> {
+        tm.getMeets().forEach(m -> {
             var week = m.getValue().getStart().get(ChronoField.ALIGNED_WEEK_OF_YEAR);
             first.set(Math.min(first.get(), week));
         });
@@ -538,7 +539,7 @@ public class MainController extends Application implements Initializable {
         var weekMeets = new TreeMap<Integer, HashSet<TmMeet>>();
         var meetResults = new TreeMap<Integer, HashSet<TmResult>>();
 
-        tm.getMeets().stream().forEach( e -> {
+        tm.getMeets().forEach(e -> {
             var week = e.getValue().getStart().get(ChronoField.ALIGNED_WEEK_OF_YEAR);
             var meet = e.getValue();
             ZonedDateTime zdt = meet.getStart().atZone(ZoneId.systemDefault());

@@ -338,9 +338,7 @@ def createDAO(schema, name, iter, prefix)
   cls = prefix + name
   out << %Q[
 
-public class #{cls}DAO {
-
-    private Map<Integer, #{cls}> map = new HashMap<>();
+public class #{cls}DAO extends DAOStream<Integer,#{cls}>{
 
     public #{cls}DAO(Database db) throws IOException {
         db.getTable(#{cls}.NAME).forEach(row -> {
@@ -349,21 +347,12 @@ public class #{cls}DAO {
         });
     }
 
-    public Stream<Map.Entry<Integer, #{cls}>> stream(){
-        return map.entrySet().stream();
-    }
-
     public #{cls} get(Integer key) throws #{name}Exception{
         if (map.containsKey(key)) {
             return map.get(key);
         }
         throw new #{name}Exception("No #{name} " + key);
     }
-
-    public Collection<#{cls}> values(){
-        return map.values();
-    }
-
 }
 
 ]

@@ -4,15 +4,9 @@ import com.healthmarketscience.jackcess.Database;
 import org.jytek.leaguemanager.view.TmMtevente;
 
 import java.io.IOException;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.stream.Stream;
 
 
-public class TmMteventeDAO {
-
-    private Map<Short, TmMtevente> map = new HashMap<>();
+public class TmMteventeDAO extends DAOStream<Short, TmMtevente> {
 
     public TmMteventeDAO(Database db) throws IOException {
         db.getTable(TmMtevente.NAME).forEach(row -> {
@@ -21,20 +15,11 @@ public class TmMteventeDAO {
         });
     }
 
-    public Stream<Map.Entry<Short, TmMtevente>> stream(){
-        return map.entrySet().stream();
-    }
-
-    public TmMtevente get(Short key) throws MteventeException{
+    public TmMtevente get(Integer key) throws MteventeException{
         if (map.containsKey(key)) {
             return map.get(key);
         }
         throw new MteventeException("No Mtevente " + key);
     }
-
-    public Collection<TmMtevente> values(){
-        return map.values();
-    }
-
 }
 
