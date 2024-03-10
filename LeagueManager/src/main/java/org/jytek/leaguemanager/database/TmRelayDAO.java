@@ -9,13 +9,14 @@ import java.util.stream.Stream;
 import java.util.Collection;
 
 
-public class TmRelayDAO extends DAOStream<Integer, TmRelay>{
-
+public class TmRelayDAO extends DAOStream<Integer, TmRelay> {
     public TmRelayDAO(Database db) throws IOException {
-        db.getTable(TmRelay.NAME).forEach(row -> {
-            final var obj = TmRelay.create(row);
-            map.put(obj.getRelay(), obj);
-        });
+        super(db, TmRelay.NAME);
+    }
+
+    @Override
+    KeyValue<Integer, TmRelay> create(Row r) {
+        return TmRelay.create(r);
     }
 }
 

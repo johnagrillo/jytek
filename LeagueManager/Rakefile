@@ -304,10 +304,10 @@ def readTable(schema)
         _,_,name = s.split(' ')
         name = name[1..-2].capitalize
         
-        #File.open("src/main/java/org/jytek/leaguemanager/view/Tm#{name}.java", "w") do |fh|
-        #  puts fh.path
-        #  fh.puts create_class(schema,name,iter,"Tm")
-        #end
+        File.open("src/main/java/org/jytek/leaguemanager/view/Tm#{name}.java", "w") do |fh|
+          puts fh.path
+          fh.puts create_class(schema,name,iter,"Tm")
+        end
 
         File.open("src/main/java/org/jytek/leaguemanager/database/Tm#{name}DAO.java", "w") do |fh|
           puts fh.path
@@ -338,20 +338,14 @@ def createDAO(schema, name, iter, prefix)
   cls = prefix + name
   out << %Q[
 
-public class #{cls}DAO extends DAOStream<Integer,#{cls}>{
-
+public class #{cls}DAO extends DAOStream<Integer, #{cls}> {
     public #{cls}DAO(Database db) throws IOException {
-        db.getTable(#{cls}.NAME).forEach(row -> {
-            final var obj = #{cls}.create(row);
-            map.put(obj.get#{name}(), obj);
-        });
+        super(db, #{cls}.NAME);
     }
 
-    public #{cls} get(Integer key) throws #{name}Exception{
-        if (map.containsKey(key)) {
-            return map.get(key);
-        }
-        throw new #{name}Exception("No #{name} " + key);
+    @Override
+    KeyValue<Integer, #{cls}> create(Row r) {
+        return #{cls}.create(r);
     }
 }
 
@@ -361,9 +355,12 @@ end
 
 def create_class(schema, name, iter, prefix)
 
-  clsName = prefix + name 
+  clsName = prefix + name
+  cname = name
+                       
   out = []
   out << "package org.jytek.leaguemanager.view;\n"
+  out << "import org.jytek.leaguemanager.database.KeyValue;"
   out << "import java.util.*;\n"  
 
   out << "/**" 
@@ -378,14 +375,11 @@ def create_class(schema, name, iter, prefix)
   end
   out << " */"
   
-  out << "public class #{clsName} {\n"
+  out << "public class #{clsName} implements KeyValue<Integer, #{clsName}>  {\n"
 
   out << "    public static String NAME = \"#{name}\";"
 
   out << "    private #{clsName}() {\n    }\n"
-  
-  
-  
   
   columns = []
   while true
@@ -425,6 +419,15 @@ def create_class(schema, name, iter, prefix)
       end
       out << "        return obj;"
       out << "    }"
+
+
+      out << "    public #{clsName} getValue(){"
+      out << "        return this;"
+      out << "   }"
+      
+      out << "    public Integer getKey(){"
+      out << "        return #{cname.downcase};"
+      out << "   }"
       
       out << "\n"
       out << "    // "       

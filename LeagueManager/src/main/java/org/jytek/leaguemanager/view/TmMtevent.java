@@ -1,5 +1,8 @@
 package org.jytek.leaguemanager.view;
 
+import org.jytek.leaguemanager.database.KeyValue;
+import java.util.*;
+
 /**
  * 
  * 
@@ -21,8 +24,13 @@ package org.jytek.leaguemanager.view;
  * [SessX]			Text (2)
  * );
  */
-public class TmMtevent implements Comparable<TmMtevent>{
+public class TmMtevent implements KeyValue<Integer, TmMtevent>, Comparable<TmMtevent> {
 
+    @Override
+    public int compareTo(TmMtevent o) {
+        return Integer.compare(mtev, o.mtev);
+    }
+    
     public static String NAME = "Mtevent";
     private TmMtevent() {
     }
@@ -46,27 +54,15 @@ public class TmMtevent implements Comparable<TmMtevent>{
         obj.sessx = (String) row.get(TmMtevent.SESSX);
         return obj;
     }
+    public TmMtevent getValue(){
+        return this;
+   }
+    public Integer getKey(){
+        return mtevent;
+   }
 
-    @Override
-    public String toString() {
-        return "TmMtevent{" +
-                "meet=" + meet +
-                ", mtev=" + mtev +
-                ", mtevx='" + mtevx + '\'' +
-                ", lohi=" + lohi +
-                ", course='" + course + '\'' +
-                ", mtevent=" + mtevent +
-                ", distance=" + distance +
-                ", stroke=" + stroke +
-                ", sex='" + sex + '\'' +
-                ", ir='" + ir + '\'' +
-                '}';
-    }
-    @Override
-    public int compareTo(TmMtevent o) {
-        return Integer.compare(mtev, o.mtev);
-    }
-    //
+
+    // 
     // Column names
     //
     public static final String MEET = "Meet";

@@ -1,6 +1,6 @@
 package org.jytek.leaguemanager.view;
 
-import java.util.*;
+import org.jytek.leaguemanager.database.KeyValue;
 
 /**
  * 
@@ -13,7 +13,7 @@ import java.util.*;
  * [Short]			Text (32),
  * );
  */
-public class TmTeam {
+public class TmTeam implements KeyValue<Integer, TmTeam>  {
 
     public static String NAME = "Team";
     private TmTeam() {
@@ -28,6 +28,12 @@ public class TmTeam {
         obj.short_ = (String) row.get(TmTeam.SHORT);
         return obj;
     }
+    public TmTeam getValue(){
+        return this;
+   }
+    public Integer getKey(){
+        return team;
+   }
 
 
     // 

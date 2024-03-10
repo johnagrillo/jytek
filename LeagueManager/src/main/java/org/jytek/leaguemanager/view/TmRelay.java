@@ -1,5 +1,8 @@
 package org.jytek.leaguemanager.view;
 
+import org.jytek.leaguemanager.database.KeyValue;
+import java.util.*;
+
 /**
  * 
  * 
@@ -25,7 +28,7 @@ package org.jytek.leaguemanager.view;
  * [RELAYAGE]              Text (6),
  * );
  */
-public class TmRelay {
+public class TmRelay implements KeyValue<Integer, TmRelay>  {
 
     public static String NAME = "Relay";
     private TmRelay() {
@@ -54,6 +57,12 @@ public class TmRelay {
         obj.relayage = (String) row.get(TmRelay.RELAYAGE);
         return obj;
     }
+    public TmRelay getValue(){
+        return this;
+   }
+    public Integer getKey(){
+        return relay;
+   }
 
 
     // 
@@ -104,11 +113,9 @@ public class TmRelay {
     public Integer getRelay() {
         return relay;
     }
-
     public Integer getMeet() {
         return meet;
     }
-
     public Short getLohi() {
         return lohi;
     }

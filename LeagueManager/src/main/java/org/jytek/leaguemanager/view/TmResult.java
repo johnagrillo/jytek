@@ -1,6 +1,6 @@
 package org.jytek.leaguemanager.view;
 
-import java.util.Objects;
+import org.jytek.leaguemanager.database.KeyValue;
 
 /**
  * 
@@ -27,15 +27,16 @@ import java.util.Objects;
  * [DQDESCRIPT]			Text (180),
  * );
  */
-public class TmResult implements Comparable<TmResult>{
+public class TmResult implements KeyValue<Integer, TmResult>  {
 
     public static String NAME = "Result";
+
     private TmResult() {
     }
 
     public static TmResult create(final com.healthmarketscience.jackcess.Row row){
 
-       var obj = new TmResult();
+        var obj = new TmResult();
         obj.meet = (Integer) row.get(TmResult.MEET);
         obj.athlete = (Integer) row.get(TmResult.ATHLETE);
         obj.ir = (String) row.get(TmResult.I_R);
@@ -57,40 +58,16 @@ public class TmResult implements Comparable<TmResult>{
         return obj;
     }
 
-    @Override
-    public String toString() {
-        return "TmResult{" +
-                "meet=" + meet +
-                ", athlete=" + athlete +
-                ", ir='" + ir + '\'' +
-                ", team=" + team +
-                ", score=" + score +
-                ", ex='" + ex + '\'' +
-                ", age=" + age +
-                ", distance=" + distance +
-                ", stroke=" + stroke +
-                ", mtevent=" + mtevent +
-                ", points=" + points +
-                ", place=" + place +
-                ", course='" + course + '\'' +
-                ", dqcode='" + dqcode + '\'' +
-                '}';
+    public TmResult getValue(){
+        return this;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        TmResult tmResult = (TmResult) o;
-        return Objects.equals(meet, tmResult.meet) && Objects.equals(athlete, tmResult.athlete) && Objects.equals(ir, tmResult.ir) && Objects.equals(team, tmResult.team) && Objects.equals(score, tmResult.score) && Objects.equals(result, tmResult.result) && Objects.equals(age, tmResult.age) && Objects.equals(distance, tmResult.distance) && Objects.equals(stroke, tmResult.stroke) && Objects.equals(mtevent, tmResult.mtevent) && Objects.equals(points, tmResult.points) && Objects.equals(place, tmResult.place) && Objects.equals(course, tmResult.course) && Objects.equals(dqcode, tmResult.dqcode);
+    public Integer getKey(){
+        return result;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(meet, athlete, ir, team, score, result, age, distance, stroke, mtevent, points, place, course, dqcode);
-    }
 
-    //
+    // 
     // Column names
     //
     public static final String MEET = "MEET";
@@ -138,6 +115,7 @@ public class TmResult implements Comparable<TmResult>{
     public Integer getMeet() {
         return meet;
     }
+
     public Integer getAthlete() {
         return athlete;
     }
@@ -188,11 +166,6 @@ public class TmResult implements Comparable<TmResult>{
     }
     public String getDqdescript() {
         return dqdescript;
-    }
-
-    @Override
-    public int compareTo(TmResult o) {
-        return Integer.compare(place, o.place);
     }
 }
 /* FXML 

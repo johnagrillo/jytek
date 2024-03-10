@@ -1,5 +1,8 @@
 package org.jytek.leaguemanager.view;
 
+import org.jytek.leaguemanager.database.KeyValue;
+import java.util.*;
+
 /**
  * 
  * 
@@ -15,10 +18,7 @@ package org.jytek.leaguemanager.view;
  * [MaxEnt]                        Integer,
  * );
  */
-
-
-
-public class TmMeet {
+public class TmMeet implements KeyValue<Integer, TmMeet>  {
 
     public static String NAME = "Meet";
     private TmMeet() {
@@ -26,7 +26,7 @@ public class TmMeet {
 
     public static TmMeet create(final com.healthmarketscience.jackcess.Row row){
 
-        var obj = new TmMeet();
+       var obj = new TmMeet();
         obj.meet = (Integer) row.get(TmMeet.MEET);
         obj.mname = (String) row.get(TmMeet.MNAME);
         obj.start = (java.time.LocalDateTime) row.get(TmMeet.START);
@@ -37,22 +37,15 @@ public class TmMeet {
         obj.maxent = (Short) row.get(TmMeet.MAXENT);
         return obj;
     }
+    public TmMeet getValue(){
+        return this;
+   }
+    public Integer getKey(){
+        return meet;
+   }
 
-    @Override
-    public String toString() {
-        return "TmMeet{" +
-                "meet=" + meet +
-                ", mname='" + mname + '\'' +
-                ", start=" + start +
-                ", course='" + course + '\'' +
-                ", location='" + location + '\'' +
-                ", maxindent=" + maxindent +
-                ", maxrelent=" + maxrelent +
-                ", maxent=" + maxent +
-                '}';
-    }
 
-    //
+    // 
     // Column names
     //
     public static final String MEET = "Meet";
@@ -101,9 +94,6 @@ public class TmMeet {
     public Short getMaxent() {
         return maxent;
     }
-
-
-
 }
 /* FXML 
 <TableView fx:id=tvTmMeet" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">

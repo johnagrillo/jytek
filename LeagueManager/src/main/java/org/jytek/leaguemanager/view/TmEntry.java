@@ -1,5 +1,6 @@
 package org.jytek.leaguemanager.view;
 
+import org.jytek.leaguemanager.database.KeyValue;
 import java.util.*;
 
 /**
@@ -23,7 +24,7 @@ import java.util.*;
  * [FromOME]			Boolean NOT NULL
  * );
  */
-public class TmEntry {
+public class TmEntry implements KeyValue<Integer, TmEntry>  {
 
     public static String NAME = "Entry";
     private TmEntry() {
@@ -48,6 +49,12 @@ public class TmEntry {
         obj.fromome = (Boolean) row.get(TmEntry.FROMOME);
         return obj;
     }
+    public TmEntry getValue(){
+        return this;
+   }
+    public Integer getKey(){
+        return entry;
+   }
 
 
     // 

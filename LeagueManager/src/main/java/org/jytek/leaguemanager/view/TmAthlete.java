@@ -1,5 +1,6 @@
 package org.jytek.leaguemanager.view;
 
+import org.jytek.leaguemanager.database.KeyValue;
 import java.util.*;
 
 /**
@@ -18,7 +19,7 @@ import java.util.*;
  * [ID_NO]                 Text (34),
  * );
  */
-public class TmAthlete {
+public class TmAthlete implements KeyValue<Integer, TmAthlete>  {
 
     public static String NAME = "Athlete";
     private TmAthlete() {
@@ -38,6 +39,12 @@ public class TmAthlete {
         obj.idno = (String) row.get(TmAthlete.ID_NO);
         return obj;
     }
+    public TmAthlete getValue(){
+        return this;
+   }
+    public Integer getKey(){
+        return athlete;
+   }
 
 
     // 

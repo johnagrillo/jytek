@@ -4,6 +4,10 @@
 
 package org.jytek.leaguemanager.database;
 
+import com.healthmarketscience.jackcess.Database;
+import com.healthmarketscience.jackcess.Row;
+
+import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -13,13 +17,30 @@ import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 
+interface Creator<K,V> {
+   KeyValue<K,V> create(Row r);
+}
 
 
-
-public class DAOStream<K, V> {
+public abstract class DAOStream<K, V extends KeyValue<K,V>> {
     protected Map<K,V> map = new HashMap<>();
     String name = "";
 
+    public DAOStream(Database db, String name) throws IOException {
+        db.getTable(name).forEach(row -> {
+            final var obj = create(row);
+            map.put(obj.getKey(), obj.getValue());
+        });
+    }
+
+    abstract KeyValue<K, V> create(Row r) ;
+
+    /**
+     * get for K
+     * @param K key
+     * @return V
+     *
+     */
 
     public V get(K key) throws KeyNotFoundException{
         if (map.containsKey(key)) {
@@ -28,13 +49,11 @@ public class DAOStream<K, V> {
         throw new KeyNotFoundException(name + " " + key);
     }
 
-
     /**
      * Shortcut to the entrySteam.stream.forEach method
      *
      * @param <K> the type
      * @param <V> The class
-     * @param action
      */
     Collection<K> keys() {
         return map.keySet();
@@ -72,7 +91,7 @@ public class DAOStream<K, V> {
     /**
      * Get values using stream
      *
-     * @param <C> The class
+     * @param <V> The class
      *
      * @return Collection of C
      */

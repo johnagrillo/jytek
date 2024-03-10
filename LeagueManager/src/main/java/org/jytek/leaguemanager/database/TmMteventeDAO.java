@@ -1,18 +1,20 @@
 package org.jytek.leaguemanager.database;
 
 import com.healthmarketscience.jackcess.Database;
+import com.healthmarketscience.jackcess.Row;
 import org.jytek.leaguemanager.view.TmMtevente;
 
 import java.io.IOException;
 
 
-public class TmMteventeDAO extends DAOStream<Short, TmMtevente>{
-
+public class TmMteventeDAO extends DAOStream<Short, TmMtevente> {
     public TmMteventeDAO(Database db) throws IOException {
-        db.getTable(TmMtevente.NAME).forEach(row -> {
-            final var obj = TmMtevente.create(row);
-            map.put(obj.getMtev(), obj);
-        });
+        super(db, TmMtevente.NAME);
+    }
+
+    @Override
+    KeyValue<Short, TmMtevente> create(Row r) {
+        return TmMtevente.create(r);
     }
 }
 

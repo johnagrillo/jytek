@@ -1,6 +1,6 @@
 package org.jytek.leaguemanager.view;
 
-import java.util.*;
+import org.jytek.leaguemanager.database.KeyValue;
 
 /**
  * 
@@ -33,7 +33,7 @@ import java.util.*;
  * [SessX]			Text (2)
  * );
  */
-public class TmMtevente {
+public class TmMtevente implements KeyValue<Short, TmMtevente> {
 
     public static String NAME = "Mtevente";
     private TmMtevente() {
@@ -68,6 +68,12 @@ public class TmMtevente {
         obj.sessx = (String) row.get(TmMtevente.SESSX);
         return obj;
     }
+    public TmMtevente getValue(){
+        return this;
+   }
+    public Short getKey(){
+        return mtev;
+   }
 
 
     // 
