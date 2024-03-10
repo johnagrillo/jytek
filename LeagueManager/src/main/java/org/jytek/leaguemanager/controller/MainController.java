@@ -35,11 +35,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class MainController extends Application implements Initializable {
 
     private final FileChooser fileChooser = new FileChooser();
-    private final ArrayList<DualMockResult> dualResults = new ArrayList<>();
-    private final ArrayList<MockMeetResults> mockResults = new ArrayList<>();
+    private final Collection<DualMockResult> dualResults = new ArrayList<>();
+    private final Collection<MockMeetResults> mockResults = new ArrayList<>();
     TmMdbDAO tm;
-    private List<Tab> tabs;
-    private List<TableView<?>> tables;
+    private List<Tab> tabs = null;
+    @FXML
+    private List<TableView<?>> tables ;
     @FXML
     private TreeView<String> trvWeeks;
     @FXML
@@ -220,33 +221,31 @@ public class MainController extends Application implements Initializable {
         ///   beast time mock for all teams
         ///
         tm.getTeams().forEach(e1 -> {
-            var team1 = e1.getKey();
-            var team1Entries = tm.getBestTeamEntries(team1);
-            tm.getTeams().forEach(e2 -> {
-                var team2 = e2.getKey();
-                if (!Objects.equals(team1, team2)) {
-                    var in = new HashSet<Integer>();
-                    in.add(team1);
-                    in.add(team2);
-                    var team2Entries = tm.getBestTeamEntries(team2);
-                    // add team and team 2
-                    var teamEntries = new TreeMap<Short, ArrayList<TmResult>>();
-
-                    for (var entries : Arrays.asList(team1Entries, team2Entries)) {
-                        for (var ev : entries.keySet()) {
-                            for (var r : entries.get(ev)) {
-                                teamEntries.computeIfAbsent(ev, k -> new ArrayList<>()).add(r);
-                                try {
-                                    if (!in.contains(r.getTeam())) {
-                                        System.out.println("Wrong Team in " + " " + tm.getTeams().get(r.getTeam()).getTcode() + " " + r);
-                                    }
-                                } catch (TeamException e) {
-                                    System.out.println("No Team " + e);
-
+            final var team1 = e1.getKey();
+            final var team1Entries = tm.getBestTeamEntries(team1);
+            tm.getTeams().filter(e2 -> !Objects.equals(team1, e2.getKey())).forEach(e2 -> {
+                final var team2 = e2.getKey();
+                var in = new HashSet<Integer>();
+                in.add(team1);
+                in.add(team2);
+                var team2Entries = tm.getBestTeamEntries(team2);
+                // add team and team 2
+                var teamEntries = new TreeMap<Short, ArrayList<TmResult>>();
+                Arrays.asList(team1Entries, team2Entries).forEach(entries -> {
+                    entries.entrySet().forEach(entry -> {
+                        var ev = entry.getKey();
+                        entry.getValue().forEach(r -> {
+                            teamEntries.computeIfAbsent(ev, k -> new ArrayList<>()).add(r);
+                            try {
+                                if (!in.contains(r.getTeam())) {
+                                    System.out.println("Wrong Team in " + " " + tm.getTeams().get(r.getTeam()).getTcode() + " " + r);
                                 }
+                            } catch (KeyNotFoundException e) {
+                                System.out.println("No Team " + e);
+
                             }
-                        }
-                    }
+                        });
+                    });
                     // only run if we have two teams
 
                     var r = MockMeet.runMockMeet(teamEntries, scoring);
@@ -265,12 +264,12 @@ public class MainController extends Application implements Initializable {
                                     t2,
                                     diff,
                                     r));
-                        } catch (TeamException e) {
+                        } catch (KeyNotFoundException e) {
                             System.out.println(e);
                         }
-                    }
 
-               }
+                    }
+                });
             });
         });
 
@@ -281,18 +280,18 @@ public class MainController extends Application implements Initializable {
         lbMockMeets.setText("" + results.size());
         // count wins mby team
 
-        Map<String, Integer> wins = new TreeMap<>();
-        Map<String, Integer> losses = new TreeMap<>();
-        Map<String, Integer> ties = new TreeMap<>();
+        final Map<String, Integer> wins = new TreeMap<>();
+        final Map<String, Integer> losses = new TreeMap<>();
+        final Map<String, Integer> ties = new TreeMap<>();
 
 
-        for (var r : results) {
-            wins.computeIfAbsent(r.getTeam1(), k -> 0);
-            wins.computeIfAbsent(r.getTeam2(), k -> 0);
-            losses.computeIfAbsent(r.getTeam1(), k -> 0);
-            losses.computeIfAbsent(r.getTeam2(), k -> 0);
-            ties.computeIfAbsent(r.getTeam1(), k -> 0);
-            ties.computeIfAbsent(r.getTeam2(), k -> 0);
+        results.forEach(r-> {
+            wins.computeIfAbsent(r.getTeam1(), s -> 0);
+            wins.computeIfAbsent(r.getTeam2(), s -> 0);
+            losses.computeIfAbsent(r.getTeam1(), s -> 0);
+            losses.computeIfAbsent(r.getTeam2(), s -> 0);
+            ties.computeIfAbsent(r.getTeam1(), s -> 0);
+            ties.computeIfAbsent(r.getTeam2(), s -> 0);
 
             if (r.getTeam1Score() > r.getTeam2Score()) {
                 wins.put(r.getTeam1(), wins.get(r.getTeam1()) + 1);
@@ -303,81 +302,29 @@ public class MainController extends Application implements Initializable {
             if (r.getTeam1Score() < r.getTeam2Score()) {
                 losses.put(r.getTeam1(), losses.get(r.getTeam1()) + 1);
             }
-
-
-        }
+        });
 
         // sort by wins
 
         Map<Integer, ArrayList<String>> byScore = new TreeMap<>();
-        for (var team : wins.keySet()) {
-            var list = byScore.computeIfAbsent(wins.get(team), k -> new ArrayList<>());
-            list.add(team);
-        }
+        wins.entrySet().forEach( team -> {
+            var list = byScore.computeIfAbsent(team.getValue(), k -> new ArrayList<>());
+            list.add(team.getKey());
+        });
 
         ObservableList<MockWins> places = FXCollections.observableArrayList();
 
-        for (var w : byScore.keySet()) {
-            for (var team : byScore.get(w)) {
-                places.add(new MockWins(team, w, losses.get(team), ties.get(team)));
-            }
-        }
+        byScore.keySet().forEach(w -> {
+            byScore.get(w).forEach(team ->
+                    places.add(new MockWins(team, w, losses.get(team), ties.get(team))
+                    ));
+        });
 
         // reverse sort places
-
         Collections.reverse(places);
-
         tvMockWins.setItems(places);
-
     }
 
-    public void populateData(File mdbFile) {
-
-        lbFile.setText(mdbFile.getPath());
-        tm = new TmMdbDAO(mdbFile);
-
-
-        lbTeams.setText("" + tm.getTeams().count());
-        lbAthletes.setText("" + tm.getAthletes().count());
-        lbResults.setText("" + tm.getResults().count());
-        lbRelays.setText("" + tm.getRelays().count());
-        lbMeets.setText("" + tm.getMeets().count());
-
-        tbTeams.setDisable(false);
-        tbAthletes.setDisable(false);
-        tbMeets.setDisable(false);
-        tbMockMeets.setDisable(false);
-        tbWeeklyMockMeets.setDisable(false);
-
-
-        ObservableList<TmTeam> teams = FXCollections.observableArrayList();
-        teams.addAll(tm.getTeams().values());
-        tvTmTeams.setItems(teams);
-
-        ObservableList<TmAthlete> athletes = FXCollections.observableArrayList();
-        athletes.addAll(tm.getAthletes().values());
-        tvTmAthletes.setItems(athletes);
-
-        ObservableList<TmMeet> meets = FXCollections.observableArrayList();
-        meets.addAll(tm.getMeets().values());
-
-        tvTmMeets.setItems(meets);
-
-        onRunMock();
-
-    }
-
-    @Override
-    public void start(Stage stage) throws Exception {
-        this.stage = stage;
-        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(loader.load(), 1000, 1000);
-        var controller = loader.<MainController>getController();
-        controller.populateData(new File("c:/Users/john/sandbox/mdb/fssl/2023.mdb"));
-        stage.setTitle("League Manager");
-        stage.setScene(scene);
-        stage.show();
-    }
 
     private void openFile(File file) {
 
@@ -386,71 +333,6 @@ public class MainController extends Application implements Initializable {
 
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        var filt = new FileChooser.ExtensionFilter("MDB", "*.mdb");
-        fileChooser.getExtensionFilters().add(filt);
-        fileChooser.setSelectedExtensionFilter(filt);
-
-        Util.setPropertyValueFactory(
-                Arrays.asList(
-                        new Pair<>(tcDiff, "Diff"),
-                        new Pair<>(tcScore1, "Team1Score"),
-                        new Pair<>(tcScore2, "Team2Score"),
-                        new Pair<>(tcTeam1, "Team1"),
-                        new Pair<>(tcTeam2, "Team2"),
-                        new Pair<>(tcTeam, "Team"),
-                        new Pair<>(tcWins, "Wins"),
-                        new Pair<>(tcLosses, "Losses"),
-                        new Pair<>(tcTies, "Ties")
-                ));
-
-        Util.setPropertyValueFactory(Arrays.asList(
-                new Pair<>(tcTeamTeam, "Team"),
-                new Pair<>(tcTCode, "Tcode"),
-                new Pair<>(tcTName, "Tname")
-                //new Pair<>(tcShort,"shortN")
-        ));
-
-        Util.setPropertyValueFactory(Arrays.asList(
-                new Pair<>(tcAthlete, "Athlete"),
-                new Pair<>(tcAthTeam1, "Team1"),
-                new Pair<>(tcLast, "Last"),
-                new Pair<>(tcFirst, "First"),
-                new Pair<>(tcInitial, "Initial"),
-                new Pair<>(tcSex, "Sex"),
-                new Pair<>(tcBirth, "Birth"),
-                new Pair<>(tcAge, "Age")));
-        //new Pair<>(tcID_NO,"ID_NO")
-
-        Util.setPropertyValueFactory(Arrays.asList(
-                new Pair<>(tcMeet, "Meet"),
-                new Pair<>(tcMName, "Mname"),
-                new Pair<>(tcStart, "Start"),
-                new Pair<>(tcCourse, "Course"),
-                new Pair<>(tcLocation, "Location"),
-                new Pair<>(tcMaxIndEnt, "Maxindent"),
-                new Pair<>(tcMaxRelEnt, "Maxrelent"),
-                new Pair<>(tcMaxEnt, "Maxent")));
-
-        tabs = Arrays.asList(
-                tbTeams,
-                tbAthletes, tbMeets,
-                tbMockMeets,
-                tbWeeklyMockMeets);
-
-        tables = Arrays.asList(
-                tvMockResults,
-                tvMockWins,
-                tvMockResults,
-                tvTmMeets,
-                tvTmTeams
-        );
-
-        disable();
-
-    }
 
     private void disable() {
         for (final var t : tabs) {
@@ -575,12 +457,15 @@ public class MainController extends Application implements Initializable {
         TreeItem<String> rootNode = new TreeItem<String>("Meets By Week");
 
         trvWeeks.setRoot(rootNode);
+        rootNode.setExpanded(true);
+
         for (var week : weekMeets.keySet()) {
             var weekNode = new TreeItem<String>("Week " + week);
             rootNode.getChildren().add(weekNode);
             for (var m : weekMeets.get(week)) {
                 var node = new TreeItem<String>(m.getMeet() + " " + m.getStart() + " " + m.getMname());
                 weekNode.getChildren().add(node);
+                weekNode.setExpanded(true);
             }
         }
     }
@@ -594,7 +479,7 @@ public class MainController extends Application implements Initializable {
         if (ta != null) {
             // find all results ny this athlete
             var athR = tm.getAthleteResults(ta.getAthlete());
-            for (var r : athR) {
+            athR.forEach(r -> {
                 Result res = new Result();
                 try {
                     res.setMeet(tm.getMeets().get(r.getMeet()).getMname());
@@ -605,11 +490,11 @@ public class MainController extends Application implements Initializable {
                     res.setStroke(Util.strokeToString(r.getStroke()));
                     res.setCourse(r.getCourse());
                     res.setIr(r.getIr());
-                } catch (MteventException | MeetException e) {
+                } catch (KeyNotFoundException e) {
                     throw new RuntimeException(e);
                 }
                 results.add(res);
-            }
+            });
         }
         FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("result.fxml"));
         try {
@@ -660,7 +545,7 @@ public class MainController extends Application implements Initializable {
                             "" + r.getAge(),
                             tm.getTeams().get(r.getTeam()).getTcode(),
                             r.getScore().toString(), r.getCourse()));
-                } catch (TeamException | AthleteException | MteventException e) {
+                } catch (KeyNotFoundException e) {
                     throw new RuntimeException(e);
                 }
             }
@@ -680,4 +565,118 @@ public class MainController extends Application implements Initializable {
         }
 
     }
+    public void populateData(File mdbFile) {
+
+        lbFile.setText(mdbFile.getPath());
+        tm = new TmMdbDAO(mdbFile);
+
+
+        lbTeams.setText("" + tm.getTeams().count());
+        lbAthletes.setText("" + tm.getAthletes().count());
+        lbResults.setText("" + tm.getResults().count());
+        lbRelays.setText("" + tm.getRelays().count());
+        lbMeets.setText("" + tm.getMeets().count());
+
+        tbTeams.setDisable(false);
+        tbAthletes.setDisable(false);
+        tbMeets.setDisable(false);
+        tbMockMeets.setDisable(false);
+        tbWeeklyMockMeets.setDisable(false);
+
+
+        ObservableList<TmTeam> teams = FXCollections.observableArrayList();
+        teams.addAll(tm.getTeams().values());
+        tvTmTeams.setItems(teams);
+
+        ObservableList<TmAthlete> athletes = FXCollections.observableArrayList();
+        athletes.addAll(tm.getAthletes().values());
+        tvTmAthletes.setItems(athletes);
+
+        ObservableList<TmMeet> meets = FXCollections.observableArrayList();
+        meets.addAll(tm.getMeets().values());
+
+        tvTmMeets.setItems(meets);
+
+        onRunMock();
+
+    }
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        this.stage = stage;
+        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("hello-view.fxml"));
+        Scene scene = new Scene(loader.load(), 1000, 1000);
+        var controller = loader.<MainController>getController();
+        controller.populateData(new File("c:/Users/john/sandbox/mdb/fssl/2023.mdb"));
+        stage.setTitle("League Manager");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        var filt = new FileChooser.ExtensionFilter("MDB", "*.mdb");
+        fileChooser.getExtensionFilters().add(filt);
+        fileChooser.setSelectedExtensionFilter(filt);
+
+        Util.setPropertyValueFactory(
+                Arrays.asList(
+                        new Pair<>(tcDiff, "Diff"),
+                        new Pair<>(tcScore1, "Team1Score"),
+                        new Pair<>(tcScore2, "Team2Score"),
+                        new Pair<>(tcTeam1, "Team1"),
+                        new Pair<>(tcTeam2, "Team2"),
+                        new Pair<>(tcTeam, "Team"),
+                        new Pair<>(tcWins, "Wins"),
+                        new Pair<>(tcLosses, "Losses"),
+                        new Pair<>(tcTies, "Ties")
+                ));
+
+        Util.setPropertyValueFactory(Arrays.asList(
+                new Pair<>(tcTeamTeam, "Team"),
+                new Pair<>(tcTCode, "Tcode"),
+                new Pair<>(tcTName, "Tname")
+                //new Pair<>(tcShort,"shortN")
+        ));
+
+        Util.setPropertyValueFactory(Arrays.asList(
+                new Pair<>(tcAthlete, "Athlete"),
+                new Pair<>(tcAthTeam1, "Team1"),
+                new Pair<>(tcLast, "Last"),
+                new Pair<>(tcFirst, "First"),
+                new Pair<>(tcInitial, "Initial"),
+                new Pair<>(tcSex, "Sex"),
+                new Pair<>(tcBirth, "Birth"),
+                new Pair<>(tcAge, "Age")));
+        //new Pair<>(tcID_NO,"ID_NO")
+
+        Util.setPropertyValueFactory(Arrays.asList(
+                new Pair<>(tcMeet, "Meet"),
+                new Pair<>(tcMName, "Mname"),
+                new Pair<>(tcStart, "Start"),
+                new Pair<>(tcCourse, "Course"),
+                new Pair<>(tcLocation, "Location"),
+                new Pair<>(tcMaxIndEnt, "Maxindent"),
+                new Pair<>(tcMaxRelEnt, "Maxrelent"),
+                new Pair<>(tcMaxEnt, "Maxent")));
+
+        tabs = Arrays.asList(
+                tbTeams,
+                tbAthletes, tbMeets,
+                tbMockMeets,
+                tbWeeklyMockMeets);
+
+        tables = Arrays.asList(
+                tvMockResults,
+                tvMockWins,
+                tvMockResults,
+                tvTmMeets,
+                tvTmTeams
+        );
+
+        disable();
+
+    }
+
 }

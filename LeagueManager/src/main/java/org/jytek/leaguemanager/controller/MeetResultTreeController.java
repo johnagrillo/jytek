@@ -60,7 +60,7 @@ public class MeetResultTreeController extends Application implements Initializab
         final TreeItem<MeetResult> root = new TreeItem<>(m);
         tvResult.setRoot(root);
         root.setExpanded(true);
-        for (var e : results.keySet()) {
+        results.keySet().forEach(e -> {
             var em = new MeetResult();
             em.setEvent(Util.eventToString(e));
             final TreeItem<MeetResult> event = new TreeItem<>(em);
@@ -77,10 +77,8 @@ public class MeetResultTreeController extends Application implements Initializab
                     event.getChildren().add(new TreeItem<>(result));
                 }
             });
-
-
             root.getChildren().add(event);
-        }
+        });
         root.setExpanded(true);
 
     }

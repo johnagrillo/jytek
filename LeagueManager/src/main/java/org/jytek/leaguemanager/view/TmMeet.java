@@ -15,6 +15,9 @@ package org.jytek.leaguemanager.view;
  * [MaxEnt]                        Integer,
  * );
  */
+
+
+
 public class TmMeet {
 
     public static String NAME = "Meet";
@@ -23,7 +26,7 @@ public class TmMeet {
 
     public static TmMeet create(final com.healthmarketscience.jackcess.Row row){
 
-       var obj = new TmMeet();
+        var obj = new TmMeet();
         obj.meet = (Integer) row.get(TmMeet.MEET);
         obj.mname = (String) row.get(TmMeet.MNAME);
         obj.start = (java.time.LocalDateTime) row.get(TmMeet.START);

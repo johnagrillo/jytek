@@ -10,9 +10,11 @@ public final class MockMeet {
         CMSL,
         FSSL
     }
+
     private MockMeet() {
 
     }
+
     private static Map<Short, Short> getAgeUp(Scoring scoring) {
         Map<Short, Short> ageUp = new HashMap<>();
         if (scoring == Scoring.CMSL) {
@@ -57,15 +59,14 @@ public final class MockMeet {
     }
 
     public static MockMeetResults runMockMeet(Map<Short, ArrayList<TmResult>> entries,
-                                              Scoring scoring)
-    {
+                                              Scoring scoring) {
 
 
-    var eventPoints = getEventPoints(scoring);
-    var ageUp = getAgeUp(scoring);
+        var eventPoints = getEventPoints(scoring);
+        var ageUp = getAgeUp(scoring);
 
 
-    final TreeMap<Integer, Integer> teamScores = new TreeMap<Integer, Integer>();
+        final TreeMap<Integer, Integer> teamScores = new TreeMap<Integer, Integer>();
         final TreeMap<Short, TreeMap<Integer, HashSet<TmResult>>> meetResults = new TreeMap<>();
 
         // ageup
@@ -128,13 +129,13 @@ public final class MockMeet {
                     var result = iter.next();
                     if (t < eventScore.length) {
                         final var points = eventScore[t];
-                       Integer team = result.getTeam();
+                        Integer team = result.getTeam();
                         teamScores.put(team, teamScores.computeIfAbsent(team, k -> 0) + points);
                     }
                 }
-		
+
             }
-	    meetResults.put(ev, scores);
+            meetResults.put(ev, scores);
         }
 
         return new MockMeetResults(results, teamScores, meetResults);

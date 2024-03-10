@@ -1,7 +1,5 @@
 package org.jytek.leaguemanager.view;
 
-import java.util.*;
-
 /**
  * 
  * 
@@ -106,9 +104,11 @@ public class TmRelay {
     public Integer getRelay() {
         return relay;
     }
+
     public Integer getMeet() {
         return meet;
     }
+
     public Short getLohi() {
         return lohi;
     }

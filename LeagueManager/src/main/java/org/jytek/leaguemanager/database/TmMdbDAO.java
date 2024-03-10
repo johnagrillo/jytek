@@ -44,10 +44,10 @@ public class TmMdbDAO {
     public TmMdbDAO(File input) {
         try {
             var db = com.healthmarketscience.jackcess.DatabaseBuilder.open(input);
-    	    /*
-	          Read all tables in constructor.
-	          Could be lazy initialized.
-	         */
+            /*
+                  Read all tables in constructor.
+                  Could be lazy initialized.
+                 */
 
             teams = new TmTeamDAO(db);
             meets = new TmMeetDAO(db);
@@ -143,11 +143,11 @@ public class TmMdbDAO {
         return this.relays;
     }
 
-    public Set<Integer> getTeamAthletes(Integer team) throws AthleteException {
+    public Set<Integer> getTeamAthletes(Integer team) throws KeyNotFoundException {
         if (teamAthletes.containsKey(team)) {
             return teamAthletes.get(team);
         }
-        throw new AthleteException("No Athletes for team " + team);
+        throw new KeyNotFoundException("No Athletes for team " + team);
     }
 
     public ArrayList<TmResult> getAthleteBestResults(Integer athlete) {
@@ -192,7 +192,7 @@ public class TmMdbDAO {
                         bestRelay.put(mtevent.getMtev(), r);
                     }
 
-                } catch (MteventException e) {
+                } catch (KeyNotFoundException e) {
                     // database inconsistency
                     // just ignore
                 }
@@ -273,7 +273,7 @@ public class TmMdbDAO {
                         }
                     }
                     events.add(ev);
-                } catch (MteventException e) {
+                } catch (KeyNotFoundException e) {
 
                 }
             }
@@ -333,12 +333,12 @@ public class TmMdbDAO {
                         var events = teamEntries.computeIfAbsent(getMtevents().get(r.getMtevent()).getMtev(),
                                 k -> new ArrayList<>());
                         events.add(r);
-                    } catch (MteventException e) {
+                    } catch (KeyNotFoundException e) {
 
                     }
                 }
             }
-        } catch (AthleteException e) {
+        } catch (KeyNotFoundException e) {
             // continue
             System.out.println("getBestTeamEntries " + e + " " + team);
         }
@@ -351,7 +351,7 @@ public class TmMdbDAO {
             for (var r : getATeamBestRelays(team)) {
                 var results = teamEntries.computeIfAbsent(getMtevents().get(r.getMtevent()).getMtev(), k -> new ArrayList<>());
             }
-        } catch (TeamException | MteventException e) {
+        } catch (KeyNotFoundException e) {
 
 
         }
