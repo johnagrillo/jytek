@@ -43,19 +43,19 @@ public class TmMdbDAO {
 
     public TmMdbDAO(File input) {
         try {
-            var db = com.healthmarketscience.jackcess.DatabaseBuilder.open(input);
+            final var db = com.healthmarketscience.jackcess.DatabaseBuilder.open(input);
             /*
                   Read all tables in constructor.
                   Could be lazy initialized.
                  */
 
-            teams = new TmTeamDAO(db);
-            meets = new TmMeetDAO(db);
-            mtevente = new TmMteventeDAO(db);
-            mtevents = new TmMteventDAO(db);
-            athletes = new TmAthleteDAO(db);
-            results = new TmResultDAO(db) ;
-            relays = new TmRelayDAO(db);
+            teams = TmTeamDAO.load(db);
+            meets = TmMeetDAO.load(db);
+            mtevente = TmMteventeDAO.load(db);
+            mtevents = TmMteventDAO.load(db);
+            athletes = TmAthleteDAO.load(db);
+            results = TmResultDAO.load(db);
+            relays = TmRelayDAO.load(db);
 
             //
             // Load results by athlete, team relay results and teamAthletes
@@ -73,17 +73,17 @@ public class TmMdbDAO {
                 //
                 if (r.getIr().equals("I")) {
 
-                    var athlist = athleteResults.computeIfAbsent(r.getAthlete(), k -> new ArrayList<>());
+                    final var athlist = athleteResults.computeIfAbsent(r.getAthlete(), k -> new ArrayList<>());
                     athlist.add(r);
 
-                    var teamlist = teamAthletes.computeIfAbsent(r.getTeam(), k -> new HashSet<>());
+                    final var teamlist = teamAthletes.computeIfAbsent(r.getTeam(), k -> new HashSet<>());
                     teamlist.add(r.getAthlete());
                 }
                 //
                 // Relay
                 //
-                else if (r.getIr().equals("R")) {
-                    var athlist = teamRelayResults.computeIfAbsent(r.getTeam(), k -> new ArrayList<>());
+                else if ("R".equals(r.getIr())) {
+                    final var athlist = teamRelayResults.computeIfAbsent(r.getTeam(), k -> new ArrayList<>());
                     athlist.add(r);
                 }
             });

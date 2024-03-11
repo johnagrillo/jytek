@@ -1,11 +1,11 @@
 package org.jytek.leaguemanager.view;
 
 import org.jytek.leaguemanager.database.KeyValue;
+import com.healthmarketscience.jackcess.Row;
 import java.util.*;
 
 /**
- * 
- * 
+ * parsed from mdb-schema
  * CREATE TABLE [Athlete]
  * (
  * [Athlete]               Long Integer,
@@ -19,15 +19,29 @@ import java.util.*;
  * [ID_NO]                 Text (34),
  * );
  */
-public class TmAthlete implements KeyValue<Integer, TmAthlete>  {
+public class TmAthlete implements KeyValue<Integer, TmAthlete> {
 
-    public static String NAME = "Athlete";
+    /**
+     * Name of Table
+     **/
+    public static final String NAME = "Athlete";
+
+    /**
+     * Private Constructor
+     **/
     private TmAthlete() {
     }
 
-    public static TmAthlete create(final com.healthmarketscience.jackcess.Row row){
-
-       var obj = new TmAthlete();
+    /**
+     * Read TmAthlete object from Row.
+     * Intellij shows this warning:
+     * Direct access to non-public field 'xxx' of another object
+     *
+     * @param row from jackcess database
+     * @return TmAthlete
+     **/
+    public static TmAthlete read(final Row row){
+        final var obj = new TmAthlete();
         obj.athlete = (Integer) row.get(TmAthlete.ATHLETE);
         obj.team1 = (Integer) row.get(TmAthlete.TEAM1);
         obj.last = (String) row.get(TmAthlete.LAST);
@@ -39,12 +53,14 @@ public class TmAthlete implements KeyValue<Integer, TmAthlete>  {
         obj.idno = (String) row.get(TmAthlete.ID_NO);
         return obj;
     }
+
     public TmAthlete getValue(){
         return this;
-   }
+    }
+
     public Integer getKey(){
         return athlete;
-   }
+    }
 
 
     // 
@@ -71,33 +87,79 @@ public class TmAthlete implements KeyValue<Integer, TmAthlete>  {
     private java.time.LocalDateTime birth = null;
     private Short age = null;
     private String idno = null;
+
     //
     // getters
     //
+
+    /**
+     * Getter for Athlete
+     * @return Integer
+     */
     public Integer getAthlete() {
         return athlete;
     }
+
+    /**
+     * Getter for Team1
+     * @return Integer
+     */
     public Integer getTeam1() {
         return team1;
     }
+
+    /**
+     * Getter for Last
+     * @return String
+     */
     public String getLast() {
         return last;
     }
+
+    /**
+     * Getter for First
+     * @return String
+     */
     public String getFirst() {
         return first;
     }
+
+    /**
+     * Getter for Initial
+     * @return String
+     */
     public String getInitial() {
         return initial;
     }
+
+    /**
+     * Getter for Sex
+     * @return String
+     */
     public String getSex() {
         return sex;
     }
+
+    /**
+     * Getter for Birth
+     * @return java.time.LocalDateTime
+     */
     public java.time.LocalDateTime getBirth() {
         return birth;
     }
+
+    /**
+     * Getter for Age
+     * @return Short
+     */
     public Short getAge() {
         return age;
     }
+
+    /**
+     * Getter for IdNo
+     * @return String
+     */
     public String getIdno() {
         return idno;
     }

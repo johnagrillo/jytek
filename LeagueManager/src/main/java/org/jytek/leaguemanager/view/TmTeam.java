@@ -1,10 +1,11 @@
 package org.jytek.leaguemanager.view;
 
 import org.jytek.leaguemanager.database.KeyValue;
+import com.healthmarketscience.jackcess.Row;
+import java.util.*;
 
 /**
- * 
- * 
+ * parsed from mdb-schema
  * CREATE TABLE [TEAM]
  * (
  * [Team]			Long Integer,
@@ -13,27 +14,43 @@ import org.jytek.leaguemanager.database.KeyValue;
  * [Short]			Text (32),
  * );
  */
-public class TmTeam implements KeyValue<Integer, TmTeam>  {
+public class TmTeam implements KeyValue<Integer, TmTeam> {
 
-    public static String NAME = "Team";
+    /**
+     * Name of Table
+     **/
+    public static final String NAME = "Team";
+
+    /**
+     * Private Constructor
+     **/
     private TmTeam() {
     }
 
-    public static TmTeam create(final com.healthmarketscience.jackcess.Row row){
-
-       var obj = new TmTeam();
+    /**
+     * Read TmTeam object from Row.
+     * Intellij shows this warning:
+     * Direct access to non-public field 'xxx' of another object
+     *
+     * @param row from jackcess database
+     * @return TmTeam
+     **/
+    public static TmTeam read(final Row row){
+        final var obj = new TmTeam();
         obj.team = (Integer) row.get(TmTeam.TEAM);
         obj.tcode = (String) row.get(TmTeam.TCODE);
         obj.tname = (String) row.get(TmTeam.TNAME);
         obj.short_ = (String) row.get(TmTeam.SHORT);
         return obj;
     }
+
     public TmTeam getValue(){
         return this;
-   }
+    }
+
     public Integer getKey(){
         return team;
-   }
+    }
 
 
     // 
@@ -50,18 +67,39 @@ public class TmTeam implements KeyValue<Integer, TmTeam>  {
     private String tcode = null;
     private String tname = null;
     private String short_ = null;
+
     //
     // getters
     //
+
+    /**
+     * Getter for Team
+     * @return Integer
+     */
     public Integer getTeam() {
         return team;
     }
+
+    /**
+     * Getter for TCode
+     * @return String
+     */
     public String getTcode() {
         return tcode;
     }
+
+    /**
+     * Getter for TName
+     * @return String
+     */
     public String getTname() {
         return tname;
     }
+
+    /**
+     * Getter for short_
+     * @return String
+     */
     public String getShort_() {
         return short_;
     }

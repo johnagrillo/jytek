@@ -1,11 +1,11 @@
 package org.jytek.leaguemanager.view;
 
 import org.jytek.leaguemanager.database.KeyValue;
+import com.healthmarketscience.jackcess.Row;
 import java.util.*;
 
 /**
- * 
- * 
+ * parsed from mdb-schema
  * CREATE TABLE [MEET]
  * (
  * [Meet]                  Long Integer,
@@ -18,15 +18,29 @@ import java.util.*;
  * [MaxEnt]                        Integer,
  * );
  */
-public class TmMeet implements KeyValue<Integer, TmMeet>  {
+public class TmMeet implements KeyValue<Integer, TmMeet> {
 
-    public static String NAME = "Meet";
+    /**
+     * Name of Table
+     **/
+    public static final String NAME = "Meet";
+
+    /**
+     * Private Constructor
+     **/
     private TmMeet() {
     }
 
-    public static TmMeet create(final com.healthmarketscience.jackcess.Row row){
-
-       var obj = new TmMeet();
+    /**
+     * Read TmMeet object from Row.
+     * Intellij shows this warning:
+     * Direct access to non-public field 'xxx' of another object
+     *
+     * @param row from jackcess database
+     * @return TmMeet
+     **/
+    public static TmMeet read(final Row row){
+        final var obj = new TmMeet();
         obj.meet = (Integer) row.get(TmMeet.MEET);
         obj.mname = (String) row.get(TmMeet.MNAME);
         obj.start = (java.time.LocalDateTime) row.get(TmMeet.START);
@@ -37,12 +51,14 @@ public class TmMeet implements KeyValue<Integer, TmMeet>  {
         obj.maxent = (Short) row.get(TmMeet.MAXENT);
         return obj;
     }
+
     public TmMeet getValue(){
         return this;
-   }
+    }
+
     public Integer getKey(){
         return meet;
-   }
+    }
 
 
     // 
@@ -67,30 +83,71 @@ public class TmMeet implements KeyValue<Integer, TmMeet>  {
     private Short maxindent = null;
     private Short maxrelent = null;
     private Short maxent = null;
+
     //
     // getters
     //
+
+    /**
+     * Getter for Meet
+     * @return Integer
+     */
     public Integer getMeet() {
         return meet;
     }
+
+    /**
+     * Getter for MName
+     * @return String
+     */
     public String getMname() {
         return mname;
     }
+
+    /**
+     * Getter for Start
+     * @return java.time.LocalDateTime
+     */
     public java.time.LocalDateTime getStart() {
         return start;
     }
+
+    /**
+     * Getter for Course
+     * @return String
+     */
     public String getCourse() {
         return course;
     }
+
+    /**
+     * Getter for Location
+     * @return String
+     */
     public String getLocation() {
         return location;
     }
+
+    /**
+     * Getter for MaxIndEnt
+     * @return Short
+     */
     public Short getMaxindent() {
         return maxindent;
     }
+
+    /**
+     * Getter for MaxRelEnt
+     * @return Short
+     */
     public Short getMaxrelent() {
         return maxrelent;
     }
+
+    /**
+     * Getter for MaxEnt
+     * @return Short
+     */
     public Short getMaxent() {
         return maxent;
     }

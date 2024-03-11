@@ -1,10 +1,10 @@
 package org.jytek.leaguemanager.view;
 
+import com.healthmarketscience.jackcess.Row;
 import org.jytek.leaguemanager.database.KeyValue;
 
 /**
- * 
- * 
+ * parsed from mdb-schema
  * CREATE TABLE [MTEVENTE]
  * (
  * [Meet]			Long Integer,
@@ -33,15 +33,29 @@ import org.jytek.leaguemanager.database.KeyValue;
  * [SessX]			Text (2)
  * );
  */
-public class TmMtevente implements KeyValue<Short, TmMtevente> {
+public class TmMtevente implements KeyValue<Integer, TmMtevente> {
 
-    public static String NAME = "Mtevente";
+    /**
+     * Name of Table
+     **/
+    public static final String NAME = "Mtevente";
+
+    /**
+     * Private Constructor
+     **/
     private TmMtevente() {
     }
 
-    public static TmMtevente create(final com.healthmarketscience.jackcess.Row row){
-
-       var obj = new TmMtevente();
+    /**
+     * Read TmMtevente object from Row.
+     * Intellij shows this warning:
+     * Direct access to non-public field 'xxx' of another object
+     *
+     * @param row from jackcess database
+     * @return TmMtevente
+     **/
+    public static TmMtevente read(final Row row){
+        final var obj = new TmMtevente();
         obj.meet = (Integer) row.get(TmMtevente.MEET);
         obj.mtev = (Short) row.get(TmMtevente.MTEV);
         obj.mtevx = (String) row.get(TmMtevente.MTEVX);
@@ -68,12 +82,14 @@ public class TmMtevente implements KeyValue<Short, TmMtevente> {
         obj.sessx = (String) row.get(TmMtevente.SESSX);
         return obj;
     }
+
     public TmMtevente getValue(){
         return this;
-   }
-    public Short getKey(){
-        return mtev;
-   }
+    }
+
+    public Integer getKey(){
+        return mtevent;
+    }
 
 
     // 
@@ -130,78 +146,199 @@ public class TmMtevente implements KeyValue<Short, TmMtevente> {
     private String exportevent = null;
     private Byte gendermix = null;
     private String sessx = null;
+
     //
     // getters
     //
+
+    /**
+     * Getter for Meet
+     * @return Integer
+     */
     public Integer getMeet() {
         return meet;
     }
+
+    /**
+     * Getter for MtEv
+     * @return Short
+     */
     public Short getMtev() {
         return mtev;
     }
+
+    /**
+     * Getter for MtEvX
+     * @return String
+     */
     public String getMtevx() {
         return mtevx;
     }
+
+    /**
+     * Getter for LoHi
+     * @return Short
+     */
     public Short getLohi() {
         return lohi;
     }
+
+    /**
+     * Getter for FastCut
+     * @return Integer
+     */
     public Integer getFastcut() {
         return fastcut;
     }
+
+    /**
+     * Getter for SlowCut
+     * @return Integer
+     */
     public Integer getSlowcut() {
         return slowcut;
     }
+
+    /**
+     * Getter for Course
+     * @return String
+     */
     public String getCourse() {
         return course;
     }
+
+    /**
+     * Getter for MtEvent
+     * @return Integer
+     */
     public Integer getMtevent() {
         return mtevent;
     }
+
+    /**
+     * Getter for FastL
+     * @return Integer
+     */
     public Integer getFastl() {
         return fastl;
     }
+
+    /**
+     * Getter for SlowL
+     * @return Integer
+     */
     public Integer getSlowl() {
         return slowl;
     }
+
+    /**
+     * Getter for FastY
+     * @return Integer
+     */
     public Integer getFasty() {
         return fasty;
     }
+
+    /**
+     * Getter for SlowY
+     * @return Integer
+     */
     public Integer getSlowy() {
         return slowy;
     }
+
+    /**
+     * Getter for TstdFile
+     * @return String
+     */
     public String getTstdfile() {
         return tstdfile;
     }
+
+    /**
+     * Getter for TstDesig
+     * @return String
+     */
     public String getTstdesig() {
         return tstdesig;
     }
+
+    /**
+     * Getter for Distance
+     * @return Short
+     */
     public Short getDistance() {
         return distance;
     }
+
+    /**
+     * Getter for Stroke
+     * @return Short
+     */
     public Short getStroke() {
         return stroke;
     }
+
+    /**
+     * Getter for Sex
+     * @return String
+     */
     public String getSex() {
         return sex;
     }
+
+    /**
+     * Getter for IR
+     * @return String
+     */
     public String getIr() {
         return ir;
     }
+
+    /**
+     * Getter for Session
+     * @return Byte
+     */
     public Byte getSession() {
         return session;
     }
+
+    /**
+     * Getter for Division
+     * @return String
+     */
     public String getDivision() {
         return division;
     }
+
+    /**
+     * Getter for Fee
+     * @return Float
+     */
     public Float getFee() {
         return fee;
     }
+
+    /**
+     * Getter for ExportEvent
+     * @return String
+     */
     public String getExportevent() {
         return exportevent;
     }
+
+    /**
+     * Getter for GenderMix
+     * @return Byte
+     */
     public Byte getGendermix() {
         return gendermix;
     }
+
+    /**
+     * Getter for SessX
+     * @return String
+     */
     public String getSessx() {
         return sessx;
     }

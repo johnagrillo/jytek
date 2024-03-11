@@ -10,13 +10,19 @@ import java.util.Collection;
 
 
 public class TmRelayDAO extends DAOStream<Integer, TmRelay> {
-    public TmRelayDAO(Database db) throws IOException {
+
+    public static TmRelayDAO load(final Database db) throws IOException {
+        return new TmRelayDAO(db);
+    }
+
+    private TmRelayDAO(final Database db) throws IOException {
         super(db, TmRelay.NAME);
     }
 
+
     @Override
-    KeyValue<Integer, TmRelay> create(Row r) {
-        return TmRelay.create(r);
+    KeyValue<Integer, TmRelay> read(final Row r) {
+        return TmRelay.read(r);
     }
 }
 

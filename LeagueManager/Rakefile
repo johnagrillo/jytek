@@ -339,13 +339,19 @@ def createDAO(schema, name, iter, prefix)
   out << %Q[
 
 public class #{cls}DAO extends DAOStream<Integer, #{cls}> {
-    public #{cls}DAO(Database db) throws IOException {
+
+    public static #{cls}DAO load(final Database db) throws IOException {
+        return new #{cls}DAO(db);
+    }
+
+    private #{cls}DAO(final Database db) throws IOException {
         super(db, #{cls}.NAME);
     }
 
+
     @Override
-    KeyValue<Integer, #{cls}> create(Row r) {
-        return #{cls}.create(r);
+    KeyValue<Integer, #{cls}> read(final Row r) {
+        return #{cls}.read(r);
     }
 }
 
@@ -361,11 +367,17 @@ def create_class(schema, name, iter, prefix)
   out = []
   out << "package org.jytek.leaguemanager.view;\n"
   out << "import org.jytek.leaguemanager.database.KeyValue;"
+  out << "import com.healthmarketscience.jackcess.Row;"
   out << "import java.util.*;\n"  
 
-  out << "/**" 
+  out << "/**"
+  out << " * parsed from mdb-schema"  
   schema.split("\n").each do |l|
-    if (l =~ /^--/)
+    if (l == "")
+      next
+    end
+
+    if (l =~ /^--/) 
       next
     end
     if (l =~ /#/)
@@ -375,10 +387,16 @@ def create_class(schema, name, iter, prefix)
   end
   out << " */"
   
-  out << "public class #{clsName} implements KeyValue<Integer, #{clsName}>  {\n"
+  out << "public class #{clsName} implements KeyValue<Integer, #{clsName}> {\n"
 
-  out << "    public static String NAME = \"#{name}\";"
-
+  out << "    /**"
+  out << "     * Name of Table"
+  out << "     **/"
+  out << "    public static final String NAME = \"#{name}\";"
+  out << ""
+  out << "    /**"
+  out << "     * Private Constructor"
+  out << "     **/"
   out << "    private #{clsName}() {\n    }\n"
   
   columns = []
@@ -408,10 +426,19 @@ def create_class(schema, name, iter, prefix)
         members[name] = [memberName, type]
       end
 
-      out << "    public static #{clsName} create(final com.healthmarketscience.jackcess.Row row){\n"
+      
+      out << "    /**"
+      out << "     * Read #{clsName} object from Row."
+      out << "     * Intellij shows this warning:"
+      out << "     * Direct access to non-public field 'xxx' of another object"
+      out << "     *"
+      out << "     * @param row from jackcess database"
+      out << "     * @return #{clsName}"
+      out << "     **/"
+      out << "    public static #{clsName} read(final Row row){"
       
       var = clsName.downcase
-      out << "       var obj = new #{clsName}();"
+      out << "        final var obj = new #{clsName}();"
       members.each do |name,(mname, type)|
         sub = name.gsub("(","_").sub(")","")
         mname = mname.gsub("(","_").sub(")","")
@@ -419,15 +446,16 @@ def create_class(schema, name, iter, prefix)
       end
       out << "        return obj;"
       out << "    }"
-
+      out << ""
 
       out << "    public #{clsName} getValue(){"
       out << "        return this;"
-      out << "   }"
+      out << "    }"
+      out << ""
       
       out << "    public Integer getKey(){"
       out << "        return #{cname.downcase};"
-      out << "   }"
+      out << "    }"
       
       out << "\n"
       out << "    // "       
@@ -445,13 +473,19 @@ def create_class(schema, name, iter, prefix)
         sub = mname.gsub("(","_").sub(")","")
         out << "    private #{type} #{sub.downcase} = null;";
     end
-    
+
+      out << ""
       out << "    //"       
       out << "    // getters"
       out << "    //"       
       
       members.each do |name,(mname,type)|
         sub = mname.gsub("(","_").sub(")","")
+        out << ""
+        out << "    /**"
+        out << "     * Getter for #{mname}"
+        out << "     * @return #{type}"
+        out << "     */"
         out << "    public #{type} get#{sub[0].upcase}#{sub.downcase[1..-1]}() {";
         out << "        return #{sub.downcase};"
         out << "    }";

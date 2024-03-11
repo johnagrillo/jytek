@@ -8,13 +8,18 @@ import java.io.IOException;
 
 
 public class TmTeamDAO extends DAOStream<Integer, TmTeam> {
-    public TmTeamDAO(Database db) throws IOException {
+
+    public static TmTeamDAO load(final Database db) throws IOException {
+        return new TmTeamDAO(db);
+    }
+
+    private TmTeamDAO(final Database db) throws IOException {
         super(db, TmTeam.NAME);
     }
 
     @Override
-    KeyValue<Integer, TmTeam> create(Row r) {
-        return TmTeam.create(r);
+    KeyValue<Integer, TmTeam> read(final Row r) {
+        return TmTeam.read(r);
     }
 }
 

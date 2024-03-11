@@ -1,10 +1,11 @@
 package org.jytek.leaguemanager.view;
 
 import org.jytek.leaguemanager.database.KeyValue;
+import com.healthmarketscience.jackcess.Row;
+import java.util.*;
 
 /**
- * 
- * 
+ * parsed from mdb-schema
  * CREATE TABLE [RESULT]
  * (
  * [MEET]			Long Integer,
@@ -27,16 +28,29 @@ import org.jytek.leaguemanager.database.KeyValue;
  * [DQDESCRIPT]			Text (180),
  * );
  */
-public class TmResult implements KeyValue<Integer, TmResult>  {
+public class TmResult implements KeyValue<Integer, TmResult> {
 
-    public static String NAME = "Result";
+    /**
+     * Name of Table
+     **/
+    public static final String NAME = "Result";
 
+    /**
+     * Private Constructor
+     **/
     private TmResult() {
     }
 
-    public static TmResult create(final com.healthmarketscience.jackcess.Row row){
-
-        var obj = new TmResult();
+    /**
+     * Read TmResult object from Row.
+     * Intellij shows this warning:
+     * Direct access to non-public field 'xxx' of another object
+     *
+     * @param row from jackcess database
+     * @return TmResult
+     **/
+    public static TmResult read(final Row row){
+        final var obj = new TmResult();
         obj.meet = (Integer) row.get(TmResult.MEET);
         obj.athlete = (Integer) row.get(TmResult.ATHLETE);
         obj.ir = (String) row.get(TmResult.I_R);
@@ -109,61 +123,151 @@ public class TmResult implements KeyValue<Integer, TmResult>  {
     private String course = null;
     private String dqcode = null;
     private String dqdescript = null;
+
     //
     // getters
     //
+
+    /**
+     * Getter for MEET
+     * @return Integer
+     */
     public Integer getMeet() {
         return meet;
     }
 
+    /**
+     * Getter for ATHLETE
+     * @return Integer
+     */
     public Integer getAthlete() {
         return athlete;
     }
+
+    /**
+     * Getter for IR
+     * @return String
+     */
     public String getIr() {
         return ir;
     }
+
+    /**
+     * Getter for TEAM
+     * @return Integer
+     */
     public Integer getTeam() {
         return team;
     }
+
+    /**
+     * Getter for SCORE
+     * @return Integer
+     */
     public Integer getScore() {
         return score;
     }
+
+    /**
+     * Getter for EX
+     * @return String
+     */
     public String getEx() {
         return ex;
     }
+
+    /**
+     * Getter for ORIGIN
+     * @return String
+     */
     public String getOrigin() {
         return origin;
     }
+
+    /**
+     * Getter for NT
+     * @return Byte
+     */
     public Byte getNt() {
         return nt;
     }
+
+    /**
+     * Getter for RESULT
+     * @return Integer
+     */
     public Integer getResult() {
         return result;
     }
+
+    /**
+     * Getter for AGE
+     * @return Short
+     */
     public Short getAge() {
         return age;
     }
+
+    /**
+     * Getter for DISTANCE
+     * @return Short
+     */
     public Short getDistance() {
         return distance;
     }
+
+    /**
+     * Getter for STROKE
+     * @return Short
+     */
     public Short getStroke() {
         return stroke;
     }
+
+    /**
+     * Getter for MTEVENT
+     * @return Integer
+     */
     public Integer getMtevent() {
         return mtevent;
     }
+
+    /**
+     * Getter for POINTS
+     * @return Short
+     */
     public Short getPoints() {
         return points;
     }
+
+    /**
+     * Getter for PLACE
+     * @return Short
+     */
     public Short getPlace() {
         return place;
     }
+
+    /**
+     * Getter for COURSE
+     * @return String
+     */
     public String getCourse() {
         return course;
     }
+
+    /**
+     * Getter for DQCODE
+     * @return String
+     */
     public String getDqcode() {
         return dqcode;
     }
+
+    /**
+     * Getter for DQDESCRIPT
+     * @return String
+     */
     public String getDqdescript() {
         return dqdescript;
     }

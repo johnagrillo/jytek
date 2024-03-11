@@ -10,13 +10,19 @@ import java.util.Collection;
 
 
 public class TmAthleteDAO extends DAOStream<Integer, TmAthlete> {
-    public TmAthleteDAO(Database db) throws IOException {
+
+    public static TmAthleteDAO load(final Database db) throws IOException {
+        return new TmAthleteDAO(db);
+    }
+
+    private TmAthleteDAO(final Database db) throws IOException {
         super(db, TmAthlete.NAME);
     }
 
+
     @Override
-    KeyValue<Integer, TmAthlete> create(Row r) {
-        return TmAthlete.create(r);
+    KeyValue<Integer, TmAthlete> read(final Row r) {
+        return TmAthlete.read(r);
     }
 }
 

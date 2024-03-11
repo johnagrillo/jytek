@@ -1,5 +1,5 @@
 /**
- *  Stream Wrapper implementation for TM Table
+ * Stream Wrapper implementation for TM Table
  */
 
 package org.jytek.leaguemanager.database;
@@ -10,41 +10,49 @@ import com.healthmarketscience.jackcess.Row;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
+/**
+ *
+ * @param <K>
+ * @param <V>
+ */
+public abstract class DAOStream<K, V extends KeyValue<K, V>> {
+    /**
+     *
+     */
+    private final Map<K, V> daoHashMap = new HashMap<>();
 
-interface Creator<K,V> {
-   KeyValue<K,V> create(Row r);
-}
+    /**
+     *
+     */
+    private String name = "";
 
-
-public abstract class DAOStream<K, V extends KeyValue<K,V>> {
-    protected Map<K,V> map = new HashMap<>();
-    String name = "";
-
-    public DAOStream(Database db, String name) throws IOException {
+    DAOStream(final Database db, final String name) throws IOException {
+        super();
+        this.name = name;
         db.getTable(name).forEach(row -> {
-            final var obj = create(row);
-            map.put(obj.getKey(), obj.getValue());
+            final var obj = read(row);
+            daoHashMap.put(obj.getKey(), obj.getValue());
         });
     }
 
-    abstract KeyValue<K, V> create(Row r) ;
+    abstract KeyValue<K, V> read(Row r);
 
     /**
      * get for K
-     * @param K key
-     * @return V
      *
+     * @param key
+     * @return V
+     * @throws KeyNotFoundException key not found
      */
 
-    public V get(K key) throws KeyNotFoundException{
-        if (map.containsKey(key)) {
-            return map.get(key);
+    public V get(final K key) throws KeyNotFoundException {
+        if (daoHashMap.containsKey(key)) {
+            return daoHashMap.get(key);
         }
         throw new KeyNotFoundException(name + " " + key);
     }
@@ -56,24 +64,24 @@ public abstract class DAOStream<K, V extends KeyValue<K,V>> {
      * @param <V> The class
      */
     Collection<K> keys() {
-        return map.keySet();
+        return daoHashMap.keySet();
     }
 
-    public void forEach(final Consumer<Map.Entry<K, V>> action){
-        map.entrySet().stream().forEach((Consumer<Map.Entry<K, V>>) action);
+    public void forEach(final Consumer<Map.Entry<K, V>> action) {
+        daoHashMap.entrySet().forEach((Consumer<Map.Entry<K, V>>) action);
     }
 
     /**
      * Shortcut to the emtryStrem/stream.filter method
      *
-     * @param <T> the type
-     * @param <C> The class
-     * @param predicate
-     * @return filter
+     * @param <T>       the type
+     * @param <C>       The class
+     * @param predicate filtered predicate
+     * @return stream
      */
 
-    public Stream<Map.Entry<K, V>> filter(final Predicate<Map.Entry<K,V>> predicate) {
-        return map.entrySet().stream().filter(predicate);
+    public Stream<Map.Entry<K, V>> filter(final Predicate<? super Map.Entry<K, V>> predicate) {
+        return daoHashMap.entrySet().stream().filter(predicate);
     }
 
     /**
@@ -81,27 +89,23 @@ public abstract class DAOStream<K, V extends KeyValue<K,V>> {
      *
      * @param <K> the type
      * @param <V> The class
-     *
      * @return stream
      */
-    public Stream<Map.Entry<K, V>> stream(){
-        return map.entrySet().stream();
+    public Stream<Map.Entry<K, V>> stream() {
+        return daoHashMap.entrySet().stream();
     }
 
     /**
      * Get values using stream
      *
      * @param <V> The class
-     *
      * @return Collection of C
      */
 
     public Collection<V> values() {
-        List<V> list = map.entrySet()
+        return daoHashMap.values()
                 .stream()
-                .map(x -> x.getValue())
                 .toList();
-        return list;
     }
 
     /**
@@ -111,6 +115,6 @@ public abstract class DAOStream<K, V extends KeyValue<K,V>> {
      */
 
     public int count() {
-        return map.size();
+        return daoHashMap.size();
     }
 }

@@ -1,11 +1,11 @@
 package org.jytek.leaguemanager.view;
 
 import org.jytek.leaguemanager.database.KeyValue;
+import com.healthmarketscience.jackcess.Row;
 import java.util.*;
 
 /**
- * 
- * 
+ * parsed from mdb-schema
  * CREATE TABLE [RELAY]
  * (
  * [RELAY]                 Long Integer,
@@ -28,15 +28,29 @@ import java.util.*;
  * [RELAYAGE]              Text (6),
  * );
  */
-public class TmRelay implements KeyValue<Integer, TmRelay>  {
+public class TmRelay implements KeyValue<Integer, TmRelay> {
 
-    public static String NAME = "Relay";
+    /**
+     * Name of Table
+     **/
+    public static final String NAME = "Relay";
+
+    /**
+     * Private Constructor
+     **/
     private TmRelay() {
     }
 
-    public static TmRelay create(final com.healthmarketscience.jackcess.Row row){
-
-       var obj = new TmRelay();
+    /**
+     * Read TmRelay object from Row.
+     * Intellij shows this warning:
+     * Direct access to non-public field 'xxx' of another object
+     *
+     * @param row from jackcess database
+     * @return TmRelay
+     **/
+    public static TmRelay read(final Row row){
+        final var obj = new TmRelay();
         obj.relay = (Integer) row.get(TmRelay.RELAY);
         obj.meet = (Integer) row.get(TmRelay.MEET);
         obj.lohi = (Short) row.get(TmRelay.LO_HI);
@@ -57,12 +71,14 @@ public class TmRelay implements KeyValue<Integer, TmRelay>  {
         obj.relayage = (String) row.get(TmRelay.RELAYAGE);
         return obj;
     }
+
     public TmRelay getValue(){
         return this;
-   }
+    }
+
     public Integer getKey(){
         return relay;
-   }
+    }
 
 
     // 
@@ -107,60 +123,151 @@ public class TmRelay implements KeyValue<Integer, TmRelay>  {
     private Short distance = null;
     private Short stroke = null;
     private String relayage = null;
+
     //
     // getters
     //
+
+    /**
+     * Getter for RELAY
+     * @return Integer
+     */
     public Integer getRelay() {
         return relay;
     }
+
+    /**
+     * Getter for MEET
+     * @return Integer
+     */
     public Integer getMeet() {
         return meet;
     }
+
+    /**
+     * Getter for LoHi
+     * @return Short
+     */
     public Short getLohi() {
         return lohi;
     }
+
+    /**
+     * Getter for TEAM
+     * @return Integer
+     */
     public Integer getTeam() {
         return team;
     }
+
+    /**
+     * Getter for LETTER
+     * @return String
+     */
     public String getLetter() {
         return letter;
     }
+
+    /**
+     * Getter for AgeRange
+     * @return Short
+     */
     public Short getAgerange() {
         return agerange;
     }
+
+    /**
+     * Getter for SEX
+     * @return String
+     */
     public String getSex() {
         return sex;
     }
+
+    /**
+     * Getter for ATH(1)
+     * @return Integer
+     */
     public Integer getAth_1() {
         return ath_1;
     }
+
+    /**
+     * Getter for ATH(2)
+     * @return Integer
+     */
     public Integer getAth_2() {
         return ath_2;
     }
+
+    /**
+     * Getter for ATH(3)
+     * @return Integer
+     */
     public Integer getAth_3() {
         return ath_3;
     }
+
+    /**
+     * Getter for ATH(4)
+     * @return Integer
+     */
     public Integer getAth_4() {
         return ath_4;
     }
+
+    /**
+     * Getter for ATH(5)
+     * @return Integer
+     */
     public Integer getAth_5() {
         return ath_5;
     }
+
+    /**
+     * Getter for ATH(6)
+     * @return Integer
+     */
     public Integer getAth_6() {
         return ath_6;
     }
+
+    /**
+     * Getter for ATH(7)
+     * @return Integer
+     */
     public Integer getAth_7() {
         return ath_7;
     }
+
+    /**
+     * Getter for ATH(8)
+     * @return Integer
+     */
     public Integer getAth_8() {
         return ath_8;
     }
+
+    /**
+     * Getter for DISTANCE
+     * @return Short
+     */
     public Short getDistance() {
         return distance;
     }
+
+    /**
+     * Getter for STROKE
+     * @return Short
+     */
     public Short getStroke() {
         return stroke;
     }
+
+    /**
+     * Getter for RELAYAGE
+     * @return String
+     */
     public String getRelayage() {
         return relayage;
     }

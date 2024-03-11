@@ -1,11 +1,11 @@
 package org.jytek.leaguemanager.view;
 
 import org.jytek.leaguemanager.database.KeyValue;
+import com.healthmarketscience.jackcess.Row;
 import java.util.*;
 
 /**
- * 
- * 
+ * parsed from mdb-schema
  * CREATE TABLE [ENTRY]
  * (
  * [Meet]			Long Integer,
@@ -24,15 +24,29 @@ import java.util.*;
  * [FromOME]			Boolean NOT NULL
  * );
  */
-public class TmEntry implements KeyValue<Integer, TmEntry>  {
+public class TmEntry implements KeyValue<Integer, TmEntry> {
 
-    public static String NAME = "Entry";
+    /**
+     * Name of Table
+     **/
+    public static final String NAME = "Entry";
+
+    /**
+     * Private Constructor
+     **/
     private TmEntry() {
     }
 
-    public static TmEntry create(final com.healthmarketscience.jackcess.Row row){
-
-       var obj = new TmEntry();
+    /**
+     * Read TmEntry object from Row.
+     * Intellij shows this warning:
+     * Direct access to non-public field 'xxx' of another object
+     *
+     * @param row from jackcess database
+     * @return TmEntry
+     **/
+    public static TmEntry read(final Row row){
+        final var obj = new TmEntry();
         obj.meet = (Integer) row.get(TmEntry.MEET);
         obj.athlete = (Integer) row.get(TmEntry.ATHLETE);
         obj.ir = (String) row.get(TmEntry.I_R);
@@ -49,12 +63,14 @@ public class TmEntry implements KeyValue<Integer, TmEntry>  {
         obj.fromome = (Boolean) row.get(TmEntry.FROMOME);
         return obj;
     }
+
     public TmEntry getValue(){
         return this;
-   }
+    }
+
     public Integer getKey(){
         return entry;
-   }
+    }
 
 
     // 
@@ -91,48 +107,119 @@ public class TmEntry implements KeyValue<Integer, TmEntry>  {
     private Byte heat = null;
     private Byte lane = null;
     private Boolean fromome = null;
+
     //
     // getters
     //
+
+    /**
+     * Getter for Meet
+     * @return Integer
+     */
     public Integer getMeet() {
         return meet;
     }
+
+    /**
+     * Getter for Athlete
+     * @return Integer
+     */
     public Integer getAthlete() {
         return athlete;
     }
+
+    /**
+     * Getter for IR
+     * @return String
+     */
     public String getIr() {
         return ir;
     }
+
+    /**
+     * Getter for Team
+     * @return Integer
+     */
     public Integer getTeam() {
         return team;
     }
+
+    /**
+     * Getter for Course
+     * @return String
+     */
     public String getCourse() {
         return course;
     }
+
+    /**
+     * Getter for Score
+     * @return Integer
+     */
     public Integer getScore() {
         return score;
     }
+
+    /**
+     * Getter for Ex
+     * @return String
+     */
     public String getEx() {
         return ex;
     }
+
+    /**
+     * Getter for MtEvent
+     * @return Integer
+     */
     public Integer getMtevent() {
         return mtevent;
     }
+
+    /**
+     * Getter for Misc
+     * @return String
+     */
     public String getMisc() {
         return misc;
     }
+
+    /**
+     * Getter for Entry
+     * @return Integer
+     */
     public Integer getEntry() {
         return entry;
     }
+
+    /**
+     * Getter for Division
+     * @return String
+     */
     public String getDivision() {
         return division;
     }
+
+    /**
+     * Getter for HEAT
+     * @return Byte
+     */
     public Byte getHeat() {
         return heat;
     }
+
+    /**
+     * Getter for LANE
+     * @return Byte
+     */
     public Byte getLane() {
         return lane;
     }
+
+    /**
+     * Getter for FromOME
+     * @return Boolean
+     */
     public Boolean getFromome() {
         return fromome;
     }

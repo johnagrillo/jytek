@@ -1,0 +1,4 @@
+    @Override
+    public int compareTo(TmMtevent o) {
+        return Integer.compare(mtev, o.mtev);
+    }

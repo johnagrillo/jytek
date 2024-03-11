@@ -531,14 +531,11 @@ public class MainController extends Application implements Initializable {
 
         var results = new TreeMap<TmMtevent, ArrayList<MeetResult>>();
 
-        for (var r : tm.getResults().values()) {
+        tm.getResults().values().forEach( r -> {
             if (Objects.equals(r.getMeet(), meet.getMeet())) {
-
                 try {
                     var mtevent = tm.getMtevents().get(r.getMtevent());
                     var list = results.computeIfAbsent(mtevent, k -> new ArrayList<>());
-
-
                     list.add(new MeetResult("", "" + r.getPoints(),
                             "" + r.getPlace(),
                             Util.atheteToString(tm.getAthletes().get(r.getAthlete())),
@@ -546,10 +543,11 @@ public class MainController extends Application implements Initializable {
                             tm.getTeams().get(r.getTeam()).getTcode(),
                             r.getScore().toString(), r.getCourse()));
                 } catch (KeyNotFoundException e) {
-                    throw new RuntimeException(e);
+                    System.out.println(r);
+                    // skip this entry
                 }
             }
-        }
+        });
 
         FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("meet-result-tree.fxml"));
         try {

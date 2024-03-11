@@ -1,11 +1,10 @@
 package org.jytek.leaguemanager.view;
 
+import com.healthmarketscience.jackcess.Row;
 import org.jytek.leaguemanager.database.KeyValue;
-import java.util.*;
 
 /**
- * 
- * 
+ * parsed from mdb-schema
  * CREATE TABLE [MTEVENT]
  * (
  * [Meet]			Long Integer,
@@ -25,19 +24,33 @@ import java.util.*;
  * );
  */
 public class TmMtevent implements KeyValue<Integer, TmMtevent>, Comparable<TmMtevent> {
-
     @Override
     public int compareTo(TmMtevent o) {
         return Integer.compare(mtev, o.mtev);
     }
-    
-    public static String NAME = "Mtevent";
+
+
+    /**
+     * Name of Table
+     **/
+    public static final String NAME = "Mtevent";
+
+    /**
+     * Private Constructor
+     **/
     private TmMtevent() {
     }
 
-    public static TmMtevent create(final com.healthmarketscience.jackcess.Row row){
-
-       var obj = new TmMtevent();
+    /**
+     * Read TmMtevent object from Row.
+     * Intellij shows this warning:
+     * Direct access to non-public field 'xxx' of another object
+     *
+     * @param row from jackcess database
+     * @return TmMtevent
+     **/
+    public static TmMtevent read(final Row row){
+        final var obj = new TmMtevent();
         obj.meet = (Integer) row.get(TmMtevent.MEET);
         obj.mtev = (Short) row.get(TmMtevent.MTEV);
         obj.mtevx = (String) row.get(TmMtevent.MTEVX);
@@ -54,12 +67,14 @@ public class TmMtevent implements KeyValue<Integer, TmMtevent>, Comparable<TmMte
         obj.sessx = (String) row.get(TmMtevent.SESSX);
         return obj;
     }
+
     public TmMtevent getValue(){
         return this;
-   }
+    }
+
     public Integer getKey(){
         return mtevent;
-   }
+    }
 
 
     // 
@@ -96,48 +111,119 @@ public class TmMtevent implements KeyValue<Integer, TmMtevent>, Comparable<TmMte
     private String division = null;
     private String eventtype = null;
     private String sessx = null;
+
     //
     // getters
     //
+
+    /**
+     * Getter for Meet
+     * @return Integer
+     */
     public Integer getMeet() {
         return meet;
     }
+
+    /**
+     * Getter for MtEv
+     * @return Short
+     */
     public Short getMtev() {
         return mtev;
     }
+
+    /**
+     * Getter for MtEvX
+     * @return String
+     */
     public String getMtevx() {
         return mtevx;
     }
+
+    /**
+     * Getter for LoHi
+     * @return Short
+     */
     public Short getLohi() {
         return lohi;
     }
+
+    /**
+     * Getter for Course
+     * @return String
+     */
     public String getCourse() {
         return course;
     }
+
+    /**
+     * Getter for MtEvent
+     * @return Integer
+     */
     public Integer getMtevent() {
         return mtevent;
     }
+
+    /**
+     * Getter for Distance
+     * @return Short
+     */
     public Short getDistance() {
         return distance;
     }
+
+    /**
+     * Getter for Stroke
+     * @return Short
+     */
     public Short getStroke() {
         return stroke;
     }
+
+    /**
+     * Getter for Sex
+     * @return String
+     */
     public String getSex() {
         return sex;
     }
+
+    /**
+     * Getter for IR
+     * @return String
+     */
     public String getIr() {
         return ir;
     }
+
+    /**
+     * Getter for Session
+     * @return Byte
+     */
     public Byte getSession() {
         return session;
     }
+
+    /**
+     * Getter for Division
+     * @return String
+     */
     public String getDivision() {
         return division;
     }
+
+    /**
+     * Getter for EventType
+     * @return String
+     */
     public String getEventtype() {
         return eventtype;
     }
+
+    /**
+     * Getter for SessX
+     * @return String
+     */
     public String getSessx() {
         return sessx;
     }
