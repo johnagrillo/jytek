@@ -1,5 +1,5 @@
 /**
- * Stream Wrapper implementation for TM Table
+ * Stream Wrapper implementation for TM Table.
  */
 
 package org.jytek.leaguemanager.database;
@@ -32,7 +32,6 @@ public abstract class DAOStream<K, V extends KeyValue<K, V>> {
     private String name = "";
 
     DAOStream(final Database db, final String name) throws IOException {
-        super();
         this.name = name;
         db.getTable(name).forEach(row -> {
             final var obj = read(row);
@@ -58,10 +57,8 @@ public abstract class DAOStream<K, V extends KeyValue<K, V>> {
     }
 
     /**
-     * Shortcut to the entrySteam.stream.forEach method
-     *
-     * @param <K> the type
-     * @param <V> The class
+     * Get all keys K
+     * @return Collection of keys
      */
     Collection<K> keys() {
         return daoHashMap.keySet();
@@ -72,10 +69,7 @@ public abstract class DAOStream<K, V extends KeyValue<K, V>> {
     }
 
     /**
-     * Shortcut to the emtryStrem/stream.filter method
-     *
-     * @param <T>       the type
-     * @param <C>       The class
+     * Shortcut to the emtrySet.stream.filter method*
      * @param predicate filtered predicate
      * @return stream
      */

@@ -1,4 +1,5 @@
 package org.jytek.leaguemanager.controller;
+
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -6,12 +7,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
-import javafx.util.Pair;
-import org.jytek.leaguemanager.utilities.Util;
 import org.jytek.leaguemanager.view.MockMeetResult;
-        
+
 import java.net.URL;
-import java.util.Arrays;
 import java.util.ResourceBundle;
         
 public class MockMeetResultController extends Application implements Initializable {
@@ -38,10 +36,10 @@ public class MockMeetResultController extends Application implements Initializab
     private TableColumn<MockMeetResult, Integer> tcMockMeetResultConverted;
 
 
-
     @Override
     public void start(Stage stage) throws Exception {
     }
+
     public void populateData(ObservableList<MockMeetResult> mockMeetResults) {
         tvMockMeetResult.setItems(mockMeetResults);
     }

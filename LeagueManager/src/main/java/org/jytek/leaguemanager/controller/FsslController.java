@@ -13,10 +13,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Pair;
-import org.jytek.leaguemanager.MainApplication;
+import org.jytek.leaguemanager.FsslMain;
 import org.jytek.leaguemanager.database.*;
 import org.jytek.leaguemanager.utilities.MockMeet;
-import org.jytek.leaguemanager.utilities.Util;
 import org.jytek.leaguemanager.view.*;
 
 import java.io.File;
@@ -32,7 +31,7 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
-public class MainController extends Application implements Initializable {
+public class FsslController extends Application implements Initializable {
 
     private final FileChooser fileChooser = new FileChooser();
     private final Collection<DualMockResult> dualResults = new ArrayList<>();
@@ -159,17 +158,15 @@ public class MainController extends Application implements Initializable {
     private File mockFile = null;
     private MockMeet.Scoring scoring = MockMeet.Scoring.CMSL;
 
-    public static void main(String[] args) {
-        launch();
+    public static void main(final String[] args) {
+        Application.launch();
     }
 
     @FXML
     protected void load(File mockFile) {
         disable();
-        tm = new TmMdbDAO(mockFile);
-
         lbFile.setText(mockFile.getPath());
-        tm = new TmMdbDAO(mockFile);
+        tm = TmMdbDAO.load(mockFile);
         lbTeams.setText("" + tm.getTeams().count());
         lbAthletes.setText("" + tm.getAthletes().count());
         lbResults.setText("" + tm.getResults().count());
@@ -186,7 +183,7 @@ public class MainController extends Application implements Initializable {
         if (mockFile != null) {
 
             lbFile.setText(mockFile.getPath());
-            tm = new TmMdbDAO(mockFile);
+            tm = TmMdbDAO.load(mockFile);
 
             lbTeams.setText("" + tm.getTeams().count());
             lbAthletes.setText("" + tm.getAthletes().count());
@@ -194,9 +191,7 @@ public class MainController extends Application implements Initializable {
             lbRelays.setText("" + tm.getRelays().count());
             lbMeets.setText("" + tm.getMeets().count());
 
-
             ObservableList<TmTeam> teams = FXCollections.observableArrayList();
-
 
             teams.addAll(tm.getTeams().values());
             tvTmTeams.setItems(teams);
@@ -251,7 +246,6 @@ public class MainController extends Application implements Initializable {
                     var r = MockMeet.runMockMeet(teamEntries, scoring);
                     mockResults.add(r);
                     var teamScores = r.getTeamScores();
-                    System.out.println("scored " + teamScores);
                     if (teamScores.size() > 1) {
                         var t1 = teamScores.get(team1);
                         var t2 = teamScores.get(team2);
@@ -496,7 +490,7 @@ public class MainController extends Application implements Initializable {
                 results.add(res);
             });
         }
-        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("result.fxml"));
+        FXMLLoader loader = new FXMLLoader(FsslMain.class.getResource("result.fxml"));
         try {
             Scene scene = new Scene(loader.load(), 625, 275);
             var controller = loader.<ResultController>getController();
@@ -549,7 +543,7 @@ public class MainController extends Application implements Initializable {
             }
         });
 
-        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("meet-result-tree.fxml"));
+        FXMLLoader loader = new FXMLLoader(FsslMain.class.getResource("meet-result-tree.fxml"));
         try {
             Scene scene = new Scene(loader.load(), 1000, 800);
             var controller = loader.<MeetResultTreeController>getController();
@@ -563,10 +557,11 @@ public class MainController extends Application implements Initializable {
         }
 
     }
+
     public void populateData(File mdbFile) {
 
         lbFile.setText(mdbFile.getPath());
-        tm = new TmMdbDAO(mdbFile);
+        tm = TmMdbDAO.load(mdbFile);
 
 
         lbTeams.setText("" + tm.getTeams().count());
@@ -592,19 +587,16 @@ public class MainController extends Application implements Initializable {
 
         ObservableList<TmMeet> meets = FXCollections.observableArrayList();
         meets.addAll(tm.getMeets().values());
-
         tvTmMeets.setItems(meets);
-
         onRunMock();
-
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(final Stage stage) throws IOException {
         this.stage = stage;
-        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(loader.load(), 1000, 1000);
-        var controller = loader.<MainController>getController();
+        final FXMLLoader loader = new FXMLLoader(FsslMain.class.getResource("fssl.fxml"));
+        final Scene scene = new Scene(loader.load(), 1000, 1000);
+        final var controller = loader.<FsslController>getController();
         controller.populateData(new File("c:/Users/john/sandbox/mdb/fssl/2023.mdb"));
         stage.setTitle("League Manager");
         stage.setScene(scene);
@@ -612,7 +604,7 @@ public class MainController extends Application implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(final URL location, final ResourceBundle resources) {
 
         var filt = new FileChooser.ExtensionFilter("MDB", "*.mdb");
         fileChooser.getExtensionFilters().add(filt);

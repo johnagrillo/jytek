@@ -31,24 +31,20 @@ public class TmMdbDAO {
     private TmResultDAO results;
     private TmRelayDAO relays;
 
+    private File file = null;
+
     private TmMdbDAO() {
 
     }
 
-
-    /*
-      Private Methods
-     */
-
-
-    public TmMdbDAO(File input) {
+    private TmMdbDAO(File input) {
         try {
             final var db = com.healthmarketscience.jackcess.DatabaseBuilder.open(input);
             /*
                   Read all tables in constructor.
                   Could be lazy initialized.
                  */
-
+            this.file = input;
             teams = TmTeamDAO.load(db);
             meets = TmMeetDAO.load(db);
             mtevente = TmMteventeDAO.load(db);
@@ -108,6 +104,19 @@ public class TmMdbDAO {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+
+    /*
+      Private Methods
+     */
+
+    public static TmMdbDAO load(File input) {
+        return new TmMdbDAO(input);
+    }
+
+    public File getFile() {
+        return file;
     }
 
     public ArrayList<TmResult> getAthleteResults(Integer ath) {

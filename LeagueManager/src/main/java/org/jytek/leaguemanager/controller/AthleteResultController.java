@@ -1,4 +1,5 @@
 package org.jytek.leaguemanager.controller;
+
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -6,14 +7,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
-import javafx.util.Pair;
-import org.jytek.leaguemanager.utilities.Util;
 import org.jytek.leaguemanager.view.AthleteResult;
-        
+
 import java.net.URL;
-import java.util.Arrays;
 import java.util.ResourceBundle;
-        
+
 public class AthleteResultController extends Application implements Initializable {
     // ---------------------------
     // Table tvAthleteResult
@@ -45,28 +43,30 @@ public class AthleteResultController extends Application implements Initializabl
     @FXML
     private TableColumn<AthleteResult, String> tcAthleteResultTeam;
 
-
+    private AthleteResultController() {
+    }
 
     @Override
     public void start(Stage stage) throws Exception {
     }
+
     public void populateData(ObservableList<AthleteResult> athleteResults) {
         tvAthleteResult.setItems(athleteResults);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Util.setPVF(tcAthleteResultScore,"Score");
-        Util.setPVF(tcAthleteResultPlace,"Place");
-        Util.setPVF(tcAthleteResultPoints,"Points");
-        Util.setPVF(tcAthleteResultAge,"Age");
-        Util.setPVF(tcAthleteResultStroke,"Stroke");
-        Util.setPVF(tcAthleteResultDistance,"Distance");
-        Util.setPVF(tcAthleteResultEvent,"Event");
-        Util.setPVF(tcAthleteResultMf,"Mf");
-        Util.setPVF(tcAthleteResultIr,"Ir");
-        Util.setPVF(tcAthleteResultMeet,"Meet");
-        Util.setPVF(tcAthleteResultDate,"Date");
-        Util.setPVF(tcAthleteResultTeam,"Team");
-   }
+        Util.setPVF(tcAthleteResultScore, "Score");
+        Util.setPVF(tcAthleteResultPlace, "Place");
+        Util.setPVF(tcAthleteResultPoints, "Points");
+        Util.setPVF(tcAthleteResultAge, "Age");
+        Util.setPVF(tcAthleteResultStroke, "Stroke");
+        Util.setPVF(tcAthleteResultDistance, "Distance");
+        Util.setPVF(tcAthleteResultEvent, "Event");
+        Util.setPVF(tcAthleteResultMf, "Mf");
+        Util.setPVF(tcAthleteResultIr, "Ir");
+        Util.setPVF(tcAthleteResultMeet, "Meet");
+        Util.setPVF(tcAthleteResultDate, "Date");
+        Util.setPVF(tcAthleteResultTeam, "Team");
+    }
 }

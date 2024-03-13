@@ -8,7 +8,6 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.TreeTableView;
 import javafx.stage.Stage;
-import org.jytek.leaguemanager.utilities.Util;
 import org.jytek.leaguemanager.view.MeetResult;
 import org.jytek.leaguemanager.view.TmMeet;
 import org.jytek.leaguemanager.view.TmMtevent;

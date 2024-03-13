@@ -7,7 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
-import org.jytek.leaguemanager.utilities.Util;
 import org.jytek.leaguemanager.view.MeetResult;
 
 import java.net.URL;
