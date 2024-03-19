@@ -36,6 +36,7 @@ public class FsslController extends Application implements Initializable {
     private final FileChooser fileChooser = new FileChooser();
     private final Collection<DualMockResult> dualResults = new ArrayList<>();
     private final Collection<MockMeetResults> mockResults = new ArrayList<>();
+
     TmMdbDAO tm;
     private List<Tab> tabs = null;
     @FXML
@@ -249,14 +250,14 @@ public class FsslController extends Application implements Initializable {
                     if (teamScores.size() > 1) {
                         var t1 = teamScores.get(team1);
                         var t2 = teamScores.get(team2);
-                        var diff = (int) ((t1 - t2) / 10.0);
+                        var diff = new Integer((int) ((t1 - t2) / 10.0));
                         try {
                             dualResults.add(new DualMockResult(
                                     tm.getTeams().get(team1).getTcode(),
-                                    t1,
+                                    t1.toString(),
                                     tm.getTeams().get(team2).getTcode(),
-                                    t2,
-                                    diff,
+                                    t2.toString(),
+                                    diff.toString(),
                                     r));
                         } catch (KeyNotFoundException e) {
                             System.out.println(e);
@@ -287,13 +288,13 @@ public class FsslController extends Application implements Initializable {
             ties.computeIfAbsent(r.getTeam1(), s -> 0);
             ties.computeIfAbsent(r.getTeam2(), s -> 0);
 
-            if (r.getTeam1Score() > r.getTeam2Score()) {
+            if (Integer.valueOf(r.getTeam1Score()) > Integer.valueOf(r.getTeam2Score())) {
                 wins.put(r.getTeam1(), wins.get(r.getTeam1()) + 1);
             }
-            if (r.getTeam1Score().intValue() == r.getTeam2Score().intValue()) {
+            if (Integer.valueOf(r.getTeam1Score()) == Integer.valueOf(r.getTeam2Score())) {
                 ties.put(r.getTeam1(), ties.get(r.getTeam1()) + 1);
             }
-            if (r.getTeam1Score() < r.getTeam2Score()) {
+            if (Integer.valueOf(r.getTeam1Score())< Integer.valueOf(r.getTeam2Score())) {
                 losses.put(r.getTeam1(), losses.get(r.getTeam1()) + 1);
             }
         });

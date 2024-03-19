@@ -1,21 +1,26 @@
-
 package org.jytek.leaguemanager.view;
 
 import java.util.Objects;
 
 public class DualMockResult {
 
-    String team1;
-    Integer team1Score;
-    String team2;
-    Integer team2Score;
-    Integer diff;
+    private String team1 = "";
+    private String team1Score = "";
+    private String team2 = "";
+    private String team2Score = "";
+    private String diff = "";
 
-    MockMeetResults results;
+    private MockMeetResults results;
+
+    public DualMockResult()
+    {
+
+    }
 
 
-
-    public DualMockResult(String team1, Integer team1Score, String team2, Integer team2Score, Integer diff, MockMeetResults results) {
+    public DualMockResult(final String team1, final String team1Score,
+                          final String team2, final String team2Score,
+                          final String diff, final MockMeetResults results) {
         this.team1 = team1;
         this.team1Score = team1Score;
         this.team2 = team2;
@@ -26,11 +31,18 @@ public class DualMockResult {
     }
 
 
+
+
+
     public String getTeam1() {
         return team1;
     }
 
-    public Integer getTeam1Score() {
+    public void setTeam1(final String team1) {
+        this.team1 = team1;
+    }
+
+    public String getTeam1Score() {
         return team1Score;
     }
 
@@ -38,11 +50,11 @@ public class DualMockResult {
         return team2;
     }
 
-    public Integer getTeam2Score() {
+    public String getTeam2Score() {
         return team2Score;
     }
 
-    public Integer getDiff() {
+    public String getDiff() {
         return diff;
     }
 

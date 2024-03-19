@@ -57,6 +57,9 @@
                                              text="Name"/>
                                 <TableColumn fx:id="tcShort" minWidth="100.0" prefWidth="238.0" sortable="true"
                                              text="Short"/>
+                                <TableColumn fx:id="tcId" minWidth="100.0" prefWidth="238.0" sortable="true"
+                                             text="Short"/>
+
                             </columns>
                         </TableView>
                     </AnchorPane>

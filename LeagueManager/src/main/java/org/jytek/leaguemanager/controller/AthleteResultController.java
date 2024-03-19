@@ -56,7 +56,7 @@ public class AthleteResultController extends Application implements Initializabl
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Util.setPVF(tcAthleteResultScore, "Score");
+
         Util.setPVF(tcAthleteResultPlace, "Place");
         Util.setPVF(tcAthleteResultPoints, "Points");
         Util.setPVF(tcAthleteResultAge, "Age");

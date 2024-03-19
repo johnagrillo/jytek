@@ -10,17 +10,17 @@
                 prefHeight="51.0" prefWidth="190.0" text="Load All Weekly MDB"/>
 
         <TabPane layoutY="105.0" prefHeight="719.0" prefWidth="652.0" tabClosingPolicy="UNAVAILABLE">
-           <tabs>
+            <tabs>
 
-                  <Tab text="Week1">
+                <Tab text="Week1">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
 
                                 <Button fx:id="btnWk1Load" layoutX="115.0" layoutY="15.0" mnemonicParsing="false"
-                                        onAction="#onWkLoad" prefHeight="30.0" prefWidth="83.0" text="Load MDB"/>
+                                        onAction="#onWk{week}Load" prefHeight="30.0" prefWidth="83.0" text="Load MDB"/>
                                 <Button fx:id="btnWk1Run" layoutX="31.0" layoutY="15.0" mnemonicParsing="false"
-                                        onAction="#onWkRun" prefHeight="30.0" prefWidth="66.0" text="Run"/>
+                                        onAction="#onWk1Run" prefHeight="30.0" prefWidth="66.0" text="Run"/>
                                 <TextField fx:id="tfWk1File" disable="true" layoutX="223.0" layoutY="18.0"
                                            prefHeight="25.0" prefWidth="398.0"/>
 
@@ -41,15 +41,15 @@
                     </content>
                 </Tab>
 
-                  <Tab text="Week2">
+                <Tab text="Week2">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
 
                                 <Button fx:id="btnWk2Load" layoutX="115.0" layoutY="15.0" mnemonicParsing="false"
-                                        onAction="#onWkLoad" prefHeight="30.0" prefWidth="83.0" text="Load MDB"/>
+                                        onAction="#onWk{week}Load" prefHeight="30.0" prefWidth="83.0" text="Load MDB"/>
                                 <Button fx:id="btnWk2Run" layoutX="31.0" layoutY="15.0" mnemonicParsing="false"
-                                        onAction="#onWkRun" prefHeight="30.0" prefWidth="66.0" text="Run"/>
+                                        onAction="#onWk2Run" prefHeight="30.0" prefWidth="66.0" text="Run"/>
                                 <TextField fx:id="tfWk2File" disable="true" layoutX="223.0" layoutY="18.0"
                                            prefHeight="25.0" prefWidth="398.0"/>
 
@@ -70,15 +70,15 @@
                     </content>
                 </Tab>
 
-                  <Tab text="Week3">
+                <Tab text="Week3">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
 
                                 <Button fx:id="btnWk3Load" layoutX="115.0" layoutY="15.0" mnemonicParsing="false"
-                                        onAction="#onWkLoad" prefHeight="30.0" prefWidth="83.0" text="Load MDB"/>
+                                        onAction="#onWk{week}Load" prefHeight="30.0" prefWidth="83.0" text="Load MDB"/>
                                 <Button fx:id="btnWk3Run" layoutX="31.0" layoutY="15.0" mnemonicParsing="false"
-                                        onAction="#onWkRun" prefHeight="30.0" prefWidth="66.0" text="Run"/>
+                                        onAction="#onWk3Run" prefHeight="30.0" prefWidth="66.0" text="Run"/>
                                 <TextField fx:id="tfWk3File" disable="true" layoutX="223.0" layoutY="18.0"
                                            prefHeight="25.0" prefWidth="398.0"/>
 
@@ -99,15 +99,15 @@
                     </content>
                 </Tab>
 
-                  <Tab text="Week4">
+                <Tab text="Week4">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
 
                                 <Button fx:id="btnWk4Load" layoutX="115.0" layoutY="15.0" mnemonicParsing="false"
-                                        onAction="#onWkLoad" prefHeight="30.0" prefWidth="83.0" text="Load MDB"/>
+                                        onAction="#onWk{week}Load" prefHeight="30.0" prefWidth="83.0" text="Load MDB"/>
                                 <Button fx:id="btnWk4Run" layoutX="31.0" layoutY="15.0" mnemonicParsing="false"
-                                        onAction="#onWkRun" prefHeight="30.0" prefWidth="66.0" text="Run"/>
+                                        onAction="#onWk4Run" prefHeight="30.0" prefWidth="66.0" text="Run"/>
                                 <TextField fx:id="tfWk4File" disable="true" layoutX="223.0" layoutY="18.0"
                                            prefHeight="25.0" prefWidth="398.0"/>
 
@@ -128,15 +128,15 @@
                     </content>
                 </Tab>
 
-                  <Tab text="Week5">
+                <Tab text="Week5">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
 
                                 <Button fx:id="btnWk5Load" layoutX="115.0" layoutY="15.0" mnemonicParsing="false"
-                                        onAction="#onWkLoad" prefHeight="30.0" prefWidth="83.0" text="Load MDB"/>
+                                        onAction="#onWk{week}Load" prefHeight="30.0" prefWidth="83.0" text="Load MDB"/>
                                 <Button fx:id="btnWk5Run" layoutX="31.0" layoutY="15.0" mnemonicParsing="false"
-                                        onAction="#onWkRun" prefHeight="30.0" prefWidth="66.0" text="Run"/>
+                                        onAction="#onWk5Run" prefHeight="30.0" prefWidth="66.0" text="Run"/>
                                 <TextField fx:id="tfWk5File" disable="true" layoutX="223.0" layoutY="18.0"
                                            prefHeight="25.0" prefWidth="398.0"/>
 
@@ -156,7 +156,8 @@
                         </AnchorPane>
                     </content>
                 </Tab>
-</tabs>
+
+            </tabs>
         </TabPane>
         <TreeTableView layoutX="669.0" layoutY="14.0" prefHeight="814.0" prefWidth="428.0">
             <columns>

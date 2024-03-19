@@ -84,7 +84,7 @@ public class MeetResultTreeController extends Application implements Initializab
 
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(final URL url, final ResourceBundle resourceBundle) {
 
         tcEvent.setCellValueFactory((
                 TreeTableColumn.CellDataFeatures<MeetResult, String> param) -> new ReadOnlyStringWrapper(

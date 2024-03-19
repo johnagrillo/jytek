@@ -26,7 +26,7 @@ public class MockMeetResults {
         return results;
     }
 
-    private TreeMap<Short, ArrayList<TmResult>> results;
+    private TreeMap<Short, ArrayList<TmResult>> results= new TreeMap<>();
 
     public TreeMap<Integer, Integer> getTeamScores() {
         return teamScores;
@@ -34,7 +34,7 @@ public class MockMeetResults {
     TreeMap<Integer, Integer> teamScores;
 
 
-    public TreeMap<Short, TreeMap<Integer, HashSet<TmResult>>> meetResults;
+    public TreeMap<Short, TreeMap<Integer, HashSet<TmResult>>> meetResults = new TreeMap<>();
 
 
     @Override
