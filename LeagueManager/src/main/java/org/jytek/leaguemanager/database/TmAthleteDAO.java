@@ -3,13 +3,9 @@ import com.healthmarketscience.jackcess.Database;
 import com.healthmarketscience.jackcess.Row;
 import org.jytek.leaguemanager.view.TmAthlete;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.stream.Stream;
-import java.util.Collection;
 
 
-public class TmAthleteDAO extends DAOStream<Integer, TmAthlete> {
+public class TmAthleteDAO extends MdbDAOStream<Integer, TmAthlete> {
 
     public static TmAthleteDAO load(final Database db) throws IOException {
         return new TmAthleteDAO(db);

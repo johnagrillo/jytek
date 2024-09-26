@@ -1,0 +1,257 @@
+SR-MD-VOUBC
+skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=10381, ex=' ', origin='null', nt=0, result=25494, age=11, distance=100, stroke=5, mtevent=2501, points=20, place=5, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=5675, ex=' ', origin='null', nt=0, result=25495, age=11, distance=50, stroke=3, mtevent=2491, points=10, place=6, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=5622, ex=' ', origin='null', nt=0, result=25496, age=11, distance=50, stroke=2, mtevent=2461, points=0, place=10, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=57, athlete=1489, ir='I', team=16, score=2978, ex=' ', origin='null', nt=0, result=7882, age=14, distance=50, stroke=1, mtevent=806, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=57, athlete=1489, ir='I', team=16, score=7042, ex=' ', origin='null', nt=0, result=7884, age=14, distance=100, stroke=1, mtevent=807, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=8250, ex=' ', origin='null', nt=0, result=16821, age=14, distance=100, stroke=5, mtevent=1736, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=3984, ex=' ', origin='null', nt=0, result=16822, age=14, distance=50, stroke=3, mtevent=1737, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=7199, ex=' ', origin='null', nt=0, result=16823, age=14, distance=100, stroke=1, mtevent=1738, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=3700, ex=' ', origin='null', nt=0, result=16824, age=14, distance=50, stroke=4, mtevent=1739, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=2992, ex=' ', origin='null', nt=0, result=19963, age=14, distance=50, stroke=1, mtevent=2019, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=3770, ex=' ', origin='null', nt=0, result=19964, age=14, distance=50, stroke=3, mtevent=2016, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=6879, ex=' ', origin='null', nt=0, result=19965, age=14, distance=100, stroke=1, mtevent=2018, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}1
+50  SR-MD 3063 1820
+2
+50  VOUBC 3027 1111
+30  SR-MD 3122 2813(Y) 1823
+10  SR-MD 3184 1368
+3
+50  VOUBC 2964 1489
+30  VOUBC 3025 1070
+10  SR-MD 3046 2745(Y) 1414
+4
+50  SR-MD 2948 1353
+30  SR-MD 3032 1400
+10  SR-MD 3089 1361
+5
+50  VOUBC 3113 2805(Y) 1110
+30  VOUBC 3190 1063
+10  VOUBC 3288 1064
+6
+50  VOUBC 3466 3123(Y) 1074
+30  SR-MD 3744 1418
+10  SR-MD 3765 1833
+7
+50  SR-MD 1702 1534(Y) 1395
+30  VOUBC 1746 1071
+10  SR-MD 1846 1967
+8
+50  VOUBC 1681 1093
+30  SR-MD 1700 1532(Y) 1335
+10  SR-MD 1859 1316
+9
+50  SR-MD 1877 1691(Y) 1821
+30  VOUBC 1879 1092
+10  SR-MD 1943 1369
+10
+50  SR-MD 2007 1809(Y) 1394
+30  VOUBC 2337 1981
+10  VOUBC 2365 1072
+11
+50  VOUBC 2803 2526(Y) 1112
+30  SR-MD 3133 1425
+10  SR-MD 3144 1829
+12
+50  VOUBC 2965 2672(Y) 1048
+30  VOUBC 3206 1050
+10  SR-MD 3434 1407
+13
+50  SR-MD 6409 1354
+30  SR-MD 8121 1820
+14
+50  SR-MD 7407 1368
+30  SR-MD 8037 1823
+10  VOUBC 8178 1111
+15
+50  VOUBC 7560 1070
+30  SR-MD 7877 1359
+10  SR-MD 8044 1414
+16
+50  SR-MD 7127 1353
+30  SR-MD 7813 1361
+10  SR-MD 7839 1400
+17
+50  VOUBC 7786 7015(Y) 1110
+30  VOUBC 7910 7127(Y) 1064
+10  VOUBC 8280 1977
+18
+50  VOUBC 9776 1074
+30  SR-MD 9814 1418
+10  SR-MD 9862 1350
+19
+50  SR-MD 10132 9128(Y) 1395
+30  VOUBC 10765 1092
+10  VOUBC 10789 1071
+20
+50  VOUBC 9039 8144(Y) 1093
+30  SR-MD 11007 1335
+10  SR-MD 12046 1316
+21
+50  SR-MD 4003 1820
+22
+50  SR-MD 3771 1368
+30  SR-MD 3988 3593(Y) 1823
+10  SR-MD 4926 1351
+23
+50  VOUBC 3833 1489
+30  SR-MD 3886 3501(Y) 1414
+10  SR-MD 4006 1370
+24
+50  SR-MD 3834 1400
+30  SR-MD 4151 1361
+10  SR-MD 4752 1320
+25
+50  VOUBC 4030 1064
+30  VOUBC 4145 3735(Y) 1063
+10  VOUBC 4218 3800(Y) 1977
+26
+50  SR-MD 4817 4340(Y) 1360
+30  VOUBC 5042 1074
+10  SR-MD 5083 1418
+27
+50  VOUBC 2502 1108
+30  SR-MD 2509 1395
+10  SR-MD 2677 1373
+28
+50  VOUBC 2151 1093
+30  SR-MD 2459 2216(Y) 1335
+10  SR-MD 2527 1318
+29
+50  VOUBC 2414 2175(Y) 1092
+30  SR-MD 2531 2281(Y) 1821
+10  SR-MD 3434 1369
+30
+50  VOUBC 3113 1043
+30  VOUBC 3258 1054
+10  VOUBC 3350 1106
+31
+80  SR-MD 13346 1703
+40  VOUBC 15633 1419
+32
+80  VOUBC 16997 2099
+40  SR-MD 19166 1764
+33
+80  SR-MD 9369 2194
+40  VOUBC 9718 1597
+34
+80  SR-MD 11728 2380
+40  VOUBC 11902 1970
+35
+50  SR-MD 3116 1354
+36
+50  VOUBC 3473 1111
+30  SR-MD 3695 3329(Y) 1823
+10  SR-MD 3841 1368
+37
+50  SR-MD 3676 1359
+30  SR-MD 3718 3350(Y) 1414
+10  SR-MD 3954 1370
+38
+50  SR-MD 3435 1353
+30  SR-MD 3591 1361
+10  SR-MD 3613 3255(Y) 1400
+39
+50  VOUBC 3617 3259(Y) 1063
+30  VOUBC 3791 1977
+10  VOUBC 3880 1110
+40
+50  SR-MD 4205 1833
+30  SR-MD 4319 3891(Y) 1350
+10  VOUBC 4341 3911(Y) 1074
+41
+50  SR-MD 2249 1395
+30  SR-MD 2308 1399
+10  SR-MD 2315 2086(Y) 1967
+42
+50  VOUBC 1959 1093
+30  SR-MD 2245 1335
+10  SR-MD 2265 1317
+43
+50  VOUBC 2184 1968(Y) 1092
+30  SR-MD 2239 1821
+10  SR-MD 2558 2305(Y) 1344
+44
+50  SR-MD 2331 2100(Y) 1394
+30  VOUBC 2836 1072
+10  VOUBC 2965 1044
+45
+50  VOUBC 3357 3025(Y) 1112
+30  VOUBC 3787 1982
+10  SR-MD 4501 1337
+46
+50  SR-MD 3672 1330
+30  VOUBC 3786 1085
+10  VOUBC 3994 1048
+47
+50  SR-MD 5823 1354
+30  SR-MD 7528 1820
+48
+50  SR-MD 8492 1340
+30  VOUBC 8757 1057
+10  SR-MD 8822 1351
+49
+50  VOUBC 6616 1070
+30  VOUBC 6725 1489
+10  SR-MD 6737 1359
+50
+50  SR-MD 6488 1353
+30  SR-MD 8320 1320
+10  VOUBC 9444 1047
+51
+50  VOUBC 6791 1110
+30  VOUBC 7332 6606(Y) 1064
+10  VOUBC 7385 1063
+52
+50  SR-MD 8644 1418
+30  SR-MD 8914 1350
+10  VOUBC 8978 1102
+53
+50  VOUBC 3981 1071
+30  SR-MD 4469 1399
+10  SR-MD 4519 1967
+54
+50  SR-MD 4150 3739(Y) 1316
+30  SR-MD 4241 1317
+10  SR-MD 4974 1355
+55
+50  SR-MD 4413 3976(Y) 1821
+30  SR-MD 4877 1369
+10  SR-MD 5307 1426
+56
+50  SR-MD 4617 4160(Y) 1394
+30  VOUBC 5853 1981
+10  VOUBC 5934 1072
+57
+50  SR-MD 3018 1354
+58
+50  VOUBC 3376 1111
+30  SR-MD 4022 1351
+10  SR-MD 4681 1340
+59
+50  VOUBC 3299 1070
+30  SR-MD 3558 1388
+10  SR-MD 3573 1359
+60
+50  SR-MD 4169 1320
+30  SR-MD 4606 1336
+61
+50  VOUBC 3363 3030(Y) 1977
+30  VOUBC 4975 1066
+10  SR-MD 5570 1367
+62
+50  SR-MD 4718 1833
+30  VOUBC 5311 1056
+10  SR-MD 5453 1363
+63
+50  VOUBC 2155 1071
+30  SR-MD 2610 1373
+10  SR-MD 2758 1427
+64
+50  SR-MD 2422 1417
+30  SR-MD 2715 1316
+10  VOUBC 2884 1113
+65
+50  SR-MD 2785 1369
+30  SR-MD 3030 1426
+10  SR-MD 3270 1344
+66
+50  SR-MD 3220 1394
+30  VOUBC 3345 1072
+10  SR-MD 4170 1321
+67
+80  VOUBC 13088 2350
+40  SR-MD 17607 1944
+68
+80  VOUBC 15805 2107
+40  SR-MD 16550 2383
+SCORE:SR-MD,VOUBC,3480,2630,85.0

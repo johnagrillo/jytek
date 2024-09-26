@@ -1,0 +1,260 @@
+LAND-WRST
+skip 1518 TmResult{meet=45, athlete=154, ir='I', team=14, score=7716, ex=' ', origin='null', nt=0, result=394, age=14, distance=100, stroke=5, mtevent=62, points=0, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=45, athlete=154, ir='I', team=14, score=3609, ex=' ', origin='null', nt=0, result=395, age=14, distance=50, stroke=2, mtevent=63, points=0, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=45, athlete=154, ir='I', team=14, score=3097, ex=' ', origin='null', nt=0, result=396, age=14, distance=50, stroke=4, mtevent=66, points=0, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=154, ir='I', team=14, score=2852, ex=' ', origin='null', nt=0, result=17158, age=14, distance=50, stroke=1, mtevent=1754, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=154, ir='I', team=14, score=7352, ex=' ', origin='null', nt=0, result=17159, age=14, distance=100, stroke=5, mtevent=1736, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=154, ir='I', team=14, score=3037, ex=' ', origin='null', nt=0, result=17160, age=14, distance=50, stroke=4, mtevent=1739, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=77, athlete=154, ir='I', team=14, score=3025, ex=' ', origin='null', nt=0, result=21266, age=14, distance=50, stroke=4, mtevent=2164, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=77, athlete=154, ir='I', team=14, score=2813, ex=' ', origin='null', nt=0, result=21267, age=14, distance=50, stroke=1, mtevent=2106, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=77, athlete=154, ir='I', team=14, score=7277, ex=' ', origin='null', nt=0, result=21268, age=14, distance=100, stroke=5, mtevent=2163, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=82, athlete=154, ir='I', team=14, score=7134, ex=' ', origin='null', nt=0, result=25835, age=14, distance=100, stroke=5, mtevent=2503, points=50, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=82, athlete=154, ir='I', team=14, score=3019, ex=' ', origin='null', nt=0, result=25836, age=14, distance=50, stroke=4, mtevent=2504, points=50, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=82, athlete=154, ir='I', team=14, score=4153, ex=' ', origin='null', nt=0, result=25837, age=14, distance=50, stroke=3, mtevent=2444, points=50, place=2, course='S', dqcode='  ', dqdescript='null'}1
+50  WRST 3122 127
+30  WRST 3353 116
+10  WRST 3364 106
+2
+50  LAND 2939 2648(Y) 873
+30  LAND 3284 1468
+10  LAND 3322 875
+3
+50  WRST 2787 2511(Y) 154
+30  LAND 3066 851
+10  WRST 3162 129
+4
+50  WRST 3062 2759(Y) 105
+30  WRST 3164 134
+10  WRST 3244 83
+5
+50  LAND 3036 2736(Y) 863
+30  LAND 4375 1938
+10  LAND 4544 905
+6
+50  LAND 3594 3238(Y) 917
+30  LAND 3681 856
+10  LAND 3981 852
+7
+50  WRST 1859 110
+30  WRST 1875 117
+10  WRST 2134 139
+8
+50  LAND 1812 862
+30  LAND 1891 891
+10  WRST 1920 114
+9
+50  LAND 2203 858
+30  WRST 2389 92
+10  LAND 2503 914
+10
+50  LAND 1931 845
+30  LAND 1994 867
+10  WRST 2081 1754
+11
+50  LAND 3547 868
+30  WRST 5209 1989
+12
+50  WRST 2171 1956(Y) 84
+30  LAND 2540 919
+10  LAND 2911 2623(Y) 855
+13
+50  WRST 8825 116
+30  WRST 9150 106
+14
+50  LAND 7149 6441(Y) 873
+30  LAND 8009 875
+10  WRST 8453 1992
+15
+50  WRST 7384 154
+30  LAND 7734 851
+10  LAND 9313 857
+16
+50  WRST 8505 134
+30  WRST 8741 83
+10  LAND 8812 1467
+17
+50  LAND 7584 6833(Y) 863
+30  LAND 12016 1938
+10  WRST 12818 132
+18
+50  LAND 9677 917
+30  LAND 10550 856
+10  LAND 10575 864
+19
+50  WRST 11275 110
+30  WRST 14508 139
+10  WRST 17882 85
+20
+50  LAND 11794 891
+30  LAND 12506 869
+10  WRST 12790 96
+21
+50  WRST 4228 106
+30  WRST 4950 116
+10  LAND 5784 1928
+22
+50  LAND 3663 3300(Y) 873
+30  LAND 3920 3532(Y) 1468
+10  LAND 4409 875
+23
+50  LAND 3937 3547(Y) 851
+30  WRST 3969 3576(Y) 129
+10  LAND 5044 857
+24
+50  WRST 4367 3935(Y) 83
+30  LAND 4795 1466
+10  LAND 5037 1467
+25
+50  LAND 3805 3428(Y) 863
+30  LAND 5957 905
+10  WRST 6016 97
+26
+50  LAND 4865 852
+30  LAND 5171 864
+10  WRST 5578 107
+27
+50  WRST 2737 110
+30  LAND 3088 865
+10  WRST 3307 150
+28
+50  LAND 2585 2329(Y) 871
+30  WRST 2769 96
+10  LAND 2932 869
+29
+50  LAND 3022 858
+30  WRST 3706 122
+10  WRST 3735 145
+30
+50  WRST 2799 2522(Y) 1754
+30  LAND 3263 867
+10  WRST 3316 133
+31
+80  LAND 13863 2322
+40  WRST 14221 2149
+32
+80  LAND 17093 2323
+40  WRST 22522 2357
+33
+80  WRST 9772 2154
+40  LAND 9860 1587
+34
+80  LAND 10919 1884
+40  WRST 13986 2157
+35
+50  WRST 3769 127
+30  WRST 3821 116
+10  WRST 4401 106
+36
+50  LAND 3488 3143(Y) 875
+30  LAND 3578 873
+10  WRST 3991 1992
+37
+50  LAND 4176 857
+30  WRST 4457 1990
+10  LAND 4607 1472
+38
+50  WRST 3682 134
+30  WRST 3921 3533(Y) 105
+10  LAND 3934 1467
+39
+50  LAND 3837 863
+30  WRST 5466 97
+10  LAND 5468 905
+40
+50  LAND 4494 856
+30  LAND 5138 864
+10  LAND 5194 860
+41
+50  WRST 2051 1848(Y) 110
+30  WRST 2251 117
+10  LAND 2706 907
+42
+50  LAND 2247 2025(Y) 891
+30  WRST 2343 2111(Y) 114
+10  WRST 2377 142
+43
+50  LAND 2628 914
+30  LAND 2838 858
+10  LAND 2869 872
+44
+50  LAND 2360 2127(Y) 845
+30  WRST 2560 2307(Y) 1754
+10  LAND 2659 2396(Y) 867
+45
+50  LAND 3963 868
+30  WRST 6228 1989
+46
+50  LAND 2915 919
+30  WRST 2940 84
+10  LAND 3690 1929
+47
+50  WRST 7169 127
+30  LAND 9606 1928
+48
+50  LAND 7447 1468
+30  WRST 7834 1755
+10  WRST 8062 118
+49
+50  LAND 7237 851
+30  LAND 7400 857
+10  WRST 7933 129
+50
+50  WRST 7208 6494(Y) 83
+30  WRST 7432 134
+10  LAND 7510 1467
+51
+50  LAND 10238 1938
+30  LAND 11068 905
+10  WRST 11466 97
+52
+50  LAND 8140 7334(Y) 917
+30  LAND 8975 856
+10  LAND 9397 918
+53
+50  WRST 4184 117
+30  LAND 5284 907
+10  WRST 5441 139
+54
+50  LAND 4213 3796(Y) 862
+30  WRST 4531 143
+10  LAND 4556 891
+55
+50  WRST 6019 92
+30  LAND 6147 911
+10  LAND 6220 858
+56
+50  LAND 4431 3992(Y) 845
+30  LAND 4666 867
+10  WRST 4790 1754
+57
+50  WRST 3587 127
+58
+50  WRST 3746 1992
+30  WRST 3765 1755
+10  WRST 3856 156
+59
+50  WRST 2929 2639(Y) 154
+30  WRST 3965 129
+10  LAND 4145 1472
+60
+50  WRST 4040 105
+30  WRST 4682 1751
+10  WRST 4844 93
+61
+50  LAND 6478 1938
+30  WRST 8381 146
+62
+50  LAND 4637 917
+30  WRST 5159 1752
+10  LAND 5212 918
+63
+50  WRST 2834 139
+30  WRST 3195 126
+10  LAND 3363 886
+64
+50  WRST 2150 142
+30  LAND 2406 869
+10  LAND 2472 862
+65
+50  LAND 4018 1937
+30  WRST 4688 104
+66
+50  WRST 2877 84
+30  LAND 3028 845
+10  LAND 3444 887
+67
+80  WRST 15708 1685
+40  LAND 16500 1885
+68
+80  WRST 14710 2361
+40  LAND 15818 2329
+SCORE:LAND,WRST,3310,2890,42.0

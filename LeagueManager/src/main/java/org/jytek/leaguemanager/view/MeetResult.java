@@ -23,6 +23,21 @@ public class MeetResult implements Comparable<MeetResult> {
         this.conv = "";
     
     }
+
+    @Override
+    public String toString() {
+        return "MeetResult{" +
+                "event='" + event + '\'' +
+                ", points='" + points + '\'' +
+                ", place='" + place + '\'' +
+                ", athlete='" + athlete + '\'' +
+                ", age='" + age + '\'' +
+                ", team='" + team + '\'' +
+                ", time='" + time + '\'' +
+                ", conv='" + conv + '\'' +
+                '}';
+    }
+
     public MeetResult(
             String event,
             String points,

@@ -14,7 +14,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 import org.jytek.leaguemanager.FsslMain;
-import org.jytek.leaguemanager.database.*;
+import org.jytek.leaguemanager.database.KeyNotFoundException;
+import org.jytek.leaguemanager.database.TmMdbDAO;
 import org.jytek.leaguemanager.utilities.MockMeet;
 import org.jytek.leaguemanager.view.*;
 
@@ -33,6 +34,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class FsslController extends Application implements Initializable {
 
+    public static final double DOUBLE = 10.0;
     private final FileChooser fileChooser = new FileChooser();
     private final Collection<DualMockResult> dualResults = new ArrayList<>();
     private final Collection<MockMeetResults> mockResults = new ArrayList<>();
@@ -40,7 +42,7 @@ public class FsslController extends Application implements Initializable {
     TmMdbDAO tm;
     private List<Tab> tabs = null;
     @FXML
-    private List<TableView<?>> tables ;
+    private List<TableView<?>> tables;
     @FXML
     private TreeView<String> trvWeeks;
     @FXML
@@ -220,6 +222,8 @@ public class FsslController extends Application implements Initializable {
             final var team1 = e1.getKey();
             final var team1Entries = tm.getBestTeamEntries(team1);
             tm.getTeams().filter(e2 -> !Objects.equals(team1, e2.getKey())).forEach(e2 -> {
+                System.out.println(e1 + " --- "  + e2);
+
                 final var team2 = e2.getKey();
                 var in = new HashSet<Integer>();
                 in.add(team1);
@@ -250,19 +254,25 @@ public class FsslController extends Application implements Initializable {
                     if (teamScores.size() > 1) {
                         var t1 = teamScores.get(team1);
                         var t2 = teamScores.get(team2);
-                        var diff = new Integer((int) ((t1 - t2) / 10.0));
-                        try {
-                            dualResults.add(new DualMockResult(
-                                    tm.getTeams().get(team1).getTcode(),
-                                    t1.toString(),
-                                    tm.getTeams().get(team2).getTcode(),
-                                    t2.toString(),
-                                    diff.toString(),
-                                    r));
-                        } catch (KeyNotFoundException e) {
-                            System.out.println(e);
-                        }
 
+                        if ((t1 == null) || (t2 == null)) {
+
+                        } else {
+                            var diff = Integer.toString((int) ((t1 - t2) / DOUBLE));
+
+
+                            try {
+                                dualResults.add(new DualMockResult(
+                                        tm.getTeams().get(team1).getTcode(),
+                                        t1.toString(),
+                                        tm.getTeams().get(team2).getTcode(),
+                                        t2.toString(),
+                                        diff,
+                                        r));
+                            } catch (KeyNotFoundException e) {
+                                System.out.println(e);
+                            }
+                        }
                     }
                 });
             });
@@ -280,7 +290,7 @@ public class FsslController extends Application implements Initializable {
         final Map<String, Integer> ties = new TreeMap<>();
 
 
-        results.forEach(r-> {
+        results.forEach(r -> {
             wins.computeIfAbsent(r.getTeam1(), s -> 0);
             wins.computeIfAbsent(r.getTeam2(), s -> 0);
             losses.computeIfAbsent(r.getTeam1(), s -> 0);
@@ -294,7 +304,7 @@ public class FsslController extends Application implements Initializable {
             if (Integer.valueOf(r.getTeam1Score()) == Integer.valueOf(r.getTeam2Score())) {
                 ties.put(r.getTeam1(), ties.get(r.getTeam1()) + 1);
             }
-            if (Integer.valueOf(r.getTeam1Score())< Integer.valueOf(r.getTeam2Score())) {
+            if (Integer.valueOf(r.getTeam1Score()) < Integer.valueOf(r.getTeam2Score())) {
                 losses.put(r.getTeam1(), losses.get(r.getTeam1()) + 1);
             }
         });
@@ -302,7 +312,7 @@ public class FsslController extends Application implements Initializable {
         // sort by wins
 
         Map<Integer, ArrayList<String>> byScore = new TreeMap<>();
-        wins.entrySet().forEach( team -> {
+        wins.entrySet().forEach(team -> {
             var list = byScore.computeIfAbsent(team.getValue(), k -> new ArrayList<>());
             list.add(team.getKey());
         });
@@ -526,7 +536,7 @@ public class FsslController extends Application implements Initializable {
 
         var results = new TreeMap<TmMtevent, ArrayList<MeetResult>>();
 
-        tm.getResults().values().forEach( r -> {
+        tm.getResults().values().forEach(r -> {
             if (Objects.equals(r.getMeet(), meet.getMeet())) {
                 try {
                     var mtevent = tm.getMtevents().get(r.getMtevent());
@@ -598,7 +608,7 @@ public class FsslController extends Application implements Initializable {
         final FXMLLoader loader = new FXMLLoader(FsslMain.class.getResource("fssl.fxml"));
         final Scene scene = new Scene(loader.load(), 1000, 1000);
         final var controller = loader.<FsslController>getController();
-        controller.populateData(new File("c:/Users/john/sandbox/mdb/fssl/2023.mdb"));
+        controller.populateData(new File("c:/Users/john/sandbox/mdb/fssl/2024.mdb"));
         stage.setTitle("League Manager");
         stage.setScene(scene);
         stage.show();

@@ -1,0 +1,251 @@
+HHCC-VOUBC
+skip 1518 TmResult{meet=78, athlete=1116, ir='I', team=5, score=2925, ex=' ', origin='null', nt=0, result=21299, age=14, distance=50, stroke=1, mtevent=2166, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=78, athlete=1116, ir='I', team=5, score=3635, ex=' ', origin='null', nt=0, result=21300, age=14, distance=50, stroke=4, mtevent=2167, points=0, place=6, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=78, athlete=1116, ir='I', team=5, score=8078, ex=' ', origin='null', nt=0, result=21301, age=14, distance=100, stroke=5, mtevent=2168, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=10381, ex=' ', origin='null', nt=0, result=25494, age=11, distance=100, stroke=5, mtevent=2501, points=20, place=5, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=5675, ex=' ', origin='null', nt=0, result=25495, age=11, distance=50, stroke=3, mtevent=2491, points=10, place=6, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=5622, ex=' ', origin='null', nt=0, result=25496, age=11, distance=50, stroke=2, mtevent=2461, points=0, place=10, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=57, athlete=1489, ir='I', team=16, score=2978, ex=' ', origin='null', nt=0, result=7882, age=14, distance=50, stroke=1, mtevent=806, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=57, athlete=1489, ir='I', team=16, score=7042, ex=' ', origin='null', nt=0, result=7884, age=14, distance=100, stroke=1, mtevent=807, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=8250, ex=' ', origin='null', nt=0, result=16821, age=14, distance=100, stroke=5, mtevent=1736, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=3984, ex=' ', origin='null', nt=0, result=16822, age=14, distance=50, stroke=3, mtevent=1737, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=7199, ex=' ', origin='null', nt=0, result=16823, age=14, distance=100, stroke=1, mtevent=1738, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=3700, ex=' ', origin='null', nt=0, result=16824, age=14, distance=50, stroke=4, mtevent=1739, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=2992, ex=' ', origin='null', nt=0, result=19963, age=14, distance=50, stroke=1, mtevent=2019, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=3770, ex=' ', origin='null', nt=0, result=19964, age=14, distance=50, stroke=3, mtevent=2016, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=6879, ex=' ', origin='null', nt=0, result=19965, age=14, distance=100, stroke=1, mtevent=2018, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}1
+50  HHCC 2751 1166
+2
+50  VOUBC 3027 1111
+30  HHCC 3132 1142
+10  HHCC 3156 1161
+3
+50  HHCC 2720 2451(Y) 1456
+30  HHCC 2869 2585(Y) 1116
+10  VOUBC 2964 1489
+4
+50  HHCC 3000 1123
+30  HHCC 3284 2959(Y) 1129
+10  HHCC 3354 3022(Y) 1147
+5
+50  VOUBC 3113 2805(Y) 1110
+30  VOUBC 3190 1063
+10  VOUBC 3288 1064
+6
+50  HHCC 2950 2658(Y) 1125
+30  HHCC 3108 2800(Y) 1164
+10  HHCC 3203 1162
+7
+50  HHCC 1687 1128
+30  HHCC 1708 1539(Y) 1118
+10  VOUBC 1746 1071
+8
+50  HHCC 1557 1163
+30  VOUBC 1681 1093
+10  HHCC 2085 1134
+9
+50  VOUBC 1879 1092
+30  HHCC 1956 1457
+10  HHCC 2356 1158
+10
+50  HHCC 1981 1121
+30  HHCC 2085 1160
+10  HHCC 2337 1925
+11
+50  VOUBC 2803 2526(Y) 1112
+30  VOUBC 3477 1982
+10  HHCC 3537 1927
+12
+50  VOUBC 2965 2672(Y) 1048
+30  VOUBC 3206 1050
+10  VOUBC 3562 1088
+13
+50  HHCC 7009 1166
+14
+50  HHCC 8060 7262(Y) 1139
+30  VOUBC 8178 1111
+10  HHCC 8843 1161
+15
+50  HHCC 7121 6416(Y) 1456
+30  VOUBC 7560 1070
+10  HHCC 7884 7103(Y) 1116
+16
+50  HHCC 7515 1123
+30  HHCC 8560 7712(Y) 1129
+10  HHCC 8847 1147
+17
+50  VOUBC 7786 7015(Y) 1110
+30  VOUBC 7910 7127(Y) 1064
+10  VOUBC 8280 1977
+18
+50  HHCC 7565 6816(Y) 1125
+30  HHCC 8091 1164
+10  HHCC 8184 1162
+19
+50  HHCC 10253 1128
+30  VOUBC 10765 1092
+10  VOUBC 10789 1071
+20
+50  VOUBC 9039 8144(Y) 1093
+30  HHCC 9600 8649(Y) 1163
+21
+50  HHCC 3707 3340(Y) 1166
+22
+50  HHCC 4211 3794(Y) 1139
+30  HHCC 4614 4157(Y) 1167
+10  VOUBC 5159 1057
+23
+50  VOUBC 3833 1489
+30  HHCC 3872 1116
+10  HHCC 4356 3925(Y) 1456
+24
+50  HHCC 3860 1123
+30  HHCC 4400 3964(Y) 1129
+10  HHCC 4720 4253(Y) 1117
+25
+50  VOUBC 4030 1064
+30  VOUBC 4145 3735(Y) 1063
+10  VOUBC 4218 3800(Y) 1977
+26
+50  HHCC 4097 1164
+30  HHCC 4238 1162
+10  HHCC 4740 4271(Y) 1926
+27
+50  HHCC 2273 2048(Y) 1128
+30  VOUBC 2502 1108
+10  HHCC 2547 1159
+28
+50  VOUBC 2151 1093
+30  HHCC 2364 2130(Y) 1163
+10  HHCC 3025 1134
+29
+50  VOUBC 2414 2175(Y) 1092
+30  HHCC 3313 1141
+10  VOUBC 3734 1101
+30
+50  VOUBC 3113 1043
+30  HHCC 3124 2815(Y) 1925
+10  VOUBC 3258 1054
+31
+80  HHCC 13411 12082(Y) 1871
+40  VOUBC 15633 1419
+32
+80  HHCC 14884 1579
+40  VOUBC 16997 2099
+33
+80  HHCC 9054 2170
+40  VOUBC 9718 1597
+34
+80  VOUBC 11902 1970
+40  HHCC 12341 2172
+35
+50  HHCC 3128 1166
+36
+50  VOUBC 3473 1111
+30  HHCC 3597 3241(Y) 1139
+10  HHCC 3847 1161
+37
+50  HHCC 4338 3909(Y) 1126
+30  HHCC 4594 1152
+10  HHCC 5300 1463
+38
+50  HHCC 3537 3187(Y) 1123
+30  HHCC 3850 1147
+10  HHCC 4209 1117
+39
+50  VOUBC 3617 3259(Y) 1063
+30  VOUBC 3791 1977
+10  VOUBC 3880 1110
+40
+50  HHCC 3460 3118(Y) 1125
+30  HHCC 3888 1162
+10  HHCC 4012 3615(Y) 1164
+41
+50  HHCC 2181 1458
+30  HHCC 2272 1128
+10  HHCC 2528 1122
+42
+50  VOUBC 1959 1093
+30  HHCC 2185 1163
+10  VOUBC 2582 1478
+43
+50  VOUBC 2184 1968(Y) 1092
+30  HHCC 2638 1457
+10  HHCC 2699 2432(Y) 1141
+44
+50  HHCC 2378 2143(Y) 1121
+30  HHCC 2629 1160
+10  VOUBC 2836 1072
+45
+50  VOUBC 3357 3025(Y) 1112
+30  VOUBC 3787 1982
+10  HHCC 3940 1927
+46
+50  VOUBC 3672 1088
+30  VOUBC 3786 1085
+10  VOUBC 3994 1048
+47
+48
+50  HHCC 7350 6622(Y) 1142
+30  HHCC 7370 6640(Y) 1161
+10  HHCC 7505 1167
+49
+50  HHCC 5975 5383(Y) 1456
+30  VOUBC 6616 1070
+10  VOUBC 6725 1489
+50
+50  HHCC 7297 1129
+30  HHCC 7706 1147
+10  HHCC 7985 1117
+51
+50  VOUBC 6791 1110
+30  VOUBC 7332 6606(Y) 1064
+10  VOUBC 7385 1063
+52
+50  HHCC 6723 1125
+30  HHCC 8091 2016
+10  HHCC 8184 1453
+53
+50  HHCC 3928 3539(Y) 1122
+30  VOUBC 3981 1071
+10  HHCC 4316 1458
+54
+50  HHCC 4879 1134
+30  VOUBC 5003 1077
+10  VOUBC 6052 1484
+55
+50  HHCC 4597 1457
+30  HHCC 5806 1141
+10  VOUBC 5891 1038
+56
+50  HHCC 4675 4212(Y) 1121
+30  HHCC 5503 1160
+10  VOUBC 5853 1981
+57
+58
+50  VOUBC 3376 1111
+30  HHCC 3559 1139
+10  HHCC 3575 1142
+59
+50  VOUBC 3299 1070
+30  HHCC 3507 3160(Y) 1116
+10  HHCC 3907 1152
+60
+50  HHCC 4009 1117
+61
+50  VOUBC 3363 3030(Y) 1977
+30  HHCC 4169 1130
+10  VOUBC 4975 1066
+62
+50  HHCC 4110 3703(Y) 1453
+30  HHCC 4841 4362(Y) 1151
+10  HHCC 4968 1135
+63
+50  VOUBC 2155 1071
+30  HHCC 2353 1122
+10  HHCC 2649 1118
+64
+50  VOUBC 2884 1113
+30  HHCC 3365 1124
+10  VOUBC 3493 1077
+65
+50  HHCC 2809 1457
+30  VOUBC 4044 1046
+10  VOUBC 4358 1101
+66
+50  HHCC 2875 1160
+30  VOUBC 3345 1072
+10  HHCC 4102 3696(Y) 1157
+67
+80  VOUBC 13088 2350
+40  HHCC 14400 1583
+68
+80  HHCC 14749 13288(Y) 1880
+40  VOUBC 15805 2107
+SCORE:HHCC,VOUBC,3600,2310,129.0

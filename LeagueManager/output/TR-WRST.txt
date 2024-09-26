@@ -1,0 +1,244 @@
+TR-WRST
+skip 1518 TmResult{meet=45, athlete=154, ir='I', team=14, score=7716, ex=' ', origin='null', nt=0, result=394, age=14, distance=100, stroke=5, mtevent=62, points=0, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=45, athlete=154, ir='I', team=14, score=3609, ex=' ', origin='null', nt=0, result=395, age=14, distance=50, stroke=2, mtevent=63, points=0, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=45, athlete=154, ir='I', team=14, score=3097, ex=' ', origin='null', nt=0, result=396, age=14, distance=50, stroke=4, mtevent=66, points=0, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=154, ir='I', team=14, score=2852, ex=' ', origin='null', nt=0, result=17158, age=14, distance=50, stroke=1, mtevent=1754, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=154, ir='I', team=14, score=7352, ex=' ', origin='null', nt=0, result=17159, age=14, distance=100, stroke=5, mtevent=1736, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=154, ir='I', team=14, score=3037, ex=' ', origin='null', nt=0, result=17160, age=14, distance=50, stroke=4, mtevent=1739, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=77, athlete=154, ir='I', team=14, score=3025, ex=' ', origin='null', nt=0, result=21266, age=14, distance=50, stroke=4, mtevent=2164, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=77, athlete=154, ir='I', team=14, score=2813, ex=' ', origin='null', nt=0, result=21267, age=14, distance=50, stroke=1, mtevent=2106, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=77, athlete=154, ir='I', team=14, score=7277, ex=' ', origin='null', nt=0, result=21268, age=14, distance=100, stroke=5, mtevent=2163, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=82, athlete=154, ir='I', team=14, score=7134, ex=' ', origin='null', nt=0, result=25835, age=14, distance=100, stroke=5, mtevent=2503, points=50, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=82, athlete=154, ir='I', team=14, score=3019, ex=' ', origin='null', nt=0, result=25836, age=14, distance=50, stroke=4, mtevent=2504, points=50, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=82, athlete=154, ir='I', team=14, score=4153, ex=' ', origin='null', nt=0, result=25837, age=14, distance=50, stroke=3, mtevent=2444, points=50, place=2, course='S', dqcode='  ', dqdescript='null'}1
+50  WRST 3122 127
+30  WRST 3353 116
+10  WRST 3364 106
+2
+50  WRST 3334 1992
+30  WRST 3427 1755
+10  WRST 3453 156
+3
+50  WRST 2787 2511(Y) 154
+30  WRST 3162 129
+10  WRST 3638 86
+4
+50  WRST 3062 2759(Y) 105
+30  WRST 3164 134
+10  WRST 3244 83
+5
+50  TR 4326 2033
+30  WRST 4575 132
+10  WRST 4706 97
+6
+50  WRST 4012 137
+30  WRST 4464 82
+10  WRST 4600 90
+7
+50  WRST 1859 110
+30  WRST 1875 117
+10  WRST 2134 139
+8
+50  TR 1908 2028
+30  WRST 1920 114
+10  WRST 1932 96
+9
+50  WRST 2389 92
+30  TR 2406 2037
+10  WRST 2631 141
+10
+50  WRST 2081 1754
+30  WRST 2739 133
+10  WRST 2863 102
+11
+50  WRST 5209 1989
+12
+50  WRST 2171 1956(Y) 84
+30  WRST 3475 91
+10  WRST 3509 125
+13
+50  WRST 8825 116
+30  WRST 9150 106
+14
+50  WRST 8453 1992
+30  WRST 9372 156
+10  WRST 9459 1755
+15
+50  WRST 7384 154
+30  WRST 9475 1990
+10  WRST 11026 86
+16
+50  WRST 8505 134
+30  WRST 8741 83
+10  WRST 10869 155
+17
+50  WRST 12818 132
+18
+50  WRST 11956 107
+30  WRST 14010 94
+10  WRST 15530 90
+19
+50  WRST 11275 110
+30  WRST 14508 139
+10  WRST 17882 85
+20
+50  WRST 12790 96
+30  WRST 13118 128
+10  WRST 13825 114
+21
+50  WRST 4228 106
+30  WRST 4950 116
+10  TR 5599 1862
+22
+50  WRST 4546 118
+30  WRST 4609 1755
+10  WRST 5153 156
+23
+50  WRST 3969 3576(Y) 129
+30  WRST 5561 86
+10  WRST 5563 95
+24
+50  WRST 4367 3935(Y) 83
+30  TR 5413 2038
+10  WRST 5584 155
+25
+50  WRST 6016 97
+30  TR 6171 5560(Y) 2033
+10  WRST 6520 132
+26
+50  WRST 5578 107
+30  WRST 5656 82
+10  WRST 5778 137
+27
+50  WRST 2737 110
+30  WRST 3307 150
+10  WRST 4419 126
+28
+50  WRST 2769 96
+30  WRST 3072 143
+10  WRST 3128 128
+29
+50  WRST 3706 122
+30  WRST 3735 145
+10  WRST 4150 144
+30
+50  WRST 2799 2522(Y) 1754
+30  WRST 3316 133
+10  WRST 4366 84
+31
+80  WRST 14221 2149
+32
+80  WRST 22522 2357
+33
+80  WRST 9772 2154
+34
+80  WRST 13986 2157
+35
+50  WRST 3769 127
+30  WRST 3821 116
+10  WRST 4401 106
+36
+50  WRST 3991 1992
+30  WRST 4172 1755
+10  WRST 4272 118
+37
+50  WRST 4457 1990
+30  WRST 5295 95
+10  WRST 5375 86
+38
+50  WRST 3682 134
+30  WRST 3921 3533(Y) 105
+10  WRST 4558 1751
+39
+50  TR 5328 4800(Y) 2033
+30  WRST 5466 97
+10  WRST 6150 132
+40
+50  WRST 5400 137
+30  WRST 5516 107
+10  WRST 5691 90
+41
+50  WRST 2051 1848(Y) 110
+30  WRST 2251 117
+10  WRST 2782 139
+42
+50  TR 2303 2075(Y) 2028
+30  WRST 2343 2111(Y) 114
+10  WRST 2377 142
+43
+50  WRST 3052 104
+30  WRST 3210 141
+10  WRST 3347 92
+44
+50  WRST 2560 2307(Y) 1754
+30  WRST 2878 102
+10  WRST 3066 136
+45
+50  WRST 6228 1989
+46
+50  WRST 2940 84
+30  TR 3646 3285(Y) 1858
+10  WRST 4883 91
+47
+50  WRST 7169 127
+30  TR 15783 14219(Y) 1862
+48
+50  WRST 8062 118
+30  WRST 8121 156
+10  WRST 9803 1987
+49
+50  WRST 7933 129
+30  WRST 10708 95
+10  TR 12571 2040
+50
+50  WRST 7208 6494(Y) 83
+30  WRST 7432 134
+10  TR 9084 2038
+51
+50  TR 9951 8965(Y) 2033
+30  WRST 11466 97
+10  WRST 11710 146
+52
+50  WRST 10885 137
+30  WRST 12628 107
+10  WRST 12990 90
+53
+50  WRST 4184 117
+30  WRST 5441 139
+10  WRST 6158 85
+54
+50  WRST 4531 143
+30  WRST 4669 114
+10  TR 4748 4278(Y) 2028
+55
+50  TR 5872 2037
+30  WRST 6019 92
+10  WRST 6225 122
+56
+50  WRST 4790 1754
+30  WRST 5534 84
+10  WRST 6732 133
+57
+50  WRST 3587 127
+58
+50  WRST 3746 1992
+59
+50  WRST 2929 2639(Y) 154
+30  WRST 3965 129
+10  WRST 4318 1990
+60
+50  WRST 4040 105
+30  WRST 4682 1751
+10  WRST 4844 93
+61
+50  WRST 8381 146
+62
+50  WRST 5159 1752
+63
+50  WRST 3195 126
+30  WRST 4058 108
+64
+50  WRST 2150 142
+30  WRST 2715 96
+10  WRST 3197 1753
+65
+50  WRST 4688 104
+66
+50  WRST 4281 136
+30  WRST 4302 87
+67
+80  WRST 15708 1685
+40  TR 23051 2204
+68
+80  WRST 14710 2361
+40  TR 20652 2205
+SCORE:TR,WRST,570,5210,-464.0

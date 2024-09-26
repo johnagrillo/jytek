@@ -1,8 +1,7 @@
 package org.jytek.leaguemanager.view;
 
-import org.jytek.leaguemanager.database.KeyValue;
 import com.healthmarketscience.jackcess.Row;
-import java.util.*;
+import org.jytek.leaguemanager.database.KeyValue;
 
 /**
  * parsed from mdb-schema
@@ -68,7 +67,11 @@ public class TmTeam implements KeyValue<Integer, TmTeam> {
     private String tname = null;
     private String short_ = null;
 
-    //
+    @Override
+    public String toString() {
+        return tcode;
+    }
+//
     // getters
     //
 

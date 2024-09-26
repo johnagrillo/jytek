@@ -1,8 +1,7 @@
 package org.jytek.leaguemanager.view;
 
-import org.jytek.leaguemanager.database.KeyValue;
 import com.healthmarketscience.jackcess.Row;
-import java.util.*;
+import org.jytek.leaguemanager.database.KeyValue;
 
 /**
  * parsed from mdb-schema
@@ -104,6 +103,10 @@ public class TmMeet implements KeyValue<Integer, TmMeet> {
         return mname;
     }
 
+    @Override
+    public String toString() {
+        return mname;
+    }
     /**
      * Getter for Start
      * @return java.time.LocalDateTime

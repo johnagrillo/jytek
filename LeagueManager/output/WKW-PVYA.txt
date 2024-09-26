@@ -1,0 +1,278 @@
+WKW-PVYA
+TmResult{meet=51, athlete=1202, ir='I', team=2, score=3331, ex=' ', origin='null', nt=0, result=3913, age=17, distance=50, stroke=2, mtevent=449, points=0, place=2, course='S', dqcode='  ', dqdescript='null'}
+TmResult{meet=85, athlete=1202, ir='I', team=2, score=2869, ex=' ', origin='null', nt=0, result=27697, age=17, distance=50, stroke=2, mtevent=2583, points=0, place=1, course='Y', dqcode='  ', dqdescript='null'}
+TmResult{meet=51, athlete=1224, ir='I', team=2, score=3844, ex=' ', origin='null', nt=0, result=3974, age=5, distance=25, stroke=1, mtevent=419, points=0, place=1, course='S', dqcode='  ', dqdescript='null'}
+TmResult{meet=62, athlete=1224, ir='I', team=2, score=3776, ex=' ', origin='null', nt=0, result=11303, age=5, distance=25, stroke=1, mtevent=1092, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}
+TmResult{meet=70, athlete=1224, ir='I', team=2, score=3141, ex=' ', origin='null', nt=0, result=16563, age=5, distance=25, stroke=1, mtevent=1658, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}
+TmResult{meet=76, athlete=1224, ir='I', team=2, score=3379, ex=' ', origin='null', nt=0, result=20616, age=5, distance=25, stroke=1, mtevent=2081, points=30, place=2, course='Y', dqcode='  ', dqdescript='null'}
+TmResult{meet=83, athlete=1224, ir='I', team=2, score=2894, ex=' ', origin='null', nt=0, result=26775, age=5, distance=25, stroke=1, mtevent=2555, points=70, place=1, course='S', dqcode='  ', dqdescript='null'}
+TmResult{meet=85, athlete=1224, ir='I', team=2, score=2519, ex=' ', origin='null', nt=0, result=27713, age=5, distance=25, stroke=1, mtevent=2593, points=0, place=7, course='Y', dqcode='  ', dqdescript='null'}
+TmResult{meet=51, athlete=1249, ir='I', team=2, score=3225, ex=' ', origin='null', nt=0, result=4045, age=16, distance=50, stroke=2, mtevent=449, points=0, place=1, course='S', dqcode='  ', dqdescript='null'}
+TmResult{meet=62, athlete=1249, ir='I', team=2, score=3301, ex=' ', origin='null', nt=0, result=11367, age=16, distance=50, stroke=2, mtevent=1118, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}
+TmResult{meet=76, athlete=1249, ir='I', team=2, score=2877, ex=' ', origin='null', nt=0, result=20684, age=16, distance=50, stroke=2, mtevent=2039, points=50, place=1, course='Y', dqcode='  ', dqdescript='null'}
+skip 1518 TmResult{meet=60, athlete=441, ir='I', team=1, score=10484, ex=' ', origin='null', nt=0, result=9592, age=15, distance=100, stroke=5, mtevent=953, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=60, athlete=441, ir='I', team=1, score=9356, ex=' ', origin='null', nt=0, result=9593, age=15, distance=100, stroke=1, mtevent=954, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=60, athlete=441, ir='I', team=1, score=4500, ex=' ', origin='null', nt=0, result=9594, age=15, distance=50, stroke=4, mtevent=955, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=68, athlete=441, ir='I', team=1, score=10541, ex=' ', origin='null', nt=0, result=14970, age=15, distance=100, stroke=5, mtevent=1530, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=68, athlete=441, ir='I', team=1, score=4241, ex=' ', origin='null', nt=0, result=14971, age=15, distance=50, stroke=1, mtevent=1534, points=0, place=7, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=68, athlete=441, ir='I', team=1, score=4538, ex=' ', origin='null', nt=0, result=14972, age=15, distance=50, stroke=4, mtevent=1533, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}1
+50  PVYA 2539 2288(Y) 1737
+30  WKW 2569 1189
+10  WKW 2858 1790
+2
+50  WKW 2837 2556(Y) 1202
+30  WKW 2919 2630(Y) 1249
+10  WKW 3038 1242
+3
+50  WKW 2589 2333(Y) 1792
+30  PVYA 2739 2468(Y) 488
+10  WKW 2794 1795
+4
+50  WKW 2922 1250
+30  WKW 2933 2643(Y) 1215
+10  PVYA 2945 2654(Y) 479
+5
+50  PVYA 3145 2834(Y) 444
+30  PVYA 3260 469
+10  WKW 3682 3318(Y) 1796
+6
+50  WKW 3200 1791
+30  WKW 3316 2988(Y) 1247
+10  WKW 3331 3001(Y) 1201
+7
+50  WKW 1565 1410(Y) 1793
+30  WKW 1759 1226
+10  WKW 1801 1178
+8
+50  WKW 1597 1439(Y) 1187
+30  WKW 1678 1512(Y) 1176
+10  WKW 1707 1184
+9
+50  WKW 2044 1842(Y) 1225
+30  WKW 2210 1238
+10  WKW 2215 1996(Y) 1970
+10
+50  WKW 2100 1231
+30  PVYA 2210 471
+10  WKW 2221 1975
+11
+50  WKW 2796 2519(Y) 1224
+30  PVYA 3301 494
+10  WKW 4920 1245
+12
+50  WKW 3294 1256
+30  PVYA 3731 2052
+10  PVYA 3733 470
+13
+50  WKW 6526 1189
+30  PVYA 6751 1737
+10  WKW 7566 1185
+14
+50  WKW 6966 6276(Y) 1202
+30  WKW 7030 1249
+10  WKW 8691 1229
+15
+50  WKW 6702 6038(Y) 1795
+30  WKW 6809 1792
+10  PVYA 7153 6445(Y) 488
+16
+50  WKW 6982 1215
+30  WKW 7253 6535(Y) 1250
+10  PVYA 7344 6617(Y) 479
+17
+50  PVYA 7698 6936(Y) 444
+30  PVYA 9142 469
+10  WKW 9338 1230
+18
+50  WKW 8189 1791
+30  WKW 8508 7665(Y) 1247
+10  WKW 8578 7728(Y) 1789
+19
+50  WKW 9990 9000(Y) 1793
+30  WKW 10727 1226
+10  WKW 12181 10974(Y) 1178
+20
+50  WKW 8538 7692(Y) 1187
+30  WKW 9205 8293(Y) 1176
+10  PVYA 10216 1745
+21
+50  PVYA 3274 2950(Y) 1737
+30  WKW 3323 2994(Y) 1189
+10  WKW 3997 1790
+22
+50  WKW 3684 1242
+30  WKW 3781 1202
+10  WKW 4315 1229
+23
+50  WKW 3367 3034(Y) 1792
+30  WKW 3391 3055(Y) 1795
+10  PVYA 3680 3316(Y) 435
+24
+50  WKW 3671 3308(Y) 1215
+30  PVYA 3760 3388(Y) 479
+10  WKW 3875 1250
+25
+50  PVYA 4516 444
+30  WKW 4919 4432(Y) 1230
+10  PVYA 5194 469
+26
+50  WKW 4609 4153(Y) 1789
+30  WKW 4622 4164(Y) 1201
+10  WKW 4685 1197
+27
+50  WKW 2325 2095(Y) 1793
+30  WKW 2715 1798
+10  WKW 2718 1971
+28
+50  WKW 2209 1187
+30  PVYA 2470 442
+10  WKW 2562 1184
+29
+50  WKW 3056 1970
+30  WKW 3201 1225
+10  PVYA 3625 456
+30
+50  WKW 3057 1231
+30  PVYA 3479 1727
+10  PVYA 3547 471
+31
+80  WKW 12327 2398
+40  PVYA 13458 2331
+32
+80  WKW 17058 2401
+40  PVYA 17752 1664
+33
+80  WKW 8720 1952
+40  PVYA 9134 2335
+34
+80  WKW 12405 11176(Y) 2128
+40  PVYA 12601 2091
+35
+50  WKW 2850 2568(Y) 1189
+30  WKW 3314 1185
+10  WKW 3628 1790
+36
+50  WKW 3184 2869(Y) 1202
+30  WKW 3193 2877(Y) 1249
+10  WKW 3589 1242
+37
+50  WKW 3051 2749(Y) 1795
+30  WKW 3125 2816(Y) 1792
+10  PVYA 3266 2943(Y) 488
+38
+50  WKW 3256 2934(Y) 1250
+30  WKW 3352 3020(Y) 1215
+10  PVYA 3687 3322(Y) 479
+39
+50  PVYA 3613 444
+30  PVYA 4033 3634(Y) 469
+10  WKW 4538 1230
+40
+50  WKW 3808 3431(Y) 1247
+30  WKW 3934 1791
+10  PVYA 4022 3624(Y) 503
+41
+50  WKW 2043 1841(Y) 1793
+30  WKW 2433 2192(Y) 1226
+10  WKW 2436 2195(Y) 1193
+42
+50  WKW 1919 1176
+30  WKW 1941 1749(Y) 1187
+10  WKW 2127 1184
+43
+50  PVYA 2485 2239(Y) 1730
+30  WKW 2620 2361(Y) 1182
+10  WKW 2634 1203
+44
+50  WKW 2495 1231
+30  PVYA 2578 2323(Y) 471
+10  PVYA 2585 2329(Y) 1727
+45
+50  WKW 3371 3037(Y) 1224
+30  PVYA 4331 494
+10  WKW 6676 1969
+46
+50  WKW 3138 1256
+30  WKW 3957 1976
+10  PVYA 4650 470
+47
+50  PVYA 5627 5070(Y) 1737
+30  WKW 6422 1790
+10  WKW 6431 5794(Y) 1185
+48
+50  WKW 6168 1249
+30  WKW 6613 5958(Y) 1242
+10  PVYA 7637 1942
+49
+50  WKW 6301 5677(Y) 1186
+30  PVYA 6403 488
+10  PVYA 6647 468
+50
+50  PVYA 7264 487
+30  PVYA 7863 484
+10  PVYA 7875 485
+51
+50  WKW 8307 1230
+30  WKW 9681 1209
+10  WKW 9871 1973
+52
+50  WKW 6944 1791
+30  WKW 7354 6626(Y) 1201
+10  WKW 7482 1789
+53
+50  WKW 3954 1226
+30  PVYA 4069 472
+10  WKW 4316 1798
+54
+50  WKW 3654 3292(Y) 1176
+30  PVYA 3866 442
+10  PVYA 3906 1745
+55
+50  WKW 4501 4055(Y) 1225
+30  WKW 4687 4223(Y) 1970
+10  WKW 5281 1182
+56
+50  WKW 4786 4312(Y) 1231
+30  PVYA 5316 4790(Y) 467
+10  PVYA 5346 4817(Y) 1727
+57
+50  WKW 3439 3099(Y) 1185
+30  PVYA 3653 495
+10  PVYA 3700 1941
+58
+50  WKW 3764 1229
+30  WKW 3977 1258
+10  PVYA 4084 1942
+59
+50  WKW 3284 1186
+30  WKW 3297 1170
+10  PVYA 3309 434
+60
+50  PVYA 3759 487
+30  PVYA 4235 485
+10  PVYA 4394 1724
+61
+50  WKW 5902 1241
+30  PVYA 7250 500
+62
+50  WKW 3735 3365(Y) 1247
+30  WKW 4047 3646(Y) 1197
+10  WKW 4113 1201
+63
+50  WKW 2388 1178
+30  PVYA 2416 472
+10  WKW 2439 1193
+64
+50  WKW 1952 1184
+30  WKW 2227 1251
+10  PVYA 2318 439
+65
+50  WKW 3046 1225
+30  WKW 3220 2901(Y) 1238
+10  PVYA 3263 1730
+66
+50  PVYA 3394 471
+30  WKW 3583 1210
+10  PVYA 3927 3538(Y) 492
+67
+80  WKW 13766 1449
+40  PVYA 15037 2339
+68
+80  WKW 13113 11814(Y) 2133
+40  PVYA 14790 2341
+SCORE:WKW,PVYA,4580,1710,287.0

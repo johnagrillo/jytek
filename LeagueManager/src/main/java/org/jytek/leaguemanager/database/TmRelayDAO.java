@@ -3,13 +3,9 @@ import com.healthmarketscience.jackcess.Database;
 import com.healthmarketscience.jackcess.Row;
 import org.jytek.leaguemanager.view.TmRelay;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.stream.Stream;
-import java.util.Collection;
 
 
-public class TmRelayDAO extends DAOStream<Integer, TmRelay> {
+public class TmRelayDAO extends MdbDAOStream<Integer, TmRelay> {
 
     public static TmRelayDAO load(final Database db) throws IOException {
         return new TmRelayDAO(db);

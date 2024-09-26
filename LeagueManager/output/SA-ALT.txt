@@ -1,0 +1,2 @@
+SA-ALT
+SCORE:SA,ALT,0,0,0.0

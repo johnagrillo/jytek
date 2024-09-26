@@ -3,6 +3,8 @@ package org.jytek.leaguemanager.controller;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Pair;
+import org.jytek.leaguemanager.view.MmAthlete;
+import org.jytek.leaguemanager.view.MmEvent;
 import org.jytek.leaguemanager.view.TmAthlete;
 import org.jytek.leaguemanager.view.TmMtevent;
 
@@ -30,6 +32,18 @@ public class Util {
             default -> "Other";
         };
     }
+    public static String strokeToString(String stroke) {
+        return switch (stroke) {
+            case "A" -> "Free";
+            case "B" -> "Back";
+            case "C" -> "Breast";
+            case "D" -> "Fly";
+            case "E" -> "IM";
+            default -> "Other";
+        };
+    }
+
+
     /**
      * @param stroke
      * @return
@@ -38,9 +52,18 @@ public class Util {
     public static String eventToString(TmMtevent mtev) {
         return  mtev.getSex() + " " + + mtev.getLohi() + " " + mtev.getDistance() + " " + strokeToString(mtev.getStroke());
     }
+    public static String eventToString(MmEvent ev) {
+        return ev.getEventSex() + " " + + ev.getLowAge() + "-" + ev.getHighAge() + " " +
+                Integer.toString((int) ev.getEventDist().doubleValue()) + " " +
+                strokeToString(ev.getEventStroke());
+    }
 
     public static String atheteToString(TmAthlete ath) {
         return  ath.getLast() + " " + ath.getFirst() + " " + ath.getInitial();
+    }
+
+    public static String atheteToString(MmAthlete ath) {
+        return  ath.getLastName() + " " + ath.getFirstName() + " " + ath.getInitial();
     }
 
 

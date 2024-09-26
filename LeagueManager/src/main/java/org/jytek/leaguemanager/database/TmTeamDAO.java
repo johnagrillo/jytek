@@ -7,7 +7,7 @@ import org.jytek.leaguemanager.view.TmTeam;
 import java.io.IOException;
 
 
-public class TmTeamDAO extends DAOStream<Integer, TmTeam> {
+public class TmTeamDAO extends MdbDAOStream<Integer, TmTeam> {
 
     public static TmTeamDAO load(final Database db) throws IOException {
         return new TmTeamDAO(db);

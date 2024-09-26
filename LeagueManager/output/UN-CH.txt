@@ -1,0 +1,258 @@
+UN-CH
+skip 1518 TmResult{meet=26, athlete=1331, ir='I', team=5, score=3438, ex='X', origin='null', nt=0, result=10134, age=13, distance=50, stroke=1, mtevent=998, points=0, place=0, course='S', dqcode='  ', dqdescript='null'}skip 910 TmResult{meet=28, athlete=1349, ir='I', team=5, score=2444, ex=' ', origin='null', nt=0, result=17632, age=8, distance=25, stroke=3, mtevent=1632, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 910 TmResult{meet=28, athlete=1349, ir='I', team=5, score=3906, ex=' ', origin='null', nt=0, result=17633, age=8, distance=50, stroke=1, mtevent=1683, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 910 TmResult{meet=28, athlete=1349, ir='I', team=5, score=1719, ex=' ', origin='null', nt=0, result=17634, age=8, distance=25, stroke=1, mtevent=1635, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=14, athlete=1352, ir='I', team=5, score=3457, ex=' ', origin='null', nt=0, result=9229, age=12, distance=50, stroke=2, mtevent=911, points=0, place=5, course='Y', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=14, athlete=1352, ir='I', team=5, score=2743, ex=' ', origin='null', nt=0, result=9230, age=12, distance=50, stroke=1, mtevent=925, points=10, place=3, course='Y', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=14, athlete=1352, ir='I', team=5, score=6129, ex=' ', origin='null', nt=0, result=9231, age=12, distance=100, stroke=1, mtevent=926, points=30, place=2, course='Y', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=14, athlete=1352, ir='I', team=5, score=3162, ex=' ', origin='null', nt=0, result=9232, age=12, distance=50, stroke=4, mtevent=912, points=0, place=4, course='Y', dqcode='  ', dqdescript='null'}skip 910 TmResult{meet=14, athlete=1370, ir='I', team=5, score=2108, ex=' ', origin='null', nt=0, result=9296, age=8, distance=25, stroke=3, mtevent=885, points=50, place=1, course='Y', dqcode='  ', dqdescript='null'}skip 910 TmResult{meet=14, athlete=1370, ir='I', team=5, score=3788, ex=' ', origin='null', nt=0, result=9297, age=8, distance=50, stroke=1, mtevent=887, points=0, place=4, course='Y', dqcode='  ', dqdescript='null'}skip 910 TmResult{meet=14, athlete=1370, ir='I', team=5, score=1797, ex=' ', origin='null', nt=0, result=9298, age=8, distance=25, stroke=4, mtevent=924, points=30, place=2, course='Y', dqcode='  ', dqdescript='null'}skip 910 TmResult{meet=14, athlete=1370, ir='I', team=5, score=1620, ex=' ', origin='null', nt=0, result=9299, age=8, distance=25, stroke=1, mtevent=888, points=30, place=2, course='Y', dqcode='  ', dqdescript='null'}1
+50  CH 2523 2273(Y) 1706
+30  CH 2743 1743
+10  CH 2788 1334
+2
+50  CH 2763 1336
+30  CH 2839 1311
+10  CH 3072 1280
+3
+50  CH 2685 2419(Y) 1320
+30  CH 2919 2630(Y) 1379
+10  CH 3016 2718(Y) 1362
+4
+50  CH 3165 1340
+30  CH 3410 1331
+10  CH 3666 1300
+5
+50  CH 3200 2883(Y) 1281
+30  CH 3210 1301
+10  CH 3274 1351
+6
+50  CH 2992 1352
+30  CH 3271 1328
+10  CH 3312 2984(Y) 1344
+7
+50  CH 1482 1707
+30  CH 1647 1332
+10  CH 1738 1738
+8
+50  CH 1795 1321
+30  CH 1927 1346
+10  CH 2026 1273
+9
+50  CH 2137 1737
+30  CH 2147 1338
+10  CH 2407 1353
+10
+50  CH 1736 1349
+30  CH 1740 1370
+10  CH 1883 1719
+11
+50  CH 3132 1345
+30  CH 3675 1714
+10  CH 3885 1374
+12
+50  CH 2700 1357
+30  CH 3150 1712
+10  CH 3428 1347
+13
+50  CH 6284 1706
+30  CH 6764 1330
+10  CH 7523 1743
+14
+50  CH 6927 1336
+30  CH 6938 1311
+10  CH 7391 6659(Y) 1280
+15
+50  CH 7101 1320
+30  CH 7146 1379
+10  CH 7652 6894(Y) 1362
+16
+50  CH 8475 1331
+30  CH 8600 7748(Y) 1340
+10  CH 9462 8525(Y) 1300
+17
+50  CH 7773 7003(Y) 1281
+30  CH 8135 7329(Y) 1301
+10  CH 8904 1351
+18
+50  CH 7984 1352
+30  CH 8187 1328
+10  CH 8587 1344
+19
+50  CH 8622 1707
+30  CH 9569 8621(Y) 1332
+10  CH 11305 10185(Y) 1376
+20
+50  CH 10175 1349
+30  CH 11537 1321
+10  CH 11965 1372
+21
+50  CH 3609 1330
+30  CH 3771 3398(Y) 1334
+10  CH 4775 1282
+22
+50  CH 3551 1336
+30  CH 3849 3468(Y) 1280
+10  CH 4079 1363
+23
+50  CH 3690 1362
+30  CH 4028 3629(Y) 1369
+10  CH 4256 1306
+24
+50  CH 4444 1331
+30  CH 4600 4145(Y) 1340
+10  CH 4766 1277
+25
+50  CH 4034 1281
+30  CH 4572 1337
+10  CH 4767 1351
+26
+50  CH 4120 1328
+30  CH 4226 1366
+10  CH 4319 3891(Y) 1361
+27
+50  CH 2011 1707
+30  CH 2433 1738
+10  CH 2495 1376
+28
+50  CH 2682 2417(Y) 1717
+30  CH 2759 1298
+10  CH 2772 2498(Y) 1285
+29
+50  CH 3171 1737
+30  CH 3210 1715
+10  CH 3512 1274
+30
+50  CH 2377 1370
+30  CH 2430 2190(Y) 1349
+10  CH 2519 1716
+31
+80  CH 12075 1733
+32
+80  CH 14349 1859
+33
+80  CH 8303 7481(Y) 1409
+34
+80  CH 9475 1742
+35
+50  CH 2834 2554(Y) 1706
+30  CH 3126 1330
+10  CH 3895 1334
+36
+50  CH 3233 2913(Y) 1311
+30  CH 3323 1336
+10  CH 3524 3175(Y) 1363
+37
+50  CH 3296 2970(Y) 1379
+30  CH 3398 3062(Y) 1320
+10  CH 3709 3342(Y) 1369
+38
+50  CH 3893 1340
+30  CH 4006 1300
+10  CH 4704 1277
+39
+50  CH 3736 1281
+30  CH 3897 1351
+10  CH 3995 1301
+40
+50  CH 3760 1352
+30  CH 3873 1344
+10  CH 3941 1328
+41
+50  CH 1947 1707
+30  CH 2107 1332
+10  CH 2429 1738
+42
+50  CH 2256 2033(Y) 1321
+30  CH 2440 1720
+10  CH 2482 1298
+43
+50  CH 2579 1737
+30  CH 2668 1353
+10  CH 2960 1329
+44
+50  CH 2085 1349
+30  CH 2254 1370
+10  CH 2440 1719
+45
+50  CH 3607 1345
+30  CH 3794 1374
+10  CH 4395 1714
+46
+50  CH 3050 1357
+30  CH 3316 1347
+10  CH 3522 1712
+47
+50  CH 5892 1330
+30  CH 6176 1743
+10  CH 6446 1334
+48
+50  CH 6085 1311
+30  CH 6624 5968(Y) 1280
+10  CH 6660 1363
+49
+50  CH 6012 1320
+30  CH 6246 1379
+10  CH 6757 1362
+50
+50  CH 7568 1331
+30  CH 7781 1300
+10  CH 9033 1277
+51
+50  CH 7220 6505(Y) 1301
+30  CH 8401 1337
+10  CH 8551 1371
+52
+50  CH 6771 1352
+30  CH 7248 1344
+10  CH 7590 1271
+53
+50  CH 3743 1332
+30  CH 4025 1738
+10  CH 4552 1376
+54
+50  CH 4119 3711(Y) 1321
+30  CH 4710 1312
+10  CH 4853 1705
+55
+50  CH 5217 1338
+30  CH 5353 1737
+10  CH 5965 1353
+56
+50  CH 3964 1370
+30  CH 4359 1719
+10  CH 4562 1367
+57
+50  CH 2722 1706
+30  CH 2975 1743
+10  CH 4290 3865(Y) 1282
+58
+50  CH 3399 3063(Y) 1350
+30  CH 3876 1325
+10  CH 4095 3690(Y) 1335
+59
+50  CH 3515 3167(Y) 1369
+30  CH 4059 1306
+10  CH 4584 1327
+60
+61
+50  CH 4452 4011(Y) 1371
+30  CH 4993 1337
+10  CH 5834 1315
+62
+50  CH 3750 1295
+30  CH 4073 1271
+10  CH 4209 1366
+63
+50  CH 2559 1323
+30  CH 2785 1364
+10  CH 2819 1376
+64
+50  CH 2393 2156(Y) 1372
+30  CH 2535 2284(Y) 1312
+10  CH 2574 1346
+65
+50  CH 3044 1338
+30  CH 3765 1709
+66
+50  CH 2389 1367
+30  CH 2435 1719
+10  CH 2915 1378
+67
+80  CH 13294 1868
+68
+80  CH 13855 1871
+SCORE:UN,CH,0,5960,-596.0

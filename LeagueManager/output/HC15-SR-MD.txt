@@ -1,0 +1,266 @@
+HC15-SR-MD
+skip 1112 TmResult{meet=15, athlete=701, ir='I', team=8, score=4251, ex=' ', origin='null', nt=0, result=9493, age=13, distance=50, stroke=1, mtevent=930, points=0, place=9, course='S', dqcode='  ', dqdescript='null'}skip 1112 TmResult{meet=15, athlete=701, ir='I', team=8, score=5014, ex=' ', origin='null', nt=0, result=9494, age=13, distance=50, stroke=3, mtevent=931, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=18, athlete=718, ir='I', team=8, score=4513, ex=' ', origin='null', nt=0, result=11467, age=12, distance=50, stroke=3, mtevent=1142, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=18, athlete=718, ir='I', team=8, score=3113, ex=' ', origin='null', nt=0, result=11468, age=12, distance=50, stroke=1, mtevent=1114, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=18, athlete=718, ir='I', team=8, score=3815, ex=' ', origin='null', nt=0, result=11469, age=12, distance=50, stroke=2, mtevent=1115, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=18, athlete=718, ir='I', team=8, score=7234, ex=' ', origin='null', nt=0, result=11470, age=12, distance=100, stroke=1, mtevent=1116, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=25, athlete=718, ir='I', team=8, score=4564, ex=' ', origin='null', nt=0, result=16072, age=12, distance=50, stroke=3, mtevent=1524, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=25, athlete=718, ir='I', team=8, score=3115, ex=' ', origin='null', nt=0, result=16073, age=12, distance=50, stroke=1, mtevent=1523, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=25, athlete=718, ir='I', team=8, score=3894, ex=' ', origin='null', nt=0, result=16074, age=12, distance=50, stroke=2, mtevent=1525, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=25, athlete=718, ir='I', team=8, score=7475, ex=' ', origin='null', nt=0, result=16075, age=12, distance=100, stroke=1, mtevent=1528, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=34, athlete=718, ir='I', team=8, score=4394, ex=' ', origin='null', nt=0, result=22369, age=12, distance=50, stroke=3, mtevent=2124, points=40, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=34, athlete=718, ir='I', team=8, score=3151, ex=' ', origin='null', nt=0, result=22370, age=12, distance=50, stroke=1, mtevent=2122, points=70, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=34, athlete=718, ir='I', team=8, score=3794, ex=' ', origin='null', nt=0, result=22371, age=12, distance=50, stroke=4, mtevent=2149, points=50, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=15, athlete=1540, ir='I', team=8, score=8327, ex=' ', origin='null', nt=0, result=9460, age=12, distance=100, stroke=5, mtevent=914, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=15, athlete=1540, ir='I', team=8, score=4558, ex=' ', origin='null', nt=0, result=9461, age=12, distance=50, stroke=3, mtevent=915, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=18, athlete=1540, ir='I', team=8, score=8094, ex=' ', origin='null', nt=0, result=11376, age=12, distance=100, stroke=5, mtevent=1141, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=18, athlete=1540, ir='I', team=8, score=3603, ex=' ', origin='null', nt=0, result=11377, age=12, distance=50, stroke=2, mtevent=1115, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=18, athlete=1540, ir='I', team=8, score=6925, ex=' ', origin='null', nt=0, result=11378, age=12, distance=100, stroke=1, mtevent=1116, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=18, athlete=1540, ir='I', team=8, score=3550, ex=' ', origin='null', nt=0, result=11379, age=12, distance=50, stroke=4, mtevent=1117, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=34, athlete=1540, ir='I', team=8, score=7822, ex=' ', origin='null', nt=0, result=22269, age=12, distance=100, stroke=5, mtevent=2123, points=50, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=34, athlete=1540, ir='I', team=8, score=3538, ex=' ', origin='null', nt=0, result=22270, age=12, distance=50, stroke=2, mtevent=2136, points=70, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=34, athlete=1540, ir='I', team=8, score=6941, ex=' ', origin='null', nt=0, result=22271, age=12, distance=100, stroke=1, mtevent=2137, points=50, place=2, course='S', dqcode='  ', dqdescript='null'}1
+50  HC15 2559 2306(Y) 1736
+30  HC15 2632 2372(Y) 1378
+10  SR-MD 2659 729
+2
+50  SR-MD 2976 728
+30  HC15 3116 2808(Y) 1599
+10  SR-MD 3262 1548
+3
+50  HC15 2629 2369(Y) 1380
+30  HC15 2915 2627(Y) 38
+10  HC15 2918 2629(Y) 1374
+4
+50  SR-MD 3032 1561
+30  HC15 3081 2776(Y) 1387
+10  HC15 3225 53
+5
+50  SR-MD 3210 718
+30  SR-MD 3432 3092(Y) 1633
+10  SR-MD 3580 739
+6
+50  HC15 2989 2693(Y) 54
+30  SR-MD 3029 2729(Y) 755
+10  HC15 3263 2940(Y) 15
+7
+50  HC15 1409 1270(Y) 7
+30  SR-MD 1609 1450(Y) 1555
+10  HC15 1683 1517(Y) 14
+8
+50  HC15 1490 1343(Y) 1379
+30  SR-MD 1505 1356(Y) 697
+10  HC15 1686 1519(Y) 10
+9
+50  HC15 1999 55
+30  HC15 2097 1890(Y) 62
+10  SR-MD 2195 1978(Y) 742
+10
+50  HC15 1942 1750(Y) 6
+30  SR-MD 1976 1781(Y) 756
+10  SR-MD 2012 1813(Y) 1634
+11
+50  HC15 2257 2034(Y) 36
+30  SR-MD 2792 2516(Y) 726
+10  SR-MD 3127 2818(Y) 752
+12
+50  SR-MD 1966 1772(Y) 1554
+30  SR-MD 2336 2105(Y) 1551
+10  SR-MD 2575 2320(Y) 1547
+13
+50  SR-MD 6440 5802(Y) 684
+30  HC15 6506 5862(Y) 1736
+10  HC15 6566 5916(Y) 39
+14
+50  SR-MD 7758 6990(Y) 728
+30  SR-MD 8513 1548
+10  HC15 8550 7703(Y) 1599
+15
+50  HC15 6566 5916(Y) 1380
+30  HC15 7210 6496(Y) 1374
+10  HC15 7429 6693(Y) 38
+16
+50  SR-MD 7551 6803(Y) 724
+30  HC15 8023 7228(Y) 31
+10  HC15 8160 7352(Y) 53
+17
+50  SR-MD 8054 1542
+30  SR-MD 8638 7782(Y) 718
+10  SR-MD 10163 1633
+18
+50  HC15 7254 6536(Y) 54
+30  SR-MD 7956 7168(Y) 755
+10  SR-MD 8028 725
+19
+50  HC15 8041 7245(Y) 7
+30  SR-MD 10240 1555
+10  HC15 10822 9750(Y) 1739
+20
+50  HC15 8422 7588(Y) 1379
+30  SR-MD 8681 697
+10  SR-MD 10687 9628(Y) 733
+21
+50  HC15 3365 3032(Y) 39
+30  HC15 3368 3035(Y) 11
+10  SR-MD 3443 1543
+22
+50  SR-MD 4502 4056(Y) 728
+30  SR-MD 4544 691
+10  HC15 4703 4237(Y) 26
+23
+50  HC15 3522 3173(Y) 1380
+30  HC15 4107 3700(Y) 56
+10  HC15 4376 3943(Y) 1394
+24
+50  SR-MD 4051 724
+30  SR-MD 4583 4129(Y) 759
+10  HC15 4676 4213(Y) 53
+25
+50  SR-MD 4412 1542
+30  SR-MD 4606 4150(Y) 718
+10  HC15 5181 4668(Y) 57
+26
+50  HC15 3885 3500(Y) 54
+30  SR-MD 4149 3738(Y) 731
+10  SR-MD 4189 725
+27
+50  HC15 1789 1612(Y) 7
+30  SR-MD 2034 1833(Y) 1566
+10  SR-MD 2291 2064(Y) 1555
+28
+50  HC15 2001 1803(Y) 1379
+30  HC15 2249 2027(Y) 1381
+10  SR-MD 2264 2040(Y) 733
+29
+50  HC15 2289 2063(Y) 55
+30  SR-MD 3071 726
+10  HC15 3283 2958(Y) 36
+30
+50  HC15 2601 2344(Y) 6
+30  SR-MD 2619 2360(Y) 1554
+10  HC15 2784 2509(Y) 1382
+31
+80  SR-MD 13160 934
+40  HC15 13175 11870(Y) 794
+32
+80  SR-MD 14307 936
+40  HC15 15603 14057(Y) 859
+33
+80  HC15 7513 6769(Y) 861
+40  SR-MD 8134 479
+34
+80  HC15 10031 9037(Y) 802
+40  SR-MD 10755 941
+35
+50  SR-MD 2874 2590(Y) 684
+30  HC15 2951 2659(Y) 39
+10  HC15 3021 2722(Y) 1378
+36
+50  SR-MD 3481 728
+30  HC15 3755 3383(Y) 1599
+10  SR-MD 4006 1548
+37
+50  HC15 3215 2897(Y) 38
+30  HC15 3256 2934(Y) 1374
+10  HC15 3344 3013(Y) 1380
+38
+50  HC15 3756 3384(Y) 53
+30  HC15 3790 3415(Y) 31
+10  SR-MD 3809 3432(Y) 724
+39
+50  SR-MD 3720 1542
+30  SR-MD 3979 3585(Y) 718
+10  SR-MD 4346 3916(Y) 1633
+40
+50  HC15 3466 3123(Y) 54
+30  SR-MD 3840 3460(Y) 731
+10  SR-MD 3990 725
+41
+50  HC15 1848 1665(Y) 7
+30  HC15 2064 1860(Y) 14
+10  SR-MD 2202 1984(Y) 1555
+42
+50  SR-MD 1727 1556(Y) 697
+30  HC15 1893 1706(Y) 1379
+10  HC15 2061 1857(Y) 10
+43
+50  HC15 2373 2138(Y) 55
+30  SR-MD 2531 2281(Y) 742
+10  HC15 2716 2447(Y) 62
+44
+50  SR-MD 2435 2194(Y) 756
+30  HC15 2453 20
+10  HC15 2458 2215(Y) 1382
+45
+50  HC15 2681 2416(Y) 36
+30  SR-MD 3305 2978(Y) 726
+10  HC15 3737 3367(Y) 1392
+46
+50  SR-MD 2541 2290(Y) 1554
+30  SR-MD 3098 1551
+10  SR-MD 3603 1547
+47
+50  SR-MD 5410 729
+30  SR-MD 5494 4950(Y) 684
+10  HC15 5757 5187(Y) 1378
+48
+50  SR-MD 7193 1548
+30  SR-MD 7345 6618(Y) 691
+10  HC15 7368 6638(Y) 1599
+49
+50  HC15 6433 5796(Y) 38
+30  HC15 6483 5841(Y) 1374
+10  HC15 6655 5996(Y) 1394
+50
+50  SR-MD 6702 6038(Y) 724
+30  HC15 6971 6281(Y) 31
+10  SR-MD 7228 6512(Y) 716
+51
+50  SR-MD 7738 6972(Y) 1633
+30  HC15 8474 7635(Y) 57
+10  SR-MD 8631 736
+52
+50  SR-MD 6819 6144(Y) 755
+30  SR-MD 7150 725
+10  HC15 7168 6458(Y) 15
+53
+50  HC15 3729 3360(Y) 14
+30  SR-MD 3806 3429(Y) 1576
+10  SR-MD 3863 3481(Y) 1566
+54
+50  SR-MD 3277 2953(Y) 697
+30  HC15 3828 3449(Y) 29
+10  HC15 3876 3492(Y) 10
+55
+50  HC15 4215 3798(Y) 55
+30  HC15 4886 4402(Y) 62
+10  HC15 5208 4692(Y) 36
+56
+50  HC15 4446 4006(Y) 6
+30  HC15 4598 4143(Y) 20
+10  SR-MD 4667 4205(Y) 1634
+57
+50  HC15 2726 2456(Y) 1378
+30  HC15 2767 2493(Y) 1736
+10  HC15 2847 2565(Y) 39
+58
+50  SR-MD 3819 719
+30  HC15 6009 5414(Y) 33
+59
+50  HC15 3374 3040(Y) 56
+30  HC15 3670 3307(Y) 1394
+60
+50  HC15 3638 3278(Y) 31
+30  HC15 3842 23
+10  SR-MD 4069 3666(Y) 740
+61
+50  SR-MD 4442 739
+30  HC15 4865 57
+10  SR-MD 4866 738
+62
+50  SR-MD 3475 3131(Y) 755
+30  SR-MD 3934 731
+10  HC15 4140 15
+63
+50  HC15 1833 1652(Y) 14
+30  SR-MD 2264 747
+10  SR-MD 2325 1576
+64
+50  SR-MD 1928 1737(Y) 696
+30  SR-MD 2029 1828(Y) 733
+10  HC15 2053 1850(Y) 29
+65
+50  SR-MD 3267 2944(Y) 742
+30  SR-MD 3750 3379(Y) 760
+10  SR-MD 3895 1572
+66
+50  HC15 2185 1969(Y) 20
+30  HC15 2323 2093(Y) 6
+10  SR-MD 2466 1554
+67
+80  HC15 13100 11802(Y) 865
+40  SR-MD 13913 944
+68
+80  SR-MD 14117 946
+40  HC15 14370 12946(Y) 805
+SCORE:HC15,SR-MD,3270,3010,26.0

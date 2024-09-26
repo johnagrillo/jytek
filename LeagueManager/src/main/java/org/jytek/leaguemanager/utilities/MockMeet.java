@@ -118,9 +118,9 @@ public final class MockMeet {
                     final var values = scores.get(times.get(t));
 
                     if (values.size() > 1) {
-                        //System.out.println(ev +  " + " + t + " " + values.size());
+                        System.out.println(ev +  " + " + t + " " + values.size());
                         for(var r : values) {
-                            //System.out.println(r);
+                            System.out.println(r);
                         }
                     }
 

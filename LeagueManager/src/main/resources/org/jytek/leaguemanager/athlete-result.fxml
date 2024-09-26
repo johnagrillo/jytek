@@ -2,20 +2,20 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="864.0" prefWidth="941.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jytek.leaguemanager.controller.AthleteResultController">
-  <TableView fx:id="tvAthleteResult" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">
-    <columns>
-      <TableColumn fx:id="tcAthleteResultScore" prefWidth="100" sortable="true" text="score" />
-      <TableColumn fx:id="tcAthleteResultPlace" prefWidth="100" sortable="true" text="place" />
-      <TableColumn fx:id="tcAthleteResultPoints" prefWidth="100" sortable="true" text="points" />
-      <TableColumn fx:id="tcAthleteResultAge" prefWidth="100" sortable="true" text="age" />
-      <TableColumn fx:id="tcAthleteResultStroke" prefWidth="100" sortable="true" text="stroke" />
-      <TableColumn fx:id="tcAthleteResultDistance" prefWidth="100" sortable="true" text="distance" />
-      <TableColumn fx:id="tcAthleteResultEvent" prefWidth="100" sortable="true" text="event" />
-      <TableColumn fx:id="tcAthleteResultMf" prefWidth="100" sortable="true" text="MF" />
-      <TableColumn fx:id="tcAthleteResultIr" prefWidth="20" sortable="true" text="ir" />
-      <TableColumn fx:id="tcAthleteResultMeet" prefWidth="75" sortable="true" text="meet" />
-      <TableColumn fx:id="tcAthleteResultDate" prefWidth="75" sortable="true" text="date" />
-      <TableColumn fx:id="tcAthleteResultTeam" prefWidth="100" sortable="true" text="team" />
-</columns>
-</TableView>
+    <TableView fx:id="tvAthleteResult" layoutX="16.0" layoutY="100.0" prefHeight="513.0" prefWidth="548.0">
+        <columns>
+            <TableColumn fx:id="tcAthleteResultScore" prefWidth="100" sortable="true" text="score" />
+            <TableColumn fx:id="tcAthleteResultPlace" prefWidth="100" sortable="true" text="place" />
+            <TableColumn fx:id="tcAthleteResultPoints" prefWidth="100" sortable="true" text="points" />
+            <TableColumn fx:id="tcAthleteResultAge" prefWidth="100" sortable="true" text="age" />
+            <TableColumn fx:id="tcAthleteResultStroke" prefWidth="100" sortable="true" text="stroke" />
+            <TableColumn fx:id="tcAthleteResultDistance" prefWidth="100" sortable="true" text="distance" />
+            <TableColumn fx:id="tcAthleteResultEvent" prefWidth="100" sortable="true" text="event" />
+            <TableColumn fx:id="tcAthleteResultMf" prefWidth="100" sortable="true" text="MF" />
+            <TableColumn fx:id="tcAthleteResultIr" prefWidth="20" sortable="true" text="ir" />
+            <TableColumn fx:id="tcAthleteResultMeet" prefWidth="75" sortable="true" text="meet" />
+            <TableColumn fx:id="tcAthleteResultDate" prefWidth="75" sortable="true" text="date" />
+            <TableColumn fx:id="tcAthleteResultTeam" prefWidth="100" sortable="true" text="team" />
+        </columns>
+    </TableView>
 </AnchorPane>

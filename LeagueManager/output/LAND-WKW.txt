@@ -1,0 +1,273 @@
+LAND-WKW
+TmResult{meet=51, athlete=1202, ir='I', team=2, score=3331, ex=' ', origin='null', nt=0, result=3913, age=17, distance=50, stroke=2, mtevent=449, points=0, place=2, course='S', dqcode='  ', dqdescript='null'}
+TmResult{meet=85, athlete=1202, ir='I', team=2, score=2869, ex=' ', origin='null', nt=0, result=27697, age=17, distance=50, stroke=2, mtevent=2583, points=0, place=1, course='Y', dqcode='  ', dqdescript='null'}
+TmResult{meet=51, athlete=1224, ir='I', team=2, score=3844, ex=' ', origin='null', nt=0, result=3974, age=5, distance=25, stroke=1, mtevent=419, points=0, place=1, course='S', dqcode='  ', dqdescript='null'}
+TmResult{meet=62, athlete=1224, ir='I', team=2, score=3776, ex=' ', origin='null', nt=0, result=11303, age=5, distance=25, stroke=1, mtevent=1092, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}
+TmResult{meet=70, athlete=1224, ir='I', team=2, score=3141, ex=' ', origin='null', nt=0, result=16563, age=5, distance=25, stroke=1, mtevent=1658, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}
+TmResult{meet=76, athlete=1224, ir='I', team=2, score=3379, ex=' ', origin='null', nt=0, result=20616, age=5, distance=25, stroke=1, mtevent=2081, points=30, place=2, course='Y', dqcode='  ', dqdescript='null'}
+TmResult{meet=83, athlete=1224, ir='I', team=2, score=2894, ex=' ', origin='null', nt=0, result=26775, age=5, distance=25, stroke=1, mtevent=2555, points=70, place=1, course='S', dqcode='  ', dqdescript='null'}
+TmResult{meet=85, athlete=1224, ir='I', team=2, score=2519, ex=' ', origin='null', nt=0, result=27713, age=5, distance=25, stroke=1, mtevent=2593, points=0, place=7, course='Y', dqcode='  ', dqdescript='null'}
+TmResult{meet=51, athlete=1249, ir='I', team=2, score=3225, ex=' ', origin='null', nt=0, result=4045, age=16, distance=50, stroke=2, mtevent=449, points=0, place=1, course='S', dqcode='  ', dqdescript='null'}
+TmResult{meet=62, athlete=1249, ir='I', team=2, score=3301, ex=' ', origin='null', nt=0, result=11367, age=16, distance=50, stroke=2, mtevent=1118, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}
+TmResult{meet=76, athlete=1249, ir='I', team=2, score=2877, ex=' ', origin='null', nt=0, result=20684, age=16, distance=50, stroke=2, mtevent=2039, points=50, place=1, course='Y', dqcode='  ', dqdescript='null'}
+1
+50  WKW 2569 1189
+30  WKW 2858 1790
+10  WKW 3022 1185
+2
+50  WKW 2837 2556(Y) 1202
+30  WKW 2919 2630(Y) 1249
+10  LAND 2939 2648(Y) 873
+3
+50  WKW 2589 2333(Y) 1792
+30  WKW 2794 1795
+10  WKW 2834 2554(Y) 1186
+4
+50  WKW 2922 1250
+30  WKW 2933 2643(Y) 1215
+10  LAND 3324 1467
+5
+50  LAND 3036 2736(Y) 863
+30  WKW 3682 3318(Y) 1796
+10  WKW 3710 1230
+6
+50  WKW 3200 1791
+30  WKW 3316 2988(Y) 1247
+10  WKW 3331 3001(Y) 1201
+7
+50  WKW 1565 1410(Y) 1793
+30  WKW 1759 1226
+10  WKW 1801 1178
+8
+50  WKW 1597 1439(Y) 1187
+30  WKW 1678 1512(Y) 1176
+10  WKW 1707 1184
+9
+50  WKW 2044 1842(Y) 1225
+30  LAND 2203 858
+10  WKW 2210 1238
+10
+50  LAND 1931 845
+30  LAND 1994 867
+10  WKW 2100 1231
+11
+50  WKW 2796 2519(Y) 1224
+30  LAND 3547 868
+10  WKW 4920 1245
+12
+50  LAND 2540 919
+30  LAND 2911 2623(Y) 855
+10  LAND 3053 1929
+13
+50  WKW 6526 1189
+30  WKW 7566 1185
+10  WKW 7812 1790
+14
+50  WKW 6966 6276(Y) 1202
+30  WKW 7030 1249
+10  LAND 7149 6441(Y) 873
+15
+50  WKW 6702 6038(Y) 1795
+30  WKW 6809 1792
+10  WKW 7550 6802(Y) 1170
+16
+50  WKW 6982 1215
+30  WKW 7253 6535(Y) 1250
+10  LAND 8812 1467
+17
+50  LAND 7584 6833(Y) 863
+30  WKW 9338 1230
+10  WKW 11844 1241
+18
+50  WKW 8189 1791
+30  WKW 8508 7665(Y) 1247
+10  WKW 8578 7728(Y) 1789
+19
+50  WKW 9990 9000(Y) 1793
+30  WKW 10727 1226
+10  WKW 12181 10974(Y) 1178
+20
+50  WKW 8538 7692(Y) 1187
+30  WKW 9205 8293(Y) 1176
+10  WKW 10475 9437(Y) 1184
+21
+50  WKW 3323 2994(Y) 1189
+30  WKW 3997 1790
+10  LAND 5784 1928
+22
+50  LAND 3663 3300(Y) 873
+30  WKW 3684 1242
+10  WKW 3781 1202
+23
+50  WKW 3367 3034(Y) 1792
+30  WKW 3391 3055(Y) 1795
+10  LAND 3937 3547(Y) 851
+24
+50  WKW 3671 3308(Y) 1215
+30  WKW 3875 1250
+10  LAND 4795 1466
+25
+50  LAND 3805 3428(Y) 863
+30  WKW 4919 4432(Y) 1230
+10  WKW 5649 5090(Y) 1796
+26
+50  WKW 4609 4153(Y) 1789
+30  WKW 4622 4164(Y) 1201
+10  WKW 4685 1197
+27
+50  WKW 2325 2095(Y) 1793
+30  WKW 2715 1798
+10  WKW 2718 1971
+28
+50  WKW 2209 1187
+30  WKW 2562 1184
+10  WKW 2579 1176
+29
+50  LAND 3022 858
+30  WKW 3056 1970
+10  WKW 3201 1225
+30
+50  WKW 3057 1231
+30  LAND 3263 867
+10  LAND 3769 845
+31
+80  WKW 12327 2398
+40  LAND 13863 2322
+32
+80  WKW 17058 2401
+40  LAND 17093 2323
+33
+80  WKW 8720 1952
+40  LAND 9860 1587
+34
+80  LAND 10919 1884
+40  WKW 12405 11176(Y) 2128
+35
+50  WKW 2850 2568(Y) 1189
+30  WKW 3314 1185
+10  WKW 3628 1790
+36
+50  WKW 3184 2869(Y) 1202
+30  WKW 3193 2877(Y) 1249
+10  LAND 3488 3143(Y) 875
+37
+50  WKW 3051 2749(Y) 1795
+30  WKW 3125 2816(Y) 1792
+10  WKW 3295 1186
+38
+50  WKW 3256 2934(Y) 1250
+30  WKW 3352 3020(Y) 1215
+10  LAND 3934 1467
+39
+50  LAND 3837 863
+30  WKW 4538 1230
+10  WKW 4588 1241
+40
+50  WKW 3808 3431(Y) 1247
+30  WKW 3934 1791
+10  WKW 4079 3675(Y) 1789
+41
+50  WKW 2043 1841(Y) 1793
+30  WKW 2433 2192(Y) 1226
+10  WKW 2436 2195(Y) 1193
+42
+50  WKW 1919 1176
+30  WKW 1941 1749(Y) 1187
+10  WKW 2127 1184
+43
+50  WKW 2620 2361(Y) 1182
+30  LAND 2628 914
+10  WKW 2634 1203
+44
+50  LAND 2360 2127(Y) 845
+30  WKW 2495 1231
+10  LAND 2659 2396(Y) 867
+45
+50  WKW 3371 3037(Y) 1224
+30  LAND 3963 868
+10  WKW 6676 1969
+46
+50  LAND 2915 919
+30  WKW 3138 1256
+10  LAND 3690 1929
+47
+50  WKW 6431 5794(Y) 1185
+30  LAND 9606 1928
+48
+50  WKW 6168 1249
+30  WKW 6613 5958(Y) 1242
+10  LAND 6913 873
+49
+50  WKW 6301 5677(Y) 1186
+30  WKW 6662 1170
+10  LAND 7237 851
+50
+50  LAND 7510 1467
+30  WKW 7933 1223
+10  WKW 8978 8089(Y) 1802
+51
+50  WKW 9681 1209
+30  WKW 9871 1973
+10  LAND 10238 1938
+52
+50  WKW 6944 1791
+30  WKW 7354 6626(Y) 1201
+10  WKW 7482 1789
+53
+50  WKW 3954 1226
+30  WKW 4316 1798
+10  WKW 4341 1178
+54
+50  LAND 4213 3796(Y) 862
+30  WKW 4364 3932(Y) 1199
+10  WKW 4475 4032(Y) 1212
+55
+50  WKW 4501 4055(Y) 1225
+30  WKW 4687 4223(Y) 1970
+10  WKW 5281 1182
+56
+50  LAND 4431 3992(Y) 845
+30  LAND 4666 867
+10  WKW 4786 4312(Y) 1231
+57
+58
+50  LAND 3258 2936(Y) 875
+30  WKW 3764 1229
+10  WKW 3977 1258
+59
+50  LAND 3216 2898(Y) 851
+30  WKW 3284 1186
+10  WKW 3297 1170
+60
+50  LAND 5316 1466
+30  WKW 5383 1200
+61
+50  WKW 5902 1241
+30  LAND 6478 1938
+62
+50  WKW 3735 3365(Y) 1247
+30  WKW 4047 3646(Y) 1197
+10  WKW 4113 1201
+63
+50  WKW 2388 1178
+30  WKW 2439 1193
+10  WKW 2641 2380(Y) 1971
+64
+50  WKW 2227 1251
+30  LAND 2259 891
+10  WKW 2402 2164(Y) 1199
+65
+50  LAND 2970 858
+30  WKW 3046 1225
+10  WKW 3220 2901(Y) 1238
+66
+50  LAND 3444 887
+30  WKW 3583 1210
+10  LAND 3706 906
+67
+80  WKW 13766 1449
+40  LAND 16500 1885
+68
+80  WKW 13113 11814(Y) 2133
+40  LAND 15818 2329
+SCORE:LAND,WKW,1680,4500,-282.0

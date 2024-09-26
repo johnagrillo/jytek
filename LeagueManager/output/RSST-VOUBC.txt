@@ -1,0 +1,263 @@
+RSST-VOUBC
+skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=10381, ex=' ', origin='null', nt=0, result=25494, age=11, distance=100, stroke=5, mtevent=2501, points=20, place=5, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=5675, ex=' ', origin='null', nt=0, result=25495, age=11, distance=50, stroke=3, mtevent=2491, points=10, place=6, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=5622, ex=' ', origin='null', nt=0, result=25496, age=11, distance=50, stroke=2, mtevent=2461, points=0, place=10, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=57, athlete=1489, ir='I', team=16, score=2978, ex=' ', origin='null', nt=0, result=7882, age=14, distance=50, stroke=1, mtevent=806, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=57, athlete=1489, ir='I', team=16, score=7042, ex=' ', origin='null', nt=0, result=7884, age=14, distance=100, stroke=1, mtevent=807, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=8250, ex=' ', origin='null', nt=0, result=16821, age=14, distance=100, stroke=5, mtevent=1736, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=3984, ex=' ', origin='null', nt=0, result=16822, age=14, distance=50, stroke=3, mtevent=1737, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=7199, ex=' ', origin='null', nt=0, result=16823, age=14, distance=100, stroke=1, mtevent=1738, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=3700, ex=' ', origin='null', nt=0, result=16824, age=14, distance=50, stroke=4, mtevent=1739, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=2992, ex=' ', origin='null', nt=0, result=19963, age=14, distance=50, stroke=1, mtevent=2019, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=3770, ex=' ', origin='null', nt=0, result=19964, age=14, distance=50, stroke=3, mtevent=2016, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=6879, ex=' ', origin='null', nt=0, result=19965, age=14, distance=100, stroke=1, mtevent=2018, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}1
+50  RSST 3016 668
+30  RSST 3060 606
+10  RSST 3103 2796(Y) 654
+2
+50  RSST 2743 2472(Y) 696
+30  VOUBC 3027 1111
+10  RSST 3162 712
+3
+50  RSST 2777 2502(Y) 1966
+30  VOUBC 2964 1489
+10  VOUBC 3025 1070
+4
+50  RSST 2940 618
+30  RSST 3184 2869(Y) 683
+10  RSST 3241 639
+5
+50  VOUBC 3113 2805(Y) 1110
+30  VOUBC 3190 1063
+10  VOUBC 3288 1064
+6
+50  VOUBC 3466 3123(Y) 1074
+30  RSST 3558 3206(Y) 697
+10  RSST 3596 3240(Y) 718
+7
+50  VOUBC 1746 1071
+30  RSST 1769 682
+10  RSST 1805 635
+8
+50  VOUBC 1681 1093
+30  RSST 1787 1610(Y) 652
+10  RSST 1819 1639(Y) 659
+9
+50  VOUBC 1879 1092
+30  RSST 1924 1734(Y) 660
+10  RSST 2282 2056(Y) 714
+10
+50  RSST 1945 1753(Y) 636
+30  RSST 2309 705
+10  VOUBC 2337 1981
+11
+50  VOUBC 2803 2526(Y) 1112
+30  RSST 2989 2693(Y) 607
+10  RSST 3222 646
+12
+50  RSST 2607 2349(Y) 679
+30  RSST 2675 2410(Y) 633
+10  VOUBC 2965 2672(Y) 1048
+13
+50  RSST 7706 606
+30  RSST 7727 668
+10  RSST 7853 685
+14
+50  RSST 6917 6232(Y) 696
+30  RSST 7548 6800(Y) 712
+10  RSST 7843 7066(Y) 648
+15
+50  RSST 7054 6355(Y) 1966
+30  VOUBC 7560 1070
+10  RSST 8437 603
+16
+50  RSST 7742 639
+30  RSST 7857 618
+10  RSST 8478 683
+17
+50  VOUBC 7786 7015(Y) 1110
+30  VOUBC 7910 7127(Y) 1064
+10  VOUBC 8280 1977
+18
+50  RSST 8867 7989(Y) 697
+30  RSST 9588 8638(Y) 655
+10  VOUBC 9776 1074
+19
+50  RSST 10407 635
+30  RSST 10554 734
+10  VOUBC 10765 1092
+20
+50  VOUBC 9039 8144(Y) 1093
+30  RSST 11177 726
+10  RSST 11253 698
+21
+50  RSST 3777 3403(Y) 668
+30  RSST 4112 685
+10  RSST 4181 1299
+22
+50  RSST 3834 696
+30  RSST 4045 3645(Y) 690
+10  RSST 4344 648
+23
+50  RSST 3809 1966
+30  VOUBC 3833 1489
+10  RSST 4678 603
+24
+50  RSST 3915 618
+30  RSST 4035 639
+10  RSST 4437 728
+25
+50  VOUBC 4030 1064
+30  VOUBC 4145 3735(Y) 1063
+10  VOUBC 4218 3800(Y) 1977
+26
+50  RSST 4594 4139(Y) 697
+30  RSST 4729 4261(Y) 609
+10  RSST 5036 4537(Y) 655
+27
+50  RSST 2388 635
+30  RSST 2456 2213(Y) 734
+10  VOUBC 2502 1108
+28
+50  VOUBC 2151 1093
+30  RSST 2423 2183(Y) 605
+10  RSST 2464 2220(Y) 735
+29
+50  VOUBC 2414 2175(Y) 1092
+30  RSST 2701 2434(Y) 660
+10  RSST 3153 2841(Y) 608
+30
+50  RSST 2896 636
+30  VOUBC 3113 1043
+10  VOUBC 3258 1054
+31
+80  RSST 12858 11584(Y) 2263
+40  VOUBC 15633 1419
+32
+80  RSST 16344 14725(Y) 2266
+40  VOUBC 16997 2099
+33
+80  RSST 9105 8203(Y) 2267
+40  VOUBC 9718 1597
+34
+80  RSST 11597 1531
+40  VOUBC 11902 1970
+35
+50  RSST 3708 3341(Y) 685
+30  RSST 3774 3400(Y) 640
+10  RSST 3950 606
+36
+50  RSST 3325 696
+30  VOUBC 3473 1111
+10  RSST 3482 3137(Y) 712
+37
+50  RSST 3578 1966
+30  RSST 3706 603
+10  RSST 3757 3385(Y) 638
+38
+50  RSST 3707 3340(Y) 683
+30  RSST 3747 639
+10  RSST 4063 736
+39
+50  VOUBC 3617 3259(Y) 1063
+30  VOUBC 3791 1977
+10  VOUBC 3880 1110
+40
+50  VOUBC 4341 3911(Y) 1074
+30  RSST 4365 697
+10  RSST 4426 3988(Y) 655
+41
+50  RSST 2116 1907(Y) 711
+30  RSST 2154 1941(Y) 1964
+10  RSST 2224 2004(Y) 682
+42
+50  VOUBC 1959 1093
+30  RSST 2081 1875(Y) 652
+10  RSST 2253 726
+43
+50  VOUBC 2184 1968(Y) 1092
+30  RSST 2377 2142(Y) 714
+10  RSST 2679 660
+44
+50  RSST 2317 2088(Y) 636
+30  RSST 2669 705
+10  RSST 2830 2550(Y) 619
+45
+50  VOUBC 3357 3025(Y) 1112
+30  RSST 3709 646
+10  VOUBC 3787 1982
+46
+50  RSST 3119 2810(Y) 633
+30  RSST 3128 679
+10  RSST 3228 2909(Y) 650
+47
+50  RSST 6619 606
+30  RSST 6632 5975(Y) 668
+10  RSST 6899 6216(Y) 685
+48
+50  RSST 6757 6088(Y) 712
+30  RSST 7041 6344(Y) 648
+10  RSST 7259 6540(Y) 1290
+49
+50  VOUBC 6616 1070
+30  VOUBC 6725 1489
+10  RSST 7379 603
+50
+50  RSST 6556 5907(Y) 618
+30  RSST 6925 683
+10  RSST 7312 6588(Y) 736
+51
+50  VOUBC 6791 1110
+30  VOUBC 7332 6606(Y) 1064
+10  VOUBC 7385 1063
+52
+50  RSST 8786 655
+30  VOUBC 8813 1074
+10  VOUBC 8978 1102
+53
+50  VOUBC 3981 1071
+30  RSST 4012 734
+10  RSST 4103 3697(Y) 1964
+54
+50  RSST 4012 3615(Y) 652
+30  RSST 4191 3776(Y) 735
+10  RSST 4200 698
+55
+50  RSST 5181 660
+30  RSST 5607 662
+10  RSST 5646 730
+56
+50  RSST 4761 4290(Y) 636
+30  RSST 5754 5184(Y) 702
+10  RSST 5757 5187(Y) 644
+57
+50  RSST 3434 3094(Y) 654
+30  RSST 3801 3425(Y) 1293
+10  RSST 3953 601
+58
+50  RSST 3347 3016(Y) 648
+30  VOUBC 3376 1111
+10  RSST 3740 690
+59
+50  VOUBC 3299 1070
+30  RSST 3639 3279(Y) 638
+10  RSST 5353 700
+60
+50  RSST 3811 3434(Y) 736
+30  RSST 4984 614
+61
+50  VOUBC 3363 3030(Y) 1977
+30  RSST 3891 3506(Y) 600
+10  RSST 4175 721
+62
+50  RSST 5039 718
+30  VOUBC 5311 1056
+63
+50  RSST 2107 1899(Y) 734
+30  VOUBC 2155 1071
+10  RSST 2197 635
+64
+50  RSST 2002 1804(Y) 652
+30  RSST 2112 726
+10  RSST 2281 659
+65
+50  VOUBC 4044 1046
+30  VOUBC 4358 1101
+66
+50  VOUBC 3345 1072
+67
+80  VOUBC 13088 2350
+40  RSST 14669 2046
+68
+80  RSST 14393 12967(Y) 2274
+40  VOUBC 15805 2107
+SCORE:RSST,VOUBC,4150,2080,207.0

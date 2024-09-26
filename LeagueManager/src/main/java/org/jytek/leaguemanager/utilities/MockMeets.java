@@ -56,7 +56,7 @@ public class MockMeets {
                                     t1.toString(),
                                     tm.getTeams().get(team2).getTcode(),
                                     t2.toString(),
-                                    (new Integer(diff)).toString(),
+                                    (Integer.valueOf(diff)).toString(),
                                     r));
                         } catch (KeyNotFoundException e) {
                             System.out.println(e);

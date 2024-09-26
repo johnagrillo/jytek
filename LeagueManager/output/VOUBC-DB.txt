@@ -1,0 +1,250 @@
+VOUBC-DB
+skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=10381, ex=' ', origin='null', nt=0, result=25494, age=11, distance=100, stroke=5, mtevent=2501, points=20, place=5, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=5675, ex=' ', origin='null', nt=0, result=25495, age=11, distance=50, stroke=3, mtevent=2491, points=10, place=6, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=5622, ex=' ', origin='null', nt=0, result=25496, age=11, distance=50, stroke=2, mtevent=2461, points=0, place=10, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=57, athlete=1489, ir='I', team=16, score=2978, ex=' ', origin='null', nt=0, result=7882, age=14, distance=50, stroke=1, mtevent=806, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=57, athlete=1489, ir='I', team=16, score=7042, ex=' ', origin='null', nt=0, result=7884, age=14, distance=100, stroke=1, mtevent=807, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=8250, ex=' ', origin='null', nt=0, result=16821, age=14, distance=100, stroke=5, mtevent=1736, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=3984, ex=' ', origin='null', nt=0, result=16822, age=14, distance=50, stroke=3, mtevent=1737, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=7199, ex=' ', origin='null', nt=0, result=16823, age=14, distance=100, stroke=1, mtevent=1738, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=3700, ex=' ', origin='null', nt=0, result=16824, age=14, distance=50, stroke=4, mtevent=1739, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=2992, ex=' ', origin='null', nt=0, result=19963, age=14, distance=50, stroke=1, mtevent=2019, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=3770, ex=' ', origin='null', nt=0, result=19964, age=14, distance=50, stroke=3, mtevent=2016, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=6879, ex=' ', origin='null', nt=0, result=19965, age=14, distance=100, stroke=1, mtevent=2018, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}1
+50  DB 3013 1874
+30  DB 3661 11
+10  DB 4153 30
+2
+50  DB 2977 2682(Y) 53
+30  VOUBC 3027 1111
+10  DB 3339 3009(Y) 4
+3
+50  DB 2851 2569(Y) 1448
+30  VOUBC 2964 1489
+10  VOUBC 3025 1070
+4
+50  DB 3162 75
+30  DB 3286 2961(Y) 16
+10  VOUBC 3564 1047
+5
+50  VOUBC 3113 2805(Y) 1110
+30  VOUBC 3190 1063
+10  VOUBC 3288 1064
+6
+50  VOUBC 3466 3123(Y) 1074
+30  DB 3578 1447
+10  DB 3650 3289(Y) 1442
+7
+50  VOUBC 1746 1071
+30  DB 1795 23
+10  DB 1825 1645(Y) 1438
+8
+50  VOUBC 1681 1093
+30  DB 1772 1449
+10  DB 1802 1624(Y) 50
+9
+50  VOUBC 1879 1092
+30  DB 2307 72
+10  DB 2397 2160(Y) 1441
+10
+50  DB 2156 1943(Y) 78
+30  VOUBC 2337 1981
+10  DB 2353 49
+11
+50  DB 2276 2051(Y) 31
+30  DB 2669 22
+10  VOUBC 2803 2526(Y) 1112
+12
+50  VOUBC 2965 2672(Y) 1048
+30  VOUBC 3206 1050
+10  DB 3475 12
+13
+50  DB 8569 1874
+14
+50  DB 7219 6504(Y) 53
+30  VOUBC 8178 1111
+10  DB 8797 6
+15
+50  VOUBC 7560 1070
+30  DB 7696 6934(Y) 1448
+10  DB 8283 19
+16
+50  DB 8172 75
+30  DB 8654 16
+10  DB 10482 3
+17
+50  VOUBC 7786 7015(Y) 1110
+30  VOUBC 7910 7127(Y) 1064
+10  VOUBC 8280 1977
+18
+50  VOUBC 9776 1074
+30  DB 10208 9197(Y) 1442
+10  DB 10304 17
+19
+50  VOUBC 10765 1092
+30  VOUBC 10789 1071
+20
+50  VOUBC 9039 8144(Y) 1093
+30  DB 11000 1449
+10  DB 11259 43
+21
+50  DB 5115 11
+22
+50  DB 3775 3401(Y) 53
+30  DB 4469 4027(Y) 15
+10  DB 4821 4344(Y) 73
+23
+50  VOUBC 3833 1489
+30  DB 4043 1448
+10  DB 4722 26
+24
+50  DB 4419 75
+30  DB 4828 16
+10  DB 4875 59
+25
+50  VOUBC 4030 1064
+30  VOUBC 4145 3735(Y) 1063
+10  VOUBC 4218 3800(Y) 1977
+26
+50  DB 5007 1447
+30  VOUBC 5042 1074
+10  DB 5325 10
+27
+50  VOUBC 2502 1108
+30  DB 2702 2435(Y) 54
+10  VOUBC 2809 1036
+28
+50  VOUBC 2151 1093
+30  DB 2621 1449
+10  DB 2697 43
+29
+50  VOUBC 2414 2175(Y) 1092
+30  DB 3732 72
+10  VOUBC 3734 1101
+30
+50  VOUBC 3113 1043
+30  DB 3122 78
+10  VOUBC 3258 1054
+31
+80  DB 13801 2294
+40  VOUBC 15633 1419
+32
+80  VOUBC 16997 2099
+40  DB 19128 2296
+33
+80  DB 9644 2298
+40  VOUBC 9718 1597
+34
+80  DB 11515 2299
+40  VOUBC 11902 1970
+36
+50  DB 3375 3041(Y) 53
+30  VOUBC 3473 1111
+10  DB 3782 3408(Y) 4
+37
+50  DB 5165 2049
+30  DB 5263 5
+10  VOUBC 5724 1055
+38
+50  DB 3834 75
+30  DB 4270 3
+10  DB 4362 16
+39
+50  VOUBC 3617 3259(Y) 1063
+30  VOUBC 3791 1977
+10  VOUBC 3880 1110
+40
+50  VOUBC 4341 3911(Y) 1074
+30  DB 4368 3936(Y) 62
+10  DB 4606 1442
+41
+50  DB 2253 2030(Y) 23
+30  DB 2460 1438
+10  DB 2603 1437
+42
+50  VOUBC 1959 1093
+30  DB 2197 43
+10  DB 2219 1449
+43
+50  VOUBC 2184 1968(Y) 1092
+30  DB 2723 2454(Y) 1441
+10  VOUBC 2922 1034
+44
+50  DB 2599 2342(Y) 78
+30  DB 2676 2411(Y) 49
+10  VOUBC 2836 1072
+45
+50  DB 3070 2766(Y) 31
+30  VOUBC 3357 3025(Y) 1112
+10  DB 3588 22
+46
+50  DB 3435 3095(Y) 12
+30  VOUBC 3672 1088
+10  VOUBC 3786 1085
+47
+50  DB 6850 1874
+48
+50  DB 7464 6725(Y) 4
+30  DB 7586 6835(Y) 6
+10  DB 7603 15
+49
+50  DB 6250 5631(Y) 1448
+30  VOUBC 6616 1070
+10  VOUBC 6725 1489
+50
+50  DB 9166 44
+30  VOUBC 9444 1047
+10  VOUBC 9684 1095
+51
+50  VOUBC 6791 1110
+30  VOUBC 7332 6606(Y) 1064
+10  VOUBC 7385 1063
+52
+50  DB 8030 7235(Y) 1442
+30  VOUBC 8978 1102
+10  DB 8981 17
+53
+50  VOUBC 3981 1071
+30  DB 4082 3678(Y) 23
+10  DB 4231 1438
+54
+50  DB 3952 3561(Y) 50
+30  DB 4937 33
+10  VOUBC 5003 1077
+55
+50  DB 5480 4937(Y) 72
+30  DB 5700 31
+10  DB 5748 5179(Y) 1441
+56
+50  DB 4902 4417(Y) 78
+30  VOUBC 5853 1981
+10  VOUBC 5934 1072
+57
+50  DB 3369 1874
+58
+50  VOUBC 3376 1111
+30  DB 3487 15
+10  DB 3728 3359(Y) 6
+59
+50  VOUBC 3299 1070
+30  DB 3413 19
+60
+50  DB 4540 3
+61
+50  VOUBC 3363 3030(Y) 1977
+30  VOUBC 4975 1066
+10  VOUBC 8529 1065
+62
+50  VOUBC 5311 1056
+30  DB 6657 62
+63
+50  DB 1906 1718(Y) 23
+30  VOUBC 2155 1071
+10  DB 2650 1437
+64
+50  DB 2284 43
+30  VOUBC 2884 1113
+10  DB 3198 50
+65
+50  VOUBC 4044 1046
+30  DB 4218 3800(Y) 72
+10  VOUBC 4358 1101
+66
+50  VOUBC 3345 1072
+30  DB 3618 49
+67
+80  VOUBC 13088 2350
+40  DB 17069 1810
+68
+80  DB 15512 2302
+40  VOUBC 15805 2107
+SCORE:VOUBC,DB,2640,3330,-69.0

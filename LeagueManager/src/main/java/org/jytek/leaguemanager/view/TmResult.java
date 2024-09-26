@@ -1,8 +1,7 @@
 package org.jytek.leaguemanager.view;
 
-import org.jytek.leaguemanager.database.KeyValue;
 import com.healthmarketscience.jackcess.Row;
-import java.util.*;
+import org.jytek.leaguemanager.database.KeyValue;
 
 /**
  * parsed from mdb-schema
@@ -34,6 +33,24 @@ public class TmResult implements KeyValue<Integer, TmResult> {
      * Name of Table
      **/
     public static final String NAME = "Result";
+
+    @Override
+    public String toString() {
+        return "TmResult{" +
+                "athlete=" + athlete +
+                ", ir='" + ir + '\'' +
+                ", team=" + team +
+                ", result=" + result +
+                ", age=" + age +
+                ", distance=" + distance +
+                ", stroke=" + stroke +
+                ", points=" + points +
+                ", place=" + place +
+                ", course='" + course + '\'' +
+                ", dqcode='" + dqcode + '\'' +
+                ", dqdescript='" + dqdescript + '\'' +
+                '}';
+    }
 
     /**
      * Private Constructor

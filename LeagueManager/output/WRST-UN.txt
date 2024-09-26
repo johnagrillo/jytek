@@ -1,0 +1,252 @@
+WRST-UN
+skip 1112 TmResult{meet=7, athlete=1077, ir='I', team=3, score=12939, ex=' ', origin='null', nt=0, result=3441, age=10, distance=100, stroke=5, mtevent=309, points=0, place=7, course='S', dqcode='  ', dqdescript='null'}skip 1112 TmResult{meet=7, athlete=1077, ir='I', team=3, score=4307, ex=' ', origin='null', nt=0, result=3442, age=10, distance=50, stroke=1, mtevent=326, points=0, place=9, course='S', dqcode='  ', dqdescript='null'}skip 1112 TmResult{meet=7, athlete=1077, ir='I', team=3, score=10812, ex=' ', origin='null', nt=0, result=3443, age=10, distance=100, stroke=1, mtevent=312, points=0, place=8, course='S', dqcode='  ', dqdescript='null'}skip 1112 TmResult{meet=7, athlete=1077, ir='I', team=3, score=6481, ex=' ', origin='null', nt=0, result=3444, age=10, distance=50, stroke=4, mtevent=327, points=0, place=6, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=18, athlete=1787, ir='I', team=3, score=8413, ex=' ', origin='null', nt=0, result=12427, age=12, distance=100, stroke=5, mtevent=1204, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=18, athlete=1787, ir='I', team=3, score=7014, ex=' ', origin='null', nt=0, result=12428, age=12, distance=100, stroke=1, mtevent=1205, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=18, athlete=1787, ir='I', team=3, score=3949, ex=' ', origin='null', nt=0, result=12429, age=12, distance=50, stroke=4, mtevent=1167, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=33, athlete=1787, ir='I', team=3, score=8296, ex=' ', origin='null', nt=0, result=19539, age=12, distance=100, stroke=5, mtevent=1773, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=33, athlete=1787, ir='I', team=3, score=7037, ex=' ', origin='null', nt=0, result=19540, age=12, distance=100, stroke=1, mtevent=1780, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=33, athlete=1787, ir='I', team=3, score=3890, ex=' ', origin='null', nt=0, result=19541, age=12, distance=50, stroke=4, mtevent=1781, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=4, athlete=1787, ir='I', team=3, score=8110, ex=' ', origin='null', nt=0, result=22259, age=12, distance=100, stroke=5, mtevent=2011, points=30, place=4, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=4, athlete=1787, ir='I', team=3, score=6933, ex=' ', origin='null', nt=0, result=22260, age=12, distance=100, stroke=1, mtevent=2015, points=50, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=4, athlete=1787, ir='I', team=3, score=3874, ex=' ', origin='null', nt=0, result=22261, age=12, distance=50, stroke=4, mtevent=2030, points=50, place=2, course='S', dqcode='  ', dqdescript='null'}1
+50  WRST 2894 1073
+30  WRST 2916 1495
+10  WRST 2918 1006
+2
+50  WRST 3028 1057
+30  WRST 3087 1056
+10  WRST 3297 1066
+3
+50  WRST 2858 1017
+30  WRST 3103 1008
+10  WRST 3208 1791
+4
+50  WRST 3523 1095
+30  WRST 3950 1019
+10  WRST 4165 1074
+5
+50  WRST 3664 1069
+30  WRST 3752 1023
+10  WRST 3827 1016
+6
+50  WRST 3763 1020
+30  WRST 3822 1051
+10  WRST 3838 1058
+7
+50  WRST 1795 1078
+30  WRST 1799 1077
+10  WRST 2044 1022
+8
+50  WRST 1715 1060
+30  WRST 1829 1015
+10  WRST 1847 1494
+9
+50  WRST 2246 1021
+30  WRST 2393 1012
+10  WRST 2459 1076
+10
+50  WRST 2210 1499
+30  WRST 2596 1063
+10  WRST 2622 1054
+11
+50  WRST 2901 1062
+30  WRST 3058 1093
+10  WRST 3829 1500
+12
+50  WRST 2952 1011
+30  WRST 3654 1045
+10  WRST 3672 1030
+13
+50  WRST 7322 1055
+30  WRST 8335 1495
+10  WRST 8388 1091
+14
+50  WRST 8144 1057
+30  WRST 8621 1066
+10  WRST 9046 1790
+15
+50  WRST 7771 1017
+30  WRST 7935 1008
+10  WRST 8633 1791
+16
+50  WRST 9219 1095
+30  WRST 11200 1019
+17
+50  WRST 10095 1016
+30  WRST 10950 1069
+10  WRST 11372 1067
+18
+50  WRST 9508 1085
+30  WRST 10285 1058
+10  WRST 10440 1028
+19
+50  WRST 9966 1078
+30  WRST 12481 1022
+10  WRST 12669 1077
+20
+50  WRST 10969 1499
+30  WRST 11585 1024
+10  WRST 12077 1018
+21
+50  WRST 3681 1055
+30  WRST 3988 1079
+10  WRST 4127 1033
+22
+50  WRST 3857 1056
+30  WRST 4267 1066
+10  WRST 4405 1057
+23
+50  WRST 3864 1008
+30  WRST 4600 1792
+10  WRST 4681 1791
+24
+50  WRST 4621 1095
+30  WRST 5107 1019
+10  WRST 6631 1074
+25
+50  WRST 4934 1065
+30  WRST 5116 1016
+10  WRST 5482 1069
+26
+50  WRST 4845 1085
+30  WRST 4982 1051
+10  WRST 5084 1028
+27
+50  WRST 2466 1078
+30  WRST 2908 1077
+10  WRST 3033 1009
+28
+50  WRST 2859 1050
+30  WRST 2862 1494
+10  WRST 2877 1018
+29
+50  WRST 3235 1012
+30  WRST 3675 1021
+10  WRST 3965 1076
+30
+50  WRST 2691 1499
+30  WRST 3129 1084
+10  WRST 3659 1054
+31
+80  WRST 13762 1937
+32
+80  WRST 18165 1823
+33
+80  WRST 9149 1236
+34
+80  WRST 10714 1943
+35
+50  WRST 3650 1055
+30  WRST 3721 1091
+10  WRST 3779 1073
+36
+50  WRST 3739 1057
+30  WRST 3822 1790
+10  WRST 4027 1056
+37
+50  WRST 3964 1791
+30  WRST 4015 1008
+10  WRST 4359 1792
+38
+50  WRST 4296 1095
+30  WRST 5087 1019
+10  WRST 5471 1074
+39
+50  WRST 4381 1016
+30  WRST 4414 1023
+10  WRST 4452 1090
+40
+50  WRST 4877 1097
+30  WRST 4909 1020
+10  WRST 4988 1051
+41
+50  WRST 2182 1078
+30  WRST 2590 1077
+10  WRST 2762 1009
+42
+50  WRST 2315 1015
+30  WRST 2389 1024
+10  WRST 2403 1092
+43
+50  WRST 3082 1021
+30  WRST 3153 1025
+10  WRST 3160 1012
+44
+50  WRST 3095 1084
+30  WRST 3294 1063
+10  WRST 3409 1054
+45
+50  WRST 3820 1500
+30  WRST 3959 1093
+10  WRST 4232 1062
+46
+50  WRST 3637 1030
+30  WRST 4206 1011
+10  WRST 4415 1031
+47
+50  WRST 6452 1055
+30  WRST 6519 1495
+10  WRST 6791 1006
+48
+50  WRST 6932 1056
+30  WRST 7603 1790
+10  WRST 7659 1066
+49
+50  WRST 6477 1017
+30  WRST 7483 1792
+10  WRST 8844 1059
+50
+50  WRST 12726 1075
+51
+50  WRST 8850 1069
+30  WRST 8942 1023
+10  WRST 9213 1067
+52
+50  WRST 8648 1085
+30  WRST 8857 1028
+10  WRST 9200 1051
+53
+50  WRST 4910 1022
+30  WRST 5006 1009
+10  WRST 5351 1094
+54
+50  WRST 3928 1060
+30  WRST 3978 1494
+10  WRST 4283 1092
+55
+50  WRST 5284 1021
+30  WRST 6006 1076
+10  WRST 7948 1012
+56
+50  WRST 4209 1499
+30  WRST 7956 1070
+10  WRST 8629 1054
+57
+50  WRST 3232 1091
+30  WRST 3549 1498
+10  WRST 3737 1073
+58
+50  WRST 3925 1790
+30  WRST 4339 1027
+59
+50  WRST 3171 1017
+30  WRST 3919 1792
+10  WRST 4478 1059
+60
+50  WRST 5231 1497
+61
+50  WRST 4542 1090
+30  WRST 5256 1023
+10  WRST 5270 1080
+62
+50  WRST 4626 1085
+30  WRST 5126 1028
+10  WRST 6163 1010
+63
+50  WRST 2856 1022
+30  WRST 2958 1009
+64
+50  WRST 1913 1494
+30  WRST 2021 1024
+10  WRST 2434 1081
+65
+66
+50  WRST 4011 1084
+30  WRST 4233 1070
+10  WRST 4353 1011
+67
+80  WRST 14197 1175
+68
+80  WRST 14262 1830
+SCORE:WRST,UN,5860,0,586.0

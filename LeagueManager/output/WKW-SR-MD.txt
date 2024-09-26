@@ -1,0 +1,266 @@
+WKW-SR-MD
+skip 1112 TmResult{meet=15, athlete=701, ir='I', team=8, score=4251, ex=' ', origin='null', nt=0, result=9493, age=13, distance=50, stroke=1, mtevent=930, points=0, place=9, course='S', dqcode='  ', dqdescript='null'}skip 1112 TmResult{meet=15, athlete=701, ir='I', team=8, score=5014, ex=' ', origin='null', nt=0, result=9494, age=13, distance=50, stroke=3, mtevent=931, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=18, athlete=718, ir='I', team=8, score=4513, ex=' ', origin='null', nt=0, result=11467, age=12, distance=50, stroke=3, mtevent=1142, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=18, athlete=718, ir='I', team=8, score=3113, ex=' ', origin='null', nt=0, result=11468, age=12, distance=50, stroke=1, mtevent=1114, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=18, athlete=718, ir='I', team=8, score=3815, ex=' ', origin='null', nt=0, result=11469, age=12, distance=50, stroke=2, mtevent=1115, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=18, athlete=718, ir='I', team=8, score=7234, ex=' ', origin='null', nt=0, result=11470, age=12, distance=100, stroke=1, mtevent=1116, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=25, athlete=718, ir='I', team=8, score=4564, ex=' ', origin='null', nt=0, result=16072, age=12, distance=50, stroke=3, mtevent=1524, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=25, athlete=718, ir='I', team=8, score=3115, ex=' ', origin='null', nt=0, result=16073, age=12, distance=50, stroke=1, mtevent=1523, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=25, athlete=718, ir='I', team=8, score=3894, ex=' ', origin='null', nt=0, result=16074, age=12, distance=50, stroke=2, mtevent=1525, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=25, athlete=718, ir='I', team=8, score=7475, ex=' ', origin='null', nt=0, result=16075, age=12, distance=100, stroke=1, mtevent=1528, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=34, athlete=718, ir='I', team=8, score=4394, ex=' ', origin='null', nt=0, result=22369, age=12, distance=50, stroke=3, mtevent=2124, points=40, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=34, athlete=718, ir='I', team=8, score=3151, ex=' ', origin='null', nt=0, result=22370, age=12, distance=50, stroke=1, mtevent=2122, points=70, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=34, athlete=718, ir='I', team=8, score=3794, ex=' ', origin='null', nt=0, result=22371, age=12, distance=50, stroke=4, mtevent=2149, points=50, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=15, athlete=1540, ir='I', team=8, score=8327, ex=' ', origin='null', nt=0, result=9460, age=12, distance=100, stroke=5, mtevent=914, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=15, athlete=1540, ir='I', team=8, score=4558, ex=' ', origin='null', nt=0, result=9461, age=12, distance=50, stroke=3, mtevent=915, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=18, athlete=1540, ir='I', team=8, score=8094, ex=' ', origin='null', nt=0, result=11376, age=12, distance=100, stroke=5, mtevent=1141, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=18, athlete=1540, ir='I', team=8, score=3603, ex=' ', origin='null', nt=0, result=11377, age=12, distance=50, stroke=2, mtevent=1115, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=18, athlete=1540, ir='I', team=8, score=6925, ex=' ', origin='null', nt=0, result=11378, age=12, distance=100, stroke=1, mtevent=1116, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=18, athlete=1540, ir='I', team=8, score=3550, ex=' ', origin='null', nt=0, result=11379, age=12, distance=50, stroke=4, mtevent=1117, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=34, athlete=1540, ir='I', team=8, score=7822, ex=' ', origin='null', nt=0, result=22269, age=12, distance=100, stroke=5, mtevent=2123, points=50, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=34, athlete=1540, ir='I', team=8, score=3538, ex=' ', origin='null', nt=0, result=22270, age=12, distance=50, stroke=2, mtevent=2136, points=70, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=34, athlete=1540, ir='I', team=8, score=6941, ex=' ', origin='null', nt=0, result=22271, age=12, distance=100, stroke=1, mtevent=2137, points=50, place=2, course='S', dqcode='  ', dqdescript='null'}1
+50  WKW 2632 334
+30  SR-MD 2659 729
+10  SR-MD 2681 684
+2
+50  WKW 2969 2675(Y) 382
+30  SR-MD 2976 728
+10  WKW 3116 2808(Y) 1594
+3
+50  WKW 3292 331
+30  WKW 3295 305
+10  WKW 3429 310
+4
+50  SR-MD 3032 1561
+30  WKW 3378 345
+10  SR-MD 3397 716
+5
+50  SR-MD 3210 718
+30  WKW 3265 2942(Y) 365
+10  SR-MD 3432 3092(Y) 1633
+6
+50  SR-MD 3029 2729(Y) 755
+30  WKW 3188 1584
+10  SR-MD 3298 2972(Y) 731
+7
+50  WKW 1592 1435(Y) 313
+30  SR-MD 1609 1450(Y) 1555
+10  SR-MD 1699 1531(Y) 1566
+8
+50  SR-MD 1505 1356(Y) 697
+30  WKW 1672 1587
+10  WKW 1693 330
+9
+50  WKW 2163 293
+30  SR-MD 2195 1978(Y) 742
+10  WKW 2247 1596
+10
+50  SR-MD 1976 1781(Y) 756
+30  SR-MD 2012 1813(Y) 1634
+10  SR-MD 2172 694
+11
+50  SR-MD 2792 2516(Y) 726
+30  WKW 3033 297
+10  SR-MD 3127 2818(Y) 752
+12
+50  SR-MD 1966 1772(Y) 1554
+30  SR-MD 2336 2105(Y) 1551
+10  SR-MD 2575 2320(Y) 1547
+13
+50  WKW 6425 334
+30  SR-MD 6440 5802(Y) 684
+10  WKW 6806 6132(Y) 389
+14
+50  WKW 7549 6801(Y) 382
+30  SR-MD 7758 6990(Y) 728
+10  WKW 8254 1594
+15
+50  WKW 9134 331
+30  WKW 9659 361
+10  WKW 9709 310
+16
+50  SR-MD 7551 6803(Y) 724
+30  SR-MD 8609 759
+10  WKW 8704 329
+17
+50  SR-MD 8054 1542
+30  SR-MD 8638 7782(Y) 718
+10  WKW 9319 365
+18
+50  WKW 7391 6659(Y) 1584
+30  SR-MD 7956 7168(Y) 755
+10  SR-MD 8028 725
+19
+50  SR-MD 10240 1555
+30  SR-MD 10928 1566
+10  WKW 11119 313
+20
+50  SR-MD 8681 697
+30  WKW 8900 1587
+10  WKW 9288 330
+21
+50  WKW 3398 334
+30  SR-MD 3443 1543
+10  SR-MD 3557 684
+22
+50  WKW 4005 3609(Y) 1594
+30  SR-MD 4502 4056(Y) 728
+10  SR-MD 4544 691
+23
+50  WKW 4352 361
+30  WKW 4446 310
+10  WKW 4683 305
+24
+50  SR-MD 4051 724
+30  WKW 4416 386
+10  SR-MD 4583 4129(Y) 759
+25
+50  SR-MD 4412 1542
+30  SR-MD 4606 4150(Y) 718
+10  WKW 4650 4190(Y) 324
+26
+50  SR-MD 4149 3738(Y) 731
+30  SR-MD 4189 725
+10  SR-MD 4465 4023(Y) 741
+27
+50  SR-MD 2034 1833(Y) 1566
+30  SR-MD 2291 2064(Y) 1555
+10  SR-MD 2528 706
+28
+50  WKW 2264 2040(Y) 341
+30  WKW 2372 308
+10  WKW 2409 1587
+29
+50  SR-MD 3071 726
+30  WKW 3614 1596
+10  WKW 4297 325
+30
+50  SR-MD 2619 2360(Y) 1554
+30  WKW 2966 364
+10  WKW 3294 323
+31
+80  SR-MD 13160 934
+40  WKW 13210 120
+32
+80  SR-MD 14307 936
+40  WKW 16884 686
+33
+80  SR-MD 8134 479
+40  WKW 8372 688
+34
+80  SR-MD 10755 941
+40  WKW 11882 691
+35
+50  SR-MD 2874 2590(Y) 684
+30  WKW 3103 2796(Y) 389
+10  SR-MD 3128 729
+36
+50  WKW 3402 3065(Y) 382
+30  SR-MD 3481 728
+10  SR-MD 4006 1548
+37
+50  WKW 4589 310
+30  WKW 4786 361
+10  WKW 5209 305
+38
+50  SR-MD 3809 3432(Y) 724
+30  WKW 3953 307
+10  SR-MD 4175 716
+39
+50  SR-MD 3720 1542
+30  SR-MD 3979 3585(Y) 718
+10  SR-MD 4346 3916(Y) 1633
+40
+50  WKW 3416 3078(Y) 1584
+30  SR-MD 3840 3460(Y) 731
+10  SR-MD 3990 725
+41
+50  SR-MD 2202 1984(Y) 1555
+30  WKW 2291 359
+10  WKW 2838 302
+42
+50  SR-MD 1727 1556(Y) 697
+30  WKW 2000 308
+10  WKW 2006 1587
+43
+50  SR-MD 2531 2281(Y) 742
+30  WKW 2644 1596
+10  WKW 2723 2454(Y) 293
+44
+50  SR-MD 2435 2194(Y) 756
+30  SR-MD 2582 2327(Y) 695
+10  SR-MD 2658 2395(Y) 1634
+45
+50  SR-MD 3305 2978(Y) 726
+30  WKW 3975 297
+10  SR-MD 4093 3688(Y) 752
+46
+50  SR-MD 2541 2290(Y) 1554
+30  SR-MD 3098 1551
+10  SR-MD 3603 1547
+47
+50  SR-MD 5410 729
+30  WKW 5615 334
+10  WKW 6088 389
+48
+50  WKW 6502 5858(Y) 382
+30  SR-MD 7193 1548
+10  WKW 7297 1594
+49
+50  WKW 7801 305
+30  WKW 7894 331
+10  SR-MD 8853 1579
+50
+50  SR-MD 6702 6038(Y) 724
+30  SR-MD 7228 6512(Y) 716
+10  WKW 7399 6666(Y) 329
+51
+50  WKW 7730 6964(Y) 365
+30  SR-MD 7738 6972(Y) 1633
+10  WKW 8091 7290(Y) 358
+52
+50  WKW 6506 5862(Y) 1584
+30  SR-MD 6819 6144(Y) 755
+10  SR-MD 7150 725
+53
+50  WKW 3661 3299(Y) 313
+30  SR-MD 3806 3429(Y) 1576
+10  SR-MD 3863 3481(Y) 1566
+54
+50  SR-MD 3277 2953(Y) 697
+30  WKW 3706 330
+10  WKW 3744 341
+55
+50  WKW 5216 325
+30  WKW 5281 1596
+10  WKW 5681 293
+56
+50  SR-MD 4667 4205(Y) 1634
+30  SR-MD 4778 1554
+10  WKW 5145 364
+57
+50  SR-MD 2863 2580(Y) 729
+30  WKW 2999 2702(Y) 389
+10  SR-MD 3094 2788(Y) 730
+58
+50  SR-MD 3372 1548
+30  WKW 3605 337
+10  SR-MD 3819 719
+59
+50  WKW 4203 331
+60
+50  WKW 3666 329
+30  WKW 3787 307
+10  WKW 4062 340
+61
+50  WKW 3885 365
+30  SR-MD 4442 739
+10  SR-MD 4866 738
+62
+50  SR-MD 3475 3131(Y) 755
+30  SR-MD 3934 731
+10  WKW 4443 333
+63
+50  WKW 2020 1820(Y) 313
+30  SR-MD 2264 747
+10  SR-MD 2325 1576
+64
+50  WKW 1879 330
+30  SR-MD 1928 1737(Y) 696
+10  SR-MD 2029 1828(Y) 733
+65
+50  SR-MD 3267 2944(Y) 742
+30  SR-MD 3750 3379(Y) 760
+10  SR-MD 3895 1572
+66
+50  SR-MD 2658 756
+30  SR-MD 3153 754
+10  SR-MD 3219 695
+67
+80  SR-MD 13913 944
+40  WKW 14382 955
+68
+80  WKW 13234 11923(Y) 1035
+40  SR-MD 14117 946
+SCORE:WKW,SR-MD,2730,3530,-80.0

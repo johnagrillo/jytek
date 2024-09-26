@@ -1,0 +1,265 @@
+VOUBC-LL
+skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=10381, ex=' ', origin='null', nt=0, result=25494, age=11, distance=100, stroke=5, mtevent=2501, points=20, place=5, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=5675, ex=' ', origin='null', nt=0, result=25495, age=11, distance=50, stroke=3, mtevent=2491, points=10, place=6, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=5622, ex=' ', origin='null', nt=0, result=25496, age=11, distance=50, stroke=2, mtevent=2461, points=0, place=10, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=57, athlete=1489, ir='I', team=16, score=2978, ex=' ', origin='null', nt=0, result=7882, age=14, distance=50, stroke=1, mtevent=806, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=57, athlete=1489, ir='I', team=16, score=7042, ex=' ', origin='null', nt=0, result=7884, age=14, distance=100, stroke=1, mtevent=807, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=8250, ex=' ', origin='null', nt=0, result=16821, age=14, distance=100, stroke=5, mtevent=1736, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=3984, ex=' ', origin='null', nt=0, result=16822, age=14, distance=50, stroke=3, mtevent=1737, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=7199, ex=' ', origin='null', nt=0, result=16823, age=14, distance=100, stroke=1, mtevent=1738, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=3700, ex=' ', origin='null', nt=0, result=16824, age=14, distance=50, stroke=4, mtevent=1739, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=2992, ex=' ', origin='null', nt=0, result=19963, age=14, distance=50, stroke=1, mtevent=2019, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=3770, ex=' ', origin='null', nt=0, result=19964, age=14, distance=50, stroke=3, mtevent=2016, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=6879, ex=' ', origin='null', nt=0, result=19965, age=14, distance=100, stroke=1, mtevent=2018, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1112 TmResult{meet=69, athlete=1543, ir='I', team=11, score=8767, ex=' ', origin='null', nt=0, result=15352, age=11, distance=50, stroke=1, mtevent=1569, points=0, place=22, course='S', dqcode='  ', dqdescript='null'}skip 1112 TmResult{meet=74, athlete=1543, ir='I', team=11, score=9334, ex=' ', origin='null', nt=0, result=19222, age=11, distance=50, stroke=1, mtevent=1923, points=0, place=25, course='S', dqcode='  ', dqdescript='null'}1
+50  LL 2649 2387(Y) 927
+30  LL 2726 2456(Y) 1541
+10  LL 2786 2510(Y) 956
+2
+50  LL 2934 2644(Y) 974
+30  VOUBC 3027 1111
+10  LL 3256 2934(Y) 1018
+3
+50  VOUBC 2964 1489
+30  VOUBC 3025 1070
+10  LL 3073 928
+4
+50  LL 3270 2946(Y) 1013
+30  LL 3273 1542
+10  LL 3284 2959(Y) 1562
+5
+50  VOUBC 3113 2805(Y) 1110
+30  LL 3129 2819(Y) 975
+10  VOUBC 3190 1063
+6
+50  VOUBC 3466 3123(Y) 1074
+30  LL 3607 3250(Y) 1004
+10  LL 3680 979
+7
+50  LL 1573 1418(Y) 973
+30  LL 1593 1436(Y) 1532
+10  VOUBC 1746 1071
+8
+50  VOUBC 1681 1093
+30  LL 1787 1610(Y) 930
+10  LL 1872 1687(Y) 948
+9
+50  VOUBC 1879 1092
+30  LL 2267 946
+10  LL 2272 2047(Y) 1016
+10
+50  LL 2097 1549
+30  LL 2184 1551
+10  LL 2258 2035(Y) 958
+11
+50  VOUBC 2803 2526(Y) 1112
+30  VOUBC 3477 1982
+10  LL 3794 1949
+12
+50  VOUBC 2965 2672(Y) 1048
+30  VOUBC 3206 1050
+10  VOUBC 3562 1088
+13
+50  LL 7145 6437(Y) 956
+30  LL 7353 6625(Y) 1541
+10  LL 7406 927
+14
+50  LL 7156 6447(Y) 974
+30  VOUBC 8178 1111
+10  LL 8349 7522(Y) 1018
+15
+50  VOUBC 7560 1070
+30  LL 9137 928
+10  LL 9518 985
+16
+50  LL 8031 7236(Y) 1542
+30  LL 9046 8150(Y) 963
+10  LL 9335 992
+17
+50  VOUBC 7786 7015(Y) 1110
+30  VOUBC 7910 7127(Y) 1064
+10  LL 7919 7135(Y) 975
+18
+50  LL 8756 7889(Y) 979
+30  LL 9653 1004
+10  VOUBC 9776 1074
+19
+50  LL 9108 8206(Y) 1532
+30  LL 9242 8327(Y) 973
+10  VOUBC 10765 1092
+20
+50  VOUBC 9039 8144(Y) 1093
+30  LL 12409 930
+10  LL 13035 11744(Y) 1549
+21
+50  LL 3578 3224(Y) 927
+30  LL 3625 3266(Y) 1541
+10  LL 3653 956
+22
+50  LL 3832 3453(Y) 974
+30  LL 3881 3497(Y) 1018
+10  LL 4384 3950(Y) 972
+23
+50  VOUBC 3833 1489
+30  LL 4162 928
+10  LL 4215 3798(Y) 1028
+24
+50  LL 4143 1542
+30  LL 4811 4335(Y) 989
+10  VOUBC 4934 1095
+25
+50  VOUBC 4030 1064
+30  VOUBC 4145 3735(Y) 1063
+10  VOUBC 4218 3800(Y) 1977
+26
+50  LL 4410 3973(Y) 979
+30  LL 4623 1004
+10  LL 4717 4250(Y) 935
+27
+50  LL 2243 2021(Y) 973
+30  VOUBC 2502 1108
+10  VOUBC 2809 1036
+28
+50  VOUBC 2151 1093
+30  LL 2698 1953
+10  LL 2737 2466(Y) 1538
+29
+50  VOUBC 2414 2175(Y) 1092
+30  LL 2747 970
+10  LL 3174 2860(Y) 946
+30
+50  VOUBC 3113 1043
+30  VOUBC 3258 1054
+10  LL 3291 2965(Y) 1549
+31
+80  LL 13690 12334(Y) 2250
+40  VOUBC 15633 1419
+32
+80  LL 16462 14831(Y) 1623
+40  VOUBC 16997 2099
+33
+80  LL 8436 7600(Y) 1625
+40  VOUBC 9718 1597
+34
+80  LL 11357 2076
+40  VOUBC 11902 1970
+35
+50  LL 3416 3078(Y) 956
+30  LL 3419 1541
+10  LL 3641 3281(Y) 1010
+36
+50  VOUBC 3473 1111
+30  LL 3693 974
+10  LL 4057 1006
+37
+50  LL 4436 1028
+30  LL 4471 4028(Y) 985
+10  LL 4489 1031
+38
+50  LL 3721 3353(Y) 1020
+30  LL 3927 3538(Y) 963
+10  LL 4022 950
+39
+50  VOUBC 3617 3259(Y) 1063
+30  LL 3663 3300(Y) 975
+10  VOUBC 3791 1977
+40
+50  LL 4071 3668(Y) 979
+30  VOUBC 4341 3911(Y) 1074
+10  LL 4467 1004
+41
+50  LL 1942 1750(Y) 973
+30  LL 1947 1532
+10  LL 2448 2206(Y) 949
+42
+50  VOUBC 1959 1093
+30  LL 2331 948
+10  LL 2525 2275(Y) 1540
+43
+50  VOUBC 2184 1968(Y) 1092
+30  LL 2446 2204(Y) 1534
+10  VOUBC 2922 1034
+44
+50  LL 2517 2268(Y) 1551
+30  LL 2566 2312(Y) 1549
+10  LL 2690 2424(Y) 947
+45
+50  VOUBC 3357 3025(Y) 1112
+30  VOUBC 3787 1982
+10  VOUBC 5612 2012
+46
+50  VOUBC 3672 1088
+30  VOUBC 3786 1085
+10  VOUBC 3994 1048
+47
+50  LL 6032 5435(Y) 927
+30  LL 6725 6059(Y) 1547
+10  LL 6907 6223(Y) 1010
+48
+50  LL 7443 6706(Y) 959
+30  LL 7451 6713(Y) 972
+10  LL 7565 6816(Y) 1006
+49
+50  VOUBC 6616 1070
+30  VOUBC 6725 1489
+10  LL 8204 7391(Y) 1028
+50
+50  LL 7106 1542
+30  LL 7425 6690(Y) 1013
+10  LL 7647 992
+51
+50  VOUBC 6791 1110
+30  VOUBC 7332 6606(Y) 1064
+10  VOUBC 7385 1063
+52
+50  VOUBC 8813 1074
+30  VOUBC 8978 1102
+10  LL 8997 8106(Y) 940
+53
+50  LL 3416 3078(Y) 1532
+30  VOUBC 3981 1071
+10  LL 4224 3806(Y) 949
+54
+50  LL 4099 3693(Y) 930
+30  LL 4618 948
+10  LL 4633 4174(Y) 994
+55
+50  LL 5372 970
+30  LL 5553 5003(Y) 1534
+10  LL 5806 946
+56
+50  LL 5080 4577(Y) 1551
+30  LL 5574 5022(Y) 947
+10  LL 5639 5081(Y) 1024
+57
+50  LL 3462 3119(Y) 945
+58
+50  VOUBC 3376 1111
+30  LL 3645 3284(Y) 1029
+10  LL 3700 3334(Y) 1006
+59
+50  VOUBC 3299 1070
+30  LL 4182 928
+10  LL 4804 4328(Y) 985
+60
+50  LL 3885 3500(Y) 950
+30  LL 3916 3528(Y) 963
+10  LL 3965 992
+61
+50  VOUBC 3363 3030(Y) 1977
+30  LL 3654 975
+10  VOUBC 3692 3327(Y) 1110
+62
+50  LL 4981 4488(Y) 935
+30  VOUBC 5311 1056
+10  LL 5343 991
+63
+50  VOUBC 2155 1071
+30  LL 2943 949
+10  VOUBC 2962 1036
+64
+50  LL 2056 1853(Y) 930
+30  LL 2112 1903(Y) 948
+10  LL 2750 2478(Y) 929
+65
+50  LL 3534 970
+30  LL 3931 1016
+10  VOUBC 4044 1046
+66
+50  LL 3109 947
+30  VOUBC 3345 1072
+67
+80  VOUBC 13088 2350
+40  LL 13516 2078
+68
+80  LL 14128 12728(Y) 2261
+40  VOUBC 15805 2107
+SCORE:VOUBC,LL,2380,3870,-149.0

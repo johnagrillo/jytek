@@ -1,0 +1,247 @@
+VOUBC-LAND
+skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=10381, ex=' ', origin='null', nt=0, result=25494, age=11, distance=100, stroke=5, mtevent=2501, points=20, place=5, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=5675, ex=' ', origin='null', nt=0, result=25495, age=11, distance=50, stroke=3, mtevent=2491, points=10, place=6, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=5622, ex=' ', origin='null', nt=0, result=25496, age=11, distance=50, stroke=2, mtevent=2461, points=0, place=10, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=57, athlete=1489, ir='I', team=16, score=2978, ex=' ', origin='null', nt=0, result=7882, age=14, distance=50, stroke=1, mtevent=806, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=57, athlete=1489, ir='I', team=16, score=7042, ex=' ', origin='null', nt=0, result=7884, age=14, distance=100, stroke=1, mtevent=807, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=8250, ex=' ', origin='null', nt=0, result=16821, age=14, distance=100, stroke=5, mtevent=1736, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=3984, ex=' ', origin='null', nt=0, result=16822, age=14, distance=50, stroke=3, mtevent=1737, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=7199, ex=' ', origin='null', nt=0, result=16823, age=14, distance=100, stroke=1, mtevent=1738, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=3700, ex=' ', origin='null', nt=0, result=16824, age=14, distance=50, stroke=4, mtevent=1739, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=2992, ex=' ', origin='null', nt=0, result=19963, age=14, distance=50, stroke=1, mtevent=2019, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=3770, ex=' ', origin='null', nt=0, result=19964, age=14, distance=50, stroke=3, mtevent=2016, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=6879, ex=' ', origin='null', nt=0, result=19965, age=14, distance=100, stroke=1, mtevent=2018, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}1
+50  LAND 3588 1928
+2
+50  LAND 2939 2648(Y) 873
+30  VOUBC 3027 1111
+10  LAND 3284 1468
+3
+50  VOUBC 2964 1489
+30  VOUBC 3025 1070
+10  LAND 3066 851
+4
+50  LAND 3324 1467
+30  VOUBC 3564 1047
+10  LAND 3856 908
+5
+50  LAND 3036 2736(Y) 863
+30  VOUBC 3113 2805(Y) 1110
+10  VOUBC 3190 1063
+6
+50  VOUBC 3466 3123(Y) 1074
+30  LAND 3594 3238(Y) 917
+10  LAND 3681 856
+7
+50  VOUBC 1746 1071
+30  VOUBC 1953 1058
+10  VOUBC 2084 1036
+8
+50  VOUBC 1681 1093
+30  LAND 1812 862
+10  LAND 1891 891
+9
+50  VOUBC 1879 1092
+30  LAND 2203 858
+10  LAND 2503 914
+10
+50  LAND 1931 845
+30  LAND 1994 867
+10  VOUBC 2337 1981
+11
+50  VOUBC 2803 2526(Y) 1112
+30  VOUBC 3477 1982
+10  LAND 3547 868
+12
+50  LAND 2540 919
+30  LAND 2911 2623(Y) 855
+10  VOUBC 2965 2672(Y) 1048
+14
+50  LAND 7149 6441(Y) 873
+30  LAND 8009 875
+10  VOUBC 8178 1111
+15
+50  VOUBC 7560 1070
+30  LAND 7734 851
+10  LAND 9313 857
+16
+50  LAND 8812 1467
+30  LAND 10362 1466
+10  LAND 10646 908
+17
+50  LAND 7584 6833(Y) 863
+30  VOUBC 7786 7015(Y) 1110
+10  VOUBC 7910 7127(Y) 1064
+18
+50  LAND 9677 917
+30  VOUBC 9776 1074
+10  LAND 10550 856
+19
+50  VOUBC 10765 1092
+30  VOUBC 10789 1071
+20
+50  VOUBC 9039 8144(Y) 1093
+30  LAND 11794 891
+10  LAND 12506 869
+21
+50  LAND 5784 1928
+22
+50  LAND 3663 3300(Y) 873
+30  LAND 3920 3532(Y) 1468
+10  LAND 4409 875
+23
+50  VOUBC 3833 1489
+30  LAND 3937 3547(Y) 851
+10  LAND 5044 857
+24
+50  LAND 4795 1466
+30  VOUBC 4934 1095
+10  LAND 5037 1467
+25
+50  LAND 3805 3428(Y) 863
+30  VOUBC 4030 1064
+10  VOUBC 4145 3735(Y) 1063
+26
+50  LAND 4865 852
+30  VOUBC 5042 1074
+10  LAND 5171 864
+27
+50  VOUBC 2502 1108
+30  VOUBC 2809 1036
+10  VOUBC 3057 1115
+28
+50  VOUBC 2151 1093
+30  LAND 2585 2329(Y) 871
+10  LAND 2932 869
+29
+50  VOUBC 2414 2175(Y) 1092
+30  LAND 3022 858
+10  VOUBC 3734 1101
+30
+50  VOUBC 3113 1043
+30  VOUBC 3258 1054
+10  LAND 3263 867
+31
+80  LAND 13863 2322
+40  VOUBC 15633 1419
+32
+80  VOUBC 16997 2099
+40  LAND 17093 2323
+33
+80  VOUBC 9718 1597
+40  LAND 9860 1587
+34
+80  LAND 10919 1884
+40  VOUBC 11902 1970
+35
+50  LAND 5003 1928
+36
+50  VOUBC 3473 1111
+30  LAND 3488 3143(Y) 875
+10  LAND 3578 873
+37
+50  LAND 4176 857
+30  LAND 4607 1472
+10  LAND 4639 912
+38
+50  LAND 3934 1467
+30  VOUBC 4687 1047
+10  VOUBC 4869 1095
+39
+50  VOUBC 3617 3259(Y) 1063
+30  VOUBC 3791 1977
+10  LAND 3837 863
+40
+50  VOUBC 4341 3911(Y) 1074
+30  LAND 4494 856
+10  LAND 5138 864
+41
+50  VOUBC 2653 1115
+30  VOUBC 2670 1058
+10  LAND 2706 907
+42
+50  VOUBC 1959 1093
+30  LAND 2247 2025(Y) 891
+10  LAND 2551 897
+43
+50  VOUBC 2184 1968(Y) 1092
+30  LAND 2628 914
+10  LAND 2838 858
+44
+50  LAND 2360 2127(Y) 845
+30  LAND 2659 2396(Y) 867
+10  VOUBC 2836 1072
+45
+50  VOUBC 3357 3025(Y) 1112
+30  VOUBC 3787 1982
+10  LAND 3963 868
+46
+50  LAND 2915 919
+30  VOUBC 3672 1088
+10  LAND 3690 1929
+47
+50  LAND 9606 1928
+48
+50  LAND 7447 1468
+30  LAND 7459 875
+10  LAND 8726 896
+49
+50  VOUBC 6616 1070
+30  VOUBC 6725 1489
+10  LAND 7237 851
+50
+50  LAND 9215 908
+30  VOUBC 9444 1047
+10  VOUBC 9684 1095
+51
+50  VOUBC 6791 1110
+30  VOUBC 7332 6606(Y) 1064
+10  VOUBC 7385 1063
+52
+50  LAND 8140 7334(Y) 917
+30  LAND 8975 856
+10  VOUBC 8978 1102
+53
+50  VOUBC 3981 1071
+30  VOUBC 4845 1058
+10  LAND 5284 907
+54
+50  LAND 4213 3796(Y) 862
+30  LAND 4556 891
+10  LAND 4781 877
+55
+50  VOUBC 5891 1038
+30  VOUBC 5928 1493
+10  LAND 6147 911
+56
+50  LAND 4431 3992(Y) 845
+30  LAND 4666 867
+10  LAND 5569 906
+58
+50  VOUBC 3376 1111
+59
+50  VOUBC 3299 1070
+30  LAND 4145 1472
+10  LAND 4234 857
+60
+50  LAND 5316 1466
+61
+50  VOUBC 3363 3030(Y) 1977
+30  VOUBC 3692 3327(Y) 1110
+10  VOUBC 3718 1064
+62
+50  LAND 4637 917
+30  LAND 5212 918
+10  LAND 5263 916
+63
+50  VOUBC 2155 1071
+30  VOUBC 2962 1036
+10  VOUBC 3169 1058
+64
+50  LAND 2406 869
+30  LAND 2472 862
+10  LAND 2506 897
+65
+50  LAND 2970 858
+30  LAND 4018 1937
+10  VOUBC 4044 1046
+66
+50  LAND 3028 845
+30  VOUBC 3345 1072
+10  LAND 3444 887
+67
+80  VOUBC 13088 2350
+40  LAND 16500 1885
+68
+80  VOUBC 15805 2107
+40  LAND 15818 2329
+SCORE:VOUBC,LAND,2830,3040,-21.0

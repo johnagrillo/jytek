@@ -1,0 +1,268 @@
+RSST-FCY
+skip 1518 TmResult{meet=27, athlete=458, ir='I', team=3, score=4231, ex=' ', origin='null', nt=0, result=18391, age=13, distance=50, stroke=1, mtevent=1792, points=0, place=5, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=458, ir='I', team=3, score=5619, ex=' ', origin='null', nt=0, result=18392, age=13, distance=50, stroke=2, mtevent=1799, points=0, place=6, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=458, ir='I', team=3, score=9331, ex=' ', origin='null', nt=0, result=18393, age=13, distance=100, stroke=1, mtevent=1794, points=0, place=6, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=458, ir='I', team=3, score=5304, ex=' ', origin='null', nt=0, result=18394, age=13, distance=50, stroke=4, mtevent=1795, points=0, place=5, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=466, ir='I', team=3, score=3154, ex=' ', origin='null', nt=0, result=18422, age=14, distance=50, stroke=1, mtevent=1776, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=466, ir='I', team=3, score=3611, ex=' ', origin='null', nt=0, result=18423, age=14, distance=50, stroke=2, mtevent=1778, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=466, ir='I', team=3, score=6950, ex=' ', origin='null', nt=0, result=18424, age=14, distance=100, stroke=1, mtevent=1789, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=466, ir='I', team=3, score=3476, ex=' ', origin='null', nt=0, result=18425, age=14, distance=50, stroke=4, mtevent=1779, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=480, ir='I', team=3, score=3650, ex=' ', origin='null', nt=0, result=18465, age=13, distance=50, stroke=1, mtevent=1792, points=0, place=4, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=480, ir='I', team=3, score=10156, ex=' ', origin='null', nt=0, result=18466, age=13, distance=100, stroke=5, mtevent=1793, points=0, place=5, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=480, ir='I', team=3, score=5540, ex=' ', origin='null', nt=0, result=18467, age=13, distance=50, stroke=3, mtevent=1803, points=0, place=4, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=480, ir='I', team=3, score=4878, ex=' ', origin='null', nt=0, result=18468, age=13, distance=50, stroke=2, mtevent=1799, points=0, place=4, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=488, ir='I', team=3, score=8001, ex=' ', origin='null', nt=0, result=18501, age=14, distance=100, stroke=5, mtevent=1790, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=488, ir='I', team=3, score=4591, ex=' ', origin='null', nt=0, result=18502, age=14, distance=50, stroke=3, mtevent=1777, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=488, ir='I', team=3, score=6994, ex=' ', origin='null', nt=0, result=18503, age=14, distance=100, stroke=1, mtevent=1789, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=488, ir='I', team=3, score=3382, ex=' ', origin='null', nt=0, result=18504, age=14, distance=50, stroke=4, mtevent=1779, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}1
+50  FCY 2747 2475(Y) 477
+30  RSST 2750 205
+10  RSST 2972 189
+2
+50  FCY 3109 1545
+30  RSST 3178 158
+10  FCY 3184 2869(Y) 464
+3
+50  FCY 2963 473
+30  FCY 2989 478
+10  FCY 3144 494
+4
+50  FCY 3089 2783(Y) 488
+30  FCY 3094 2788(Y) 466
+10  FCY 3127 1549
+5
+50  RSST 3086 149
+30  FCY 3150 2838(Y) 490
+10  FCY 3261 2938(Y) 460
+6
+50  RSST 3332 159
+30  RSST 3412 212
+10  RSST 3574 3220(Y) 151
+7
+50  FCY 1404 1265(Y) 438
+30  RSST 1709 1540(Y) 123
+10  FCY 1725 500
+8
+50  FCY 1757 1583(Y) 479
+30  FCY 1778 1602(Y) 457
+10  FCY 1832 1651(Y) 489
+9
+50  RSST 1897 126
+30  RSST 1908 1719(Y) 122
+10  RSST 2069 1614
+10
+50  FCY 1860 1676(Y) 462
+30  RSST 1887 1700(Y) 191
+10  FCY 1894 1707(Y) 437
+11
+50  FCY 2880 2595(Y) 427
+30  RSST 3078 163
+10  RSST 3600 147
+12
+50  FCY 3082 482
+30  FCY 3482 1805
+10  FCY 3563 420
+13
+50  RSST 7643 205
+30  RSST 7872 189
+10  FCY 8332 484
+14
+50  RSST 7538 6791(Y) 158
+30  RSST 7722 6957(Y) 157
+10  FCY 7765 6996(Y) 1545
+15
+50  FCY 7072 6372(Y) 473
+30  FCY 7811 7037(Y) 478
+10  FCY 8524 494
+16
+50  FCY 7808 7035(Y) 488
+30  FCY 8035 1549
+10  FCY 8054 7256(Y) 466
+17
+50  FCY 7884 490
+30  RSST 8047 7250(Y) 149
+10  FCY 8460 7622(Y) 487
+18
+50  RSST 8500 159
+30  RSST 8826 7952(Y) 146
+10  RSST 9625 212
+19
+50  FCY 8245 7428(Y) 438
+30  FCY 9483 8544(Y) 416
+10  FCY 10014 9022(Y) 491
+20
+50  FCY 9743 8778(Y) 433
+30  FCY 10126 9123(Y) 479
+10  FCY 10562 9516(Y) 457
+21
+50  RSST 3467 3124(Y) 189
+30  FCY 3684 3319(Y) 477
+10  RSST 3928 205
+22
+50  RSST 4172 157
+30  FCY 4433 3994(Y) 1545
+10  FCY 4484 4040(Y) 455
+23
+50  FCY 3808 3431(Y) 473
+30  FCY 4092 478
+10  RSST 4450 207
+24
+50  RSST 4215 3798(Y) 183
+30  FCY 4310 3883(Y) 431
+10  FCY 4515 4068(Y) 488
+25
+50  FCY 4440 490
+30  RSST 4509 149
+10  FCY 4536 4087(Y) 499
+26
+50  RSST 4500 159
+30  RSST 4697 4232(Y) 151
+10  RSST 4741 212
+27
+50  FCY 2019 1819(Y) 438
+30  FCY 2373 2138(Y) 500
+10  FCY 2412 2173(Y) 416
+28
+50  FCY 2233 457
+30  RSST 2360 2127(Y) 135
+10  FCY 2458 433
+29
+50  RSST 2887 122
+30  RSST 3262 1614
+10  RSST 3274 1601
+30
+50  RSST 2496 2249(Y) 145
+30  RSST 2534 144
+10  FCY 2685 2419(Y) 462
+31
+80  RSST 13250 1437
+40  FCY 13562 1925
+32
+80  RSST 16562 1984
+40  FCY 16718 1928
+33
+80  FCY 7925 1770
+40  RSST 9462 1571
+34
+80  RSST 10434 1690
+40  FCY 11989 1773
+35
+50  FCY 3172 2858(Y) 477
+30  FCY 3815 484
+10  FCY 3968 3575(Y) 450
+36
+50  RSST 3503 3156(Y) 158
+30  FCY 3704 3337(Y) 455
+10  RSST 3781 157
+37
+50  FCY 3422 478
+30  FCY 3433 3093(Y) 473
+10  FCY 3968 494
+38
+50  FCY 3455 3113(Y) 466
+30  FCY 3588 1549
+10  FCY 3620 3262(Y) 493
+39
+50  FCY 3528 3179(Y) 490
+30  FCY 3832 3453(Y) 487
+10  FCY 3967 460
+40
+50  RSST 4230 146
+30  RSST 4314 3887(Y) 165
+10  RSST 4340 3910(Y) 151
+41
+50  FCY 1879 1693(Y) 438
+30  FCY 1904 1716(Y) 416
+10  FCY 2069 1864(Y) 500
+42
+50  FCY 2036 1835(Y) 433
+30  RSST 2135 1924(Y) 201
+10  FCY 2148 479
+43
+50  RSST 2403 126
+30  RSST 2569 2315(Y) 1614
+10  RSST 2664 2400(Y) 142
+44
+50  FCY 2263 2039(Y) 462
+30  FCY 2322 483
+10  RSST 2365 2131(Y) 191
+45
+50  FCY 3202 2885(Y) 427
+30  RSST 3250 2928(Y) 163
+10  RSST 4058 179
+46
+50  FCY 3818 3440(Y) 482
+30  FCY 4292 3867(Y) 420
+10  RSST 5100 117
+47
+50  FCY 5920 5334(Y) 477
+30  RSST 6619 205
+10  RSST 6969 189
+48
+50  RSST 6615 158
+30  FCY 6694 1545
+10  RSST 6987 157
+49
+50  FCY 6743 6075(Y) 494
+30  FCY 8119 7315(Y) 492
+10  FCY 8491 480
+50
+50  FCY 6830 6154(Y) 488
+30  FCY 6857 6178(Y) 493
+10  FCY 6913 6228(Y) 466
+51
+50  RSST 7072 6372(Y) 149
+30  FCY 7161 487
+10  FCY 7415 460
+52
+50  RSST 7250 159
+30  RSST 7894 7112(Y) 146
+10  RSST 8239 7423(Y) 151
+53
+50  FCY 3736 3366(Y) 416
+30  FCY 4130 3721(Y) 491
+10  RSST 4259 211
+54
+50  FCY 3768 433
+30  FCY 3916 3528(Y) 479
+10  FCY 4028 457
+55
+50  RSST 4418 126
+30  RSST 4509 4063(Y) 122
+10  RSST 4745 4275(Y) 1614
+56
+50  FCY 4374 3941(Y) 462
+30  FCY 4464 4022(Y) 437
+10  RSST 4471 4028(Y) 164
+57
+50  FCY 3464 3121(Y) 450
+30  RSST 3507 166
+10  FCY 3955 484
+58
+50  FCY 3409 3072(Y) 470
+30  FCY 3774 3400(Y) 464
+10  FCY 3799 3423(Y) 425
+59
+50  RSST 4585 125
+30  FCY 4613 4156(Y) 492
+10  FCY 5306 4781(Y) 480
+60
+50  FCY 3485 3140(Y) 1549
+30  FCY 3646 3285(Y) 471
+10  FCY 3657 3295(Y) 493
+61
+50  FCY 3705 3338(Y) 487
+30  FCY 3894 3509(Y) 465
+10  FCY 3913 3526(Y) 460
+62
+50  RSST 4054 3653(Y) 146
+30  RSST 4325 165
+10  RSST 4597 184
+63
+50  FCY 1862 1678(Y) 491
+30  FCY 2163 500
+10  RSST 2566 123
+64
+50  FCY 2237 489
+30  RSST 2241 201
+10  RSST 2284 131
+65
+50  RSST 2556 1601
+30  RSST 2919 122
+10  RSST 3037 126
+66
+50  RSST 2257 2034(Y) 164
+30  FCY 2334 2103(Y) 483
+10  RSST 2578 145
+67
+80  RSST 15766 1577
+40  FCY 16500 1775
+68
+80  RSST 14039 1993
+40  FCY 14285 1777
+SCORE:RSST,FCY,2660,3640,-98.0

@@ -1,0 +1,271 @@
+VOUBC-WKW
+skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=10381, ex=' ', origin='null', nt=0, result=25494, age=11, distance=100, stroke=5, mtevent=2501, points=20, place=5, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=5675, ex=' ', origin='null', nt=0, result=25495, age=11, distance=50, stroke=3, mtevent=2491, points=10, place=6, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=5622, ex=' ', origin='null', nt=0, result=25496, age=11, distance=50, stroke=2, mtevent=2461, points=0, place=10, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=57, athlete=1489, ir='I', team=16, score=2978, ex=' ', origin='null', nt=0, result=7882, age=14, distance=50, stroke=1, mtevent=806, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=57, athlete=1489, ir='I', team=16, score=7042, ex=' ', origin='null', nt=0, result=7884, age=14, distance=100, stroke=1, mtevent=807, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=8250, ex=' ', origin='null', nt=0, result=16821, age=14, distance=100, stroke=5, mtevent=1736, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=3984, ex=' ', origin='null', nt=0, result=16822, age=14, distance=50, stroke=3, mtevent=1737, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=7199, ex=' ', origin='null', nt=0, result=16823, age=14, distance=100, stroke=1, mtevent=1738, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=3700, ex=' ', origin='null', nt=0, result=16824, age=14, distance=50, stroke=4, mtevent=1739, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=2992, ex=' ', origin='null', nt=0, result=19963, age=14, distance=50, stroke=1, mtevent=2019, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=3770, ex=' ', origin='null', nt=0, result=19964, age=14, distance=50, stroke=3, mtevent=2016, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=6879, ex=' ', origin='null', nt=0, result=19965, age=14, distance=100, stroke=1, mtevent=2018, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}TmResult{meet=51, athlete=1202, ir='I', team=2, score=3331, ex=' ', origin='null', nt=0, result=3913, age=17, distance=50, stroke=2, mtevent=449, points=0, place=2, course='S', dqcode='  ', dqdescript='null'}
+TmResult{meet=85, athlete=1202, ir='I', team=2, score=2869, ex=' ', origin='null', nt=0, result=27697, age=17, distance=50, stroke=2, mtevent=2583, points=0, place=1, course='Y', dqcode='  ', dqdescript='null'}
+TmResult{meet=51, athlete=1224, ir='I', team=2, score=3844, ex=' ', origin='null', nt=0, result=3974, age=5, distance=25, stroke=1, mtevent=419, points=0, place=1, course='S', dqcode='  ', dqdescript='null'}
+TmResult{meet=62, athlete=1224, ir='I', team=2, score=3776, ex=' ', origin='null', nt=0, result=11303, age=5, distance=25, stroke=1, mtevent=1092, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}
+TmResult{meet=70, athlete=1224, ir='I', team=2, score=3141, ex=' ', origin='null', nt=0, result=16563, age=5, distance=25, stroke=1, mtevent=1658, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}
+TmResult{meet=76, athlete=1224, ir='I', team=2, score=3379, ex=' ', origin='null', nt=0, result=20616, age=5, distance=25, stroke=1, mtevent=2081, points=30, place=2, course='Y', dqcode='  ', dqdescript='null'}
+TmResult{meet=83, athlete=1224, ir='I', team=2, score=2894, ex=' ', origin='null', nt=0, result=26775, age=5, distance=25, stroke=1, mtevent=2555, points=70, place=1, course='S', dqcode='  ', dqdescript='null'}
+TmResult{meet=85, athlete=1224, ir='I', team=2, score=2519, ex=' ', origin='null', nt=0, result=27713, age=5, distance=25, stroke=1, mtevent=2593, points=0, place=7, course='Y', dqcode='  ', dqdescript='null'}
+TmResult{meet=51, athlete=1249, ir='I', team=2, score=3225, ex=' ', origin='null', nt=0, result=4045, age=16, distance=50, stroke=2, mtevent=449, points=0, place=1, course='S', dqcode='  ', dqdescript='null'}
+TmResult{meet=62, athlete=1249, ir='I', team=2, score=3301, ex=' ', origin='null', nt=0, result=11367, age=16, distance=50, stroke=2, mtevent=1118, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}
+TmResult{meet=76, athlete=1249, ir='I', team=2, score=2877, ex=' ', origin='null', nt=0, result=20684, age=16, distance=50, stroke=2, mtevent=2039, points=50, place=1, course='Y', dqcode='  ', dqdescript='null'}
+1
+50  WKW 2569 1189
+30  WKW 2858 1790
+10  WKW 3022 1185
+2
+50  WKW 2837 2556(Y) 1202
+30  WKW 2919 2630(Y) 1249
+10  VOUBC 3027 1111
+3
+50  WKW 2589 2333(Y) 1792
+30  WKW 2794 1795
+10  WKW 2834 2554(Y) 1186
+4
+50  WKW 2922 1250
+30  WKW 2933 2643(Y) 1215
+10  WKW 3465 1223
+5
+50  VOUBC 3113 2805(Y) 1110
+30  VOUBC 3190 1063
+10  VOUBC 3288 1064
+6
+50  WKW 3200 1791
+30  WKW 3316 2988(Y) 1247
+10  WKW 3331 3001(Y) 1201
+7
+50  WKW 1565 1410(Y) 1793
+30  VOUBC 1746 1071
+10  WKW 1759 1226
+8
+50  WKW 1597 1439(Y) 1187
+30  WKW 1678 1512(Y) 1176
+10  VOUBC 1681 1093
+9
+50  VOUBC 1879 1092
+30  WKW 2044 1842(Y) 1225
+10  WKW 2210 1238
+10
+50  WKW 2100 1231
+30  WKW 2221 1975
+10  VOUBC 2337 1981
+11
+50  WKW 2796 2519(Y) 1224
+30  VOUBC 2803 2526(Y) 1112
+10  VOUBC 3477 1982
+12
+50  VOUBC 2965 2672(Y) 1048
+30  VOUBC 3206 1050
+10  WKW 3294 1256
+13
+50  WKW 6526 1189
+30  WKW 7566 1185
+10  WKW 7812 1790
+14
+50  WKW 6966 6276(Y) 1202
+30  WKW 7030 1249
+10  VOUBC 8178 1111
+15
+50  WKW 6702 6038(Y) 1795
+30  WKW 6809 1792
+10  WKW 7550 6802(Y) 1170
+16
+50  WKW 6982 1215
+30  WKW 7253 6535(Y) 1250
+10  WKW 10116 1223
+17
+50  VOUBC 7786 7015(Y) 1110
+30  VOUBC 7910 7127(Y) 1064
+10  VOUBC 8280 1977
+18
+50  WKW 8189 1791
+30  WKW 8508 7665(Y) 1247
+10  WKW 8578 7728(Y) 1789
+19
+50  WKW 9990 9000(Y) 1793
+30  WKW 10727 1226
+10  VOUBC 10765 1092
+20
+50  WKW 8538 7692(Y) 1187
+30  VOUBC 9039 8144(Y) 1093
+10  WKW 9205 8293(Y) 1176
+21
+50  WKW 3323 2994(Y) 1189
+30  WKW 3997 1790
+22
+50  WKW 3684 1242
+30  WKW 3781 1202
+10  WKW 4315 1229
+23
+50  WKW 3367 3034(Y) 1792
+30  WKW 3391 3055(Y) 1795
+10  VOUBC 3833 1489
+24
+50  WKW 3671 3308(Y) 1215
+30  WKW 3875 1250
+10  VOUBC 4934 1095
+25
+50  VOUBC 4030 1064
+30  VOUBC 4145 3735(Y) 1063
+10  VOUBC 4218 3800(Y) 1977
+26
+50  WKW 4609 4153(Y) 1789
+30  WKW 4622 4164(Y) 1201
+10  WKW 4685 1197
+27
+50  WKW 2325 2095(Y) 1793
+30  VOUBC 2502 1108
+10  WKW 2715 1798
+28
+50  VOUBC 2151 1093
+30  WKW 2209 1187
+10  WKW 2562 1184
+29
+50  VOUBC 2414 2175(Y) 1092
+30  WKW 3056 1970
+10  WKW 3201 1225
+30
+50  WKW 3057 1231
+30  VOUBC 3113 1043
+10  VOUBC 3258 1054
+31
+80  WKW 12327 2398
+40  VOUBC 15633 1419
+32
+80  VOUBC 16997 2099
+40  WKW 17058 2401
+33
+80  WKW 8720 1952
+40  VOUBC 9718 1597
+34
+80  VOUBC 11902 1970
+40  WKW 12405 11176(Y) 2128
+35
+50  WKW 2850 2568(Y) 1189
+30  WKW 3314 1185
+10  WKW 3628 1790
+36
+50  WKW 3184 2869(Y) 1202
+30  WKW 3193 2877(Y) 1249
+10  VOUBC 3473 1111
+37
+50  WKW 3051 2749(Y) 1795
+30  WKW 3125 2816(Y) 1792
+10  WKW 3295 1186
+38
+50  WKW 3256 2934(Y) 1250
+30  WKW 3352 3020(Y) 1215
+10  WKW 4446 4006(Y) 1246
+39
+50  VOUBC 3617 3259(Y) 1063
+30  VOUBC 3791 1977
+10  VOUBC 3880 1110
+40
+50  WKW 3808 3431(Y) 1247
+30  WKW 3934 1791
+10  WKW 4079 3675(Y) 1789
+41
+50  WKW 2043 1841(Y) 1793
+30  WKW 2433 2192(Y) 1226
+10  WKW 2436 2195(Y) 1193
+42
+50  WKW 1919 1176
+30  WKW 1941 1749(Y) 1187
+10  VOUBC 1959 1093
+43
+50  VOUBC 2184 1968(Y) 1092
+30  WKW 2620 2361(Y) 1182
+10  WKW 2634 1203
+44
+50  WKW 2495 1231
+30  VOUBC 2836 1072
+10  WKW 2856 1975
+45
+50  VOUBC 3357 3025(Y) 1112
+30  WKW 3371 3037(Y) 1224
+10  VOUBC 3787 1982
+46
+50  WKW 3138 1256
+30  VOUBC 3672 1088
+10  VOUBC 3786 1085
+47
+50  WKW 6431 5794(Y) 1185
+48
+50  WKW 6168 1249
+30  WKW 6613 5958(Y) 1242
+10  WKW 7729 1258
+49
+50  WKW 6301 5677(Y) 1186
+30  VOUBC 6616 1070
+10  WKW 6662 1170
+50
+50  WKW 7933 1223
+30  WKW 8978 8089(Y) 1802
+10  WKW 9203 1246
+51
+50  VOUBC 6791 1110
+30  VOUBC 7332 6606(Y) 1064
+10  VOUBC 7385 1063
+52
+50  WKW 6944 1791
+30  WKW 7354 6626(Y) 1201
+10  WKW 7482 1789
+53
+50  WKW 3954 1226
+30  VOUBC 3981 1071
+10  WKW 4316 1798
+54
+50  WKW 3654 3292(Y) 1176
+30  WKW 3970 3577(Y) 1184
+10  WKW 4364 3932(Y) 1199
+55
+50  WKW 4501 4055(Y) 1225
+30  WKW 4687 4223(Y) 1970
+10  WKW 5281 1182
+56
+50  WKW 4786 4312(Y) 1231
+30  VOUBC 5853 1981
+10  VOUBC 5934 1072
+57
+58
+50  VOUBC 3376 1111
+30  WKW 3764 1229
+10  WKW 3977 1258
+59
+50  WKW 3284 1186
+30  WKW 3297 1170
+10  VOUBC 3299 1070
+60
+50  WKW 5383 1200
+61
+50  VOUBC 3363 3030(Y) 1977
+30  WKW 4239 3819(Y) 1230
+10  VOUBC 4975 1066
+62
+50  WKW 3735 3365(Y) 1247
+30  WKW 4047 3646(Y) 1197
+10  WKW 4113 1201
+63
+50  VOUBC 2155 1071
+30  WKW 2388 1178
+10  WKW 2439 1193
+64
+50  WKW 1952 1184
+30  WKW 2227 1251
+10  WKW 2402 2164(Y) 1199
+65
+50  WKW 3046 1225
+30  WKW 3220 2901(Y) 1238
+10  WKW 3363 3030(Y) 1788
+66
+50  VOUBC 3345 1072
+30  WKW 3583 1210
+10  WKW 3932 3543(Y) 1216
+67
+80  VOUBC 13088 2350
+40  WKW 13766 1449
+68
+80  WKW 13113 11814(Y) 2133
+40  VOUBC 15805 2107
+SCORE:VOUBC,WKW,1800,4320,-252.0

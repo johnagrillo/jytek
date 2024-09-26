@@ -1,0 +1,122 @@
+---
+- - athlete result
+  - - 24
+    - 246
+    - 70
+    - 946
+  - - - 100
+      - score
+      - Integer
+    - - 100
+      - place
+      - Short
+    - - 100
+      - points
+      - Short
+    - - 100
+      - age
+      - Short
+    - - 100
+      - stroke
+      - String
+    - - 100
+      - distance
+      - String
+    - - 100
+      - event
+      - String
+    - - 100
+      - MF
+      - String
+    - - 20
+      - ir
+      - String
+    - - 75
+      - meet
+      - String
+    - - 75
+      - date
+      - Date
+    - - 100
+      - team
+      - String
+- - meet result
+  - - 24
+    - 246
+    - 70
+    - 946
+  - - - 100
+      - event
+      - String
+    - - 100
+      - points
+      - String
+    - - 100
+      - place
+      - String
+    - - 90
+      - athlete
+      - String
+    - - 90
+      - age
+      - String
+    - - 90
+      - team
+      - String
+    - - 100
+      - time
+      - String
+    - - 100
+      - conv
+      - String
+- - mock meet result
+  - - 24
+    - 246
+    - 70
+    - 946
+  - - - 100
+      - score
+      - Integer
+    - - 100
+      - place
+      - Integer
+    - - 100
+      - points
+      - Integer
+    - - 90
+      - athlete
+      - String
+    - - 90
+      - team
+      - String
+    - - 100
+      - Meet
+      - String
+    - - 100
+      - date
+      - Date
+    - - 100
+      - converted
+      - Integer
+- - dual mock meet result
+  - - 24
+    - 246
+    - 70
+    - 946
+  - - - 100
+      - team1
+      - String
+    - - 100
+      - score1
+      - Integer
+    - - 100
+      - team2
+      - String
+    - - 100
+      - score2
+      - Integer
+    - - 100
+      - diff
+      - Integer
+
+ 

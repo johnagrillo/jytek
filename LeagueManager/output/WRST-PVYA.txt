@@ -1,0 +1,264 @@
+WRST-PVYA
+skip 1518 TmResult{meet=45, athlete=154, ir='I', team=14, score=7716, ex=' ', origin='null', nt=0, result=394, age=14, distance=100, stroke=5, mtevent=62, points=0, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=45, athlete=154, ir='I', team=14, score=3609, ex=' ', origin='null', nt=0, result=395, age=14, distance=50, stroke=2, mtevent=63, points=0, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=45, athlete=154, ir='I', team=14, score=3097, ex=' ', origin='null', nt=0, result=396, age=14, distance=50, stroke=4, mtevent=66, points=0, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=154, ir='I', team=14, score=2852, ex=' ', origin='null', nt=0, result=17158, age=14, distance=50, stroke=1, mtevent=1754, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=154, ir='I', team=14, score=7352, ex=' ', origin='null', nt=0, result=17159, age=14, distance=100, stroke=5, mtevent=1736, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=154, ir='I', team=14, score=3037, ex=' ', origin='null', nt=0, result=17160, age=14, distance=50, stroke=4, mtevent=1739, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=77, athlete=154, ir='I', team=14, score=3025, ex=' ', origin='null', nt=0, result=21266, age=14, distance=50, stroke=4, mtevent=2164, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=77, athlete=154, ir='I', team=14, score=2813, ex=' ', origin='null', nt=0, result=21267, age=14, distance=50, stroke=1, mtevent=2106, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=77, athlete=154, ir='I', team=14, score=7277, ex=' ', origin='null', nt=0, result=21268, age=14, distance=100, stroke=5, mtevent=2163, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=82, athlete=154, ir='I', team=14, score=7134, ex=' ', origin='null', nt=0, result=25835, age=14, distance=100, stroke=5, mtevent=2503, points=50, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=82, athlete=154, ir='I', team=14, score=3019, ex=' ', origin='null', nt=0, result=25836, age=14, distance=50, stroke=4, mtevent=2504, points=50, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=82, athlete=154, ir='I', team=14, score=4153, ex=' ', origin='null', nt=0, result=25837, age=14, distance=50, stroke=3, mtevent=2444, points=50, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=60, athlete=441, ir='I', team=1, score=10484, ex=' ', origin='null', nt=0, result=9592, age=15, distance=100, stroke=5, mtevent=953, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=60, athlete=441, ir='I', team=1, score=9356, ex=' ', origin='null', nt=0, result=9593, age=15, distance=100, stroke=1, mtevent=954, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=60, athlete=441, ir='I', team=1, score=4500, ex=' ', origin='null', nt=0, result=9594, age=15, distance=50, stroke=4, mtevent=955, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=68, athlete=441, ir='I', team=1, score=10541, ex=' ', origin='null', nt=0, result=14970, age=15, distance=100, stroke=5, mtevent=1530, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=68, athlete=441, ir='I', team=1, score=4241, ex=' ', origin='null', nt=0, result=14971, age=15, distance=50, stroke=1, mtevent=1534, points=0, place=7, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=68, athlete=441, ir='I', team=1, score=4538, ex=' ', origin='null', nt=0, result=14972, age=15, distance=50, stroke=4, mtevent=1533, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}1
+50  PVYA 2539 2288(Y) 1737
+30  PVYA 3005 2708(Y) 495
+10  PVYA 3044 1941
+2
+50  WRST 3334 1992
+30  PVYA 3337 1942
+10  WRST 3427 1755
+3
+50  PVYA 2739 2468(Y) 488
+30  WRST 2787 2511(Y) 154
+10  PVYA 2969 2675(Y) 434
+4
+50  PVYA 2945 2654(Y) 479
+30  WRST 3062 2759(Y) 105
+10  WRST 3164 134
+5
+50  PVYA 3145 2834(Y) 444
+30  PVYA 3260 469
+10  PVYA 4572 1744
+6
+50  PVYA 3512 3164(Y) 503
+30  WRST 4012 137
+10  PVYA 4134 438
+7
+50  WRST 1859 110
+30  WRST 1875 117
+10  WRST 2134 139
+8
+50  PVYA 1808 439
+30  PVYA 1822 1745
+10  WRST 1920 114
+9
+50  PVYA 2257 1730
+30  WRST 2389 92
+10  WRST 2631 141
+10
+50  WRST 2081 1754
+30  PVYA 2210 471
+10  PVYA 2349 1727
+11
+50  PVYA 3301 494
+30  WRST 5209 1989
+12
+50  WRST 2171 1956(Y) 84
+30  WRST 3475 91
+10  WRST 3509 125
+13
+50  PVYA 6751 1737
+30  PVYA 8787 495
+10  WRST 8825 116
+14
+50  WRST 8453 1992
+30  WRST 9372 156
+10  WRST 9459 1755
+15
+50  PVYA 7153 6445(Y) 488
+30  WRST 7384 154
+10  PVYA 7628 435
+16
+50  PVYA 7344 6617(Y) 479
+30  PVYA 8341 487
+10  WRST 8505 134
+17
+50  PVYA 7698 6936(Y) 444
+30  PVYA 9142 469
+10  WRST 12818 132
+18
+50  PVYA 8934 8049(Y) 503
+30  PVYA 11650 1741
+10  PVYA 11732 455
+19
+50  WRST 11275 110
+30  PVYA 12228 472
+10  WRST 14508 139
+20
+50  PVYA 10216 1745
+30  PVYA 10900 442
+10  PVYA 12731 483
+21
+50  PVYA 3274 2950(Y) 1737
+30  WRST 4228 106
+10  PVYA 4315 1941
+22
+50  WRST 4546 118
+30  WRST 4609 1755
+10  PVYA 4831 4353(Y) 474
+23
+50  PVYA 3680 3316(Y) 435
+30  WRST 3969 3576(Y) 129
+10  PVYA 4018 3620(Y) 488
+24
+50  PVYA 3760 3388(Y) 479
+30  PVYA 4216 484
+10  PVYA 4356 3925(Y) 485
+25
+50  PVYA 4516 444
+30  PVYA 5194 469
+10  WRST 6016 97
+26
+50  PVYA 4777 503
+30  WRST 5578 107
+10  WRST 5656 82
+27
+50  WRST 2737 110
+30  PVYA 2790 472
+10  WRST 3307 150
+28
+50  PVYA 2470 442
+30  PVYA 2631 439
+10  PVYA 2669 1745
+29
+50  PVYA 3625 456
+30  WRST 3706 122
+10  WRST 3735 145
+30
+50  WRST 2799 2522(Y) 1754
+30  WRST 3316 133
+10  PVYA 3479 1727
+31
+80  PVYA 13458 2331
+40  WRST 14221 2149
+32
+80  PVYA 17752 1664
+40  WRST 22522 2357
+33
+80  PVYA 9134 2335
+40  WRST 9772 2154
+34
+80  PVYA 12601 2091
+40  WRST 13986 2157
+35
+50  WRST 3769 127
+30  WRST 3821 116
+10  PVYA 4315 497
+36
+50  WRST 3991 1992
+30  WRST 4172 1755
+10  WRST 4272 118
+37
+50  PVYA 3266 2943(Y) 488
+30  PVYA 3433 3093(Y) 434
+10  PVYA 3497 461
+38
+50  WRST 3682 134
+30  PVYA 3687 3322(Y) 479
+10  PVYA 3725 487
+39
+50  PVYA 3613 444
+30  PVYA 4033 3634(Y) 469
+10  WRST 5466 97
+40
+50  PVYA 4022 3624(Y) 503
+30  PVYA 5183 453
+10  PVYA 5272 1741
+41
+50  WRST 2051 1848(Y) 110
+30  WRST 2251 117
+10  PVYA 2701 478
+42
+50  PVYA 2150 442
+30  PVYA 2225 1745
+10  WRST 2343 2111(Y) 114
+43
+50  PVYA 2485 2239(Y) 1730
+30  WRST 3052 104
+10  WRST 3210 141
+44
+50  WRST 2560 2307(Y) 1754
+30  PVYA 2578 2323(Y) 471
+10  PVYA 2585 2329(Y) 1727
+45
+50  PVYA 4331 494
+30  WRST 6228 1989
+46
+50  WRST 2940 84
+30  PVYA 4650 470
+10  WRST 4883 91
+47
+50  PVYA 5627 5070(Y) 1737
+30  PVYA 6938 6251(Y) 495
+10  WRST 7169 127
+48
+50  PVYA 7637 1942
+30  WRST 8062 118
+10  WRST 8121 156
+49
+50  PVYA 6647 468
+30  PVYA 6690 434
+10  PVYA 6698 6035(Y) 461
+50
+50  WRST 7208 6494(Y) 83
+30  PVYA 7264 487
+10  WRST 7432 134
+51
+50  PVYA 11307 10187(Y) 462
+30  WRST 11466 97
+10  PVYA 11485 500
+52
+50  PVYA 9859 1741
+30  PVYA 9969 455
+10  PVYA 10077 453
+53
+50  PVYA 4069 472
+30  WRST 4184 117
+10  PVYA 4919 480
+54
+50  PVYA 3866 442
+30  PVYA 4333 3904(Y) 439
+10  WRST 4531 143
+55
+50  PVYA 5312 1730
+30  WRST 6019 92
+10  WRST 6225 122
+56
+50  WRST 4790 1754
+30  PVYA 5316 4790(Y) 467
+10  PVYA 5346 4817(Y) 1727
+57
+50  WRST 3587 127
+30  PVYA 3653 495
+10  PVYA 3700 1941
+58
+50  WRST 3746 1992
+30  WRST 3856 156
+10  PVYA 4084 1942
+59
+50  WRST 2929 2639(Y) 154
+30  PVYA 3309 434
+10  PVYA 3312 2984(Y) 461
+60
+50  WRST 3585 3230(Y) 83
+30  PVYA 3759 487
+10  WRST 4040 105
+61
+50  PVYA 7250 500
+30  WRST 8381 146
+62
+50  PVYA 5128 453
+30  WRST 5159 1752
+10  WRST 5441 137
+63
+50  PVYA 2416 472
+30  WRST 2834 139
+10  PVYA 2844 450
+64
+50  WRST 2150 142
+30  PVYA 2318 439
+10  PVYA 2350 483
+65
+50  PVYA 3263 1730
+30  WRST 4688 104
+66
+50  WRST 2877 84
+30  PVYA 3394 471
+10  PVYA 3927 3538(Y) 492
+67
+80  PVYA 15037 2339
+40  WRST 15708 1685
+68
+80  WRST 14710 2361
+40  PVYA 14790 2341
+SCORE:WRST,PVYA,2570,3690,-112.0

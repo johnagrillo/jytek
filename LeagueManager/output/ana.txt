@@ -1,0 +1,279 @@
+BAR-WKW
+6 Result{meet=85, athlete=532, i_r='I', team=13, score=2373, ex=' ', result=26900, age=7, distance=25, stroke=1, mtevent=2593, course='Y', dqcode='  ', dqdescript='null'}6 Result{meet=85, athlete=532, i_r='I', team=13, score=2591, ex=' ', result=26901, age=7, distance=25, stroke=2, mtevent=2594, course='Y', dqcode='  ', dqdescript='null'}6 Result{meet=81, athlete=532, i_r='I', team=13, score=2872, ex=' ', result=24044, age=6, distance=25, stroke=2, mtevent=2410, course='S', dqcode='  ', dqdescript='null'}6 Result{meet=81, athlete=532, i_r='I', team=13, score=2654, ex=' ', result=24046, age=6, distance=25, stroke=1, mtevent=2411, course='S', dqcode='  ', dqdescript='null'}Result{meet=51, athlete=1202, i_r='I', team=2, score=3331, ex=' ', result=3913, age=17, distance=50, stroke=2, mtevent=449, course='S', dqcode='  ', dqdescript='null'}
+Result{meet=85, athlete=1202, i_r='I', team=2, score=2869, ex=' ', result=27697, age=17, distance=50, stroke=2, mtevent=2583, course='Y', dqcode='  ', dqdescript='null'}
+Result{meet=51, athlete=1224, i_r='I', team=2, score=3844, ex=' ', result=3974, age=5, distance=25, stroke=1, mtevent=419, course='S', dqcode='  ', dqdescript='null'}
+Result{meet=62, athlete=1224, i_r='I', team=2, score=3776, ex=' ', result=11303, age=5, distance=25, stroke=1, mtevent=1092, course='S', dqcode='  ', dqdescript='null'}
+Result{meet=70, athlete=1224, i_r='I', team=2, score=3141, ex=' ', result=16563, age=5, distance=25, stroke=1, mtevent=1658, course='S', dqcode='  ', dqdescript='null'}
+Result{meet=76, athlete=1224, i_r='I', team=2, score=3379, ex=' ', result=20616, age=5, distance=25, stroke=1, mtevent=2081, course='Y', dqcode='  ', dqdescript='null'}
+Result{meet=83, athlete=1224, i_r='I', team=2, score=2894, ex=' ', result=26775, age=5, distance=25, stroke=1, mtevent=2555, course='S', dqcode='  ', dqdescript='null'}
+Result{meet=85, athlete=1224, i_r='I', team=2, score=2519, ex=' ', result=27713, age=5, distance=25, stroke=1, mtevent=2593, course='Y', dqcode='  ', dqdescript='null'}
+Result{meet=51, athlete=1249, i_r='I', team=2, score=3225, ex=' ', result=4045, age=16, distance=50, stroke=2, mtevent=449, course='S', dqcode='  ', dqdescript='null'}
+Result{meet=62, athlete=1249, i_r='I', team=2, score=3301, ex=' ', result=11367, age=16, distance=50, stroke=2, mtevent=1118, course='S', dqcode='  ', dqdescript='null'}
+Result{meet=76, athlete=1249, i_r='I', team=2, score=2877, ex=' ', result=20684, age=16, distance=50, stroke=2, mtevent=2039, course='Y', dqcode='  ', dqdescript='null'}
+1
+50 Curtis,Logan WKW 2569 1189
+30 Byrne,Jack WKW 2858 1790
+10 Lebherz,Francis BAR 2966 1599
+2
+50 Fondersmith,Julia WKW 2875 1202
+30 Thornett,Emily WKW 2919 2630(Y) 1249
+10 Timme,Carly BAR 2959 586
+3
+50 Chen,Bradley WKW 2634 1792
+30 Giuliani,Craig WKW 2794 1795
+10 Dragic,Nikola BAR 2865 530
+4
+50 Thornett,Sarah WKW 2922 1250
+30 Isleib,Ellie WKW 2933 2643(Y) 1215
+10 Pryor,Abigail BAR 3222 569
+5
+50 Zumbrunn,Zachary BAR 3635 1620
+30 Wolf,Oliver BAR 3672 594
+10 Giuliani,Jacob WKW 3682 3318(Y) 1796
+6
+50 Carmody,Ellie WKW 3200 1791
+30 Snow,Shayla WKW 3432 1247
+10 Bonner,Maria WKW 3441 1789
+7
+50 Figueroa-Chabrier,Sebastian WKW 1615 1793
+30 Sobota,Connor BAR 1756 578
+10 Melson,Tristan WKW 1759 1226
+8
+50 Courtois,Summer WKW 1597 1439(Y) 1187
+30 Courtois,Chloe WKW 1707 1184
+10 Camalier,Claire WKW 1744 1176
+9
+50 Sobota,Samuel BAR 2016 579
+30 Eberle,Brooks BAR 2031 531
+10 Melson,Sebastian WKW 2094 1225
+10
+50 Thompson,Leah BAR 2050 585
+30 Moutafis,Angeliki WKW 2100 1231
+10 Tedrow,Brynn WKW 2221 1975
+11
+50 Melson,Julian WKW 2894 1224
+30 McWilliams,Jake BAR 3272 566
+10 Moore,Timothy BAR 3932 3543(Y) 1606
+12
+50 Thompson,Ellie BAR 2634 584
+30 Bonasera,Adalina BAR 2904 513
+10 Whitehead,Charissa WKW 3294 1256
+13
+50 Curtis,Logan WKW 6526 1189
+30 Courtois,Luke WKW 7566 1185
+10 Lebherz,Prosser BAR 7753 559
+14
+50 Thornett,Emily WKW 7030 1249
+30 Fondersmith,Julia WKW 7213 1202
+10 Timme,Carly BAR 7768 586
+15
+50 Chen,Bradley WKW 6809 1792
+30 Giuliani,Craig WKW 7012 1795
+10 Dragic,Nikola BAR 7305 530
+16
+50 Isleib,Ellie WKW 6982 1215
+30 Thornett,Sarah WKW 7253 6535(Y) 1250
+10 Pryor,Abigail BAR 8475 569
+17
+50 Wolf,Oliver BAR 9103 594
+30 Moutafis,Achilleas WKW 9338 1230
+10 Zumbrunn,Zachary BAR 9528 1620
+18
+50 Carmody,Ellie WKW 8189 1791
+30 Snow,Shayla WKW 8928 1247
+10 FitzGerald,Elizabeth WKW 9032 1201
+19
+50 Figueroa-Chabrier,Sebastian WKW 10019 1793
+30 Melson,Tristan WKW 10727 1226
+10 McClure,Reece BAR 11504 562
+20
+50 Courtois,Summer WKW 8700 1187
+30 Camalier,Claire WKW 9208 1176
+10 Courtois,Chloe WKW 10490 1184
+21
+50 Curtis,Logan WKW 3323 2994(Y) 1189
+30 Lebherz,Francis BAR 3697 1599
+10 Baird,Adam BAR 3991 504
+22
+50 Sargeant,Delaney WKW 3684 1242
+30 Fondersmith,Julia WKW 3781 1202
+10 Montgomery,Paige WKW 4315 1229
+23
+50 Chen,Bradley WKW 3451 1792
+30 Giuliani,Craig WKW 3502 1795
+10 Dragic,Nikola BAR 3727 3358(Y) 530
+24
+50 Isleib,Ellie WKW 3697 1215
+30 Thornett,Sarah WKW 3875 1250
+10 Harshman,Leah BAR 4502 1595
+25
+50 Wolf,Oliver BAR 4478 594
+30 Moutafis,Achilleas WKW 4926 1230
+10 Giuliani,Jacob WKW 5649 5090(Y) 1796
+26
+50 FitzGerald,Elizabeth WKW 4644 1201
+30 Eggert,Genevieve WKW 4685 1197
+10 Carmody,Ellie WKW 4703 1791
+27
+50 Figueroa-Chabrier,Sebastian WKW 2510 1793
+30 Bell,Austin BAR 2582 507
+10 Sobota,Connor BAR 2631 578
+28
+50 Courtois,Summer WKW 2209 1187
+30 Courtois,Chloe WKW 2562 1184
+10 Camalier,Claire WKW 2579 1176
+29
+50 FitzGerald,Gregory WKW 3056 1970
+30 Eberle,Brooks BAR 3119 531
+10 Melson,Sebastian WKW 3201 1225
+30
+50 Moutafis,Angeliki WKW 3057 1231
+30 Thompson,Leah BAR 3059 585
+10 Morders,Samantha BAR 3374 3040(Y) 1608
+31
+80  WKW 12327 2398
+40  BAR 13558 12215(Y) 1632
+32
+80  WKW 17058 2401
+40  BAR 17666 15916(Y) 1635
+33
+80  WKW 8720 1952
+40  BAR 9794 2284
+34
+80  BAR 11560 10415(Y) 1999
+40  WKW 12405 11176(Y) 2128
+35
+50 Curtis,Logan WKW 2940 1189
+30 Courtois,Luke WKW 3314 1185
+10 Byrne,Jack WKW 3628 1790
+36
+50 Thornett,Emily WKW 3225 1249
+30 Fondersmith,Julia WKW 3331 1202
+10 Timme,Carly BAR 3549 3198(Y) 586
+37
+50 Chen,Bradley WKW 3125 2816(Y) 1792
+30 Giuliani,Craig WKW 3128 1795
+10 Courtois,Shane WKW 3295 1186
+38
+50 Isleib,Ellie WKW 3370 1215
+30 Thornett,Sarah WKW 3375 1250
+10 Pryor,Abigail BAR 3588 569
+39
+50 Zumbrunn,Zachary BAR 4181 1620
+30 Lebherz,Saverio BAR 4512 560
+10 Moutafis,Achilleas WKW 4538 1230
+40
+50 Snow,Shayla WKW 3884 1247
+30 Carmody,Ellie WKW 3934 1791
+10 Bonner,Maria WKW 4079 3675(Y) 1789
+41
+50 Figueroa-Chabrier,Sebastian WKW 2114 1793
+30 Sobota,Connor BAR 2383 578
+10 McClure,Reece BAR 2440 562
+42
+50 Camalier,Claire WKW 1919 1176
+30 Courtois,Summer WKW 2009 1187
+10 Courtois,Chloe WKW 2127 1184
+43
+50 Foster,Brooks WKW 2634 1203
+30 Camalier,Colin WKW 2746 1177
+10 Eberle,Brooks BAR 2778 531
+44
+50 Moutafis,Angeliki WKW 2495 1231
+30 Dassoulas,Brynn BAR 2628 527
+10 Thompson,Leah BAR 2753 585
+45
+50 Melson,Julian WKW 3533 1224
+30 McWilliams,Jake BAR 4153 566
+10 Kalivretenos,Val BAR 4375 1913
+46
+50 Whitehead,Charissa WKW 3138 1256
+30 Bonasera,Adalina BAR 3400 513
+10 Thompson,Ellie BAR 3788 584
+47
+50 Byrne,Jack WKW 6422 1790
+30 Courtois,Luke WKW 6604 1185
+10 Lebherz,Francis BAR 6627 5971(Y) 1599
+48
+50 Thornett,Emily WKW 6168 1249
+30 Timme,Carly BAR 6474 586
+10 Sargeant,Delaney WKW 6613 5958(Y) 1242
+49
+50 Courtois,Shane WKW 6301 5677(Y) 1186
+30 Dragic,Nikola BAR 6410 530
+10 Ademola,Joshua WKW 6662 1170
+50
+50 Pryor,Abigail BAR 7253 569
+30 Melson,Amber WKW 7933 1223
+10 Hoyt,Mairead BAR 8450 551
+51
+50 Zumbrunn,Zachary BAR 8061 7263(Y) 1620
+30 Wolf,Oliver BAR 8161 7353(Y) 594
+10 Moutafis,Achilleas WKW 8307 1230
+52
+50 Bonner,Maria WKW 7482 1789
+30 FitzGerald,Elizabeth WKW 7858 1201
+10 Eggert,Genevieve WKW 7882 1197
+53
+50 Melson,Tristan WKW 3954 1226
+30 Sobota,Connor BAR 4169 3756(Y) 578
+10 Oraca,Cristobal WKW 4316 1798
+54
+50 Carson,Scarlett BAR 4377 518
+30 Starck,Reagan BAR 4406 581
+10 Heitfield,Jovie WKW 4475 4032(Y) 1212
+55
+50 Eberle,Brooks BAR 4834 531
+30 Melson,Sebastian WKW 4907 1225
+10 Sobota,Samuel BAR 5103 579
+56
+50 Thompson,Leah BAR 4666 585
+30 Moutafis,Angeliki WKW 4934 1231
+10 Morders,Samantha BAR 5941 5353(Y) 1608
+57
+50 Lebherz,Francis BAR 3256 1599
+30 Byrne,Jack WKW 3284 1790
+10 Lebherz,Prosser BAR 3447 559
+58
+50 Claney,Susannah BAR 3542 521
+30 Montgomery,Paige WKW 3764 1229
+10 Gordon,Ava BAR 3942 3552(Y) 1592
+59
+50 Courtois,Shane WKW 3284 1186
+30 Ademola,Joshua WKW 3297 1170
+10 Timme,Easton BAR 3891 587
+60
+50 Harshman,Leah BAR 3990 1595
+30 Michaels,Aubrey BAR 4262 3840(Y) 1916
+10 Bidinger,Carley BAR 4537 508
+61
+50 Johnson,Riley BAR 4575 556
+30 Lebherz,Saverio BAR 5082 4579(Y) 560
+10 Shankle,Trevor BAR 5463 4922(Y) 1615
+62
+50 Snow,Shayla WKW 3851 1247
+30 FitzGerald,Elizabeth WKW 4113 1201
+10 Eggert,Genevieve WKW 4121 1197
+63
+50 McClure,Reece BAR 2147 562
+30 Carmody,Owen WKW 2388 1178
+10 Doherty,Jaxon WKW 2439 1193
+64
+50 Starck,Reagan BAR 2218 581
+30 Ward,Elise WKW 2227 1251
+10 Hannon,Isabelle BAR 2325 547
+65
+50 Sobota,Samuel BAR 2587 2331(Y) 579
+30 Morders,Maximus BAR 3038 2737(Y) 1607
+10 Melson,Sebastian WKW 3046 1225
+66
+50 Diehl,June BAR 3483 529
+30 Harrigan,Selma WKW 3583 1210
+10 Johnson,Aubrey WKW 3932 3543(Y) 1216
+67
+80  WKW 13766 1449
+40  BAR 14269 2288
+68
+80  WKW 13113 11814(Y) 2133
+40  BAR 15912 2291
+SCORE:BAR,WKW,2270,4030,-176.0

@@ -1,0 +1,217 @@
+VOUBC-TR
+skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=10381, ex=' ', origin='null', nt=0, result=25494, age=11, distance=100, stroke=5, mtevent=2501, points=20, place=5, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=5675, ex=' ', origin='null', nt=0, result=25495, age=11, distance=50, stroke=3, mtevent=2491, points=10, place=6, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=5622, ex=' ', origin='null', nt=0, result=25496, age=11, distance=50, stroke=2, mtevent=2461, points=0, place=10, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=57, athlete=1489, ir='I', team=16, score=2978, ex=' ', origin='null', nt=0, result=7882, age=14, distance=50, stroke=1, mtevent=806, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=57, athlete=1489, ir='I', team=16, score=7042, ex=' ', origin='null', nt=0, result=7884, age=14, distance=100, stroke=1, mtevent=807, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=8250, ex=' ', origin='null', nt=0, result=16821, age=14, distance=100, stroke=5, mtevent=1736, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=3984, ex=' ', origin='null', nt=0, result=16822, age=14, distance=50, stroke=3, mtevent=1737, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=7199, ex=' ', origin='null', nt=0, result=16823, age=14, distance=100, stroke=1, mtevent=1738, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=3700, ex=' ', origin='null', nt=0, result=16824, age=14, distance=50, stroke=4, mtevent=1739, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=2992, ex=' ', origin='null', nt=0, result=19963, age=14, distance=50, stroke=1, mtevent=2019, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=3770, ex=' ', origin='null', nt=0, result=19964, age=14, distance=50, stroke=3, mtevent=2016, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=6879, ex=' ', origin='null', nt=0, result=19965, age=14, distance=100, stroke=1, mtevent=2018, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}1
+50  TR 6097 1862
+2
+50  VOUBC 3027 1111
+30  VOUBC 3760 1057
+3
+50  VOUBC 2964 1489
+30  VOUBC 3025 1070
+10  VOUBC 4622 1055
+4
+50  VOUBC 3564 1047
+30  TR 3605 2038
+10  VOUBC 4148 1095
+5
+50  VOUBC 3113 2805(Y) 1110
+30  VOUBC 3190 1063
+10  VOUBC 3288 1064
+6
+50  VOUBC 3466 3123(Y) 1074
+30  VOUBC 3953 1102
+10  VOUBC 4256 1056
+7
+50  VOUBC 1746 1071
+30  VOUBC 1953 1058
+10  VOUBC 2084 1036
+8
+50  VOUBC 1681 1093
+30  TR 1908 2028
+10  VOUBC 2216 1077
+9
+50  VOUBC 1879 1092
+30  TR 2406 2037
+10  VOUBC 2515 1493
+10
+50  VOUBC 2337 1981
+30  VOUBC 2365 1072
+10  VOUBC 2472 1069
+11
+50  VOUBC 2803 2526(Y) 1112
+30  VOUBC 3477 1982
+10  VOUBC 4898 2012
+12
+50  VOUBC 2965 2672(Y) 1048
+30  VOUBC 3206 1050
+10  VOUBC 3562 1088
+14
+50  VOUBC 8178 1111
+30  VOUBC 9716 1057
+15
+50  VOUBC 7560 1070
+16
+50  VOUBC 10829 1047
+17
+50  VOUBC 7786 7015(Y) 1110
+30  VOUBC 7910 7127(Y) 1064
+10  VOUBC 8280 1977
+18
+50  VOUBC 9776 1074
+30  VOUBC 11304 1056
+10  VOUBC 14061 1498
+19
+50  VOUBC 10765 1092
+30  VOUBC 10789 1071
+20
+50  VOUBC 9039 8144(Y) 1093
+21
+50  TR 5599 1862
+22
+50  VOUBC 5159 1057
+23
+50  VOUBC 3833 1489
+30  TR 6323 2040
+10  VOUBC 7553 1055
+24
+50  VOUBC 4934 1095
+30  VOUBC 5072 1047
+10  VOUBC 5265 1978
+25
+50  VOUBC 4030 1064
+30  VOUBC 4145 3735(Y) 1063
+10  VOUBC 4218 3800(Y) 1977
+26
+50  VOUBC 5042 1074
+30  VOUBC 5866 1056
+10  VOUBC 6125 1102
+27
+50  VOUBC 2502 1108
+30  VOUBC 2809 1036
+10  VOUBC 3057 1115
+28
+50  VOUBC 2151 1093
+30  VOUBC 3235 1484
+10  TR 3249 2028
+29
+50  VOUBC 2414 2175(Y) 1092
+30  VOUBC 3734 1101
+10  VOUBC 3872 1053
+30
+50  VOUBC 3113 1043
+30  VOUBC 3258 1054
+10  VOUBC 3350 1106
+31
+80  VOUBC 15633 1419
+32
+80  VOUBC 16997 2099
+33
+80  VOUBC 9718 1597
+34
+80  VOUBC 11902 1970
+35
+50  TR 7017 6322(Y) 1862
+36
+50  VOUBC 3473 1111
+30  VOUBC 4403 1057
+37
+50  VOUBC 5724 1055
+30  TR 7825 2040
+38
+50  TR 4684 2038
+30  VOUBC 4687 1047
+10  VOUBC 4869 1095
+39
+50  VOUBC 3617 3259(Y) 1063
+30  VOUBC 3791 1977
+10  VOUBC 3880 1110
+40
+50  VOUBC 4341 3911(Y) 1074
+30  VOUBC 5495 1103
+10  TR 5969 5378(Y) 1871
+41
+50  VOUBC 2653 1115
+30  VOUBC 2670 1058
+10  VOUBC 2812 1036
+42
+50  VOUBC 1959 1093
+30  TR 2303 2075(Y) 2028
+10  VOUBC 2582 1478
+43
+50  VOUBC 2184 1968(Y) 1092
+30  VOUBC 2922 1034
+10  VOUBC 3066 1493
+44
+50  VOUBC 2836 1072
+30  VOUBC 2965 1044
+10  VOUBC 2984 1981
+45
+50  VOUBC 3357 3025(Y) 1112
+30  VOUBC 3787 1982
+10  VOUBC 5612 2012
+46
+50  TR 3646 3285(Y) 1858
+30  VOUBC 3672 1088
+10  VOUBC 3786 1085
+47
+50  TR 15783 14219(Y) 1862
+48
+49
+50  VOUBC 6616 1070
+30  VOUBC 6725 1489
+10  TR 12571 2040
+50
+50  TR 9084 2038
+30  VOUBC 9684 1095
+10  TR 11715 2030
+51
+50  VOUBC 6791 1110
+30  VOUBC 7332 6606(Y) 1064
+10  VOUBC 7385 1063
+52
+50  VOUBC 8978 1102
+30  VOUBC 9680 1056
+10  VOUBC 11730 1494
+53
+50  VOUBC 3981 1071
+30  VOUBC 4845 1058
+10  VOUBC 5337 1104
+54
+50  TR 4748 4278(Y) 2028
+30  VOUBC 5003 1077
+10  VOUBC 6052 1484
+55
+50  TR 5872 2037
+30  VOUBC 5891 1038
+10  VOUBC 5928 1493
+56
+50  VOUBC 5853 1981
+30  VOUBC 5934 1072
+10  VOUBC 6181 1043
+58
+50  VOUBC 3376 1111
+59
+50  VOUBC 3299 1070
+61
+50  VOUBC 3363 3030(Y) 1977
+30  VOUBC 4975 1066
+10  VOUBC 8529 1065
+62
+63
+50  VOUBC 2155 1071
+30  VOUBC 2962 1036
+10  VOUBC 3169 1058
+64
+50  VOUBC 2884 1113
+30  VOUBC 3493 1077
+65
+50  VOUBC 4044 1046
+30  VOUBC 4358 1101
+66
+50  VOUBC 3345 1072
+67
+80  VOUBC 13088 2350
+40  TR 23051 2204
+68
+80  VOUBC 15805 2107
+40  TR 20652 2205
+SCORE:VOUBC,TR,4430,750,368.0

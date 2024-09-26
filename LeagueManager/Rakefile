@@ -6,58 +6,16 @@
 #
 ##############################
 
-
-MVC = [
-  ["athlete result",
-   [24, 246, 70, 946], #layoutX, layoutY, prefHeight prefWidth
-   [
-     [100, "score",    "Integer"],
-     [100, "place",    "Short"],
-     [100, "points",   "Short"],
-     [100, "age",      "Short"],
-     [100, "stroke",   "String"],
-     [100, "distance", "String"],     
-     [100, "event",    "String"],
-     [100, "MF",      "String"],                 
-     [20,  "ir",       "String"],
-     [75,  "meet",     "String"],
-     [75,  "date",     "Date"],     
-     [100, "team",    "String"],
-   ]
-  ],
-  ["meet result",
-   [24, 246, 70, 946], #layoutX, layoutY, prefHeight prefWidth
-   [
-     [100, "event",     "String"],
-     [100, "points",    "String"],
-     [100, "place",     "String"],
-     [90,  "athlete",   "String"],
-     [90,  "age",   "String"],     
-     [90,  "team",      "String"],
-     [100, "time",      "String"],
-     [100, "conv",      "String"],
-   ]
-  ],
-  
-  ["mock meet result",
-   [24, 246, 70, 946], #layoutX, layoutY, prefHeight prefWidth
-   [
-     [100, "score",    "Integer"],
-     [100, "place",    "Integer"],
-     [100, "points",   "Integer"],
-     [90,  "athlete",  "String"],
-     [90,  "team",     "String"],
-     [100, "Meet",      "String"],
-     [100, "date",     "Date"],
-     [100, "converted", "Integer"],
+require 'yaml'
+views = {}
+YAML.load(File.read("classes.yaml")).each do |a|
+  views[a[0]] = a
+end
+Athlete_Result = views["athlete result"]
+MeetResult = views["meet result"]
+MockMeetResult = views["mock meet result"]
+DualMockResult = views["dual mock meet result"]
      
-   ]
-  ]
-]
-
-
-
-
 #
 #
 # Use ruby to build 
@@ -75,6 +33,18 @@ require_relative 'ruby/java.rb'
 require_relative 'ruby/ruby.rb'
 require_relative 'ruby/string.rb'
 
+
+task "cmsl-tabs" do
+
+  File.open("cmsl.tabs", "w") do |f|
+    puts f.path
+    f.puts cmsl_hdr
+    1.upto(5).each do |w|
+      f.puts cmsl_tab(w)
+    end
+    f.puts cmsl_ftr
+  end
+end
 
 
 task :mvc do
@@ -279,6 +249,45 @@ task :schema do
   end
 end
 
+MmClasses = [
+  # "Athlete",
+  # "Entry",
+  # "Event",
+  # "Meet",
+  # "Team",
+  # "Relay",
+  # "RelayNames",
+  # "ScoreLanes",
+  # "Scoring",
+  #MEETMOBILE2OPTIONS MemorizedReports Multiage MultiageScnd Officials
+  #OMEOPTIONS Records RecordsApp RecordsbyEvent Regions ScoringImprovement Session
+  #Sessitem Split StdLanes Team TeamCoaches
+  "TimeStd"
+  #WaveOffset RecordTags TagNames
+]
+
+task :"mm-schema" do
+  ["TimeStd", "RecordTags","TagNames"].each do |table|
+    puts table
+    out = %x{mdb-schema ../../mdb/mm.mdb -T #{table}}
+    File.open( "schema/mm/#{table}.schema.txt", "w") do |fh|
+      fh.puts(out)
+    end
+  end
+end
+
+
+
+
+
+
+task :"mm-classes" do
+  ["TimeStd", "RecordTags","TagNames"].each do |table|
+    readTable(File.read("schema/mm/#{table}.schema.txt"), "Mm")
+  end
+end
+
+
 
 #
 #
@@ -294,7 +303,7 @@ task :classes do
 end
 
 
-def readTable(schema)
+def readTable(schema,db)
   iter = schema.split("\n").each
   
   begin 
@@ -304,14 +313,14 @@ def readTable(schema)
         _,_,name = s.split(' ')
         name = name[1..-2].capitalize
         
-        File.open("src/main/java/org/jytek/leaguemanager/view/Tm#{name}.java", "w") do |fh|
+        File.open("src/main/java/org/jytek/leaguemanager/view/#{db}#{name}.java", "w") do |fh|
           puts fh.path
-          fh.puts create_class(schema,name,iter,"Tm")
+          fh.puts create_class(schema,name,iter,db)
         end
 
-        File.open("src/main/java/org/jytek/leaguemanager/database/Tm#{name}DAO.java", "w") do |fh|
+        File.open("src/main/java/org/jytek/leaguemanager/database/#{db}#{name}DAO.java", "w") do |fh|
           puts fh.path
-          fh.puts createDAO(schema,name,iter,"Tm")
+          fh.puts createDAO(schema,name,iter,db)
         end
 
         
@@ -338,7 +347,7 @@ def createDAO(schema, name, iter, prefix)
   cls = prefix + name
   out << %Q[
 
-public class #{cls}DAO extends DAOStream<Integer, #{cls}> {
+public class #{cls}DAO extends MdbDAOStream<Integer, #{cls}> {
 
     public static #{cls}DAO load(final Database db) throws IOException {
         return new #{cls}DAO(db);
@@ -400,12 +409,15 @@ def create_class(schema, name, iter, prefix)
   out << "    private #{clsName}() {\n    }\n"
   
   columns = []
+  id = ""
+  idType = ""
   while true
     s = iter.next.squish!
+
     if s =~ /^\(/
+      
     elsif s =~ /\);/
       members = {}
-
       columns.each do |c|
         if c.strip =~ /#/
           next
@@ -413,6 +425,8 @@ def create_class(schema, name, iter, prefix)
         name,type = c.split(" ",2)
         name = name[1..-2]
         memberName = getMemberName(name);
+
+                
         if type =~ /Text/
           type = "String"
         else
@@ -422,7 +436,12 @@ def create_class(schema, name, iter, prefix)
           type = MapTypes[type]
         end
         
+        if  id == ""
+          id = memberName[0].downcase + memberName[1..-1]
+          idType = type
+        end
 
+        
         members[name] = [memberName, type]
       end
 
@@ -442,7 +461,7 @@ def create_class(schema, name, iter, prefix)
       members.each do |name,(mname, type)|
         sub = name.gsub("(","_").sub(")","")
         mname = mname.gsub("(","_").sub(")","")
-        out << "        obj.#{mname.downcase} = (#{type}) row.get(#{clsName}.#{sub.upcase});"
+        out << "        obj.#{mname[0].downcase}#{mname[1..-1]} = (#{type}) row.get(#{clsName}.#{sub.upcase});"
       end
       out << "        return obj;"
       out << "    }"
@@ -452,9 +471,25 @@ def create_class(schema, name, iter, prefix)
       out << "        return this;"
       out << "    }"
       out << ""
+
+
+      # key is the first column
       
       out << "    public Integer getKey(){"
-      out << "        return #{cname.downcase};"
+
+      ret = "        return #{id}"
+
+      puts idType
+      if (idType == "Short")
+        ret += ".intValue()"
+      elsif (idType =- "String")
+        ret += ".hashCode()"
+      end
+        
+      ret += ";"
+      out << ret
+      
+      puts idType
       out << "    }"
       
       out << "\n"
@@ -471,8 +506,8 @@ def create_class(schema, name, iter, prefix)
       out << "    //"       
       members.each do |name,(mname,type)|
         sub = mname.gsub("(","_").sub(")","")
-        out << "    private #{type} #{sub.downcase} = null;";
-    end
+        out << "    private #{type} #{sub[0].downcase}#{sub[1..-1]} = null;";
+      end
 
       out << ""
       out << "    //"       
@@ -486,8 +521,8 @@ def create_class(schema, name, iter, prefix)
         out << "     * Getter for #{mname}"
         out << "     * @return #{type}"
         out << "     */"
-        out << "    public #{type} get#{sub[0].upcase}#{sub.downcase[1..-1]}() {";
-        out << "        return #{sub.downcase};"
+        out << "    public #{type} get#{mname}() {";
+        out << "        return #{sub[0].downcase}#{sub[1..-1]};"
         out << "    }";
       end
 
@@ -600,8 +635,114 @@ def createView(tname,columns)
     java_class([cname, fields])
 end
   
+def cmsl_hdr()
+  %Q[<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="840.0" prefWidth="1100" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.jytek.leaguemanager.controller.CmslController">
+    <children>
+        <Button fx:id="btLoad" layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#onLoadMdb"
+                prefHeight="51.0" prefWidth="190.0" text="Load All Weekly MDB"/>
+
+        <TabPane layoutY="105.0" prefHeight="719.0" prefWidth="652.0" tabClosingPolicy="UNAVAILABLE">
+           <tabs>
+]
+end
+
+def cmsl_ftr()
+  %Q[</tabs>
+        </TabPane>
+        <TreeTableView layoutX="669.0" layoutY="14.0" prefHeight="814.0" prefWidth="428.0">
+            <columns>
+                <TreeTableColumn prefWidth="75.0" text="Team"/>
+                <TreeTableColumn prefWidth="75.0" text="Wins"/>
+            </columns>
+        </TreeTableView>
+    </children>
+</AnchorPane>
+]
+end
+
+
+task :out do
+
+[1,2,3,4,5].each do |week|
+
+  out = []
+  out << "    //"
+  out << "    // Week #{week}"
+  out << "    //"
+  out << "@FXML\npublic TreeTableView<DualMockResult> tvMockWk#{week};"
+  DualMockResult[2].each do |(_,field,type) |
+    print field, "\n"
+    out << "@FXML\nprivate TreeTableColumn<DualMockResult, #{type}> tcMockWk#{week}#{field.pascal_case};"
+  end
+  puts out * "\n"
+  puts
+end
+
+[1,2,3,4,5].each do |week|
+  out = []
+  out << "    //"
+  out << "    // Week #{week}"
+  out << "    //"
+  DualMockResult[2].each do |(_,field,type) |
+    out << "Util.setPVF(tcMockWk#{week}#{field.pascal_case}, \"#{field.pascal_case}\");"
+  end
+  puts out * "\n"
+  puts
+end
+
+[1,2,3,4,5].each do |week|
+
+  out = []
+
+  out <<  "    mockTables.add(new MockTable(tfWk#{week}File, tvMockWk#{week}, " +  DualMockResult[2].map do |(_,field,type) |
+    "tcMockWk#{week}#{field.pascal_case}" 
+  end * ", " + "));"
+  
+  puts out 
+end
+
+
+def cmsl_tab(week)
+
+tab = %Q[
+                  <Tab text="Week#{week}">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+
+                                <Button fx:id="btnWk#{week}Load" layoutX="115.0" layoutY="15.0" mnemonicParsing="false"
+                                        onAction="#onWkLoad" prefHeight="30.0" prefWidth="83.0" text="Load MDB"/>
+                                <Button fx:id="btnWk#{week}Run" layoutX="31.0" layoutY="15.0" mnemonicParsing="false"
+                                        onAction="#onWkRun" prefHeight="30.0" prefWidth="66.0" text="Run"/>
+                                <TextField fx:id="tfWk#{week}File" disable="true" layoutX="223.0" layoutY="18.0"
+                                           prefHeight="25.0" prefWidth="398.0"/>
+
+                                <TreeTableView fx:id="tvMockWk#{week}" layoutX="14.0" layoutY="123.0"
+                                               prefHeight="519.0" prefWidth="521.0">
+                                    <columns>
+                                        <TreeTableColumn fx:id="tcMockWk#{week}Team1" prefWidth="150.0" sortable="true" text="Team"/>
+                                        <TreeTableColumn fx:id="tcMockWk#{week}Score1" prefWidth="100.0" sortable="true"
+                                                         text="Score"/>
+                                        <TreeTableColumn fx:id="tcMockWk#{week}Team2" prefWidth="100.0" sortable="true" text="Team"/>
+                                        <TreeTableColumn fx:id="tcMockWk#{week}Score2" prefWidth="100.0" sortable="true"
+                                                         text="Score"/>
+                                        <TreeTableColumn fx:id="tcMockWk#{week}Diff" prefWidth="69.0" sortable="true" text="Win"/>
+                                    </columns>
+                                </TreeTableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+]
 
 
 
-
-
+tab
+end
+end

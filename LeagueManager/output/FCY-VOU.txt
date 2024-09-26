@@ -1,0 +1,268 @@
+FCY-VOU
+skip 1518 TmResult{meet=27, athlete=458, ir='I', team=3, score=4231, ex=' ', origin='null', nt=0, result=18391, age=13, distance=50, stroke=1, mtevent=1792, points=0, place=5, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=458, ir='I', team=3, score=5619, ex=' ', origin='null', nt=0, result=18392, age=13, distance=50, stroke=2, mtevent=1799, points=0, place=6, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=458, ir='I', team=3, score=9331, ex=' ', origin='null', nt=0, result=18393, age=13, distance=100, stroke=1, mtevent=1794, points=0, place=6, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=458, ir='I', team=3, score=5304, ex=' ', origin='null', nt=0, result=18394, age=13, distance=50, stroke=4, mtevent=1795, points=0, place=5, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=466, ir='I', team=3, score=3154, ex=' ', origin='null', nt=0, result=18422, age=14, distance=50, stroke=1, mtevent=1776, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=466, ir='I', team=3, score=3611, ex=' ', origin='null', nt=0, result=18423, age=14, distance=50, stroke=2, mtevent=1778, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=466, ir='I', team=3, score=6950, ex=' ', origin='null', nt=0, result=18424, age=14, distance=100, stroke=1, mtevent=1789, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=466, ir='I', team=3, score=3476, ex=' ', origin='null', nt=0, result=18425, age=14, distance=50, stroke=4, mtevent=1779, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=480, ir='I', team=3, score=3650, ex=' ', origin='null', nt=0, result=18465, age=13, distance=50, stroke=1, mtevent=1792, points=0, place=4, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=480, ir='I', team=3, score=10156, ex=' ', origin='null', nt=0, result=18466, age=13, distance=100, stroke=5, mtevent=1793, points=0, place=5, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=480, ir='I', team=3, score=5540, ex=' ', origin='null', nt=0, result=18467, age=13, distance=50, stroke=3, mtevent=1803, points=0, place=4, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=480, ir='I', team=3, score=4878, ex=' ', origin='null', nt=0, result=18468, age=13, distance=50, stroke=2, mtevent=1799, points=0, place=4, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=488, ir='I', team=3, score=8001, ex=' ', origin='null', nt=0, result=18501, age=14, distance=100, stroke=5, mtevent=1790, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=488, ir='I', team=3, score=4591, ex=' ', origin='null', nt=0, result=18502, age=14, distance=50, stroke=3, mtevent=1777, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=488, ir='I', team=3, score=6994, ex=' ', origin='null', nt=0, result=18503, age=14, distance=100, stroke=1, mtevent=1789, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=488, ir='I', team=3, score=3382, ex=' ', origin='null', nt=0, result=18504, age=14, distance=50, stroke=4, mtevent=1779, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}1
+50  FCY 2747 2475(Y) 477
+30  VOU 2893 1774
+10  VOU 2916 976
+2
+50  VOU 2782 1488
+30  VOU 2950 1018
+10  FCY 3109 1545
+3
+50  FCY 2963 473
+30  FCY 2989 478
+10  VOU 3142 1478
+4
+50  FCY 3089 2783(Y) 488
+30  FCY 3094 2788(Y) 466
+10  FCY 3127 1549
+5
+50  FCY 3150 2838(Y) 490
+30  FCY 3261 2938(Y) 460
+10  FCY 3267 2944(Y) 487
+6
+50  VOU 3101 2794(Y) 1020
+30  VOU 3591 3236(Y) 942
+10  VOU 3681 1073
+7
+50  FCY 1404 1265(Y) 438
+30  FCY 1725 500
+10  FCY 1756 1582(Y) 491
+8
+50  VOU 1741 1569(Y) 1065
+30  FCY 1757 1583(Y) 479
+10  FCY 1778 1602(Y) 457
+9
+50  VOU 2105 1897(Y) 952
+30  VOU 2230 1773
+10  VOU 2330 963
+10
+50  FCY 1860 1676(Y) 462
+30  FCY 1894 1707(Y) 437
+10  FCY 1942 1750(Y) 483
+11
+50  VOU 2760 2487(Y) 934
+30  VOU 2838 947
+10  FCY 2880 2595(Y) 427
+12
+50  FCY 3082 482
+30  VOU 3198 1499
+10  VOU 3212 991
+13
+50  VOU 7023 976
+30  FCY 8332 484
+10  VOU 8455 1029
+14
+50  VOU 6832 1488
+30  VOU 7627 1018
+10  FCY 7765 6996(Y) 1545
+15
+50  FCY 7072 6372(Y) 473
+30  VOU 7692 981
+10  FCY 7811 7037(Y) 478
+16
+50  FCY 7808 7035(Y) 488
+30  FCY 8035 1549
+10  FCY 8054 7256(Y) 466
+17
+50  FCY 7884 490
+30  FCY 8460 7622(Y) 487
+10  VOU 8804 961
+18
+50  VOU 7649 1020
+30  VOU 9406 942
+10  VOU 9442 1005
+19
+50  FCY 8245 7428(Y) 438
+30  FCY 9483 8544(Y) 416
+10  VOU 9732 1752
+20
+50  FCY 9743 8778(Y) 433
+30  FCY 10126 9123(Y) 479
+10  FCY 10562 9516(Y) 457
+21
+50  VOU 3557 976
+30  FCY 3684 3319(Y) 477
+10  VOU 4034 1490
+22
+50  VOU 3847 941
+30  VOU 4107 1018
+10  VOU 4238 964
+23
+50  VOU 3751 981
+30  FCY 3808 3431(Y) 473
+10  VOU 3933 3544(Y) 1478
+24
+50  FCY 4310 3883(Y) 431
+30  FCY 4515 4068(Y) 488
+10  FCY 4600 481
+25
+50  VOU 4342 961
+30  FCY 4440 490
+10  FCY 4536 4087(Y) 499
+26
+50  VOU 3984 1020
+30  VOU 4617 1005
+10  FCY 5003 4508(Y) 429
+27
+50  FCY 2019 1819(Y) 438
+30  VOU 2364 1752
+10  FCY 2373 2138(Y) 500
+28
+50  FCY 2233 457
+30  VOU 2332 982
+10  VOU 2429 2189(Y) 959
+29
+50  VOU 3153 1773
+30  VOU 3155 963
+10  VOU 3286 952
+30
+50  FCY 2685 2419(Y) 462
+30  FCY 2688 2422(Y) 483
+10  VOU 2787 967
+31
+80  VOU 12729 1348
+40  FCY 13562 1925
+32
+80  VOU 15516 1353
+40  FCY 16718 1928
+33
+80  FCY 7925 1770
+40  VOU 9327 1900
+34
+80  VOU 10088 1903
+40  FCY 11989 1773
+35
+50  FCY 3172 2858(Y) 477
+30  VOU 3434 976
+10  FCY 3815 484
+36
+50  VOU 3260 1488
+30  VOU 3416 1018
+10  FCY 3704 3337(Y) 455
+37
+50  FCY 3422 478
+30  FCY 3433 3093(Y) 473
+10  VOU 3824 994
+38
+50  FCY 3455 3113(Y) 466
+30  FCY 3588 1549
+10  VOU 3606 1476
+39
+50  FCY 3528 3179(Y) 490
+30  FCY 3832 3453(Y) 487
+10  VOU 3965 1016
+40
+50  VOU 3631 1020
+30  VOU 4072 942
+10  VOU 4307 3881(Y) 1047
+41
+50  FCY 1879 1693(Y) 438
+30  FCY 1904 1716(Y) 416
+10  FCY 2069 1864(Y) 500
+42
+50  FCY 2036 1835(Y) 433
+30  FCY 2148 479
+10  VOU 2167 1953(Y) 1065
+43
+50  VOU 2823 2544(Y) 1035
+30  VOU 2884 1043
+10  VOU 3002 952
+44
+50  FCY 2263 2039(Y) 462
+30  VOU 2276 2051(Y) 1049
+10  FCY 2322 483
+45
+50  FCY 3202 2885(Y) 427
+30  VOU 3662 947
+10  VOU 3709 934
+46
+50  VOU 3779 1499
+30  FCY 3818 3440(Y) 482
+10  VOU 3920 983
+47
+50  FCY 5920 5334(Y) 477
+30  VOU 6803 1774
+10  VOU 7098 943
+48
+50  VOU 6049 5450(Y) 1488
+30  FCY 6694 1545
+10  FCY 7039 6342(Y) 464
+49
+50  FCY 6743 6075(Y) 494
+30  FCY 6762 478
+10  VOU 7021 981
+50
+50  FCY 6830 6154(Y) 488
+30  FCY 6857 6178(Y) 493
+10  FCY 6913 6228(Y) 466
+51
+50  FCY 7161 487
+30  FCY 7415 460
+10  VOU 7660 961
+52
+50  VOU 7932 7146(Y) 942
+30  VOU 8033 7237(Y) 1047
+10  VOU 8331 1073
+53
+50  FCY 3736 3366(Y) 416
+30  VOU 3869 1752
+10  VOU 4038 1025
+54
+50  FCY 3768 433
+30  FCY 3916 3528(Y) 479
+10  FCY 4028 457
+55
+50  VOU 4911 4425(Y) 952
+30  VOU 5409 1773
+10  VOU 5678 1053
+56
+50  FCY 4374 3941(Y) 462
+30  FCY 4464 4022(Y) 437
+10  VOU 4585 4131(Y) 939
+57
+50  VOU 3312 943
+30  FCY 3464 3121(Y) 450
+10  VOU 3514 1490
+58
+50  FCY 3409 3072(Y) 470
+30  FCY 3454 3112(Y) 1545
+10  VOU 3733 951
+59
+50  VOU 3523 994
+30  VOU 3654 981
+10  VOU 3700 1478
+60
+50  VOU 3349 3018(Y) 1476
+30  FCY 3485 3140(Y) 1549
+10  FCY 3646 3285(Y) 471
+61
+50  VOU 3850 1016
+30  FCY 3894 3509(Y) 465
+10  VOU 3907 961
+62
+50  VOU 4293 1005
+30  VOU 4625 1071
+10  VOU 4632 1014
+63
+50  FCY 1862 1678(Y) 491
+30  FCY 1928 416
+10  VOU 1976 1752
+64
+50  FCY 1959 1765(Y) 433
+30  VOU 2109 968
+10  VOU 2215 1065
+65
+50  VOU 3319 963
+30  VOU 3689 1035
+10  VOU 5505 1011
+66
+50  FCY 2334 2103(Y) 483
+30  VOU 2409 939
+10  VOU 2499 936
+67
+80  VOU 13578 1225
+40  FCY 16500 1775
+68
+80  VOU 13423 1370
+40  FCY 14285 1777
+SCORE:FCY,VOU,3250,3050,20.0

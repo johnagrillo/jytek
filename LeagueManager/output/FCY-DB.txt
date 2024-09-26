@@ -1,0 +1,265 @@
+FCY-DB
+skip 1518 TmResult{meet=27, athlete=458, ir='I', team=3, score=4231, ex=' ', origin='null', nt=0, result=18391, age=13, distance=50, stroke=1, mtevent=1792, points=0, place=5, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=458, ir='I', team=3, score=5619, ex=' ', origin='null', nt=0, result=18392, age=13, distance=50, stroke=2, mtevent=1799, points=0, place=6, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=458, ir='I', team=3, score=9331, ex=' ', origin='null', nt=0, result=18393, age=13, distance=100, stroke=1, mtevent=1794, points=0, place=6, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=458, ir='I', team=3, score=5304, ex=' ', origin='null', nt=0, result=18394, age=13, distance=50, stroke=4, mtevent=1795, points=0, place=5, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=466, ir='I', team=3, score=3154, ex=' ', origin='null', nt=0, result=18422, age=14, distance=50, stroke=1, mtevent=1776, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=466, ir='I', team=3, score=3611, ex=' ', origin='null', nt=0, result=18423, age=14, distance=50, stroke=2, mtevent=1778, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=466, ir='I', team=3, score=6950, ex=' ', origin='null', nt=0, result=18424, age=14, distance=100, stroke=1, mtevent=1789, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=466, ir='I', team=3, score=3476, ex=' ', origin='null', nt=0, result=18425, age=14, distance=50, stroke=4, mtevent=1779, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=480, ir='I', team=3, score=3650, ex=' ', origin='null', nt=0, result=18465, age=13, distance=50, stroke=1, mtevent=1792, points=0, place=4, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=480, ir='I', team=3, score=10156, ex=' ', origin='null', nt=0, result=18466, age=13, distance=100, stroke=5, mtevent=1793, points=0, place=5, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=480, ir='I', team=3, score=5540, ex=' ', origin='null', nt=0, result=18467, age=13, distance=50, stroke=3, mtevent=1803, points=0, place=4, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=480, ir='I', team=3, score=4878, ex=' ', origin='null', nt=0, result=18468, age=13, distance=50, stroke=2, mtevent=1799, points=0, place=4, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=488, ir='I', team=3, score=8001, ex=' ', origin='null', nt=0, result=18501, age=14, distance=100, stroke=5, mtevent=1790, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=488, ir='I', team=3, score=4591, ex=' ', origin='null', nt=0, result=18502, age=14, distance=50, stroke=3, mtevent=1777, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=488, ir='I', team=3, score=6994, ex=' ', origin='null', nt=0, result=18503, age=14, distance=100, stroke=1, mtevent=1789, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=27, athlete=488, ir='I', team=3, score=3382, ex=' ', origin='null', nt=0, result=18504, age=14, distance=50, stroke=4, mtevent=1779, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=21, athlete=587, ir='I', team=13, score=3667, ex=' ', origin='null', nt=0, result=14234, age=14, distance=50, stroke=1, mtevent=1352, points=0, place=5, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=21, athlete=587, ir='I', team=13, score=8147, ex=' ', origin='null', nt=0, result=14235, age=14, distance=100, stroke=1, mtevent=1362, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=21, athlete=587, ir='I', team=13, score=4359, ex=' ', origin='null', nt=0, result=14236, age=14, distance=50, stroke=4, mtevent=1355, points=0, place=4, course='S', dqcode='  ', dqdescript='null'}1
+50  FCY 2747 2475(Y) 477
+30  FCY 3203 450
+10  FCY 3348 3017(Y) 484
+2
+50  DB 3085 2780(Y) 625
+30  FCY 3109 1545
+10  FCY 3184 2869(Y) 464
+3
+50  FCY 2963 473
+30  FCY 2989 478
+10  FCY 3144 494
+4
+50  FCY 3089 2783(Y) 488
+30  FCY 3094 2788(Y) 466
+10  FCY 3127 1549
+5
+50  FCY 3150 2838(Y) 490
+30  FCY 3261 2938(Y) 460
+10  FCY 3267 2944(Y) 487
+6
+50  FCY 3760 429
+30  FCY 3865 3482(Y) 441
+10  DB 3945 608
+7
+50  FCY 1404 1265(Y) 438
+30  DB 1684 1518(Y) 636
+10  FCY 1725 500
+8
+50  DB 1667 1502(Y) 656
+30  FCY 1757 1583(Y) 479
+10  FCY 1778 1602(Y) 457
+9
+50  DB 2319 1531
+30  DB 2352 611
+10  DB 2787 584
+10
+50  FCY 1860 1676(Y) 462
+30  FCY 1894 1707(Y) 437
+10  FCY 1942 1750(Y) 483
+11
+50  FCY 2880 2595(Y) 427
+30  DB 3487 604
+10  DB 3513 632
+12
+50  DB 2697 615
+30  FCY 3082 482
+10  FCY 3482 1805
+13
+50  DB 7550 6802(Y) 1532
+30  FCY 8332 484
+10  FCY 8493 7652(Y) 450
+14
+50  FCY 7765 6996(Y) 1545
+30  FCY 8155 7347(Y) 470
+10  FCY 8278 7458(Y) 455
+15
+50  FCY 7072 6372(Y) 473
+30  FCY 7811 7037(Y) 478
+10  FCY 8524 494
+16
+50  FCY 7808 7035(Y) 488
+30  FCY 8035 1549
+10  FCY 8054 7256(Y) 466
+17
+50  FCY 7884 490
+30  FCY 8460 7622(Y) 487
+10  FCY 8959 8072(Y) 465
+18
+50  FCY 10148 9143(Y) 441
+30  FCY 10752 9687(Y) 451
+10  FCY 10753 9688(Y) 476
+19
+50  FCY 8245 7428(Y) 438
+30  FCY 9483 8544(Y) 416
+10  FCY 10014 9022(Y) 491
+20
+50  FCY 9743 8778(Y) 433
+30  FCY 10126 9123(Y) 479
+10  DB 10362 591
+21
+50  FCY 3684 3319(Y) 477
+30  DB 4030 3631(Y) 641
+10  DB 4335 599
+22
+50  DB 4081 625
+30  FCY 4433 3994(Y) 1545
+10  FCY 4484 4040(Y) 455
+23
+50  FCY 3808 3431(Y) 473
+30  FCY 4092 478
+10  FCY 4812 4336(Y) 494
+24
+50  FCY 4310 3883(Y) 431
+30  FCY 4515 4068(Y) 488
+10  FCY 4600 481
+25
+50  FCY 4440 490
+30  FCY 4536 4087(Y) 499
+10  FCY 4855 4374(Y) 465
+26
+50  FCY 5003 4508(Y) 429
+30  FCY 5263 441
+10  FCY 5505 4960(Y) 476
+27
+50  FCY 2019 1819(Y) 438
+30  FCY 2373 2138(Y) 500
+10  FCY 2412 2173(Y) 416
+28
+50  DB 2218 591
+30  FCY 2233 457
+10  DB 2445 656
+29
+50  DB 3444 1531
+30  DB 3902 584
+30
+50  FCY 2685 2419(Y) 462
+30  FCY 2688 2422(Y) 483
+10  DB 2778 2503(Y) 624
+31
+80  FCY 13562 1925
+40  DB 16215 1671
+32
+80  FCY 16718 1928
+40  DB 20065 1613
+33
+80  FCY 7925 1770
+40  DB 9513 8571(Y) 1391
+34
+80  FCY 11989 1773
+40  DB 13487 1615
+35
+50  FCY 3172 2858(Y) 477
+30  DB 3530 3181(Y) 1532
+10  FCY 3815 484
+36
+50  FCY 3704 3337(Y) 455
+30  FCY 3865 3482(Y) 1545
+10  FCY 3939 3549(Y) 467
+37
+50  FCY 3422 478
+30  FCY 3433 3093(Y) 473
+10  FCY 3968 494
+38
+50  FCY 3455 3113(Y) 466
+30  FCY 3588 1549
+10  FCY 3620 3262(Y) 493
+39
+50  FCY 3528 3179(Y) 490
+30  FCY 3832 3453(Y) 487
+10  FCY 3967 460
+40
+50  FCY 4565 443
+30  FCY 4894 429
+10  FCY 4970 441
+41
+50  FCY 1879 1693(Y) 438
+30  FCY 1904 1716(Y) 416
+10  FCY 2069 1864(Y) 500
+42
+50  DB 2022 1822(Y) 656
+30  FCY 2036 1835(Y) 433
+10  FCY 2148 479
+43
+50  DB 2844 649
+30  DB 3058 2755(Y) 1531
+10  DB 3291 644
+44
+50  FCY 2263 2039(Y) 462
+30  FCY 2322 483
+10  FCY 2463 2219(Y) 495
+45
+50  FCY 3202 2885(Y) 427
+30  DB 4086 604
+10  DB 4110 594
+46
+50  DB 3236 615
+30  FCY 3818 3440(Y) 482
+10  DB 3966 577
+47
+50  FCY 5920 5334(Y) 477
+30  DB 6456 5817(Y) 1532
+10  DB 6819 599
+48
+50  DB 7037 625
+30  FCY 7039 6342(Y) 464
+10  FCY 7332 6606(Y) 470
+49
+50  DB 7683 6922(Y) 588
+30  FCY 8119 7315(Y) 492
+10  DB 8123 616
+50
+50  FCY 6830 6154(Y) 488
+30  FCY 6857 6178(Y) 493
+10  FCY 6913 6228(Y) 466
+51
+50  FCY 7161 487
+30  FCY 7415 460
+10  FCY 7787 7016(Y) 465
+52
+50  FCY 9057 429
+30  FCY 9743 8778(Y) 476
+10  FCY 10299 9279(Y) 447
+53
+50  FCY 3736 3366(Y) 416
+30  DB 3839 3459(Y) 636
+10  DB 4086 603
+54
+50  DB 3711 656
+30  FCY 3768 433
+10  DB 3823 591
+55
+50  DB 5369 1531
+30  DB 5904 611
+10  DB 6616 644
+56
+50  FCY 4374 3941(Y) 462
+30  FCY 4464 4022(Y) 437
+10  DB 4804 4328(Y) 624
+57
+50  DB 3072 2768(Y) 1532
+30  FCY 3464 3121(Y) 450
+10  DB 3600 599
+58
+50  FCY 3409 3072(Y) 470
+30  FCY 3774 3400(Y) 464
+10  FCY 3799 3423(Y) 425
+59
+50  DB 3986 3591(Y) 588
+30  DB 4133 589
+10  DB 4260 587
+60
+50  FCY 3485 3140(Y) 1549
+30  FCY 3646 3285(Y) 471
+10  FCY 3657 3295(Y) 493
+61
+50  FCY 3894 3509(Y) 465
+30  FCY 3913 3526(Y) 460
+10  DB 4364 602
+62
+50  FCY 4835 4356(Y) 476
+30  DB 5102 608
+10  FCY 5242 443
+63
+50  DB 1842 1660(Y) 636
+30  FCY 1862 1678(Y) 491
+10  FCY 2163 500
+64
+50  DB 1799 591
+30  FCY 1959 1765(Y) 433
+10  FCY 1967 479
+65
+50  DB 3712 649
+66
+50  FCY 2334 2103(Y) 483
+30  FCY 2606 437
+10  FCY 2932 2642(Y) 486
+67
+80  FCY 16500 1775
+40  DB 16620 2039
+68
+80  FCY 14285 1777
+40  DB 16759 1175
+SCORE:FCY,DB,4430,1820,261.0

@@ -1,0 +1,5 @@
+"Athelets can be in event but no correspoding athlete"
+
+
+dbcode can be null
+

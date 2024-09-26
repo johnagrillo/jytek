@@ -1,0 +1,268 @@
+VOUBC-BAR
+skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=10381, ex=' ', origin='null', nt=0, result=25494, age=11, distance=100, stroke=5, mtevent=2501, points=20, place=5, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=5675, ex=' ', origin='null', nt=0, result=25495, age=11, distance=50, stroke=3, mtevent=2491, points=10, place=6, course='S', dqcode='  ', dqdescript='null'}skip 1314 TmResult{meet=82, athlete=1066, ir='I', team=16, score=5622, ex=' ', origin='null', nt=0, result=25496, age=11, distance=50, stroke=2, mtevent=2461, points=0, place=10, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=57, athlete=1489, ir='I', team=16, score=2978, ex=' ', origin='null', nt=0, result=7882, age=14, distance=50, stroke=1, mtevent=806, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=57, athlete=1489, ir='I', team=16, score=7042, ex=' ', origin='null', nt=0, result=7884, age=14, distance=100, stroke=1, mtevent=807, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=8250, ex=' ', origin='null', nt=0, result=16821, age=14, distance=100, stroke=5, mtevent=1736, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=3984, ex=' ', origin='null', nt=0, result=16822, age=14, distance=50, stroke=3, mtevent=1737, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=7199, ex=' ', origin='null', nt=0, result=16823, age=14, distance=100, stroke=1, mtevent=1738, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=71, athlete=1489, ir='I', team=16, score=3700, ex=' ', origin='null', nt=0, result=16824, age=14, distance=50, stroke=4, mtevent=1739, points=10, place=3, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=2992, ex=' ', origin='null', nt=0, result=19963, age=14, distance=50, stroke=1, mtevent=2019, points=50, place=1, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=3770, ex=' ', origin='null', nt=0, result=19964, age=14, distance=50, stroke=3, mtevent=2016, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 1518 TmResult{meet=75, athlete=1489, ir='I', team=16, score=6879, ex=' ', origin='null', nt=0, result=19965, age=14, distance=100, stroke=1, mtevent=2018, points=30, place=2, course='S', dqcode='  ', dqdescript='null'}skip 6 TmResult{meet=85, athlete=532, ir='I', team=13, score=2373, ex=' ', origin='null', nt=0, result=26900, age=7, distance=25, stroke=1, mtevent=2593, points=0, place=5, course='Y', dqcode='  ', dqdescript='null'}skip 6 TmResult{meet=85, athlete=532, ir='I', team=13, score=2591, ex=' ', origin='null', nt=0, result=26901, age=7, distance=25, stroke=2, mtevent=2594, points=0, place=2, course='Y', dqcode='  ', dqdescript='null'}skip 6 TmResult{meet=81, athlete=532, ir='I', team=13, score=2872, ex=' ', origin='null', nt=0, result=24044, age=6, distance=25, stroke=2, mtevent=2410, points=70, place=1, course='S', dqcode='  ', dqdescript='null'}skip 6 TmResult{meet=81, athlete=532, ir='I', team=13, score=2654, ex=' ', origin='null', nt=0, result=24046, age=6, distance=25, stroke=1, mtevent=2411, points=70, place=1, course='S', dqcode='  ', dqdescript='null'}1
+50  BAR 2880 2595(Y) 1599
+30  BAR 2975 2681(Y) 583
+10  BAR 2992 2696(Y) 559
+2
+50  BAR 2917 2628(Y) 586
+30  VOUBC 3027 1111
+10  BAR 3163 2850(Y) 521
+3
+50  BAR 2753 2481(Y) 530
+30  VOUBC 2964 1489
+10  VOUBC 3025 1070
+4
+50  BAR 3150 2838(Y) 569
+30  BAR 3314 2986(Y) 1595
+10  BAR 3517 3169(Y) 551
+5
+50  VOUBC 3113 2805(Y) 1110
+30  VOUBC 3190 1063
+10  VOUBC 3288 1064
+6
+50  VOUBC 3466 3123(Y) 1074
+30  BAR 3810 511
+10  BAR 3831 3452(Y) 1605
+7
+50  VOUBC 1746 1071
+30  BAR 1756 578
+10  BAR 1815 1636(Y) 562
+8
+50  VOUBC 1681 1093
+30  BAR 1838 1656(Y) 581
+10  BAR 1912 1723(Y) 509
+9
+50  VOUBC 1879 1092
+30  BAR 1953 1760(Y) 579
+10  BAR 2025 1825(Y) 531
+10
+50  BAR 1990 1793(Y) 585
+30  VOUBC 2337 1981
+10  VOUBC 2365 1072
+11
+50  VOUBC 2803 2526(Y) 1112
+30  BAR 3187 2872(Y) 566
+10  VOUBC 3477 1982
+12
+50  BAR 2457 2214(Y) 584
+30  BAR 2881 2596(Y) 513
+10  VOUBC 2965 2672(Y) 1048
+13
+50  BAR 7753 559
+30  BAR 7835 7059(Y) 504
+10  BAR 8233 7418(Y) 583
+14
+50  BAR 7716 6952(Y) 586
+30  BAR 8161 7353(Y) 588
+10  VOUBC 8178 1111
+15
+50  BAR 7021 6326(Y) 530
+30  VOUBC 7560 1070
+10  BAR 8834 7959(Y) 587
+16
+50  BAR 8105 7302(Y) 569
+30  BAR 8716 7853(Y) 1595
+10  BAR 10718 508
+17
+50  VOUBC 7786 7015(Y) 1110
+30  VOUBC 7910 7127(Y) 1064
+10  VOUBC 8280 1977
+18
+50  VOUBC 9776 1074
+30  BAR 10951 9866(Y) 525
+10  BAR 10982 9894(Y) 514
+19
+50  VOUBC 10765 1092
+30  VOUBC 10789 1071
+10  BAR 11350 10226(Y) 562
+20
+50  VOUBC 9039 8144(Y) 1093
+30  BAR 10957 9872(Y) 581
+10  BAR 12740 11478(Y) 555
+21
+50  BAR 3597 3241(Y) 1599
+30  BAR 3902 3516(Y) 504
+10  BAR 4051 3650(Y) 595
+22
+50  BAR 4184 3770(Y) 1592
+30  BAR 4500 521
+10  BAR 5067 4565(Y) 552
+23
+50  BAR 3727 3358(Y) 530
+30  VOUBC 3833 1489
+10  BAR 4481 523
+24
+50  BAR 4256 3835(Y) 1595
+30  BAR 4859 577
+10  VOUBC 4934 1095
+25
+50  VOUBC 4030 1064
+30  VOUBC 4145 3735(Y) 1063
+10  VOUBC 4218 3800(Y) 1977
+26
+50  VOUBC 5042 1074
+30  BAR 5422 525
+10  BAR 5501 4956(Y) 511
+27
+50  BAR 2491 2245(Y) 578
+30  VOUBC 2502 1108
+10  BAR 2554 2301(Y) 507
+28
+50  VOUBC 2151 1093
+30  BAR 2503 2255(Y) 518
+10  BAR 2546 2294(Y) 509
+29
+50  VOUBC 2414 2175(Y) 1092
+30  BAR 2844 2563(Y) 531
+10  BAR 3173 2859(Y) 579
+30
+50  BAR 2822 2543(Y) 585
+30  VOUBC 3113 1043
+10  VOUBC 3258 1054
+31
+80  BAR 13558 12215(Y) 1632
+40  VOUBC 15633 1419
+32
+80  VOUBC 16997 2099
+40  BAR 17666 15916(Y) 1635
+33
+80  VOUBC 9718 1597
+40  BAR 9794 2284
+34
+80  BAR 11560 10415(Y) 1999
+40  VOUBC 11902 1970
+35
+50  BAR 3646 3285(Y) 550
+30  BAR 3663 559
+10  BAR 3666 3303(Y) 583
+36
+50  VOUBC 3473 1111
+30  BAR 3549 3198(Y) 586
+10  BAR 3756 521
+37
+50  BAR 3310 2982(Y) 530
+30  BAR 4303 1910
+10  BAR 4363 523
+38
+50  BAR 3588 569
+30  BAR 4103 3697(Y) 1595
+10  BAR 4619 551
+39
+50  VOUBC 3617 3259(Y) 1063
+30  VOUBC 3791 1977
+10  VOUBC 3880 1110
+40
+50  VOUBC 4341 3911(Y) 1074
+30  BAR 4746 511
+10  BAR 4834 514
+41
+50  BAR 2352 2119(Y) 578
+30  BAR 2358 2125(Y) 562
+10  BAR 2509 528
+42
+50  VOUBC 1959 1093
+30  BAR 2377 518
+10  BAR 2407 1601
+43
+50  VOUBC 2184 1968(Y) 1092
+30  BAR 2572 2318(Y) 531
+10  BAR 2908 2620(Y) 579
+44
+50  BAR 2628 527
+30  BAR 2753 585
+10  VOUBC 2836 1072
+45
+50  VOUBC 3357 3025(Y) 1112
+30  VOUBC 3787 1982
+10  BAR 4153 566
+46
+50  BAR 3238 2918(Y) 513
+30  BAR 3638 3278(Y) 584
+10  VOUBC 3672 1088
+47
+50  BAR 6514 5869(Y) 583
+30  BAR 6627 5971(Y) 1599
+10  BAR 6715 6050(Y) 504
+48
+50  BAR 6474 586
+30  BAR 7332 6606(Y) 588
+10  BAR 7523 568
+49
+50  VOUBC 6616 1070
+30  VOUBC 6725 1489
+10  BAR 7750 6982(Y) 587
+50
+50  BAR 7208 6494(Y) 569
+30  BAR 8070 7271(Y) 551
+10  BAR 8442 7606(Y) 1593
+51
+50  VOUBC 6791 1110
+30  VOUBC 7332 6606(Y) 1064
+10  VOUBC 7385 1063
+52
+50  BAR 8868 7990(Y) 1605
+30  BAR 8883 8003(Y) 548
+10  BAR 8969 511
+53
+50  VOUBC 3981 1071
+30  BAR 4169 3756(Y) 578
+10  BAR 4395 3960(Y) 562
+54
+50  BAR 4229 3810(Y) 581
+30  BAR 4377 518
+10  BAR 4426 3988(Y) 509
+55
+50  BAR 4573 4120(Y) 579
+30  BAR 4753 4282(Y) 531
+10  BAR 5622 1610
+56
+50  BAR 4428 3990(Y) 585
+30  VOUBC 5853 1981
+10  VOUBC 5934 1072
+57
+50  BAR 3226 2907(Y) 1599
+30  BAR 3447 559
+10  BAR 3482 3137(Y) 1618
+58
+50  VOUBC 3376 1111
+30  BAR 3542 521
+10  BAR 3889 3504(Y) 568
+59
+50  VOUBC 3299 1070
+30  BAR 3711 3344(Y) 587
+10  BAR 3982 3588(Y) 523
+60
+50  BAR 4262 3840(Y) 1916
+30  BAR 4537 508
+10  BAR 4570 4118(Y) 551
+61
+50  VOUBC 3363 3030(Y) 1977
+30  BAR 4351 3920(Y) 1620
+10  BAR 4524 4076(Y) 556
+62
+50  BAR 5244 4725(Y) 525
+30  VOUBC 5311 1056
+10  BAR 5379 4846(Y) 548
+63
+50  VOUBC 2155 1071
+30  BAR 2355 2122(Y) 507
+10  BAR 2942 2651(Y) 598
+64
+50  BAR 2181 1965(Y) 547
+30  BAR 2218 581
+10  BAR 2267 2043(Y) 515
+65
+50  BAR 3038 2737(Y) 1607
+30  VOUBC 4044 1046
+10  VOUBC 4358 1101
+66
+50  VOUBC 3345 1072
+30  BAR 3483 529
+10  BAR 4242 3822(Y) 1608
+67
+80  VOUBC 13088 2350
+40  BAR 14269 2288
+68
+80  VOUBC 15805 2107
+40  BAR 15912 2291
+SCORE:VOUBC,BAR,2500,3800,-130.0

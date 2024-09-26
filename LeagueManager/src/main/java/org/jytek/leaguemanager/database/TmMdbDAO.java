@@ -73,7 +73,32 @@ public class TmMdbDAO {
                     athlist.add(r);
 
                     final var teamlist = teamAthletes.computeIfAbsent(r.getTeam(), k -> new HashSet<>());
-                    teamlist.add(r.getAthlete());
+
+                    //athlete does not exist
+
+                    if (athletes.has(r.getAthlete())) {
+                        teamlist.add(r.getAthlete());
+                    }
+                    //} catch (KeyNotFoundException e) {
+
+                    //  try {
+                    //      System.out.print(teams.get(r.getTeam()));
+                    //      final Short stroke = r.getStroke();
+                    //      System.out.print(", stroke = " + strokeToString(stroke));
+                    //      System.out.print( ", age = " + r.getAge());
+                    //      System.out.print( ", distance = " + r.getDistance());
+                    //     System.out.print(", score = " + r.getScore());
+                    //      var meet = meets.get(r.getMeet());
+                    //      System.out.println(", keet = " + meet);
+
+                    //      var mtevent = mtevents.get(r.getMtevent());
+                    //      System.out.println(", event = " + mtevent.getMtev());
+
+
+                    //} catch (KeyNotFoundException ex) {
+                    //    throw new RuntimeException(ex);
+                    //}
+                    //}
                 }
                 //
                 // Relay
@@ -99,6 +124,9 @@ public class TmMdbDAO {
 
 
             teamRelayBestResults = findBestTeamRelays();
+
+
+            // cheak ream ath for mismatch
 
 
         } catch (IOException e) {
@@ -338,6 +366,10 @@ public class TmMdbDAO {
         try {
             for (var ath : getTeamAthletes(team)) {
                 for (var r : getAthleteBestResults(ath)) {
+
+                    if (!Objects.equals(r.getTeam(), team)) {
+                        System.out.println(r.getTeam() + " not " + team);
+                    }
                     try {
                         var events = teamEntries.computeIfAbsent(getMtevents().get(r.getMtevent()).getMtev(),
                                 k -> new ArrayList<>());

@@ -1,39 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
-<AnchorPane prefHeight="840.0" prefWidth="1100" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="org.jytek.leaguemanager.controller.CmslController">
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="840.0" prefWidth="1100" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jytek.leaguemanager.controller.CmslController">
     <children>
-        <Button fx:id="btLoad" layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#onLoadMdb"
-                prefHeight="51.0" prefWidth="190.0" text="Load All Weekly MDB"/>
+        <Button fx:id="btLoad" layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#onLoadMdb" prefHeight="51.0" prefWidth="190.0" text="Load All Weekly MDB" />
 
         <TabPane layoutY="105.0" prefHeight="719.0" prefWidth="652.0" tabClosingPolicy="UNAVAILABLE">
-           <tabs>
+            <tabs>
 
                   <Tab text="Week1">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
 
-                                <Button fx:id="btnWk1Load" layoutX="115.0" layoutY="15.0" mnemonicParsing="false"
-                                        onAction="#onWkLoad" prefHeight="30.0" prefWidth="83.0" text="Load MDB"/>
-                                <Button fx:id="btnWk1Run" layoutX="31.0" layoutY="15.0" mnemonicParsing="false"
-                                        onAction="#onWkRun" prefHeight="30.0" prefWidth="66.0" text="Run"/>
-                                <TextField fx:id="tfWk1File" disable="true" layoutX="223.0" layoutY="18.0"
-                                           prefHeight="25.0" prefWidth="398.0"/>
+                                <Button fx:id="btnWk1Load" layoutX="115.0" layoutY="15.0" mnemonicParsing="false" onAction="#onWkLoad" prefHeight="30.0" prefWidth="83.0" text="Load MDB" />
+                                <Button fx:id="btnWk1Run" layoutX="31.0" layoutY="15.0" mnemonicParsing="false" onAction="#onWkRun" prefHeight="30.0" prefWidth="66.0" text="Run" />
+                                <TextField fx:id="tfWk1File" disable="true" layoutX="223.0" layoutY="18.0" prefHeight="25.0" prefWidth="398.0" />
 
-                                <TreeTableView fx:id="tvMockWk1" layoutX="14.0" layoutY="123.0"
-                                               prefHeight="519.0" prefWidth="521.0">
+                                <TreeTableView fx:id="tvMockWk1" layoutX="14.0" layoutY="123.0" prefHeight="519.0" prefWidth="521.0">
                                     <columns>
-                                        <TreeTableColumn fx:id="tcMockWk1Team1" prefWidth="150.0" sortable="true" text="Team"/>
-                                        <TreeTableColumn fx:id="tcMockWk1Score1" prefWidth="100.0" sortable="true"
-                                                         text="Score"/>
-                                        <TreeTableColumn fx:id="tcMockWk1Team2" prefWidth="100.0" sortable="true" text="Team"/>
-                                        <TreeTableColumn fx:id="tcMockWk1Score2" prefWidth="100.0" sortable="true"
-                                                         text="Score"/>
-                                        <TreeTableColumn fx:id="tcMockWk1Diff" prefWidth="69.0" sortable="true" text="Win"/>
+                                        <TreeTableColumn fx:id="tcMockWk1Team1" prefWidth="150.0" sortable="true" text="Team" />
+                                        <TreeTableColumn fx:id="tcMockWk1Score1" prefWidth="100.0" sortable="true" text="Score" />
+                                        <TreeTableColumn fx:id="tcMockWk1Team2" prefWidth="100.0" sortable="true" text="Team" />
+                                        <TreeTableColumn fx:id="tcMockWk1Score2" prefWidth="100.0" sortable="true" text="Score" />
+                                        <TreeTableColumn fx:id="tcMockWk1Diff" prefWidth="69.0" sortable="true" text="Win" />
                                     </columns>
                                 </TreeTableView>
                             </children>
@@ -46,23 +43,17 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
 
-                                <Button fx:id="btnWk2Load" layoutX="115.0" layoutY="15.0" mnemonicParsing="false"
-                                        onAction="#onWkLoad" prefHeight="30.0" prefWidth="83.0" text="Load MDB"/>
-                                <Button fx:id="btnWk2Run" layoutX="31.0" layoutY="15.0" mnemonicParsing="false"
-                                        onAction="#onWkRun" prefHeight="30.0" prefWidth="66.0" text="Run"/>
-                                <TextField fx:id="tfWk2File" disable="true" layoutX="223.0" layoutY="18.0"
-                                           prefHeight="25.0" prefWidth="398.0"/>
+                                <Button fx:id="btnWk2Load" layoutX="115.0" layoutY="15.0" mnemonicParsing="false" onAction="#onWkLoad" prefHeight="30.0" prefWidth="83.0" text="Load MDB" />
+                                <Button fx:id="btnWk2Run" layoutX="31.0" layoutY="15.0" mnemonicParsing="false" onAction="#onWkRun" prefHeight="30.0" prefWidth="66.0" text="Run" />
+                                <TextField fx:id="tfWk2File" disable="true" layoutX="223.0" layoutY="18.0" prefHeight="25.0" prefWidth="398.0" />
 
-                                <TreeTableView fx:id="tvMockWk2" layoutX="14.0" layoutY="123.0"
-                                               prefHeight="519.0" prefWidth="521.0">
+                                <TreeTableView fx:id="tvMockWk2" layoutX="14.0" layoutY="123.0" prefHeight="519.0" prefWidth="521.0">
                                     <columns>
-                                        <TreeTableColumn fx:id="tcMockWk2Team1" prefWidth="150.0" sortable="true" text="Team"/>
-                                        <TreeTableColumn fx:id="tcMockWk2Score1" prefWidth="100.0" sortable="true"
-                                                         text="Score"/>
-                                        <TreeTableColumn fx:id="tcMockWk2Team2" prefWidth="100.0" sortable="true" text="Team"/>
-                                        <TreeTableColumn fx:id="tcMockWk2Score2" prefWidth="100.0" sortable="true"
-                                                         text="Score"/>
-                                        <TreeTableColumn fx:id="tcMockWk2Diff" prefWidth="69.0" sortable="true" text="Win"/>
+                                        <TreeTableColumn fx:id="tcMockWk2Team1" prefWidth="150.0" sortable="true" text="Team" />
+                                        <TreeTableColumn fx:id="tcMockWk2Score1" prefWidth="100.0" sortable="true" text="Score" />
+                                        <TreeTableColumn fx:id="tcMockWk2Team2" prefWidth="100.0" sortable="true" text="Team" />
+                                        <TreeTableColumn fx:id="tcMockWk2Score2" prefWidth="100.0" sortable="true" text="Score" />
+                                        <TreeTableColumn fx:id="tcMockWk2Diff" prefWidth="69.0" sortable="true" text="Win" />
                                     </columns>
                                 </TreeTableView>
                             </children>
@@ -75,23 +66,17 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
 
-                                <Button fx:id="btnWk3Load" layoutX="115.0" layoutY="15.0" mnemonicParsing="false"
-                                        onAction="#onWkLoad" prefHeight="30.0" prefWidth="83.0" text="Load MDB"/>
-                                <Button fx:id="btnWk3Run" layoutX="31.0" layoutY="15.0" mnemonicParsing="false"
-                                        onAction="#onWkRun" prefHeight="30.0" prefWidth="66.0" text="Run"/>
-                                <TextField fx:id="tfWk3File" disable="true" layoutX="223.0" layoutY="18.0"
-                                           prefHeight="25.0" prefWidth="398.0"/>
+                                <Button fx:id="btnWk3Load" layoutX="115.0" layoutY="15.0" mnemonicParsing="false" onAction="#onWkLoad" prefHeight="30.0" prefWidth="83.0" text="Load MDB" />
+                                <Button fx:id="btnWk3Run" layoutX="31.0" layoutY="15.0" mnemonicParsing="false" onAction="#onWkRun" prefHeight="30.0" prefWidth="66.0" text="Run" />
+                                <TextField fx:id="tfWk3File" disable="true" layoutX="223.0" layoutY="18.0" prefHeight="25.0" prefWidth="398.0" />
 
-                                <TreeTableView fx:id="tvMockWk3" layoutX="14.0" layoutY="123.0"
-                                               prefHeight="519.0" prefWidth="521.0">
+                                <TreeTableView fx:id="tvMockWk3" layoutX="14.0" layoutY="123.0" prefHeight="519.0" prefWidth="521.0">
                                     <columns>
-                                        <TreeTableColumn fx:id="tcMockWk3Team1" prefWidth="150.0" sortable="true" text="Team"/>
-                                        <TreeTableColumn fx:id="tcMockWk3Score1" prefWidth="100.0" sortable="true"
-                                                         text="Score"/>
-                                        <TreeTableColumn fx:id="tcMockWk3Team2" prefWidth="100.0" sortable="true" text="Team"/>
-                                        <TreeTableColumn fx:id="tcMockWk3Score2" prefWidth="100.0" sortable="true"
-                                                         text="Score"/>
-                                        <TreeTableColumn fx:id="tcMockWk3Diff" prefWidth="69.0" sortable="true" text="Win"/>
+                                        <TreeTableColumn fx:id="tcMockWk3Team1" prefWidth="150.0" sortable="true" text="Team" />
+                                        <TreeTableColumn fx:id="tcMockWk3Score1" prefWidth="100.0" sortable="true" text="Score" />
+                                        <TreeTableColumn fx:id="tcMockWk3Team2" prefWidth="100.0" sortable="true" text="Team" />
+                                        <TreeTableColumn fx:id="tcMockWk3Score2" prefWidth="100.0" sortable="true" text="Score" />
+                                        <TreeTableColumn fx:id="tcMockWk3Diff" prefWidth="69.0" sortable="true" text="Win" />
                                     </columns>
                                 </TreeTableView>
                             </children>
@@ -104,23 +89,17 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
 
-                                <Button fx:id="btnWk4Load" layoutX="115.0" layoutY="15.0" mnemonicParsing="false"
-                                        onAction="#onWkLoad" prefHeight="30.0" prefWidth="83.0" text="Load MDB"/>
-                                <Button fx:id="btnWk4Run" layoutX="31.0" layoutY="15.0" mnemonicParsing="false"
-                                        onAction="#onWkRun" prefHeight="30.0" prefWidth="66.0" text="Run"/>
-                                <TextField fx:id="tfWk4File" disable="true" layoutX="223.0" layoutY="18.0"
-                                           prefHeight="25.0" prefWidth="398.0"/>
+                                <Button fx:id="btnWk4Load" layoutX="115.0" layoutY="15.0" mnemonicParsing="false" onAction="#onWkLoad" prefHeight="30.0" prefWidth="83.0" text="Load MDB" />
+                                <Button fx:id="btnWk4Run" layoutX="31.0" layoutY="15.0" mnemonicParsing="false" onAction="#onWkRun" prefHeight="30.0" prefWidth="66.0" text="Run" />
+                                <TextField fx:id="tfWk4File" disable="true" layoutX="223.0" layoutY="18.0" prefHeight="25.0" prefWidth="398.0" />
 
-                                <TreeTableView fx:id="tvMockWk4" layoutX="14.0" layoutY="123.0"
-                                               prefHeight="519.0" prefWidth="521.0">
+                                <TreeTableView fx:id="tvMockWk4" layoutX="14.0" layoutY="123.0" prefHeight="519.0" prefWidth="521.0">
                                     <columns>
-                                        <TreeTableColumn fx:id="tcMockWk4Team1" prefWidth="150.0" sortable="true" text="Team"/>
-                                        <TreeTableColumn fx:id="tcMockWk4Score1" prefWidth="100.0" sortable="true"
-                                                         text="Score"/>
-                                        <TreeTableColumn fx:id="tcMockWk4Team2" prefWidth="100.0" sortable="true" text="Team"/>
-                                        <TreeTableColumn fx:id="tcMockWk4Score2" prefWidth="100.0" sortable="true"
-                                                         text="Score"/>
-                                        <TreeTableColumn fx:id="tcMockWk4Diff" prefWidth="69.0" sortable="true" text="Win"/>
+                                        <TreeTableColumn fx:id="tcMockWk4Team1" prefWidth="150.0" sortable="true" text="Team" />
+                                        <TreeTableColumn fx:id="tcMockWk4Score1" prefWidth="100.0" sortable="true" text="Score" />
+                                        <TreeTableColumn fx:id="tcMockWk4Team2" prefWidth="100.0" sortable="true" text="Team" />
+                                        <TreeTableColumn fx:id="tcMockWk4Score2" prefWidth="100.0" sortable="true" text="Score" />
+                                        <TreeTableColumn fx:id="tcMockWk4Diff" prefWidth="69.0" sortable="true" text="Win" />
                                     </columns>
                                 </TreeTableView>
                             </children>
@@ -133,23 +112,17 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
 
-                                <Button fx:id="btnWk5Load" layoutX="115.0" layoutY="15.0" mnemonicParsing="false"
-                                        onAction="#onWkLoad" prefHeight="30.0" prefWidth="83.0" text="Load MDB"/>
-                                <Button fx:id="btnWk5Run" layoutX="31.0" layoutY="15.0" mnemonicParsing="false"
-                                        onAction="#onWkRun" prefHeight="30.0" prefWidth="66.0" text="Run"/>
-                                <TextField fx:id="tfWk5File" disable="true" layoutX="223.0" layoutY="18.0"
-                                           prefHeight="25.0" prefWidth="398.0"/>
+                                <Button fx:id="btnWk5Load" layoutX="115.0" layoutY="15.0" mnemonicParsing="false" onAction="#onWkLoad" prefHeight="30.0" prefWidth="83.0" text="Load MDB" />
+                                <Button fx:id="btnWk5Run" layoutX="31.0" layoutY="15.0" mnemonicParsing="false" onAction="#onWkRun" prefHeight="30.0" prefWidth="66.0" text="Run" />
+                                <TextField fx:id="tfWk5File" disable="true" layoutX="223.0" layoutY="18.0" prefHeight="25.0" prefWidth="398.0" />
 
-                                <TreeTableView fx:id="tvMockWk5" layoutX="14.0" layoutY="123.0"
-                                               prefHeight="519.0" prefWidth="521.0">
+                                <TreeTableView fx:id="tvMockWk5" layoutX="14.0" layoutY="123.0" prefHeight="519.0" prefWidth="521.0">
                                     <columns>
-                                        <TreeTableColumn fx:id="tcMockWk5Team1" prefWidth="150.0" sortable="true" text="Team"/>
-                                        <TreeTableColumn fx:id="tcMockWk5Score1" prefWidth="100.0" sortable="true"
-                                                         text="Score"/>
-                                        <TreeTableColumn fx:id="tcMockWk5Team2" prefWidth="100.0" sortable="true" text="Team"/>
-                                        <TreeTableColumn fx:id="tcMockWk5Score2" prefWidth="100.0" sortable="true"
-                                                         text="Score"/>
-                                        <TreeTableColumn fx:id="tcMockWk5Diff" prefWidth="69.0" sortable="true" text="Win"/>
+                                        <TreeTableColumn fx:id="tcMockWk5Team1" prefWidth="150.0" sortable="true" text="Team" />
+                                        <TreeTableColumn fx:id="tcMockWk5Score1" prefWidth="100.0" sortable="true" text="Score" />
+                                        <TreeTableColumn fx:id="tcMockWk5Team2" prefWidth="100.0" sortable="true" text="Team" />
+                                        <TreeTableColumn fx:id="tcMockWk5Score2" prefWidth="100.0" sortable="true" text="Score" />
+                                        <TreeTableColumn fx:id="tcMockWk5Diff" prefWidth="69.0" sortable="true" text="Win" />
                                     </columns>
                                 </TreeTableView>
                             </children>
@@ -160,8 +133,8 @@
         </TabPane>
         <TreeTableView layoutX="669.0" layoutY="14.0" prefHeight="814.0" prefWidth="428.0">
             <columns>
-                <TreeTableColumn prefWidth="75.0" text="Team"/>
-                <TreeTableColumn prefWidth="75.0" text="Wins"/>
+                <TreeTableColumn prefWidth="103.0" text="Team" />
+                <TreeTableColumn prefWidth="78.0" text="Wins" />
             </columns>
         </TreeTableView>
     </children>

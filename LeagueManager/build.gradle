@@ -1,22 +1,21 @@
 plugins {
-  id 'java'
-  id 'application'
-  id 'org.javamodularity.moduleplugin' version '1.8.12'
-  id 'org.openjfx.javafxplugin' version '0.0.13'
-  id 'org.beryx.jlink' version '2.26.0'
+    id 'java'
+    id 'application'
+    id 'org.javamodularity.moduleplugin' version '1.8.12'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
+    id 'org.beryx.jlink' version '2.26.0'
 }
-
 
 
 group 'org.jytek'
 version '1.0-SNAPSHOT'
 
 repositories {
-  mavenCentral()
+    mavenCentral()
 }
 
 ext {
-  junitVersion = '5.10.0'
+    junitVersion = '5.10.0'
 }
 
 sourceCompatibility = '17'
@@ -28,21 +27,21 @@ tasks.withType(JavaCompile) {
 
 application {
   mainModule = 'org.jytek.leaguemanager'
-  mainClass = 'org.jytek.leaguemanager.MainApplication'
+  mainClass = 'org.jytek.leaguemanager.FsslMain'
 }
 
 javafx {
-  version = '17'
-  modules = ['javafx.controls', 'javafx.fxml']
+    version = '21'
+    modules = ['javafx.controls', 'javafx.fxml']
 }
 
 dependencies {
-  testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
-  testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
-  implementation 'commons-logging:commons-logging:1.2'
-  implementation 'org.apache.commons:commons-lang3:3.12.0'
-  implementation 'com.healthmarketscience.jackcess:jackcess:4.0.5'
-  implementation 'joda-time:joda-time:2.12.5'
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    implementation 'commons-logging:commons-logging:1.2'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+    implementation 'com.healthmarketscience.jackcess:jackcess:4.0.5'
+    implementation 'joda-time:joda-time:2.12.5'
 }
 
 
@@ -52,13 +51,13 @@ useJUnitPlatform()
 
 
 jlink {
-  options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
-  launcher{
-    name = 'hello'
-  }
+    options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
+    launcher{
+        name = 'hello'
+    }
 }
 jlinkZip {
-  group = 'distribution'
+    group = 'distribution'
 }
 
 
